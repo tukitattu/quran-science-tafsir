@@ -33,7 +33,9 @@ class _ReaderScreenState extends State<ReaderScreen> {
     final paras = await TafsirDb.i.paras(widget.surahId);
     final meta = await TafsirDb.i.tafsirMeta(widget.surahId) ?? {};
     final vis = sp.getStringList('visited') ?? [];
-    if (!vis.contains(widget.surahId)) await sp.setStringList('visited', [...vis, widget.surahId]);
+    if (!vis.contains('${widget.surahId}')) {
+      await sp.setStringList('visited', [...vis, '${widget.surahId}']);
+    }
     final initPage = sp.getInt('page:${widget.surahId}') ?? 0;
     if (initPage > 0 && initPage < paras.length) {
       Future.microtask(() {

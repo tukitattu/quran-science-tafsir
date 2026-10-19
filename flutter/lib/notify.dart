@@ -37,7 +37,7 @@ class DailyReminder {
       1001,
       title,
       shown,
-      _next(tz.now(), hour, minute),
+      _next(tz.TZDateTime.now(tz.local), hour, minute),
       const NotificationDetails(
         android: AndroidNotificationDetails(
           'daily-ayah',

@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../db.dart';
 import '../main.dart';
+import '../notify.dart';
 import 'read.dart'; // AppColors
 
 class SettingsTab extends StatefulWidget {
@@ -21,11 +22,6 @@ class _SettingsTabState extends State<SettingsTab> {
   }
 
   Future<void> _loadStats() async {
-    final s = await TafsirDb.i.surahs();
-    for (final surah in s) {
-      final p = await TafsirDb.i.paras(surah['id'] as int);
-      // quick count only — reading progress is stored separately in read tab stats
-    }
     final sp = await SharedPreferences.getInstance();
     setState(() {
       _visited = (sp.getStringList('visited') ?? []).length;
@@ -114,9 +110,11 @@ class _SettingsTabState extends State<SettingsTab> {
                   FilledButton.tonal(
                     onPressed: () async {
                       final a = await TafsirDb.i.ayahOfTheDay();
-                      await DailyReminder.i.scheduledBody(
-                        app.reminderHour, app.reminderMinute,
-                        ((a['ar'] ?? '') as String).trim(),
+                      final ar = ((a['ar'] ?? '') as String).trim();
+                      final surah = (a['surah'] ?? const {}) as Map<String, Object?>;
+                      await DailyReminder.i.scheduleDaily(
+                        app.reminderHour, app.reminderMinute, ar,
+                        surahName: (surah['en'] ?? '') as String,
                       );
                       app.toast('Reminder set for ${app.reminderHour}:${app.reminderMinute.toString().padLeft(2, '0')}');
                       setState(() => app.reminderOn = true);

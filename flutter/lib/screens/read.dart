@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../db.dart';
 import '../main.dart';
+import 'reader.dart';
 
 class ReadTab extends StatefulWidget {
   const ReadTab({super.key});
@@ -29,7 +30,7 @@ class _ReadTabState extends State<ReadTab> {
     final s = await TafsirDb.i.surahs();
     final today = await TafsirDb.i.ayahOfTheDay();
     final sp = await SharedPreferences.getInstance();
-    final visited = sp.getStringList('visited');
+    final visited = sp.getStringList('visited') ?? [];
     final cont = sp.getInt('lastSurah');
     setState(() {
       _surahs = s;
@@ -194,6 +195,7 @@ class AppColors {
   static const ink = Color(0xFF232B36);
   static const muted = Color(0xFF5D6875);
   static const gold = Color(0xFFA67C1B);
+  static const goldDeep = Color(0xFF5F4A14);
   static const goldBright = Color(0xFFD9B44A);
   static const blue = Color(0xFF23638C);
 }

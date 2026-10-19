@@ -35,7 +35,7 @@ class Paper {
         elevation: 0,
         centerTitle: false,
       ),
-      cardTheme: CardTheme(
+      cardTheme: CardThemeData(
         color: Colors.white.withValues(alpha: 0.72),
         elevation: 0,
         shape: RoundedRectangleBorder(

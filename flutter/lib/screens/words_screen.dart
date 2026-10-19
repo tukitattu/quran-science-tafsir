@@ -240,7 +240,7 @@ class _WordSheet extends StatelessWidget {
           const _Label('Meaning'),
           _Box(text: (w['en'] ?? '').toString()),
           const _Label('অর্থ (বাংলা)'),
-          _Box(text: (w['bn'] ?? '').toString(), tint: false),
+          _Box(text: (w['bn'] ?? '').toString()),
           if ((w['root'] ?? '').toString().isNotEmpty) ...[
             const _Label('Root'),
             _Box(boldRef: (w['root']).toString(), text: (w['root_analysis'] ?? '').toString()),

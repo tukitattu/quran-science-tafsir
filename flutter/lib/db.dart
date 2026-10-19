@@ -79,7 +79,7 @@ class TafsirDb {
   Future<Map<String, dynamic>> ayahOfTheDay() async {
     final d = (await db).query('verses',
         columns: ['COUNT(*) AS c'], where: "ar != ''");
-    final count = (d.first['c'] as int?) ?? 0;
+    final count = (d.isEmpty ? null : d.first['c'] as int?) ?? 0;
     if (count == 0) return {};
     final dayNum = DateTime.now().difference(DateTime(2024)).inDays;
     final r = await (await db).query('verses',
