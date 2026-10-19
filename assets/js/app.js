@@ -185,6 +185,80 @@ function setupToday(){
   if(elL) elL.href=a.link;
 }
 
+// --- v5 additions: navigation pills, continue reading, reader controls ---
+function relBase(){ // path prefix for root-level assets from any depth (/, /chapters/, /chapters/N/read/)
+  const p = location.pathname;
+  if (p.includes("/read/")) return "../../";
+  if (p.includes("/chapters/")) return "../";
+  return "";
+}
+function injectTopNav(){
+  const host = document.querySelector(".top-actions");
+  if(!host || document.querySelector(".nav-pills")) return;
+  const b = relBase();
+  const p = location.pathname;
+  const is = (m)=> p.includes(m);
+  const el = document.createElement("nav");
+  el.className = "nav-pills";
+  el.setAttribute("aria-label", "Site navigation");
+  el.innerHTML = [
+    ["search.html", "Search", is("search.html")],
+    ["words.html", "Word Meanings", is("words.html")],
+    ["vocabulary.html", "Vocabulary", is("vocabulary.html")]
+  ].map(([href,label,cur])=>`<a href="${b}${href}" ${cur?'class="cur" aria-current="page"':'aria-current="false"'}>${label}</a>`).join("");
+  host.insertBefore(el, host.firstChild);
+}
+function saveReadSpot(){
+  // remember the reading position only on reading pages
+  if(!document.querySelector(".ch-body")) return;
+  const m = location.pathname.match(/chapters\/(\d+)(?:\/read\/(\d+)\.html)?/);
+  if(!m) return;
+  const h = document.querySelector(".chapter-head h1") || document.title.split("—")[0];
+  localStorage.setItem("tafsir-last-read", JSON.stringify({
+    surah: parseInt(m[1]), page: m[2]? parseInt(m[2]) : null, title: h, t: Date.now()
+  }));
+}
+function injectContinueReading(){
+  if(!/(part[123]\.html|index\.html)$/.test(location.pathname)) return;
+  try{
+    const spot = JSON.parse(localStorage.getItem("tafsir-last-read")||"null");
+    if(!spot || !spot.surah) return;
+    const b = relBase();
+    const wrap = document.querySelector(".hero");
+    if(!wrap || document.getElementById("continueRead")) return;
+    const chip = document.createElement("a");
+    chip.className = "btn gold";
+    chip.href = `${b}chapters/${spot.surah}.html`;
+    chip.id = "continueRead";
+    const label = spot.page ? `${spot.title || ("Surah " + spot.surah)} · page ${spot.page}` : (spot.title || ("Surah " + spot.surah));
+    chip.textContent = "▶ Continue reading — " + label;
+    chip.style.marginTop = "14px";
+    wrap.appendChild(chip);
+  }catch(e){}
+}
+function injectReaderControls(){
+  if(!document.querySelector(".ch-body")) return;
+  const wrap = document.createElement("div");
+  wrap.className = "read-size";
+  wrap.innerHTML = `<button id="fsMinus" title="Smaller text" aria-label="Smaller text">A−</button><button id="fsPlus" title="Larger text" aria-label="Larger text">A+</button>`;
+  document.body.appendChild(wrap);
+  if(!wrap.querySelector("#fsMinus") || !wrap.querySelector("#fsPlus")) return;
+  const body = document.querySelector(".ch-body");
+  const apply = (px)=>{ document.documentElement.style.setProperty("--read-px", px+"px"); body.style.fontSize = px+"px"; };
+  let px = parseInt(localStorage.getItem("tafsir-px")||"16", 10);
+  if (px!==16) apply(px);
+  wrap.querySelector("#fsMinus").addEventListener("click", ()=>{ px=Math.max(13,px-1); localStorage.setItem("tafsir-px",px); apply(px); });
+  wrap.querySelector("#fsPlus").addEventListener("click", ()=>{ px=Math.min(22,px+1); localStorage.setItem("tafsir-px",px); apply(px); });
+}
+function injectToTop(){
+  const btn = document.createElement("button");
+  btn.className = "to-top"; btn.title = "Back to top"; btn.setAttribute("aria-label","Back to top");
+  btn.textContent = "↑";
+  btn.addEventListener("click", ()=> window.scrollTo({top:0, behavior:"smooth"}));
+  document.body.appendChild(btn);
+  addEventListener("scroll", ()=> btn.classList.toggle("show", scrollY > 600), {passive:true});
+}
+
 document.addEventListener("DOMContentLoaded", ()=>{
   // initLang already handled above, but ensure once
   try{ initLang(); }catch{}
@@ -192,6 +266,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
   updateProgress();
   setupKids();
   setupToday();
+  try{ injectTopNav(); }catch(e){ console.error("nav", e); }
+  try{ injectContinueReading(); }catch(e){ console.error("continue", e); }
+  try{ injectReaderControls(); }catch(e){ console.error("readsizer", e); }
+  try{ injectToTop(); }catch(e){ console.error("totop", e); }
+  try{ saveReadSpot(); }catch(e){ console.error("spot", e); }
   if('serviceWorker' in navigator && !location.pathname.includes('sw.js')){
     navigator.serviceWorker.register('sw.js').catch(()=>{});
   }

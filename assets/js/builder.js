@@ -16,7 +16,9 @@
     }
 
     // Build alternatives per word: 3 options from different lenses
-    const words = deep.wordByWord.map((w, idx) => {
+    // Skip placeholder rows (auto-generated filler words like كلمة111) — never show invented data
+    const real = deep.wordByWord.filter(w => w.w && !/^كلمة\d+/.test(w.w) && (w.en || w.why));
+    const words = real.map((w, idx) => {
       // Create 3 alternatives: Traditional, Literal Root, Scientific/Contextual
       const alts = [
         { label: w.en, bn: w.bn, src: 'Scientific Tafsir', en: w.en },
@@ -124,7 +126,7 @@
   window.BuilderUpdate = function(n){
     const deep = (window.DEEP_RESEARCH||{})[n];
     if(!deep) return;
-    const words = deep.wordByWord;
+    const words = deep.wordByWord.filter(w => w.w && !/^كلمة\d+/.test(w.w) && (w.en || w.why));
     const picks = {};
     document.querySelectorAll(`#wb-${n} [data-idx]`).forEach(card=>{
       const wi = parseInt(card.dataset.idx);

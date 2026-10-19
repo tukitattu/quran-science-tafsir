@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Meanings — Alternative Meanings of Quranic Arabic Words</title>
+  <meta name="description" content="Explore the Quranic vocabulary of the Scientific Tafsir: roots, linguistic forms, and multiple alternative meanings for each Arabic word.">
+  <meta name="theme-color" content="#F8F8F4">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      <span class="txt" style="line-height:1.3">
+        <span data-i18n="tagline">Bilingual Scientific Tafsir</span>
+        <span class="bn-text" style="display:block;font-size:.78rem;color:var(--accent2)">দ্বিভাষিক বৈজ্ঞানিক তাফসির</span>
+        <span class="ar-tag" style="display:block">التفسير العلمي للقرآن الكريم</span>
+      </span>
+    </a>
+    <div class="top-actions">
+      <div class="langbtns" id="langBtns">
+        <button data-lang="en">English</button>
+        <button data-lang="bn">বাংলা</button>
+        <button data-lang="ar">العربية</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="reader-header">
+    <p class="breadcrumbs"><a href="index.html">Home</a> · Word Meanings</p>
+    <h1>Word Meanings <span class="bn-text" style="display:block;font-size:.6em;color:var(--accent2)">শব্দার্থ ও বিকল্প অর্থ</span></h1>
+    <div class="arabic-text" style="color:var(--accent2);font-size:1.3rem;margin-top:6px">معاني كلمات القرآن وبدائلها</div>
+  </section>
+
+  <main class="page-wrap">
+    <p style="text-align:center;color:var(--muted);max-width:640px;margin:0 auto">
+      Each word carries layers of meaning — linguistic form, root system (Sarf), why the original word (Ayn) was chosen, and alternative meanings from different translators and research lenses. Tap a word for the full analysis.
+    </p>
+
+    <div class="control-row">
+      <input id="wSearch" type="search" placeholder="Search word, root, meaning…" aria-label="Search words">
+      <select id="surahFilter" aria-label="Filter by surah"></select>
+      <label style="display:flex;align-items:center;gap:6px;font-size:.85rem;color:var(--muted);cursor:pointer">
+        <input id="favOnly" type="checkbox" style="accent-color:#A67C1B"> Saved only
+      </label>
+      <span class="count" id="wCount"></span>
+    </div>
+
+    <div class="word-grid" id="wordGrid" hidden></div>
+    <div class="loading-note" id="wLoading">Loading word data from the SQLite research base…</div>
+    <div class="empty-state" id="wEmpty" hidden>
+      <div class="es-ar">لا توجد كلمات مطابقة</div>
+      <p>No words match your search. Try a root like ر-ب-ب, or a surah filter.</p>
+    </div>
+  </main>
+
+  <footer>
+    <span data-i18n="footerNote">Scientific Tafsir of the Quran by Zakaria Kamal. Freely shareable and publishable per the author's notice.</span>
+    <span class="arabic-text">التفسير العلمي للقرآن الكريم — بقلم زكريا كمال</span>
+  </footer>
+
+  <script src="assets/data/chapters.js"></script>
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/words.js"></script>
+</body>
+</html>

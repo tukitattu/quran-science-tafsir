@@ -5,8 +5,8 @@
   "start_url": "/quran-science-tafsir/",
   "scope": "/quran-science-tafsir/",
   "display": "standalone",
-  "background_color": "#0d1b2a",
-  "theme_color": "#d4af37",
+  "background_color": "#F8F8F4",
+  "theme_color": "#F8F8F4",
   "lang": "bn",
   "icons": [
     {

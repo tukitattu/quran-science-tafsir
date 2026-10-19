@@ -1,0 +1,60 @@
+name: Build Data (Arabic backfill + verify)
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - 'assets/data/**'
+      - 'assets/css/**'
+      - 'assets/js/**'
+      - 'search.html'
+      - 'words.html'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Syntax check (JS + JSON)
+        run: |
+          for f in assets/js/*.js; do node --check "$f"; done
+          for f in assets/data/*.json; do python -m json.tool "$f" > /dev/null; done
+          python -m py_compile scripts/*.py
+          echo "All syntax checks passed"
+
+      - name: Backfill Arabic Uthmani + expand alt translations (SQLite)
+        run: |
+          python scripts/backfill_arabic.py --daily
+        timeout-minutes: 25
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            git diff --stat
+          fi
+
+      - name: Commit & Push (if changed)
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "data: backfill Arabic Uthmani ayah text + expand alt translations [skip ci]"
+          git push
