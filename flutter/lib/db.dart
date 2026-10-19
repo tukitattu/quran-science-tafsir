@@ -77,7 +77,7 @@ class TafsirDb {
 
   /// A deterministic ayah-of-the-day across the whole database.
   Future<Map<String, dynamic>> ayahOfTheDay() async {
-    final d = (await db).query('verses',
+    final d = await (await db).query('verses',
         columns: ['COUNT(*) AS c'], where: "ar != ''");
     final count = (d.isEmpty ? null : d.first['c'] as int?) ?? 0;
     if (count == 0) return {};
