@@ -38,8 +38,8 @@ class _SettingsTabState extends State<SettingsTab> {
                 .textTheme
                 .headlineSmall
                 ?.copyWith(fontWeight: FontWeight.w800, letterSpacing: -.3)),
-        Text('Al Quran — Scientific Tafsir · v2.1.0 (Flutter, embedded SQLite)',
-            style: const TextStyle(color: AppColors.muted, fontSize: 12)),
+        const Text('Al Quran — Scientific Tafsir · v2.1.0 (Flutter, embedded SQLite)',
+            style: TextStyle(color: AppColors.muted, fontSize: 12)),
         const SizedBox(height: 20),
 
         // ——— language

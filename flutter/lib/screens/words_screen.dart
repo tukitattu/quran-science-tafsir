@@ -244,10 +244,10 @@ class _WordTile extends StatelessWidget {
                 ),
                 Wrap(spacing: 4, runSpacing: 4, alignment: WrapAlignment.center, children: [
                   if (cat.isNotEmpty && cat != 'pending')
-                    _chip(_catLabel[cat] ?? cat, gold: true),
-                  if (am.isNotEmpty) _chip('${am.length}'),
-                  if (ref.isNotEmpty) _chip(ref, blue: true),
-                  if (placeholder) const _chip('pending'),
+                    _Chip(_catLabel[cat] ?? cat, gold: true),
+                  if (am.isNotEmpty) _Chip('${am.length}'),
+                  if (ref.isNotEmpty) _Chip(ref, blue: true),
+                  if (placeholder) const _Chip('pending'),
                 ]),
               ]),
         ),
@@ -257,7 +257,7 @@ class _WordTile extends StatelessWidget {
 }
 
 class _chip extends StatelessWidget {
-  const _chip(this.label, {this.gold = false, this.blue = false});
+  const _Chip(this.label, {this.gold = false, this.blue = false});
   final String label;
   final bool gold, blue;
   @override

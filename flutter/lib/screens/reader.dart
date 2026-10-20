@@ -258,7 +258,7 @@ class _FontSheet extends StatelessWidget {
       return Padding(
         padding: const EdgeInsets.all(22),
         child: Column(mainAxisSize: MainAxisSize.min, children: [
-          Text('Text size',
+          const Text('Text size',
               style: TextStyle(color: AppColors.gold, fontWeight: FontWeight.w800)),
           Slider(
             value: value,

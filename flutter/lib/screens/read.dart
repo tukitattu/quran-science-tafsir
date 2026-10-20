@@ -72,7 +72,7 @@ class _ReadTabState extends State<ReadTab> {
           const SizedBox(height: 12),
           FilledButton.icon(
             icon: const Icon(Icons.play_arrow_rounded),
-            label: Text('Continue — Surah ${_continueTo}'),
+            label: Text('Continue — Surah $_continueTo'),
             onPressed: () => _open(_continueTo!),
           ),
         ],
