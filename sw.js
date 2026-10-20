@@ -1,4 +1,4 @@
-const CACHE = "tafsir-v5";
+const CACHE = "tafsir-v6";
 const ASSETS = [
   "./",
   "./index.html",
@@ -7,6 +7,7 @@ const ASSETS = [
   "./part3.html",
   "./vocabulary.html",
   "./words.html",
+  "./business.html",
   "./search.html",
   "./404.html",
   "./assets/css/style.css",
@@ -17,12 +18,16 @@ const ASSETS = [
   "./assets/js/universe-animations.js",
   "./assets/js/words.js",
   "./assets/js/search.js",
+  "./assets/js/knowledge.js",
+  "./assets/js/business.js",
   "./assets/data/chapters.js",
   "./assets/data/surah_knowledge.js",
   "./assets/data/deep_research.js",
   "./assets/data/wiki_map.js",
   "./assets/data/ghaur_ofikr_map.js",
   "./assets/data/words_export.json",
+  "./assets/data/business.json",
+  "./assets/data/knowledge.json",
   "./manifest.json",
   "./assets/icon-192.png",
   "./assets/icon-512.png"

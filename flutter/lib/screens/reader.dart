@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../db.dart';
+import '../knowledge.dart';
 import '../main.dart';
 import 'read.dart'; // AppColors
 
@@ -30,6 +31,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
 
   Future<void> _load() async {
     final sp = await SharedPreferences.getInstance();
+    await Knowledge.i.load();
     final paras = await TafsirDb.i.paras(widget.surahId);
     final meta = await TafsirDb.i.tafsirMeta(widget.surahId) ?? {};
     final vis = sp.getStringList('visited') ?? [];
@@ -75,8 +77,19 @@ class _ReaderScreenState extends State<ReaderScreen> {
   List<Widget> _paraText(Map<String, Object?> p) {
     final en = (p['en'] ?? '') as String;
     final bn = (p['bn'] ?? '') as String;
-    final ar = (p['ar'] ?? '') as String;
-    final isVerse = ar.isNotEmpty;
+    var ar = (p['ar'] ?? '') as String;
+    final ayahs = RegExp(r'\[(\d+)\]')
+        .allMatches(en)
+        .map((m) => int.parse(m.group(1)!))
+        .toList();
+    // Arabic comes from the bundled Uthmani text when the DB column is empty.
+    if (ar.isEmpty && ayahs.isNotEmpty) {
+      ar = ayahs
+          .map((n) => Knowledge.i.ayahText(widget.surahId, n))
+          .where((t) => t.isNotEmpty)
+          .join('  ۞  ');
+    }
+    final isVerse = ar.isNotEmpty || ayahs.isNotEmpty;
     final fontSize = _font * (isVerse ? 1.03 : 1.0);
     final widgets = <Widget>[];
     if (ar.isNotEmpty) {
@@ -95,6 +108,21 @@ class _ReaderScreenState extends State<ReaderScreen> {
                 fontSize: fontSize + 4, height: 2, color: const Color(0xFF5F4A14))),
       ));
     }
+    if (_lang == 'ar') {
+      if (ayahs.isNotEmpty && Knowledge.i.ready) {
+        final pills = ayahs
+            .map((n) => KnowledgePill.forAyah(widget.surahId, n))
+            .whereType<KnowledgePill>()
+            .toList();
+        if (pills.isNotEmpty) {
+          widgets.add(Padding(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: Wrap(spacing: 8, runSpacing: 6, children: pills),
+          ));
+        }
+      }
+      return widgets;
+    }
     if (_lang != 'en' && bn.isNotEmpty) {
       widgets.add(Padding(
           padding: const EdgeInsets.only(bottom: 12),
@@ -108,6 +136,18 @@ class _ReaderScreenState extends State<ReaderScreen> {
               style: TextStyle(
                   fontSize: fontSize, height: 1.85,
                   color: _lang == 'both' ? AppColors.muted : AppColors.ink))));
+    }
+    if (ayahs.isNotEmpty && Knowledge.i.ready) {
+      final pills = ayahs
+          .map((n) => KnowledgePill.forAyah(widget.surahId, n))
+          .whereType<KnowledgePill>()
+          .toList();
+      if (pills.isNotEmpty) {
+        widgets.add(Padding(
+          padding: const EdgeInsets.only(bottom: 12),
+          child: Wrap(spacing: 8, runSpacing: 6, children: pills),
+        ));
+      }
     }
     return widgets;
   }
@@ -133,6 +173,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
               ButtonSegment(value: 'both', label: Text('EN বাং')),
               ButtonSegment(value: 'en', label: Text('EN')),
               ButtonSegment(value: 'bn', label: Text('বাং')),
+              ButtonSegment(value: 'ar', label: Text('عربي')),
             ],
             selected: {_lang},
             style: const ButtonStyle(visualDensity: VisualDensity.compact),

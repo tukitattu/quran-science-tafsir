@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'db.dart';
+import 'knowledge.dart';
 import 'notify.dart';
 import 'screens/home.dart';
 import 'theme.dart';
@@ -87,6 +88,8 @@ Future<void> main() async {
     debugPrint('db init failed: $e');
   }
   await DailyReminder.i.init();
+  // knowledge layer (ayah text + book extracts) loads in the background
+  Knowledge.i.load();
   runApp(const TafsirApp());
 }
 
@@ -96,7 +99,7 @@ class TafsirApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Scientific Tafsir',
+      title: 'Al Quran — Scientific Tafsir',
       debugShowCheckedModeBanner: false,
       theme: Paper.theme(),
       home: const HomeShell(),

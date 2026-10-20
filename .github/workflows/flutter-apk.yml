@@ -48,12 +48,12 @@ jobs:
           sed -i "s/minSdk = .*/minSdk = 29/; s/minSdkVersion .*/minSdkVersion 29/" "$f"
           grep -n "minSdk" "$f"
 
-      - name: Patch permissions (notifications, alarms, boot)
+      - name: Patch permissions + app label (notifications, alarms, boot)
         working-directory: flutter
         run: |
           f=android/app/src/main/AndroidManifest.xml
           python3 - "$f" <<'EOF'
-          import sys, pathlib
+          import sys, pathlib, re
           p = pathlib.Path(sys.argv[1]); s = p.read_text()
           add = (
               '    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>\n'
@@ -62,13 +62,18 @@ jobs:
           )
           if 'POST_NOTIFICATIONS' not in s:
               s = s.replace('<application', add + '    <application')
-              p.write_text(s)
-          print('manifest patched:', 'POST_NOTIFICATIONS' in p.read_text())
+          s = re.sub(r'android:label="[^"]*"', 'android:label="Al Quran - Scientific Tafsir"', s, count=1)
+          p.write_text(s)
+          print('manifest label patched:', 'Al Quran - Scientific Tafsir' in p.read_text())
           EOF
 
       - name: flutter analyze
         working-directory: flutter
         run: flutter pub get && flutter analyze --no-fatal-infos
+
+      - name: Generate launcher icons (emblem from assets/icon.png)
+        working-directory: flutter
+        run: dart run flutter_launcher_icons
 
       - name: flutter test (if any)
         working-directory: flutter

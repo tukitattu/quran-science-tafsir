@@ -1,6 +1,6 @@
 const I18N = {
   en: {
-    tagline: "Bilingual Scientific Tafsir",
+    tagline: "Al Quran — Scientific Tafsir",
     home: "Home",
     read: "Read Online",
     download: "Download PDF",
@@ -25,7 +25,7 @@ const I18N = {
     }
   },
   bn: {
-    tagline: "দ্বিভাষিক বৈজ্ঞানিক তাফসির",
+    tagline: "আল কুরআন — বৈজ্ঞানিক তাফসির",
     home: "প্রথম পাতা",
     read: "অনলাইনে পড়ুন",
     download: "PDF ডাউনলোড",
@@ -50,7 +50,7 @@ const I18N = {
     }
   },
   ar: {
-    tagline: "تفسير علمي ثنائي اللغة",
+    tagline: "القرآن الكريم — التفسير العلمي",
     home: "الرئيسية",
     read: "اقرأ مباشرة",
     download: "تحميل PDF",
@@ -76,21 +76,25 @@ const I18N = {
   }
 };
 
-const LANGS = ["en", "bn", "ar"];
-const LANG_LABEL = { en: "English", bn: "বাংলা", ar: "العربية" };
-let lang = localStorage.getItem("quran-lang") || "en";
-if (!LANGS.includes(lang)) lang = "en";
+const LANGS = ["all", "en", "bn", "ar"];
+const LANG_LABEL = { all: "EN+বাং", en: "English", bn: "বাংলা", ar: "العربية" };
+// uiLang is the language of the interface strings; "all" shows the full
+// bilingual content (EN + BN) at once, which is the default.
+let lang = localStorage.getItem("quran-lang") || "all";
+if (!LANGS.includes(lang)) lang = "all";
+const uiLang = () => (lang === "all" ? "en" : lang);
 
 function t(key) {
-  return key.split(".").reduce((o, k) => (o ? o[k] : undefined), I18N[lang]) || key;
+  return key.split(".").reduce((o, k) => (o ? o[k] : undefined), I18N[uiLang()]) || key;
 }
 
 function setLang(l, init) {
   lang = l;
   localStorage.setItem("quran-lang", l);
-  document.documentElement.lang = l;
+  document.documentElement.lang = uiLang();
   document.body.dir = l === "ar" ? "rtl" : "ltr";
-  document.body.className = (document.body.className || "").replace(/\slang-[a-z]{2}/g, "") + " lang-" + l;
+  document.body.className = (document.body.className || "")
+    .replace(/\s(lang|content)-[a-z]{2,3}/g, "") + " lang-" + uiLang() + " content-" + l;
   document.querySelectorAll("[data-lang]").forEach((btn) => {
     btn.classList.toggle("active", btn.getAttribute("data-lang") === l);
   });
@@ -104,9 +108,20 @@ function setLang(l, init) {
 }
 
 function initLang() {
-  document.querySelectorAll("[data-lang]").forEach((btn) => {
+  // inject the "All" (bilingual) option once, before the visible choices
+  document.querySelectorAll(".langbtns").forEach((host) => {
+    if (host.querySelector('[data-lang="all"]')) return;
+    const b = document.createElement("button");
+    b.setAttribute("data-lang", "all");
+    b.textContent = LANG_LABEL.all;
+    b.title = "Show the full English + Bangla content";
+    host.insertBefore(b, host.firstChild);
+  });
+  document.querySelectorAll(".langbtns [data-lang]").forEach((btn) => {
     btn.addEventListener("click", () => setLang(btn.getAttribute("data-lang")));
   });
+  // make "All" the highlighted default when nothing has been chosen yet
+  document.querySelectorAll('[data-lang="all"]').forEach((b) => b.classList.toggle("active", lang === "all"));
   setLang(lang, true);
 }
 
@@ -204,9 +219,36 @@ function injectTopNav(){
   el.innerHTML = [
     ["search.html", "Search", is("search.html")],
     ["words.html", "Word Meanings", is("words.html")],
+    ["business.html", "Business", is("business.html")],
     ["vocabulary.html", "Vocabulary", is("vocabulary.html")]
   ].map(([href,label,cur])=>`<a href="${b}${href}" ${cur?'class="cur" aria-current="page"':'aria-current="false"'}>${label}</a>`).join("");
   host.insertBefore(el, host.firstChild);
+
+  // mobile: collapse the whole action shelf behind a menu button
+  const bar = document.querySelector(".topbar");
+  if(bar && !bar.querySelector(".nav-menu-btn")){
+    const btn = document.createElement("button");
+    btn.className = "nav-menu-btn";
+    btn.setAttribute("aria-label","Menu");
+    btn.setAttribute("aria-expanded","false");
+    btn.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
+    btn.addEventListener("click", ()=>{
+      const open = host.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open?"true":"false");
+    });
+    bar.appendChild(btn);
+  }
+}
+
+// lazily pull in the knowledge-pill component on reading / overview pages
+function loadKnowledge(){
+  if(!document.querySelector(".ch-body") && !document.querySelector(".quote")) return;
+  if(document.querySelector('script[data-knowledge]')) return;
+  const s = document.createElement("script");
+  s.src = relBase()+"assets/js/knowledge.js";
+  s.defer = true;
+  s.setAttribute("data-knowledge","1");
+  document.head.appendChild(s);
 }
 function saveReadSpot(){
   // remember the reading position only on reading pages
@@ -267,6 +309,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
   setupKids();
   setupToday();
   try{ injectTopNav(); }catch(e){ console.error("nav", e); }
+  try{ loadKnowledge(); }catch(e){ console.error("knowledge", e); }
   try{ injectContinueReading(); }catch(e){ console.error("continue", e); }
   try{ injectReaderControls(); }catch(e){ console.error("readsizer", e); }
   try{ injectToTop(); }catch(e){ console.error("totop", e); }

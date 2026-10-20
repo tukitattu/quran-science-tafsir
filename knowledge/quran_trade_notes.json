@@ -1,0 +1,158 @@
+{
+ "blocks": [
+  {
+   "ref": "2:275",
+   "source": "Qur'an",
+   "tags": [
+    "business",
+    "riba",
+    "trade"
+   ],
+   "ar": "وَأَحَلَّ اللَّهُ الْبَيْعَ وَحَرَّمَ الرِّبَا",
+   "en": "Allah has permitted trade and forbidden interest (riba).",
+   "bn": "আল্লাহ বিক্রয়কে হালাল ও সুদকে হারাম করেছেন।"
+  },
+  {
+   "ref": "2:276",
+   "source": "Qur'an",
+   "tags": [
+    "business",
+    "riba",
+    "charity"
+   ],
+   "ar": "يَمْحَقُ اللَّهُ الرِّبَا وَيُرْبِي الصَّدَقَاتِ",
+   "en": "Allah destroys interest and gives increase for charities.",
+   "bn": "আল্লাহ সুদ ধ্বংস করেন এবং দান-সদকার বৃদ্ধি দেন।"
+  },
+  {
+   "ref": "2:198",
+   "source": "Qur'an",
+   "tags": [
+    "business",
+    "trade",
+    "blessing"
+   ],
+   "ar": "لَيْسَ عَلَيْكُمْ جُنَاحٌ أَنْ تَبْتَغُوا فَضْلًا مِّن رَّبِّكُمْ",
+   "en": "It is no crime for you to seek the bounty of your Lord (through trade).",
+   "bn": "তোমাদের রবের অনুগ্রহ (ব্যবসায়) অন্বেষণ করা তোমাদের জন্য অপরাধ নয়।"
+  },
+  {
+   "ref": "4:29",
+   "source": "Qur'an",
+   "tags": [
+    "business",
+    "consent",
+    "contract"
+   ],
+   "ar": "إِلَّا أَنْ تَكُونَ تِجَارَةً عَن تَرَاضٍ مِّنكُمْ",
+   "en": "Do not consume your own wealth unjustly — except by mutual trade with your consent.",
+   "bn": "হারামপূর্বক একে অন্যের সম্পদ ও খাও না — তোমাদের পরস্পর সম্মতিতে বাণিজ্য ছাড়া।"
+  },
+  {
+   "ref": "2:188",
+   "source": "Qur'an",
+   "tags": [
+    "business",
+    "honesty",
+    "lawful"
+   ],
+   "ar": "وَلَا تَأْكُلُوا أَمْوَالَكُم بَيْنَكُم بِالْبَاطِلِ",
+   "en": "Do not devour one another's wealth by false means.",
+   "bn": "পরস্পরের সম্পদ মিথ্যাপূর্বক খাও না।"
+  },
+  {
+   "ref": "62:10",
+   "source": "Qur'an",
+   "tags": [
+    "business",
+    "trade",
+    "work"
+   ],
+   "ar": "فَإِذَا قُضِيَتِ الصَّلَاةُ فَانتَشِرُوا فِي الأَرْضِ وَابْتَغُوا مِن فَضْلِ اللَّهِ",
+   "en": "When the prayer is finished, disperse in the land and seek the bounty of Allah.",
+   "bn": "নামাজ শেষে তোমরা পৃথিবীতে ছড়িয়ে পড়ো এবং আল্লাহের অনুগ্রহ অন্বেষণ করো।"
+  },
+  {
+   "ref": "2:282",
+   "source": "Qur'an",
+   "tags": [
+    "business",
+    "contract",
+    "debt"
+   ],
+   "ar": "إِذَا تَدَايَنتُم بِدَيْنٍ إِلَى أَجَلٍ مُّسَمًّى فَاكْتُبُوهُ",
+   "en": "When you contract a debt for a fixed term, write it down. Clarity in contracts is a command, not a courtesy.",
+   "bn": "নির্দিষ্ট মিয়াদে ঋণ করলে তা লিখে রাখো। চুক্তিতে স্পষ্টতা আদেশ, উপকার নয়।"
+  },
+  {
+   "ref": "17:35",
+   "source": "Qur'an",
+   "tags": [
+    "business",
+    "measure",
+    "honesty"
+   ],
+   "ar": "وَأَوْفُوا الْكَيْلَ إِذَا كِلْتُمْ وَزِنُوا بِالقِسْطَاسِ المُسْتَقِيمِ",
+   "en": "Give full measure when you measure, and weigh with an even balance.",
+   "bn": "মাপের সময় পূর্ণ মাপ দাও এবং সরল দাণ্ডিকে ওজন করো।"
+  },
+  {
+   "ref": "2:188",
+   "source": "Principle",
+   "tags": [
+    "business",
+    "marketing",
+    "honesty"
+   ],
+   "ar": "الصِّدْقُ فِي البَيْعِ",
+   "en": "Market with truth. Describe what a product truly is — no exaggeration, no hidden fees, no fake reviews. Honest positioning builds the reputation that compounds.",
+   "bn": "সত্য দিয়ে মার্কেটিং করো। পণ্য আসলে যা তাই বলো — বাড়ানো না, লুকানো ফি, বানানো রিভিউ না। সততা সুনাম গড়ে।"
+  },
+  {
+   "ref": "2:282",
+   "source": "Principle",
+   "tags": [
+    "business",
+    "contract",
+    "risk"
+   ],
+   "ar": "اكْتُبُوهُ",
+   "en": "Write every deal down: scope, price, timeline, return policy. Clear contracts prevent disputes and protect both sides — an act of worship, not bureaucracy.",
+   "bn": "প্রতিটি চুক্তি লিখে রাখো: কাজের পরিসীমা, দাম, সময়, ফেরত নীতি। স্পষ্ট চুক্তি বিবাদ রোকে।"
+  },
+  {
+   "ref": "2:275",
+   "source": "Principle",
+   "tags": [
+    "business",
+    "riba",
+    "finance"
+   ],
+   "ar": "وَحَرَّمَ الرِّبَا",
+   "en": "Grow with equity, profit-share (mudarabah/musharakah) and asset-backed deals — not interest-bearing debt. Halal capital keeps the business blessed and resilient.",
+   "bn": "সুদভিত্তিক ঋণ নয়, বরং লাভ-ভাগ (মুদারাবা/মুশারাকা) ও সম্পদ-ভিত্তিক লেনদেনে বাড়ো।"
+  },
+  {
+   "ref": "1:1",
+   "source": "Opening Principle",
+   "tags": [
+    "knowledge",
+    "seeking"
+   ],
+   "ar": "بِسْمِ اللَّهِ",
+   "en": "Every lawful undertaking begins with the Name — work done with conscious intent carries barakah.",
+   "bn": "প্রতিটি হালাল কাজ আল্লাহের নামে শুরু — সচেতন নিয়তে করা কাজে বরকত থাকে।"
+  },
+  {
+   "surah": "2",
+   "source": "Surah Note",
+   "tags": [
+    "knowledge",
+    "community"
+   ],
+   "ar": "أُمَّةٌ",
+   "en": "Surah al-Baqarah builds a community (ummah): belief, law, economics and ethics explained together.",
+   "bn": "সূরা আল-বাকারা একটি উম্মা গড়ে — বিশ্বাস, আইন, অর্থনীতি ও নৈতিকতা একসাথে।"
+  }
+ ]
+}

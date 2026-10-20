@@ -4,3 +4,6 @@ server/.env
 node_modules/
 android/
 scripts/update_log.json
+__pycache__/
+*.pyc
+knowledge/private/

@@ -1,13 +1,13 @@
 {
-  "name": "Scientific Tafsir — আল-কুরআনের বৈজ্ঞানিক তাফসির",
-  "short_name": "Tafsir",
-  "description": "114 surahs, Bengali + English + Arabic, offline, TTS, deep research",
+  "name": "Al Quran — Scientific Tafsir",
+  "short_name": "Al Quran Tafsir",
+  "description": "Al Quran Scientific Tafsir — 114 surahs, English + Bengali + Arabic, offline, word meanings, business knowledge, TTS",
   "start_url": "/quran-science-tafsir/",
   "scope": "/quran-science-tafsir/",
   "display": "standalone",
   "background_color": "#F8F8F4",
   "theme_color": "#F8F8F4",
-  "lang": "bn",
+  "lang": "en",
   "icons": [
     {
       "src": "assets/icon-192.png",

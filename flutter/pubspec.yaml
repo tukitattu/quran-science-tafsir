@@ -1,7 +1,7 @@
 name: quran_tafsir
-description: Scientific Tafsir of the Quran — lightweight Flutter app with embedded SQLite.
+description: Al Quran — Scientific Tafsir. Lightweight Flutter app with embedded SQLite, trilingual reading and knowledge pills.
 publish_to: "none"
-version: 2.0.0+20
+version: 2.1.0+21
 
 environment:
   sdk: ">=3.4.0 <4.0.0"
@@ -19,8 +19,21 @@ dependencies:
 
 dev_dependencies:
   flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.14.1
 
 flutter:
   uses-material-design: true
   assets:
     - assets/tafsir.db.gz
+    - assets/quran_ar.json
+    - assets/knowledge.json
+    - assets/business.json
+    - assets/words_export.json
+
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: "assets/icon.png"
+  adaptive_icon_background: "#F8F8F4"
+  adaptive_icon_foreground: "assets/icon_foreground.png"
+  min_sdk_android: 21

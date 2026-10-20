@@ -1,15 +1,17 @@
-name: Build Data (Arabic backfill + verify)
+name: Build Data (knowledge, words, Arabic backfill + verify)
 
 on:
   push:
     branches: [main]
     paths:
       - 'scripts/**'
+      - 'knowledge/**'
       - 'assets/data/**'
       - 'assets/css/**'
       - 'assets/js/**'
       - 'search.html'
       - 'words.html'
+      - 'business.html'
   workflow_dispatch:
 
 permissions:
@@ -28,6 +30,9 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Install PDF extractor (poppler-utils)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+
       - name: Syntax check (JS + JSON)
         run: |
           for f in assets/js/*.js; do node --check "$f"; done
@@ -35,7 +40,23 @@ jobs:
           python -m py_compile scripts/*.py
           echo "All syntax checks passed"
 
+      - name: Extract knowledge books (txt / json / pdf)
+        run: |
+          python scripts/extract_knowledge.py --src knowledge --out assets/data/knowledge.json
+
+      - name: Rebuild categorized word export (roots + ayah references)
+        run: |
+          python scripts/build_words_export.py
+
+      - name: Sync generated data into the Flutter bundle
+        run: |
+          cp assets/data/quran_ar.json flutter/assets/quran_ar.json
+          cp assets/data/knowledge.json flutter/assets/knowledge.json
+          cp assets/data/business.json flutter/assets/business.json
+          cp assets/data/words_export.json flutter/assets/words_export.json
+
       - name: Backfill Arabic Uthmani + expand alt translations (SQLite)
+        continue-on-error: true
         run: |
           python scripts/backfill_arabic.py --daily
         timeout-minutes: 25
@@ -43,11 +64,11 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if git diff --quiet; then
+          if [ -z "$(git status --porcelain)" ]; then
             echo "changed=false" >> $GITHUB_OUTPUT
           else
             echo "changed=true" >> $GITHUB_OUTPUT
-            git diff --stat
+            git status --short
           fi
 
       - name: Commit & Push (if changed)
@@ -56,5 +77,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "data: backfill Arabic Uthmani ayah text + expand alt translations [skip ci]"
+          git commit -m "data: refresh knowledge extracts, word categories and Arabic [skip ci]"
           git push

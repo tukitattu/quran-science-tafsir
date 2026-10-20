@@ -38,7 +38,7 @@ class _SettingsTabState extends State<SettingsTab> {
                 .textTheme
                 .headlineSmall
                 ?.copyWith(fontWeight: FontWeight.w800, letterSpacing: -.3)),
-        Text('Scientific Tafsir · v2.0.0 (Flutter, embedded SQLite)',
+        Text('Al Quran — Scientific Tafsir · v2.1.0 (Flutter, embedded SQLite)',
             style: const TextStyle(color: AppColors.muted, fontSize: 12)),
         const SizedBox(height: 20),
 
@@ -49,6 +49,7 @@ class _SettingsTabState extends State<SettingsTab> {
             ButtonSegment(value: 'both', label: Text('EN + বাংলা')),
             ButtonSegment(value: 'en', label: Text('English')),
             ButtonSegment(value: 'bn', label: Text('বাংলা')),
+            ButtonSegment(value: 'ar', label: Text('عربي')),
           ],
           selected: {app.lang},
           showSelectedIcon: false,
@@ -148,7 +149,7 @@ class _SettingsTabState extends State<SettingsTab> {
           TextSpan(children: [
             TextSpan(
                 text:
-                    'Scientific Tafsir of the Quran by Zakaria Kamal — 3 volumes, all content embedded offline (7796 paragraphs, 347 word studies, 662 figures). The research database (SQLite) is bundled inside the app. Bengali is machine translation. Freely shareable per the author\'s notice.\n'),
+                    'Al Quran — Scientific Tafsir of the Quran by Zakaria Kamal. All content is embedded offline: 114 surahs, 7,796 paragraphs, word studies with roots and ayah references, 662 figures, the business knowledge set and the Uthmani Arabic text. The SQLite research database is bundled inside the app. Bengali is machine translation. Freely shareable per the author\'s notice.\n'),
             TextSpan(
                 text: 'Data: backfilled Arabic Uthmani text & multiple alternative translations (Pickthall, Yusuf Ali, Sahih Intl).',
                 style: TextStyle(color: AppColors.muted, fontSize: 12)),
