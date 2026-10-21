@@ -73,6 +73,7 @@ PAGE = """<!DOCTYPE html>
   <script src="../../assets/js/player.js"></script>
   <script src="../../assets/js/wbw.js"></script>
   <script src="../../assets/js/ux-mobile.js"></script>
+  <script src="../../assets/js/notes.js"></script>
   <script>
     if ('serviceWorker' in navigator) {{
       navigator.serviceWorker.register('../../sw.js').catch(function () {{}});
