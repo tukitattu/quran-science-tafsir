@@ -34,6 +34,7 @@ PAGE = """<!DOCTYPE html>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
 </head>
 <body class="content-ar" data-surah="{n}">
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="topbar">
     <a class="brand" href="../../index.html">
       <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
@@ -60,7 +61,7 @@ PAGE = """<!DOCTYPE html>
     </div>
   </div>
 
-  <main class="read-wrap">
+  <main class="read-wrap" id="main">
     <div class="ayah-list">
 {ayahs}
     </div>
@@ -71,6 +72,7 @@ PAGE = """<!DOCTYPE html>
   </main>
   <script src="../../assets/js/player.js"></script>
   <script src="../../assets/js/wbw.js"></script>
+  <script src="../../assets/js/ux-mobile.js"></script>
   <script>
     if ('serviceWorker' in navigator) {{
       navigator.serviceWorker.register('../../sw.js').catch(function () {{}});

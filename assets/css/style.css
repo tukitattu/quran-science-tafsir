@@ -764,3 +764,38 @@ body.content-bn .biz-en { display: none; }
 }
 #wbw-pop .wbw-audio:hover { background: #E8C768; }
 #wbw-pop .wbw-audio:active { transform: scale(.95); }
+
+/* ============ MOBILE / A11Y UPGRADES ============ */
+
+/* Android: remove tap flash */
+body { -webkit-tap-highlight-color: transparent; }
+
+/* Comfortable touch targets (Material min 48px) */
+.ayah-num { min-width: 48px; min-height: 48px; }
+.wbw { padding: 2px 6px; }
+
+/* Fluid Arabic text */
+.ayah .ar { font-size: clamp(1.25rem, 4.6vw, 1.55rem); }
+
+@media (max-width: 480px) {
+  .read-wrap { padding: 18px 14px 48px; }
+  .ayah { gap: 10px; padding: 14px 0; }
+  .ayah-num { flex: 0 0 48px; height: 48px; margin-top: 6px; font-size: .9rem; }
+  .cards { grid-template-columns: 1fr; }
+}
+
+/* Skip-to-content link */
+.skip-link { position: absolute; left: -999px; top: 0; z-index: 9999; padding: 10px 16px; background: var(--ink); color: #FFF; border-radius: 0 0 10px 0; font-weight: 600; text-decoration: none; }
+.skip-link:focus { left: 0; }
+
+/* High-contrast OS preference */
+@media (prefers-contrast: more) {
+  .ayah { border-bottom-color: rgba(35,43,54,.35); }
+  .wbw { outline: 1px solid rgba(35,43,54,.25); }
+}
+
+/* Focus visibility everywhere */
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Scroll progress bar */
+#read-progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 999; background: linear-gradient(90deg, var(--accent), var(--gold-bright)); transform: scaleX(0); transform-origin: 0 50%; pointer-events: none; }

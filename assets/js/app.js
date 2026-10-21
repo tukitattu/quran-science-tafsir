@@ -1,3 +1,16 @@
+/* lazily pull in the shared mobile/a11y upgrades (skip link, progress bar, swipe nav) */
+(function () {
+  var own = document.querySelector('script[src$="/app.js"], script[src$="app.js"]');
+  var href = own ? own.getAttribute("src") : "";
+  if (href) {
+    href = href.replace(/app\.js$/, "ux-mobile.js");
+    var s = document.createElement("script");
+    s.src = href;
+    s.defer = true;
+    document.head.appendChild(s);
+  }
+})();
+
 const I18N = {
   en: {
     tagline: "Al Quran — Scientific Tafsir",
