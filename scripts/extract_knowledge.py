@@ -348,7 +348,7 @@ def main():
     bundle = build_bundle(records, sources, source_fingerprint(args.src))
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
     with open(args.out, "w", encoding="utf-8") as fh:
-        json.dump(bundle, fh, ensure_ascii=False, separators=(",", ":"))
+        json.dump(bundle, fh, ensure_ascii=False, separators=(",", ":"), sort_keys=True)
     c = bundle["counts"]
     print(f"Wrote {args.out}")
     print(f"  records={c['records']} ayahs={c['ayahs']} surahs={c['surahs']} "
