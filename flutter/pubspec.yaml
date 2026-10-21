@@ -28,7 +28,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/tafsir.db.gz
-    - assets/quran_ar.json
+    - assets/data/quran_ar.json
     - assets/knowledge.json
     - assets/business.json
     - assets/words_export.json

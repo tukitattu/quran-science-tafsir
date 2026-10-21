@@ -28,7 +28,7 @@ class Knowledge {
       _kb = jsonDecode(kb) as Map<String, dynamic>;
     } catch (_) {}
     try {
-      final ar = await rootBundle.loadString('assets/quran_ar.json');
+      final ar = await rootBundle.loadString('assets/data/quran_ar.json');
       _ar = jsonDecode(ar) as Map<String, dynamic>;
     } catch (_) {}
     try {
