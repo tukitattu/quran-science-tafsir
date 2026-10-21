@@ -275,7 +275,25 @@ def load_sources(src_dir: str, min_ar: int):
     return records, sources
 
 
-def build_bundle(records, sources):
+def source_fingerprint(src_dir):
+    """Stable hash of the source files — changes only when content changes."""
+    import hashlib
+    h = hashlib.sha256()
+    for path in sorted(
+        os.path.join(root, f)
+        for root, _dirs, files in os.walk(src_dir)
+        for f in files
+    ):
+        h.update(os.path.relpath(path, src_dir).encode("utf-8"))
+        try:
+            with open(path, "rb") as fh:
+                h.update(fh.read())
+        except OSError:
+            pass
+    return "sources:" + h.hexdigest()[:16]
+
+
+def build_bundle(records, sources, generated=None):
     by_ayah, by_surah, by_word, by_root, by_tag = {}, {}, {}, {}, {}
     for r in records:
         if r["kind"] == "ayah" and r["key"]:
@@ -304,7 +322,7 @@ def build_bundle(records, sources):
                 uniq.append(r)
             bucket[k] = uniq
     return {
-        "generated": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "generated": generated or "sources:unknown",
         "counts": {
             "records": len(records), "ayahs": len(by_ayah), "surahs": len(by_surah),
             "words": len(by_word), "roots": len(by_root), "tags": len(by_tag),
@@ -327,7 +345,7 @@ def main():
 
     print(f"Reading sources from {args.src}")
     records, sources = load_sources(args.src, args.min_ar)
-    bundle = build_bundle(records, sources)
+    bundle = build_bundle(records, sources, source_fingerprint(args.src))
     os.makedirs(os.path.dirname(args.out), exist_ok=True)
     with open(args.out, "w", encoding="utf-8") as fh:
         json.dump(bundle, fh, ensure_ascii=False, separators=(",", ":"))

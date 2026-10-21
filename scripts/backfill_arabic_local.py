@@ -49,17 +49,20 @@ def main():
         if text != ar:
             conn.execute("UPDATE verses SET ar = ? WHERE id = ?", (text, verse_id))
             changed += 1
-    conn.commit()
-    conn.execute("VACUUM")
-    conn.close()
-
-    data = DB_PATH.read_bytes()
-    APP_DB_GZ.parent.mkdir(parents=True, exist_ok=True)
-    APP_DB_GZ.write_bytes(gzip.compress(data, 9, mtime=0))
-    print(
-        f"backfill_arabic_local: {changed}/{len(rows)} rows updated, "
-        f"{missing} without Arabic, gz={APP_DB_GZ.stat().st_size} bytes"
-    )
+    if changed:
+        conn.commit()
+        conn.execute("VACUUM")
+        conn.close()
+        data = DB_PATH.read_bytes()
+        APP_DB_GZ.parent.mkdir(parents=True, exist_ok=True)
+        APP_DB_GZ.write_bytes(gzip.compress(data, 9, mtime=0))
+        print(
+            f"backfill_arabic_local: {changed}/{len(rows)} rows updated, "
+            f"{missing} without Arabic, gz={APP_DB_GZ.stat().st_size} bytes"
+        )
+    else:
+        conn.close()
+        print(f"backfill_arabic_local: up to date ({len(rows)} rows), no rewrite")
     if missing:
         print("warning: some paragraphs had no matching ayah text", file=sys.stderr)
 
