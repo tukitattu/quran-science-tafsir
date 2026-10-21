@@ -28,6 +28,17 @@
 
   function key(a) { return SURAH + ":" + a; }
 
+  /* repaint every ayah row from current stores (used after import) */
+  function applyState() {
+    document.querySelectorAll(".ayah").forEach(function (ayahEl) {
+      var m = /a(\d+)$/.exec(ayahEl.id || "");
+      if (!m) return;
+      var a = parseInt(m[1], 10);
+      ayahEl.classList.toggle("done", !!readAll[key(a)]);
+      paint(ayahEl, a);
+    });
+  }
+
   /* ---------- per-ayah control buttons ---------- */
   function makeBtn(cls, label, txt, onTap) {
     var b = document.createElement("button");
@@ -77,6 +88,10 @@
         '<div class="notes-row">' +
         '<button type="button" class="notes-save">Save · حفظ</button>' +
         '<button type="button" class="notes-del">Delete · حذف</button>' +
+        "</div>" +
+        '<div class="notes-io">' +
+        '<button type="button" class="notes-export" title="Download all notes, highlights and read marks as a file">⇩ Export</button>' +
+        '<label class="notes-import" title="Restore from an exported file">⇧ Import<input type="file" accept="application/json,.json" hidden></label>' +
         "</div></div>";
       document.body.appendChild(modal);
       modalTA = modal.querySelector("textarea");
@@ -93,6 +108,35 @@
         closeModal();
       });
       modal.addEventListener("click", function (e) { if (e.target === modal) closeModal(); });
+      modal.querySelector(".notes-export").addEventListener("click", function () {
+        var payload = { ver: 1, exported: new Date().toISOString(), notes: notes, highlights: hl, read: readAll };
+        var blob = new Blob([JSON.stringify(payload, null, 1)], { type: "application/json" });
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "quran-notes.json";
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function () { URL.revokeObjectURL(a.href); }, 2000);
+      });
+      modal.querySelector(".notes-import input").addEventListener("change", function (e) {
+        var f = e.target.files && e.target.files[0];
+        if (!f) return;
+        var rd = new FileReader();
+        rd.onload = function () {
+          try {
+            var d = JSON.parse(rd.result || "{}");
+            if (d.notes && typeof d.notes === "object") { notes = Object.assign(notes, d.notes); save(LS.notes, notes); }
+            if (d.highlights && typeof d.highlights === "object") { hl = Object.assign(hl, d.highlights); save(LS.hl, hl); }
+            if (d.read && typeof d.read === "object") { readAll = Object.assign(readAll, d.read); save(LS.read, readAll); }
+            notes = load(LS.notes, {}); hl = load(LS.hl, {}); readAll = load(LS.read, {});
+            applyState();
+            updatePill();
+          } catch (err) {
+            window.alert("Could not import: invalid file.");
+          }
+        };
+        rd.readAsText(f);
+        e.target.value = "";
+      });
     }
     modal.querySelector("h3").textContent = "Note · " + modalKey;
     modalTA.value = notes[modalKey] || "";
