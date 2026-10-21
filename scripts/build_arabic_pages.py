@@ -66,6 +66,11 @@ PAGE = """<!DOCTYPE html>
       {next}
     </div>
   </main>
+  <script>
+    if ('serviceWorker' in navigator) {{
+      navigator.serviceWorker.register('../../sw.js').catch(function () {{}});
+    }}
+  </script>
 </body>
 </html>
 """

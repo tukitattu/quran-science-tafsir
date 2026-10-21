@@ -336,5 +336,10 @@
       <a class="btn ghost" href="../34/arabic.html">السورة التالية →</a>
     </div>
   </main>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('../../sw.js').catch(function () {});
+    }
+  </script>
 </body>
 </html>
