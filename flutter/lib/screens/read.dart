@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../db.dart';
 import '../knowledge.dart';
 import '../main.dart';
+import '../player.dart';
 import '../prefs.dart';
 import 'arabic_surah.dart';
 import 'reader.dart';
@@ -244,6 +245,17 @@ class _ReadTabState extends State<ReadTab> {
                   style: TextStyle(color: typeColor, fontSize: 10)),
             ),
             const SizedBox(width: 2),
+            Tooltip(
+              message: 'Play (tilawah)',
+              child: InkWell(
+                borderRadius: BorderRadius.circular(999),
+                onTap: () => TilawahPlayer.instance.toggleForSurah(id),
+                child: Padding(
+                  padding: const EdgeInsets.all(6),
+                  child: TilawahIcon(surah: id, size: 20),
+                ),
+              ),
+            ),
             Tooltip(
               message: 'Arabic text',
               child: InkWell(

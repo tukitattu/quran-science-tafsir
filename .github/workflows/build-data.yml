@@ -40,6 +40,11 @@ jobs:
           python -m py_compile scripts/*.py
           echo "All syntax checks passed"
 
+      - name: Validate word-by-word data + audio manifest (offline)
+        run: |
+          python scripts/build_wbw.py --check
+          python scripts/build_audio.py --check
+
       - name: Extract knowledge books (txt / json / pdf)
         run: |
           python scripts/extract_knowledge.py --src knowledge --out assets/data/knowledge.json
@@ -58,6 +63,12 @@ jobs:
           cp assets/data/knowledge.json flutter/assets/knowledge.json
           cp assets/data/business.json flutter/assets/business.json
           cp assets/data/words_export.json flutter/assets/words_export.json
+          cp assets/data/audio.json flutter/assets/data/audio.json
+          mkdir -p flutter/assets/data/wbw
+          for f in assets/data/wbw/*.json; do
+            gzip -n -9 -c "$f" > "flutter/assets/data/wbw/$(basename "$f").gz"
+          done
+          echo "wbw gz files: $(ls flutter/assets/data/wbw/*.gz | wc -l)"
 
       - name: Backfill Arabic Uthmani from bundled text (offline, SQLite)
         run: |

@@ -11,7 +11,7 @@
   <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
 </head>
-<body class="content-ar">
+<body class="content-ar" data-surah="100">
   <header class="topbar">
     <a class="brand" href="../../index.html">
       <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
@@ -21,6 +21,7 @@
       </span>
     </a>
     <div class="top-actions">
+      <button class="btn" data-play-surah="100" title="استماع التلاوة كاملة">▶ تلاوة</button>
       <a class="btn ghost" href="../100.html" style="text-decoration:none">التفسير</a>
     </div>
   </header>
@@ -29,6 +30,7 @@
     <div class="breadcrumbs"><a href="../../index.html">الرئيسية</a> › <a href="../100.html">سورة العاديات</a> › النص العربي</div>
     <h1><span class="arabic-text">العاديات</span></h1>
     <span class="sh-en">Al-&#x27;Adiyat / Those That Run · ١١ آيات</span>
+    <p class="wbw-hint">اضغط أي كلمة لمعناها بالعربية والإنجليزية والبنغالية · اضغط رقم الآية لسماعها</p>
     <div class="ayah-nav">
       <a class="btn ghost" href="../99/arabic.html">← السورة السابقة</a>
       <a class="btn ghost" href="../100.html">التفسير الكامل</a>
@@ -38,49 +40,60 @@
 
   <main class="read-wrap">
     <div class="ayah-list">
-      <div class="ayah" id="a1">
-        <span class="ayah-num">١</span>
-        <p class="ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ وَٱلْعَٰدِيَٰتِ ضَبْحًۭا</p>
+      <div class="ayah" id="a1" data-a="1">
+        <span class="ayah-num playable" data-play-ayah="100:1"
+              role="button" tabindex="0" title="استمع لهذه الآية">١</span>
+        <p class="ar">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ <span class="wbw" data-s="100" data-a="1" data-p="5">وَٱلْعَٰدِيَٰتِ</span> <span class="wbw" data-s="100" data-a="1" data-p="6">ضَبْحًۭا</span></p>
       </div>
-      <div class="ayah" id="a2">
-        <span class="ayah-num">٢</span>
-        <p class="ar">فَٱلْمُورِيَٰتِ قَدْحًۭا</p>
+      <div class="ayah" id="a2" data-a="2">
+        <span class="ayah-num playable" data-play-ayah="100:2"
+              role="button" tabindex="0" title="استمع لهذه الآية">٢</span>
+        <p class="ar"><span class="wbw" data-s="100" data-a="2" data-p="1">فَٱلْمُورِيَٰتِ</span> <span class="wbw" data-s="100" data-a="2" data-p="2">قَدْحًۭا</span></p>
       </div>
-      <div class="ayah" id="a3">
-        <span class="ayah-num">٣</span>
-        <p class="ar">فَٱلْمُغِيرَٰتِ صُبْحًۭا</p>
+      <div class="ayah" id="a3" data-a="3">
+        <span class="ayah-num playable" data-play-ayah="100:3"
+              role="button" tabindex="0" title="استمع لهذه الآية">٣</span>
+        <p class="ar"><span class="wbw" data-s="100" data-a="3" data-p="1">فَٱلْمُغِيرَٰتِ</span> <span class="wbw" data-s="100" data-a="3" data-p="2">صُبْحًۭا</span></p>
       </div>
-      <div class="ayah" id="a4">
-        <span class="ayah-num">٤</span>
-        <p class="ar">فَأَثَرْنَ بِهِۦ نَقْعًۭا</p>
+      <div class="ayah" id="a4" data-a="4">
+        <span class="ayah-num playable" data-play-ayah="100:4"
+              role="button" tabindex="0" title="استمع لهذه الآية">٤</span>
+        <p class="ar"><span class="wbw" data-s="100" data-a="4" data-p="1">فَأَثَرْنَ</span> <span class="wbw" data-s="100" data-a="4" data-p="2">بِهِۦ</span> <span class="wbw" data-s="100" data-a="4" data-p="3">نَقْعًۭا</span></p>
       </div>
-      <div class="ayah" id="a5">
-        <span class="ayah-num">٥</span>
-        <p class="ar">فَوَسَطْنَ بِهِۦ جَمْعًا</p>
+      <div class="ayah" id="a5" data-a="5">
+        <span class="ayah-num playable" data-play-ayah="100:5"
+              role="button" tabindex="0" title="استمع لهذه الآية">٥</span>
+        <p class="ar"><span class="wbw" data-s="100" data-a="5" data-p="1">فَوَسَطْنَ</span> <span class="wbw" data-s="100" data-a="5" data-p="2">بِهِۦ</span> <span class="wbw" data-s="100" data-a="5" data-p="3">جَمْعًا</span></p>
       </div>
-      <div class="ayah" id="a6">
-        <span class="ayah-num">٦</span>
-        <p class="ar">إِنَّ ٱلْإِنسَٰنَ لِرَبِّهِۦ لَكَنُودٌۭ</p>
+      <div class="ayah" id="a6" data-a="6">
+        <span class="ayah-num playable" data-play-ayah="100:6"
+              role="button" tabindex="0" title="استمع لهذه الآية">٦</span>
+        <p class="ar"><span class="wbw" data-s="100" data-a="6" data-p="1">إِنَّ</span> <span class="wbw" data-s="100" data-a="6" data-p="2">ٱلْإِنسَٰنَ</span> <span class="wbw" data-s="100" data-a="6" data-p="3">لِرَبِّهِۦ</span> <span class="wbw" data-s="100" data-a="6" data-p="4">لَكَنُودٌۭ</span></p>
       </div>
-      <div class="ayah" id="a7">
-        <span class="ayah-num">٧</span>
-        <p class="ar">وَإِنَّهُۥ عَلَىٰ ذَٰلِكَ لَشَهِيدٌۭ</p>
+      <div class="ayah" id="a7" data-a="7">
+        <span class="ayah-num playable" data-play-ayah="100:7"
+              role="button" tabindex="0" title="استمع لهذه الآية">٧</span>
+        <p class="ar"><span class="wbw" data-s="100" data-a="7" data-p="1">وَإِنَّهُۥ</span> <span class="wbw" data-s="100" data-a="7" data-p="2">عَلَىٰ</span> <span class="wbw" data-s="100" data-a="7" data-p="3">ذَٰلِكَ</span> <span class="wbw" data-s="100" data-a="7" data-p="4">لَشَهِيدٌۭ</span></p>
       </div>
-      <div class="ayah" id="a8">
-        <span class="ayah-num">٨</span>
-        <p class="ar">وَإِنَّهُۥ لِحُبِّ ٱلْخَيْرِ لَشَدِيدٌ</p>
+      <div class="ayah" id="a8" data-a="8">
+        <span class="ayah-num playable" data-play-ayah="100:8"
+              role="button" tabindex="0" title="استمع لهذه الآية">٨</span>
+        <p class="ar"><span class="wbw" data-s="100" data-a="8" data-p="1">وَإِنَّهُۥ</span> <span class="wbw" data-s="100" data-a="8" data-p="2">لِحُبِّ</span> <span class="wbw" data-s="100" data-a="8" data-p="3">ٱلْخَيْرِ</span> <span class="wbw" data-s="100" data-a="8" data-p="4">لَشَدِيدٌ</span></p>
       </div>
-      <div class="ayah" id="a9">
-        <span class="ayah-num">٩</span>
-        <p class="ar">۞ أَفَلَا يَعْلَمُ إِذَا بُعْثِرَ مَا فِى ٱلْقُبُورِ</p>
+      <div class="ayah" id="a9" data-a="9">
+        <span class="ayah-num playable" data-play-ayah="100:9"
+              role="button" tabindex="0" title="استمع لهذه الآية">٩</span>
+        <p class="ar">۞ <span class="wbw" data-s="100" data-a="9" data-p="1">أَفَلَا</span> <span class="wbw" data-s="100" data-a="9" data-p="2">يَعْلَمُ</span> <span class="wbw" data-s="100" data-a="9" data-p="3">إِذَا</span> <span class="wbw" data-s="100" data-a="9" data-p="4">بُعْثِرَ</span> <span class="wbw" data-s="100" data-a="9" data-p="5">مَا</span> <span class="wbw" data-s="100" data-a="9" data-p="6">فِى</span> <span class="wbw" data-s="100" data-a="9" data-p="7">ٱلْقُبُورِ</span></p>
       </div>
-      <div class="ayah" id="a10">
-        <span class="ayah-num">١٠</span>
-        <p class="ar">وَحُصِّلَ مَا فِى ٱلصُّدُورِ</p>
+      <div class="ayah" id="a10" data-a="10">
+        <span class="ayah-num playable" data-play-ayah="100:10"
+              role="button" tabindex="0" title="استمع لهذه الآية">١٠</span>
+        <p class="ar"><span class="wbw" data-s="100" data-a="10" data-p="1">وَحُصِّلَ</span> <span class="wbw" data-s="100" data-a="10" data-p="2">مَا</span> <span class="wbw" data-s="100" data-a="10" data-p="3">فِى</span> <span class="wbw" data-s="100" data-a="10" data-p="4">ٱلصُّدُورِ</span></p>
       </div>
-      <div class="ayah" id="a11">
-        <span class="ayah-num">١١</span>
-        <p class="ar">إِنَّ رَبَّهُم بِهِمْ يَوْمَئِذٍۢ لَّخَبِيرٌۢ</p>
+      <div class="ayah" id="a11" data-a="11">
+        <span class="ayah-num playable" data-play-ayah="100:11"
+              role="button" tabindex="0" title="استمع لهذه الآية">١١</span>
+        <p class="ar"><span class="wbw" data-s="100" data-a="11" data-p="1">إِنَّ</span> <span class="wbw" data-s="100" data-a="11" data-p="2">رَبَّهُم</span> <span class="wbw" data-s="100" data-a="11" data-p="3">بِهِمْ</span> <span class="wbw" data-s="100" data-a="11" data-p="4">يَوْمَئِذٍۢ</span> <span class="wbw" data-s="100" data-a="11" data-p="5">لَّخَبِيرٌۢ</span></p>
       </div>
     </div>
     <div class="ayah-nav" style="margin:24px 0 40px">
@@ -88,6 +101,8 @@
       <a class="btn ghost" href="../101/arabic.html">السورة التالية →</a>
     </div>
   </main>
+  <script src="../../assets/js/player.js"></script>
+  <script src="../../assets/js/wbw.js"></script>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('../../sw.js').catch(function () {});

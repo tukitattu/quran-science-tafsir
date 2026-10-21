@@ -328,6 +328,42 @@ function injectArabicLink(){
   a.style.textDecoration = "none";
   host.prepend(a);
 }
+function loadTilawah(){
+  if (window.QuranPlayer) {
+    if (window.__QuranPlayQueue && window.__QuranPlayQueue.length) {
+      var q = window.__QuranPlayQueue.splice(0);
+      q.forEach(function(fn){ try{ fn(); }catch(e){} });
+    }
+    return;
+  }
+  window.__QuranPlayQueue = window.__QuranPlayQueue || [];
+  var sc = document.createElement("script");
+  sc.src = relBase() + "assets/js/player.js";
+  sc.defer = true;
+  document.head.appendChild(sc);
+}
+function injectPlayButton(){
+  const read = location.pathname.match(/\/chapters\/(\d+)\/read\//);
+  const overview = location.pathname.match(/\/chapters\/(\d+)\.html$/);
+  const n = read ? read[1] : (overview ? overview[1] : null);
+  if (!n) return;
+  const host = document.querySelector(".top-actions");
+  if (!host || host.querySelector("[data-play-surah]")) return;
+  const b = document.createElement("button");
+  b.className = "btn";
+  b.setAttribute("data-play-surah", n);
+  b.textContent = "\u25B6 Tilawah";
+  b.title = "Play this surah — streaming audio";
+  b.addEventListener("click", function(){
+    if (window.QuranPlayer) return; // player.js delegation handles it
+    loadTilawah();
+    window.__QuranPlayQueue.push(function(){
+      if (window.QuranPlayer) window.QuranPlayer.playSurah(+n);
+    });
+  });
+  host.prepend(b);
+  loadTilawah();
+}
 function injectToTop(){
   const btn = document.createElement("button");
   btn.className = "to-top"; btn.title = "Back to top"; btn.setAttribute("aria-label","Back to top");
@@ -350,6 +386,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
   try{ injectContinueReading(); }catch(e){ console.error("continue", e); }
   try{ injectReaderControls(); }catch(e){ console.error("readsizer", e); }
   try{ injectArabicLink(); }catch(e){ console.error("arabic-link", e); }
+  try{ injectPlayButton(); }catch(e){ console.error("play-btn", e); }
   try{ injectToTop(); }catch(e){ console.error("totop", e); }
   try{ saveReadSpot(); }catch(e){ console.error("spot", e); }
   if('serviceWorker' in navigator && !location.pathname.includes('sw.js')){

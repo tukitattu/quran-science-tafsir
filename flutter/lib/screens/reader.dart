@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../db.dart';
 import '../knowledge.dart';
 import '../main.dart';
+import '../player.dart';
 import '../prefs.dart';
 import 'arabic_surah.dart';
 import 'read.dart'; // AppColors
@@ -230,6 +231,12 @@ class _ReaderScreenState extends State<ReaderScreen> {
               style: const TextStyle(fontSize: 11, color: AppColors.muted)),
         ]),
         actions: [
+          IconButton(
+            tooltip: 'Tilawah — play this surah',
+            onPressed: () =>
+                TilawahPlayer.instance.toggleForSurah(widget.surahId),
+            icon: TilawahIcon(surah: widget.surahId),
+          ),
           IconButton(
             tooltip: 'Arabic text',
             icon: const Icon(Icons.menu_book_outlined),

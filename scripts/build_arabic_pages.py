@@ -8,6 +8,7 @@ assets/data/chapters.js. Deterministic — no timestamps, safe to re-run.
 """
 import html
 import json
+import re
 import pathlib
 import re
 import shutil
@@ -32,7 +33,7 @@ PAGE = """<!DOCTYPE html>
   <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
 </head>
-<body class="content-ar">
+<body class="content-ar" data-surah="{n}">
   <header class="topbar">
     <a class="brand" href="../../index.html">
       <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
@@ -42,6 +43,7 @@ PAGE = """<!DOCTYPE html>
       </span>
     </a>
     <div class="top-actions">
+      <button class="btn" data-play-surah="{n}" title="استماع التلاوة كاملة">▶ تلاوة</button>
       <a class="btn ghost" href="../{n}.html" style="text-decoration:none">التفسير</a>
     </div>
   </header>
@@ -50,6 +52,7 @@ PAGE = """<!DOCTYPE html>
     <div class="breadcrumbs"><a href="../../index.html">الرئيسية</a> › <a href="../{n}.html">سورة {ar}</a> › النص العربي</div>
     <h1><span class="arabic-text">{ar}</span></h1>
     <span class="sh-en">{en} · {count} آيات</span>
+    <p class="wbw-hint">اضغط أي كلمة لمعناها بالعربية والإنجليزية والبنغالية · اضغط رقم الآية لسماعها</p>
     <div class="ayah-nav">
       {prev}
       <a class="btn ghost" href="../{n}.html">التفسير الكامل</a>
@@ -66,6 +69,8 @@ PAGE = """<!DOCTYPE html>
       {next}
     </div>
   </main>
+  <script src="../../assets/js/player.js"></script>
+  <script src="../../assets/js/wbw.js"></script>
   <script>
     if ('serviceWorker' in navigator) {{
       navigator.serviceWorker.register('../../sw.js').catch(function () {{}});
@@ -75,10 +80,43 @@ PAGE = """<!DOCTYPE html>
 </html>
 """
 
-AYAH = ('      <div class="ayah" id="a{n}">\n'
-        '        <span class="ayah-num">{num}</span>\n'
+AR_LETTER = re.compile(r"[\u0621-\u064a]")
+AYAH = ('      <div class="ayah" id="a{a}" data-a="{a}">\n'
+        '        <span class="ayah-num playable" data-play-ayah="{s}:{a}"\n'
+        '              role="button" tabindex="0" title="استمع لهذه الآية">{num}</span>\n'
         '        <p class="ar">{text}</p>\n'
         '      </div>')
+
+
+def letter_tokens(text):
+    return [t for t in text.replace("\ufeff", "").split() if AR_LETTER.search(t)]
+
+
+def render_ayah(n, a, text, words):
+    """Wrap each letter-token in a .wbw span when alignment with the
+    word-by-word data is safe (6235/6236 ayahs align; basmala-in-ayah-1
+    and pause marks handled). Falls back to plain text otherwise."""
+    tokens = text.replace("\ufeff", "").split()
+    if words:
+        lcount = len(letter_tokens(text))
+        skip = 0
+        if lcount == len(words) + 4 and a == 1 and n > 1:
+            skip = 4  # quran_ar embeds the basmala inside 1:1
+        elif lcount != len(words):
+            words = None  # tokenisation mismatch — plain text
+    parts, i = [], 0
+    for t in tokens:
+        esc = html.escape(t)
+        if words and AR_LETTER.search(t):
+            i += 1
+            if i > skip:
+                parts.append(f'<span class="wbw" data-s="{n}" data-a="{a}" '
+                             f'data-p="{i}">{esc}</span>')
+            else:
+                parts.append(esc)
+        else:
+            parts.append(esc)
+    return " ".join(parts)
 
 
 def surah_names():
@@ -99,6 +137,17 @@ def surah_names():
     return {int(k): v for k, v in chapters.items()}
 
 
+def wbw_for(n):
+    f = ROOT / "assets" / "data" / "wbw" / f"{n}.json"
+    if not f.exists():
+        return {}
+    try:
+        d = json.loads(f.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+    return {int(r["a"]): r["w"] for r in d.get("ayahs", [])}
+
+
 def main():
     quran = json.loads(QURAN_AR.read_text(encoding="utf-8-sig"))
     names = surah_names()
@@ -109,10 +158,15 @@ def main():
             print(f"! no Arabic text for surah {n}")
             continue
         meta = names.get(n, {})
+        wbw = wbw_for(n)
         blocks = []
         for a in sorted(ayahs, key=lambda k: int(k)):
-            text = html.escape(str(ayahs[a]).replace("\ufeff", "").strip())
-            blocks.append(AYAH.format(n=int(a), num=str(int(a)).translate(DIGITS), text=text))
+            text = str(ayahs[a]).replace("\ufeff", "").strip()
+            blocks.append(AYAH.format(
+                s=n,
+                a=int(a),
+                num=str(int(a)).translate(DIGITS),
+                text=render_ayah(n, int(a), text, wbw.get(int(a)))))
         prev_link = (f'<a class="btn ghost" href="../{n-1}/arabic.html">← السورة السابقة</a>'
                      if n > 1 else "<span></span>")
         next_link = (f'<a class="btn ghost" href="../{n+1}/arabic.html">السورة التالية →</a>'

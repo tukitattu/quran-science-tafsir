@@ -696,3 +696,71 @@ body.content-bn .biz-en { display: none; }
 .ayah-nav a { text-decoration: none; color: var(--accent); }
 @media (max-width: 600px) { .ayah .ar { font-size: 1.32rem; } .ayah { gap: 10px; } }
 .ar-link { white-space: nowrap; }
+
+/* ===== Tilawah player bar ===== */
+#qp-bar {
+  position: fixed; left: 50%; transform: translateX(-50%); bottom: 14px; z-index: 90;
+  display: none; align-items: center; gap: 6px; padding: 7px 9px;
+  background: rgba(35, 43, 54, .95); color: #F8F8F4; border-radius: 999px;
+  box-shadow: var(--shadow-lift); max-width: calc(100vw - 20px);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+#qp-bar button {
+  border: 1px solid rgba(248,248,244,.22); background: rgba(248,248,244,.08); color: inherit;
+  border-radius: 999px; min-width: 34px; height: 34px; padding: 0 10px;
+  font-size: .95rem; line-height: 1; cursor: pointer; transition: background .15s, transform .1s;
+}
+#qp-bar button:hover { background: rgba(248,248,244,.2); }
+#qp-bar button:active { transform: scale(.93); }
+#qp-bar #qp-toggle {
+  min-width: 42px; height: 42px; font-size: 1.15rem;
+  background: #D9B44A; border-color: #D9B44A; color: #232B36; font-weight: 700;
+}
+#qp-bar #qp-toggle:hover { background: #E8C768; }
+#qp-bar #qp-reciter { font-size: .72rem; padding: 0 12px; letter-spacing: .02em; }
+#qp-label { font-size: .8rem; opacity: .92; max-width: 40vw; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#qp-bar.is-playing #qp-toggle { box-shadow: 0 0 0 3px rgba(217,180,74,.35); }
+@media (max-width: 600px) {
+  #qp-bar { bottom: 10px; gap: 4px; padding: 6px 7px; }
+  #qp-bar button { min-width: 30px; height: 30px; padding: 0 8px; font-size: .85rem; }
+  #qp-bar #qp-toggle { min-width: 38px; height: 38px; font-size: 1.05rem; }
+  #qp-label { max-width: 30vw; font-size: .74rem; }
+}
+
+/* ===== Ayah play badge + active ayah ===== */
+.ayah-num.playable { cursor: pointer; user-select: none; transition: background .15s, transform .1s, color .15s; }
+.ayah-num.playable:hover { background: rgba(166,124,27,.32); color: #FFF; }
+.ayah-num.playable:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ayah-num.playable:active { transform: scale(.9); }
+.ayah.is-active { background: rgba(217,180,74,.13); border-radius: 12px; box-shadow: inset 3px 0 0 #A67C1B; }
+[dir="rtl"] .ayah.is-active { box-shadow: inset -3px 0 0 #A67C1B; }
+
+/* ===== Word-by-word spans + popover ===== */
+.wbw { cursor: pointer; border-radius: 7px; padding: 0 1px; transition: background .15s, box-shadow .15s; }
+.wbw:hover { background: rgba(217,180,74,.25); box-shadow: 0 0 0 2px rgba(217,180,74,.25); }
+.wbw.is-on { background: rgba(217,180,74,.4); }
+.wbw-hint { font-size: .8rem; color: var(--muted); margin: 6px 0 0; }
+#wbw-pop {
+  position: fixed; z-index: 95; width: min(350px, calc(100vw - 24px));
+  background: #FFFDF7; border: 1px solid var(--border); border-radius: 18px;
+  box-shadow: var(--shadow-lift); padding: 16px 18px 14px;
+  animation: wbw-pop-in .16s ease-out;
+}
+@keyframes wbw-pop-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+#wbw-pop .wbw-ar { font-family: var(--font-ar); font-size: 1.8rem; line-height: 1.9; direction: rtl; text-align: right; color: var(--text); }
+#wbw-pop .wbw-tr { color: var(--muted); font-size: .82rem; font-style: italic; margin-top: 2px; }
+#wbw-pop .wbw-en, #wbw-pop .wbw-bn { font-size: .88rem; line-height: 1.5; margin-top: 8px; color: var(--text); }
+#wbw-pop .wbw-en b, #wbw-pop .wbw-bn b { color: var(--accent); font-size: .72rem; letter-spacing: .04em; }
+#wbw-pop .wbw-x {
+  position: absolute; top: 8px; inset-inline-start: 8px; width: 26px; height: 26px;
+  border: 0; background: rgba(35,43,54,.08); color: var(--muted); border-radius: 50%;
+  cursor: pointer; font-size: .78rem; line-height: 1;
+}
+#wbw-pop .wbw-x:hover { background: rgba(35,43,54,.18); color: var(--text); }
+#wbw-pop .wbw-audio {
+  display: inline-block; margin-top: 12px; padding: 7px 14px; border: 0; cursor: pointer;
+  background: var(--accent2); color: #232B36; font-weight: 700; font-size: .8rem;
+  border-radius: 999px; transition: transform .1s, background .15s;
+}
+#wbw-pop .wbw-audio:hover { background: #E8C768; }
+#wbw-pop .wbw-audio:active { transform: scale(.95); }
