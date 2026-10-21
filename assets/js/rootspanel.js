@@ -18,7 +18,10 @@
   panel.className = "roots-panel";
   panel.innerHTML =
     '<summary><b>Roots &amp; deep words of this surah</b> <span class="roots-hint">– tap to open</span></summary>' +
-    '<div class="roots-body" aria-live="polite"><div class="roots-loading">Loading…</div></div>';
+    '<div class="roots-body" aria-live="polite">' +
+    '<div class="roots-loading"><div class="skel skel-line" style="width:46%"></div>' +
+    '<div class="skel-row"><div class="skel skel-card"></div><div class="skel skel-card"></div>' +
+    '<div class="skel skel-card"></div><div class="skel skel-card"></div></div></div></div>';
 
   var before = list;
   list.parentNode.insertBefore(panel, before);

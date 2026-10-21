@@ -125,6 +125,8 @@
         '<a class="wbw-corpus" href="' + esc(corpusURL) + '" target="_blank" rel="noopener noreferrer">root &amp; morphology ↗ corpus.quran.com</a>' +
         (w.au ? '<button class="wbw-audio" data-play-word="' + esc(w.au) + '">▶ hear the word</button>' : "");
       document.body.appendChild(pop);
+      pop.setAttribute("role", "dialog");
+      pop.setAttribute("aria-label", "Word details");
       pop.querySelector(".wbw-x").addEventListener("click", hide);
       /* deep data still loading? swap the studies in when it arrives */
       if (deepPromise) {

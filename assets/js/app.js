@@ -406,3 +406,164 @@ document.addEventListener("DOMContentLoaded", ()=>{
     navigator.serviceWorker.register(relBase()+'sw.js').catch(()=>{});
   }
 });
+/* =================== Phase 3: surah-page anchor tabs =================== */
+(function(){
+  if (window.__surahTabs) return;
+  window.__surahTabs = true;
+  const PATTERNS = [
+    ["kb-context-", "Context"], ["kb-roots-", "Roots"], ["kb-science-", "Science"],
+    ["kb-ghaur-", "Videos"], ["kb-alt-", "Alt meanings"], ["kb-wiki-", "Wiki"], ["deep-", "Deep research"]
+  ];
+  const first = document.querySelector('[id^="kb-context-"]');
+  if (!first) return;
+  const n = (first.id.match(/-(\d+)$/) || [])[1];
+  if (!n) return;
+  const items = [];
+  for (const [pfx, label] of PATTERNS) {
+    if (pfx === "deep-" ? document.getElementById("deep-" + n) : document.getElementById(pfx + n)) items.push([pfx + n, label]);
+  }
+  if (!items.length) return;
+  const bar = document.createElement("div");
+  bar.className = "anchor-tabbar";
+  bar.setAttribute("role", "tablist");
+  bar.setAttribute("aria-label", "Jump to section");
+  bar.innerHTML = items.map(([id, label]) =>
+    `<button type="button" role="tab" class="anchor-tab" data-target="${id}">${label}</button>`).join("");
+  const anchor = document.getElementById("kb-" + n) || first;
+  anchor.parentNode.insertBefore(bar, anchor);
+  bar.addEventListener("click", e => {
+    const b = e.target.closest(".anchor-tab");
+    if (!b) return;
+    bar.querySelectorAll(".anchor-tab").forEach(x => x.classList.remove("on"));
+    b.classList.add("on");
+    const t = document.getElementById(b.dataset.target);
+    if (t) t.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+})();
+
+/* =================== Phase 4: home tabs (Browse / Continue / Marked) =================== */
+(function(){
+  if (window.__homeTabs) return;
+  window.__homeTabs = true;
+  const grid = document.getElementById("chaptersGrid");
+  if (!grid || document.querySelector(".home-tabs")) return;
+
+  const esc2 = s => String(s==null?"":s).replace(/[<>&"]/g, c=>({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]));
+  const NAMES = {};
+  try {
+    const ch = (typeof QURAN !== "undefined" && QURAN.chapters) || (window.CHAPTERS && (window.CHAPTERS.chapters || window.CHAPTERS)) || [];
+    (Array.isArray(ch) ? ch : Object.values(ch)).forEach(c => { if (c && c.n) NAMES[c.n] = c; });
+  } catch(e) {}
+
+  /* panes */
+  const tabs = document.createElement("div");
+  tabs.className = "home-tabs";
+  tabs.innerHTML =
+    '<button type="button" class="ht on" data-pane="browse">📖 Browse</button>' +
+    '<button type="button" class="ht" data-pane="continue">⏩ Continue</button>' +
+    '<button type="button" class="ht" data-pane="marked">🔖 Marked</button>';
+
+  const paneBrowse = document.createElement("div");
+  paneBrowse.className = "ht-pane on";
+  const paneContinue = document.createElement("div");
+  paneContinue.className = "ht-pane";
+  const paneMarked = document.createElement("div");
+  paneMarked.className = "ht-pane";
+
+  /* move the existing filter section + grid into the browse pane */
+  const gridSec = grid.closest("section") || grid;
+  const fb = document.getElementById("filterBar");
+  const filterSec = fb ? fb.closest("section") || fb : null;
+  const anchor0 = document.createElement("div");
+  gridSec.parentNode.insertBefore(anchor0, gridSec);
+  if (filterSec) paneBrowse.appendChild(filterSec);
+  paneBrowse.appendChild(gridSec);
+  anchor0.replaceWith(tabs);
+  tabs.after(paneBrowse);
+  paneContinue.className = "ht-pane";
+  paneContinue.id = "htContinue";
+  paneMarked.id = "htMarked";
+  paneBrowse.after(paneContinue);
+  paneContinue.after(paneMarked);
+
+  function setPane(name){
+    tabs.querySelectorAll(".ht").forEach(b => b.classList.toggle("on", b.dataset.pane === name));
+    paneBrowse.classList.toggle("on", name === "browse");
+    paneContinue.classList.toggle("on", name === "continue");
+    paneMarked.classList.toggle("on", name === "marked");
+    if (name === "continue") buildContinue();
+    if (name === "marked") buildMarked();
+  }
+  tabs.addEventListener("click", e => {
+    const b = e.target.closest(".ht");
+    if (b) setPane(b.dataset.pane);
+  });
+
+  /* ---- continue pane: resume card + reading history ---- */
+  function buildContinue(){
+    let spot = null, hist = [];
+    try { spot = JSON.parse(localStorage.getItem("tafsir-last-read") || "null"); } catch(e){ spot = null; }
+    try { hist = JSON.parse(localStorage.getItem("quran-history") || "[]"); } catch(e){ hist = []; }
+    const b = location.pathname.replace(/index\.html.*$/, "");
+    if (spot && spot.surah) {
+      const c = NAMES[spot.surah] || {};
+      const link = (b ? b : "") + "chapters/" + spot.surah + (spot.page ? "/read/page" + spot.page + ".html" : ".html");
+      let card = `<a class="continue-card" href="${esc2(link)}">
+        <span class="cc-num">${c.n ?? spot.surah}</span>
+        <span class="cc-body"><b>${esc2(c.ar || "")}</b> ${esc2(spot.title || c.en || "Surah " + spot.surah)}${spot.page ? ` <span class="cc-page">page ${esc2(spot.page)}</span>` : ""}
+        <span class="cc-sub">Tap to resume reading</span></span></a>`;
+      paneContinue.innerHTML = card;
+    } else {
+      paneContinue.innerHTML = `<div class="continue-card empty"><span class="cc-body"><b>Nothing to resume yet.</b> <span class="cc-sub">Open a surah and your position is remembered here automatically.</span></span></div>`;
+    }
+    if (hist.length > 1) {
+      let list = '<div class="hist-title">Recently read</div>';
+      hist.slice(0, 9).forEach(h => {
+        const c = NAMES[h.surah] || {};
+        const link = (b ? b : "") + "chapters/" + h.surah + (h.page ? "/read/page" + h.page + ".html" : ".html");
+        list += `<a class="hist-item" href="${esc2(link)}"><span class="hi-num">${c.n ?? h.surah}</span><span class="hi-name"><b>${esc2(h.title || c.en || ("Surah " + h.surah))}</b>${h.page ? `<span class="cc-page">· p${esc2(h.page)}</span>` : ""}</span></a>`;
+      });
+      paneContinue.appendChild((() => { const d = document.createElement("div"); d.className = "hist-list"; d.innerHTML = list; return d; })());
+    }
+  }
+
+  /* ---- marked pane: surahs with saved annotations ---- */
+  function buildMarked(){
+    const stores = ["quranNotes", "quranHighlights", "quranRead"];
+    const touched = {};
+    stores.forEach(k => {
+      try { Object.keys(JSON.parse(localStorage.getItem(k) || "{}")).forEach(key => {
+        const p = key.split(":");
+        if (p.length === 2) (touched[p[0]] = touched[p[0]] || []).push(p[1]);
+      }); } catch(e){}
+    });
+    const keys = Object.keys(touched).map(Number).sort((x, y) => x - y);
+    if (!keys.length) {
+      paneMarked.innerHTML = `<div class="continue-card empty"><span class="cc-body"><b>No marked surahs yet.</b> <span class="cc-sub">Highlight ‖, note ✎ or mark ✓ ayahs while reading — they show up here.</span></span></div>`;
+      return;
+    }
+    let html = keys.map(n => {
+      const c = NAMES[n] || {};
+      return `<a class="hist-item" href="${location.pathname.replace(/index\.html.*$/, "")}chapters/${n}/arabic.html"><span class="hi-num">${c.n ?? n}</span><span class="hi-name"><b dir="rtl" lang="ar">${esc2(c.ar || "")}</b> ${esc2(c.en || "Surah " + n)} <span class="cc-page">${touched[n].length} mark${touched[n].length>1?"s":""}</span></span></a>`;
+    }).join("");
+    paneMarked.innerHTML = html;
+  }
+
+  /* ---- history log: extend saveReadSpot ---- */
+  try {
+    const cur = JSON.parse(localStorage.getItem("quran-history") || "[]");
+    if (typeof window.__histHook === "undefined") {
+      window.__histHook = true;
+      const orig = saveReadSpot;
+      saveReadSpot = function(){
+        orig();
+        const m = location.pathname.match(/chapters\/(\d+)(?:\/read\/(\d+)\.html)?/);
+        if (!m) return;
+        const h = document.querySelector(".chapter-head h1") || document.title.split("—")[0];
+        const entry = { surah: parseInt(m[1]), page: m[2] ? parseInt(m[2]) : null, title: h, t: Date.now() };
+        const hist = [entry, ...cur.filter(x => !(x.surah === entry.surah && String(x.page) === String(entry.page)))].slice(0, 12);
+        localStorage.setItem("quran-history", JSON.stringify(hist));
+      };
+    }
+  } catch(e){}
+})();
