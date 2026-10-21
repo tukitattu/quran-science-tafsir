@@ -140,6 +140,67 @@ jobs:
         working-directory: flutter
         run: flutter test --no-pub || echo "no tests"
 
+      - name: Pin release signing key (stable across builds)
+        working-directory: flutter
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          python3 - <<'EOF'
+          import base64, os, pathlib
+          b64 = os.environ.get('ANDROID_KEYSTORE_BASE64', '').strip()
+          if not b64:
+              print('!! ANDROID_KEYSTORE_BASE64 missing - falling back to debug signing')
+              raise SystemExit(0)
+          ks = pathlib.Path(os.environ['RUNNER_TEMP']) / 'release.p12'
+          ks.write_bytes(base64.b64decode(b64))
+          pw = os.environ['ANDROID_KEYSTORE_PASSWORD']
+          alias = os.environ['ANDROID_KEY_ALIAS']
+          kp = os.environ['ANDROID_KEY_PASSWORD']
+          p = pathlib.Path('android/app/build.gradle.kts')
+          kts = p.exists()
+          if not kts:
+              p = pathlib.Path('android/app/build.gradle')
+          s = p.read_text()
+          if 'create("release")' in s or 'signingConfigs.release' in s:
+              print('release signing already configured')
+              raise SystemExit(0)
+          if kts:
+              block = (
+                  '    signingConfigs {\n'
+                  '        create("release") {\n'
+                  f'            storeFile = file("{ks}")\n'
+                  '            storeType = "PKCS12"\n'
+                  f'            storePassword = "{pw}"\n'
+                  f'            keyAlias = "{alias}"\n'
+                  f'            keyPassword = "{kp}"\n'
+                  '        }\n'
+                  '    }\n'
+              )
+              s = s.replace('android {', 'android {\n' + block, 1)
+              s = s.replace('signingConfig = signingConfigs.getByName("debug")',
+                            'signingConfig = signingConfigs.getByName("release")')
+          else:
+              block = (
+                  '    signingConfigs {\n'
+                  '        release {\n'
+                  f'            storeFile file("{ks}")\n'
+                  '            storeType "PKCS12"\n'
+                  f'            storePassword "{pw}"\n'
+                  f'            keyAlias "{alias}"\n'
+                  f'            keyPassword "{kp}"\n'
+                  '        }\n'
+                  '    }\n'
+              )
+              s = s.replace('android {', 'android {\n' + block, 1)
+              s = s.replace('signingConfig signingConfigs.debug',
+                            'signingConfig signingConfigs.release')
+          p.write_text(s)
+          print('release signing wired into', p)
+          EOF
+
       - name: Build release APK (split per ABI, lightweight)
         working-directory: flutter
         run: |
