@@ -1,4 +1,4 @@
-const CACHE = "tafsir-v8";
+const CACHE = "tafsir-v9";
 const ASSETS = [
   "./",
   "./index.html",
