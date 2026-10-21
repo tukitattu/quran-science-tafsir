@@ -19,6 +19,7 @@ class _ReadTabState extends State<ReadTab> {
   String _q = '';
   int? _continueTo;
   bool _loading = true;
+  String? _error;
 
   @override
   void initState() {
@@ -27,16 +28,32 @@ class _ReadTabState extends State<ReadTab> {
   }
 
   Future<void> _load() async {
-    final s = await TafsirDb.i.surahs();
-    final today = await TafsirDb.i.ayahOfTheDay();
-    final sp = await SharedPreferences.getInstance();
-    final visited = sp.getStringList('visited') ?? [];
-    final cont = sp.getInt('lastSurah');
+    var surahs = <Map<String, Object?>>[];
+    Map<String, Object?>? today;
+    String? error;
+    var visited = 0;
+    int? cont;
+    try {
+      surahs = await TafsirDb.i.surahs();
+      today = await TafsirDb.i.ayahOfTheDay();
+    } catch (e) {
+      debugPrint('surah load failed: $e');
+      error = '$e';
+    }
+    try {
+      final sp = await SharedPreferences.getInstance();
+      visited = (sp.getStringList('visited') ?? []).length;
+      cont = sp.getInt('lastSurah');
+    } catch (e) {
+      debugPrint('prefs load failed: $e');
+    }
+    if (!mounted) return;
     setState(() {
-      _surahs = s;
+      _surahs = surahs;
       _today = today;
-      _visited = visited.length;
+      _visited = visited;
       _continueTo = cont;
+      _error = error;
       _loading = false;
     });
   }
@@ -56,6 +73,37 @@ class _ReadTabState extends State<ReadTab> {
   Widget build(BuildContext context) {
     if (_loading) {
       return const Center(child: CircularProgressIndicator());
+    }
+    if (_error != null) {
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(Icons.storage_rounded, size: 40),
+              const SizedBox(height: 12),
+              const Text('The library could not be opened.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontWeight: FontWeight.w700)),
+              const SizedBox(height: 8),
+              Text(_error!, textAlign: TextAlign.center,
+                  style: const TextStyle(fontSize: 12)),
+              const SizedBox(height: 16),
+              FilledButton(
+                onPressed: () {
+                  setState(() {
+                    _loading = true;
+                    _error = null;
+                  });
+                  _load();
+                },
+                child: const Text('Retry'),
+              ),
+            ],
+          ),
+        ),
+      );
     }
     final t = _today ?? {};
     return ListView(

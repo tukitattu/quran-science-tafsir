@@ -18,6 +18,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
   List<Map<String, Object?>> _paras = [];
   Map<String, Object?> _meta = {};
   bool _loading = true;
+  String? _error;
   late final PageController _pager;
   double _font = 16;
   String _lang = 'both';
@@ -30,15 +31,24 @@ class _ReaderScreenState extends State<ReaderScreen> {
   }
 
   Future<void> _load() async {
-    final sp = await SharedPreferences.getInstance();
-    await Knowledge.i.load();
-    final paras = await TafsirDb.i.paras(widget.surahId);
-    final meta = await TafsirDb.i.tafsirMeta(widget.surahId) ?? {};
-    final vis = sp.getStringList('visited') ?? [];
-    if (!vis.contains('${widget.surahId}')) {
-      await sp.setStringList('visited', [...vis, '${widget.surahId}']);
+    var paras = <Map<String, Object?>>[];
+    Map<String, Object?> meta = {};
+    var initPage = 0;
+    String? error;
+    try {
+      await Knowledge.i.load();
+      paras = await TafsirDb.i.paras(widget.surahId);
+      meta = await TafsirDb.i.tafsirMeta(widget.surahId) ?? {};
+      final sp = await SharedPreferences.getInstance();
+      final vis = sp.getStringList('visited') ?? [];
+      if (!vis.contains('${widget.surahId}')) {
+        await sp.setStringList('visited', [...vis, '${widget.surahId}']);
+      }
+      initPage = sp.getInt('page:${widget.surahId}') ?? 0;
+    } catch (e) {
+      debugPrint('reader load failed: $e');
+      error = '$e';
     }
-    final initPage = sp.getInt('page:${widget.surahId}') ?? 0;
     if (initPage > 0 && initPage < paras.length) {
       Future.microtask(() {
         if (mounted && _pager.hasClients) {
@@ -46,11 +56,13 @@ class _ReaderScreenState extends State<ReaderScreen> {
         }
       });
     }
+    if (!mounted) return;
     setState(() {
       _paras = paras;
       _meta = meta;
       _font = app.fontScale * 16;
       _lang = app.lang;
+      _error = error;
       _loading = false;
     });
   }
@@ -63,10 +75,16 @@ class _ReaderScreenState extends State<ReaderScreen> {
   }
 
   Future<void> _savePage() async {
-    final sp = await SharedPreferences.getInstance();
-    final i = _pager.hasClients ? _pager.page?.round() ?? 0 : 0;
-    await sp.setInt('page:${widget.surahId}', (i * 25).clamp(0, _paras.length - 1));
-    await sp.setInt('lastSurah', widget.surahId);
+    try {
+      if (_paras.isEmpty) return;
+      final sp = await SharedPreferences.getInstance();
+      final i = _pager.hasClients ? _pager.page?.round() ?? 0 : 0;
+      final at = (i * 25).clamp(0, _paras.length - 1);
+      await sp.setInt('page:${widget.surahId}', at);
+      await sp.setInt('lastSurah', widget.surahId);
+    } catch (e) {
+      debugPrint('save page failed: $e');
+    }
   }
 
   void _setLang(String v) {
@@ -154,7 +172,43 @@ class _ReaderScreenState extends State<ReaderScreen> {
 
   @override
   Widget build(BuildContext context) {
-    if (_loading) return const Scaffold(body: Center(child: CircularProgressIndicator()));
+    if (_loading) {
+      return const Scaffold(body: Center(child: CircularProgressIndicator()));
+    }
+    if (_error != null) {
+      return Scaffold(
+        appBar: AppBar(title: const Text('Surah')),
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.storage_rounded, size: 40),
+                const SizedBox(height: 12),
+                const Text('This surah could not be opened.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontWeight: FontWeight.w700)),
+                const SizedBox(height: 8),
+                Text(_error!, textAlign: TextAlign.center,
+                    style: const TextStyle(fontSize: 12)),
+                const SizedBox(height: 16),
+                FilledButton(
+                  onPressed: () {
+                    setState(() {
+                      _loading = true;
+                      _error = null;
+                    });
+                    _load();
+                  },
+                  child: const Text('Retry'),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
     final pages = <List<Widget>>[];
     for (var i = 0; i < _paras.length; i += 25) {
       pages.add(_paras.skip(i).take(25).expand(_paraText).toList());

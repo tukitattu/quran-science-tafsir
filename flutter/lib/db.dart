@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:archive/archive.dart' as a;
+import 'package:flutter/foundation.dart' show debugPrint;
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
@@ -17,22 +18,44 @@ class TafsirDb {
 
   Future<Database> get db async {
     if (_db != null) return _db!;
+    try {
+      _db = await _open();
+    } catch (e) {
+      debugPrint('db open failed ($e) — repacking from asset');
+      try {
+        final docs = await getApplicationDocumentsDirectory();
+        for (final f in [
+          File(p.join(docs.path, 'tafsir.db')),
+          File(p.join(docs.path, 'db.meta')),
+        ]) {
+          if (f.existsSync()) f.deleteSync();
+        }
+      } catch (e) {
+        debugPrint('db cleanup failed: $e');
+      }
+      _db = await _open();
+    }
+    return _db!;
+  }
+
+  Future<Database> _open() async {
     final docs = await getApplicationDocumentsDirectory();
     final dbPath = p.join(docs.path, 'tafsir.db');
     final existing = File(dbPath);
     final assetMeta = File(p.join(docs.path, 'db.meta'));
-    if (!existing.existsSync() ||
-        assetMeta.existsSync() && assetMeta.readAsStringSync() != 'v$kVersion') {
+    final metaOk =
+        assetMeta.existsSync() && assetMeta.readAsStringSync() == 'v$kVersion';
+    final fileOk = existing.existsSync() && existing.lengthSync() > 65536;
+    if (!fileOk || !metaOk) {
       final gz = await rootBundle.load('assets/tafsir.db.gz');
       final bytes = a.GZipDecoder().decodeBytes(
         gz.buffer.asUint8List(gz.offsetInBytes, gz.lengthInBytes),
       );
       if (existing.existsSync()) existing.deleteSync();
-      await existing.writeAsBytes(bytes);
+      await existing.writeAsBytes(bytes, flush: true);
       assetMeta.writeAsStringSync('v$kVersion');
     }
-    _db = await openDatabase(dbPath, readOnly: true);
-    return _db!;
+    return openDatabase(dbPath, readOnly: true);
   }
 
   Future<List<Map<String, Object?>>> surahs() async {

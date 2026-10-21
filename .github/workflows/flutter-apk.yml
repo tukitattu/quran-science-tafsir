@@ -63,6 +63,13 @@ jobs:
           if 'POST_NOTIFICATIONS' not in s:
               s = s.replace('<application', add + '    <application')
           s = re.sub(r'android:label="[^"]*"', 'android:label="Al Quran - Scientific Tafsir"', s, count=1)
+          # Old Mali/Adreno drivers occasionally render a black frame with
+          # Impeller; Skia is plenty for a text-first reader.
+          if 'EnableImpeller' not in s:
+              s = s.replace(
+                  '    </application>',
+                  '        <meta-data android:name="io.flutter.embedding.android.EnableImpeller" android:value="false"/>\n    </application>',
+              )
           p.write_text(s)
           print('manifest label patched:', 'Al Quran - Scientific Tafsir' in p.read_text())
           EOF

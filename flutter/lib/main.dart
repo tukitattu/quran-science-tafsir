@@ -79,18 +79,149 @@ class App extends ChangeNotifier {
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await app.load();
-  // DB unpack happens lazily on first query; surface it as a splash step.
-  try {
-    await TafsirDb.i.db;
-    app.dbReady = true;
-  } catch (e) {
-    debugPrint('db init failed: $e');
+  // Never block the first frame on plugin/database work: render a splash
+  // immediately, then open the app once init has settled.
+  runApp(const BootGate());
+}
+
+/// Startup gate. Shows a real screen from the very first frame, runs every
+/// init step with its own try/catch and a timeout, and surfaces failures
+/// instead of hanging on a black screen.
+class BootGate extends StatefulWidget {
+  const BootGate({super.key});
+
+  @override
+  State<BootGate> createState() => _BootGateState();
+}
+
+class _BootGateState extends State<BootGate> {
+  final List<String> _errors = [];
+  bool _ready = false;
+  bool _dismissed = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _boot();
   }
-  await DailyReminder.i.init();
-  // knowledge layer (ayah text + book extracts) loads in the background
-  Knowledge.i.load();
-  runApp(const TafsirApp());
+
+  void _note(String step, Object e) {
+    debugPrint('startup $step failed: $e');
+    if (_errors.length < 5) _errors.add('$step: $e');
+  }
+
+  Future<void> _boot() async {
+    try {
+      await app.load().timeout(const Duration(seconds: 10));
+    } catch (e) {
+      _note('preferences', e);
+    }
+    try {
+      await TafsirDb.i.db.timeout(const Duration(seconds: 45));
+      app.dbReady = true;
+    } catch (e) {
+      _note('database', e);
+    }
+    try {
+      await DailyReminder.i.init().timeout(const Duration(seconds: 10));
+    } catch (e) {
+      _note('notifications', e);
+    }
+    Knowledge.i.load().catchError((Object e) {
+      debugPrint('knowledge load failed: $e');
+    });
+    if (!mounted) return;
+    setState(() => _ready = true);
+  }
+
+  void _retry() {
+    setState(() {
+      _errors.clear();
+      _ready = false;
+      _dismissed = false;
+    });
+    _boot();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (_ready && (_errors.isEmpty || _dismissed)) {
+      return const TafsirApp();
+    }
+    return MaterialApp(
+      title: 'Al Quran — Scientific Tafsir',
+      debugShowCheckedModeBanner: false,
+      theme: Paper.theme(),
+      home: Scaffold(
+        body: SafeArea(
+          child: Center(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(28),
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 520),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image.asset('assets/icon.png', width: 84, height: 84),
+                    const SizedBox(height: 18),
+                    const Text(
+                      'Al Quran — Scientific Tafsir',
+                      textAlign: TextAlign.center,
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                    ),
+                    const SizedBox(height: 22),
+                    if (!_ready) ...[
+                      const CircularProgressIndicator(),
+                      const SizedBox(height: 14),
+                      const Text('Preparing the library…'),
+                    ] else ...[
+                      const Icon(Icons.warning_amber_rounded, size: 34),
+                      const SizedBox(height: 10),
+                      const Text(
+                        'Some parts could not start. You can retry, or continue '
+                        'and use what is available.',
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 12),
+                      Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: const Color(0x14000000),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Text(
+                          _errors.join('\n\n'),
+                          style: const TextStyle(fontSize: 12, height: 1.4),
+                        ),
+                      ),
+                      const SizedBox(height: 18),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          FilledButton(
+                            onPressed: _retry,
+                            child: const Text('Retry'),
+                          ),
+                          const SizedBox(width: 12),
+                          TextButton(
+                            onPressed: () =>
+                                setState(() => _dismissed = true),
+                            child: const Text('Continue'),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }
 
 class TafsirApp extends StatelessWidget {
