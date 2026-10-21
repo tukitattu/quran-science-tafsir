@@ -85,7 +85,7 @@ class TilawahPlayer {
   TilawahPlayer._();
   static final TilawahPlayer instance = TilawahPlayer._();
 
-  final JustAudio _p = JustAudio();
+  final AudioPlayer _p = AudioPlayer();
   final StreamController<TilawahState> _events =
       StreamController<TilawahState>.broadcast();
 
