@@ -48,6 +48,35 @@ jobs:
           sed -i "s/minSdk = .*/minSdk = 29/; s/minSdkVersion .*/minSdkVersion 29/" "$f"
           grep -n "minSdk" "$f"
 
+      - name: Harden release build (keep plugin classes, no full-mode R8)
+        working-directory: flutter
+        run: |
+          python3 - <<'PY'
+          import pathlib
+          g = pathlib.Path('android/gradle.properties')
+          s = g.read_text()
+          if 'android.enableR8.fullMode' not in s:
+              g.write_text(s.rstrip() + '\nandroid.enableR8.fullMode=false\n')
+          pathlib.Path('android/app/proguard-rules.pro').write_text(
+              '-keep class io.flutter.plugins.sharedpreferences.** { *; }\n'
+              '-keep class androidx.datastore.** { *; }\n'
+              '-keep class com.dexterous.flutterlocalnotifications.** { *; }\n'
+              '-keep class io.flutter.plugins.sqflite.** { *; }\n'
+          )
+          p = pathlib.Path('android/app/build.gradle.kts')
+          kts = p.exists()
+          if not kts:
+              p = pathlib.Path('android/app/build.gradle')
+          s = p.read_text()
+          if kts:
+              s = s.replace('release {', 'release {\n            isMinifyEnabled = false\n            isShrinkResources = false', 1)
+          else:
+              s = s.replace('release {', 'release {\n            minifyEnabled false\n            shrinkResources false', 1)
+          p.write_text(s)
+          print('minify disabled in', p)
+          PY
+          grep -n "MinifyEnabled\|minifyEnabled\|enableR8" android/app/build.gradle* android/gradle.properties
+
       - name: Patch permissions + app label (notifications, alarms, boot)
         working-directory: flutter
         run: |
@@ -203,8 +232,15 @@ jobs:
       - name: Build release APK (split per ABI, lightweight)
         working-directory: flutter
         run: |
-          flutter build apk --release --split-per-abi
+          flutter build apk --release --split-per-abi --no-shrink
           ls -la build/app/outputs/flutter-apk/
+
+      - name: Upload pubspec.lock (dependency pinning)
+        uses: actions/upload-artifact@v4
+        with:
+          name: pubspec-lock
+          path: flutter/pubspec.lock
+          retention-days: 5
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4

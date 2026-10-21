@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../db.dart';
 import '../knowledge.dart';
 import '../main.dart';
+import '../prefs.dart';
 import 'arabic_surah.dart';
 import 'read.dart'; // AppColors
 
@@ -47,12 +47,12 @@ class _ReaderScreenState extends State<ReaderScreen> {
       await Knowledge.i.load();
       paras = await TafsirDb.i.paras(widget.surahId);
       meta = await TafsirDb.i.tafsirMeta(widget.surahId) ?? {};
-      final sp = await SharedPreferences.getInstance();
-      final vis = sp.getStringList('visited') ?? [];
-      if (!vis.contains('${widget.surahId}')) {
+      final sp = await prefsOrNull();
+      final vis = sp?.getStringList('visited') ?? [];
+      if (sp != null && !vis.contains('${widget.surahId}')) {
         await sp.setStringList('visited', [...vis, '${widget.surahId}']);
       }
-      initPage = sp.getInt('page:${widget.surahId}') ?? 0;
+      initPage = sp?.getInt('page:${widget.surahId}') ?? 0;
     } catch (e) {
       debugPrint('reader load failed: $e');
       error = '$e';
@@ -85,11 +85,11 @@ class _ReaderScreenState extends State<ReaderScreen> {
   Future<void> _savePage() async {
     try {
       if (_paras.isEmpty) return;
-      final sp = await SharedPreferences.getInstance();
+      final sp = await prefsOrNull();
       final i = _pager.hasClients ? _pager.page?.round() ?? 0 : 0;
       final at = (i * 25).clamp(0, _paras.length - 1);
-      await sp.setInt('page:${widget.surahId}', at);
-      await sp.setInt('lastSurah', widget.surahId);
+      await sp?.setInt('page:${widget.surahId}', at);
+      await sp?.setInt('lastSurah', widget.surahId);
     } catch (e) {
       debugPrint('save page failed: $e');
     }

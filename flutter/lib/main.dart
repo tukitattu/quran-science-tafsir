@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'db.dart';
+import 'prefs.dart';
 import 'knowledge.dart';
 import 'notify.dart';
 import 'screens/home.dart';
@@ -24,36 +24,36 @@ class App extends ChangeNotifier {
   bool dbReady = false;
 
   Future<void> load() async {
-    final sp = await SharedPreferences.getInstance();
-    lang = sp.getString('lang') ?? 'both';
-    fontScale = sp.getDouble('fontScale') ?? 1.0;
-    reminderOn = sp.getBool('reminderOn') ?? false;
-    reminderHour = sp.getInt('reminderHour') ?? 7;
-    reminderMinute = sp.getInt('reminderMinute') ?? 30;
-    reminderMin = sp.getInt('reminderMin') ?? 7;
-    reminderMax = sp.getInt('reminderMax') ?? 7;
+    final sp = await prefsOrNull();
+    lang = sp?.getString('lang') ?? 'both';
+    fontScale = sp?.getDouble('fontScale') ?? 1.0;
+    reminderOn = sp?.getBool('reminderOn') ?? false;
+    reminderHour = sp?.getInt('reminderHour') ?? 7;
+    reminderMinute = sp?.getInt('reminderMinute') ?? 30;
+    reminderMin = sp?.getInt('reminderMin') ?? 7;
+    reminderMax = sp?.getInt('reminderMax') ?? 7;
     loaded = true;
     notifyListeners();
   }
 
   Future<void> setLang(String v) async {
     lang = v;
-    final sp = await SharedPreferences.getInstance();
-    await sp.setString('lang', v);
+    final sp = await prefsOrNull();
+    await sp?.setString('lang', v);
     notifyListeners();
   }
 
   Future<void> setFontScale(double v) async {
     fontScale = v;
-    final sp = await SharedPreferences.getInstance();
-    await sp.setDouble('fontScale', v);
+    final sp = await prefsOrNull();
+    await sp?.setDouble('fontScale', v);
     notifyListeners();
   }
 
   Future<void> setReminder(bool on) async {
     reminderOn = on;
-    final sp = await SharedPreferences.getInstance();
-    await sp.setBool('reminderOn', on);
+    final sp = await prefsOrNull();
+    await sp?.setBool('reminderOn', on);
     notifyListeners();
     try {
       if (on) {

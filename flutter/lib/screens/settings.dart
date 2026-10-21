@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../db.dart';
 import '../main.dart';
+import '../prefs.dart';
 import '../notify.dart';
 import 'read.dart'; // AppColors
 
@@ -22,9 +22,10 @@ class _SettingsTabState extends State<SettingsTab> {
   }
 
   Future<void> _loadStats() async {
-    final sp = await SharedPreferences.getInstance();
+    final sp = await prefsOrNull();
+    if (!mounted) return;
     setState(() {
-      _visited = (sp.getStringList('visited') ?? []).length;
+      _visited = (sp?.getStringList('visited') ?? []).length;
     });
   }
 

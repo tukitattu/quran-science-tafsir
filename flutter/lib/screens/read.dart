@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../db.dart';
 import '../knowledge.dart';
 import '../main.dart';
+import '../prefs.dart';
 import 'arabic_surah.dart';
 import 'reader.dart';
 
@@ -57,9 +57,9 @@ class _ReadTabState extends State<ReadTab> {
       error = '$e';
     }
     try {
-      final sp = await SharedPreferences.getInstance();
-      visited = (sp.getStringList('visited') ?? []).length;
-      cont = sp.getInt('lastSurah');
+      final sp = await prefsOrNull();
+      visited = (sp?.getStringList('visited') ?? []).length;
+      cont = sp?.getInt('lastSurah');
     } catch (e) {
       debugPrint('prefs load failed: $e');
     }
