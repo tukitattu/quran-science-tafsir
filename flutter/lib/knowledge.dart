@@ -47,6 +47,35 @@ class Knowledge {
     return '';
   }
 
+  /// Deterministic ayah for a given day, chosen across the full Uthmani text.
+  Map<String, dynamic> ayahOfDay(DateTime now) {
+    final surahIds = _ar.keys
+        .map(int.tryParse)
+        .whereType<int>()
+        .toList()
+      ..sort();
+    if (surahIds.isEmpty) return const {};
+    final counts = <int, int>{};
+    var total = 0;
+    for (final s in surahIds) {
+      final c = (_ar['$s'] as Map?)?.length ?? 0;
+      if (c == 0) continue;
+      counts[s] = c;
+      total += c;
+    }
+    if (total == 0) return const {};
+    final days = now.difference(DateTime.utc(2024, 1, 1)).inDays;
+    var pick = days % total;
+    for (final s in counts.keys) {
+      final c = counts[s]!;
+      if (pick < c) {
+        return {'surah': s, 'ayah': pick + 1, 'ar': ayahText(s, pick + 1)};
+      }
+      pick -= c;
+    }
+    return const {};
+  }
+
   List<Map<String, dynamic>> forAyah(int surah, int ayah) {
     final list = (_kb['byAyah'] as Map?)?['$surah:$ayah'];
     return _asList(list);

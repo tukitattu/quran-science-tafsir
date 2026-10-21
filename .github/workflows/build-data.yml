@@ -55,11 +55,9 @@ jobs:
           cp assets/data/business.json flutter/assets/business.json
           cp assets/data/words_export.json flutter/assets/words_export.json
 
-      - name: Backfill Arabic Uthmani + expand alt translations (SQLite)
-        continue-on-error: true
+      - name: Backfill Arabic Uthmani from bundled text (offline, SQLite)
         run: |
-          python scripts/backfill_arabic.py --daily
-        timeout-minutes: 25
+          python scripts/backfill_arabic_local.py
 
       - name: Check for changes
         id: changes

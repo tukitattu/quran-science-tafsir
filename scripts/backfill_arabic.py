@@ -65,11 +65,15 @@ def para_arabic(en_text, arabic_map):
     for i in range(1, len(pieces), 2):
         n = int(pieces[i])
         if n in arabic_map:
-            parts.append(f"[{n}] {arabic_map[n]}")
+            parts.append(clean_arabic(arabic_map[n]))
             used.append(n)
     if not parts:
         return "", []
-    return " ".join(parts), used
+    return " ۞ ".join(parts), used
+
+
+def clean_arabic(text):
+    return (text or "").replace("\ufeff", "").strip()
 
 def bismillah_strip(text, sn, n):
     # surah 1 ayah 1 IS the bismillah; other surahs' editions already exclude it
@@ -90,8 +94,8 @@ def backfill():
         for vid, sn, en in cur.execute("SELECT id, surah_id, en FROM verses WHERE ar IS NULL OR ar=''").fetchall():
             ar, used = para_arabic(en, arabic.get(sn))
             if used:
-                first_used = used[0]
-                cur.execute("UPDATE verses SET ar=?, ayah_num=? WHERE id=?", (ar, first_used, vid))
+                # ayah_num is a per-surah paragraph index here; never overwrite it.
+                cur.execute("UPDATE verses SET ar=? WHERE id=?", (ar, vid))
                 done += 1
         con.commit()
         filled = cur.execute("SELECT COUNT(*) FROM verses WHERE ar IS NOT NULL AND ar!=''").fetchone()[0]

@@ -6,6 +6,13 @@ import '../knowledge.dart';
 import '../main.dart';
 import 'read.dart'; // AppColors
 
+final RegExp _verseMark = RegExp(r'\[(\d+)\]');
+
+/// Replace bare verse markers such as `[3]` with ornamental brackets so the
+/// paragraph text reads naturally (citations like `[Al Quran 9:29]` are left).
+String formatVerseMarks(String s) =>
+    s.replaceAllMapped(_verseMark, (m) => ' \u2009\uFD3F${m[1]}\uFD3E\u2009 ');
+
 class ReaderScreen extends StatefulWidget {
   final int surahId;
   final int startPage;
@@ -144,13 +151,13 @@ class _ReaderScreenState extends State<ReaderScreen> {
     if (_lang != 'en' && bn.isNotEmpty) {
       widgets.add(Padding(
           padding: const EdgeInsets.only(bottom: 12),
-          child: Text(bn,
+          child: Text(formatVerseMarks(bn),
               style: TextStyle(fontSize: fontSize, height: 1.85, color: AppColors.ink))));
     }
     if (_lang != 'bn' && en.isNotEmpty) {
       widgets.add(Padding(
           padding: const EdgeInsets.only(bottom: 12),
-          child: Text(en,
+          child: Text(formatVerseMarks(en),
               style: TextStyle(
                   fontSize: fontSize, height: 1.85,
                   color: _lang == 'both' ? AppColors.muted : AppColors.ink))));

@@ -45,7 +45,6 @@
       if (!counts[c]) return;
       opts += `<option value="${c}">${esc(CAT_LABEL[c] || c)} (${counts[c]})</option>`;
     });
-    if (counts.pending) opts += `<option value="pending">Pending research (${counts.pending})</option>`;
     sel.innerHTML = opts;
   }
 
@@ -167,10 +166,10 @@
     grid.innerHTML = filtered.map(tile).join("");
     grid.hidden = filtered.length === 0;
     document.getElementById("wEmpty").hidden = filtered.length !== 0;
-    const ph = WORDS.filter((x) => x.cat === "pending").length;
+    const shown = WORDS.filter((x) => x.cat !== "pending" && !isPlaceholder(x.w)).length;
     document.getElementById("wCount").textContent = q || cat || sn
       ? `${filtered.length} of ${WORDS.length} words`
-      : `${WORDS.length - ph} study words · ${ph} pending research`;
+      : `${shown} study words`;
     grid.querySelectorAll(".word-tile").forEach((t) => {
       const i = parseInt(t.dataset.i, 10);
       t.addEventListener("click", () => openSheet(i));

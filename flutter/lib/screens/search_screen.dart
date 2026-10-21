@@ -105,6 +105,9 @@ class _SearchTabState extends State<SearchTab> {
   Widget _resultCard(Map<String, Object?> r) {
     final sid = r['surah_id'] as int;
     final ayah = r['ayah_num'];
+    final body = (r[_bengali ? 'bn' : 'en'] ?? '').toString();
+    final cite = RegExp(r'Al Quran\s+(\d+):(\d+)').firstMatch(body);
+    final ref = cite != null ? '${cite[1]}:${cite[2]}' : '\u00b6$ayah';
     return Card(
       child: InkWell(
         borderRadius: BorderRadius.circular(22),
@@ -120,14 +123,14 @@ class _SearchTabState extends State<SearchTab> {
                 color: const Color(0xFFD9B44A).withValues(alpha: .14),
                 borderRadius: BorderRadius.circular(999),
               ),
-              child: Text('$sid. ${_surahName(sid)} · [$ayah]',
+              child: Text('$sid. ${_surahName(sid)} · $ref',
                   style: const TextStyle(
                       color: AppColors.gold,
                       fontSize: 11,
                       fontWeight: FontWeight.w700)),
             ),
             const SizedBox(height: 8),
-            Text(_first((r[_bengali ? 'bn' : 'en'] ?? '').toString(), 220),
+            Text(_first(formatVerseMarks(body), 220),
                 style:
                     const TextStyle(fontSize: 14, height: 1.7, color: AppColors.ink)),
           ]),

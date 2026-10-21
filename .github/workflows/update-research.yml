@@ -58,6 +58,6 @@ jobs:
       - name: Trigger APK build (if updated)
         if: steps.changes.outputs.changed == 'true'
         run: |
-          gh workflow run build-apk.yml --ref main || true
+          gh workflow run flutter-apk.yml --ref main || true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

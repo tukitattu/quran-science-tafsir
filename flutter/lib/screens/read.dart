@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../db.dart';
+import '../knowledge.dart';
 import '../main.dart';
 import 'reader.dart';
 
@@ -34,8 +35,22 @@ class _ReadTabState extends State<ReadTab> {
     var visited = 0;
     int? cont;
     try {
+      await Knowledge.i.load();
       surahs = await TafsirDb.i.surahs();
-      today = await TafsirDb.i.ayahOfTheDay();
+      final pick = Knowledge.i.ayahOfDay(DateTime.now());
+      if (pick.isNotEmpty) {
+        final sid = pick['surah'] as int;
+        today = {
+          'ar': pick['ar'],
+          'ayah': pick['ayah'],
+          'surah': surahs.firstWhere(
+            (s) => (s['id'] as int?) == sid,
+            orElse: () => <String, Object?>{},
+          ),
+        };
+      } else {
+        today = await TafsirDb.i.ayahOfTheDay();
+      }
     } catch (e) {
       debugPrint('surah load failed: $e');
       error = '$e';
@@ -274,7 +289,7 @@ class _TodayCard extends StatelessWidget {
                 style: const TextStyle(
                     fontSize: 22, height: 2, color: AppColors.goldDeep)),
           const SizedBox(height: 8),
-          if (app.lang != 'en')
+          if (app.lang != 'en' && (today['bn'] ?? '').toString().isNotEmpty)
             Text((today['bn'] ?? '').toString(),
                 style: const TextStyle(
                     color: AppColors.muted, height: 1.6)),
