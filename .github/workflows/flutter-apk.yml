@@ -137,7 +137,7 @@ jobs:
 
       - name: flutter test (if any)
         working-directory: flutter
-        run: flutter test --no-pub || echo "no tests"
+        run: flutter test --no-pub
 
       - name: Pin release signing key (stable across builds)
         working-directory: flutter

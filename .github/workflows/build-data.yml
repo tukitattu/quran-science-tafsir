@@ -48,6 +48,10 @@ jobs:
         run: |
           python scripts/build_words_export.py
 
+      - name: Build Arabic-only surah pages
+        run: |
+          python scripts/build_arabic_pages.py
+
       - name: Sync generated data into the Flutter bundle
         run: |
           cp assets/data/quran_ar.json flutter/assets/quran_ar.json

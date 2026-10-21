@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../db.dart';
 import '../knowledge.dart';
 import '../main.dart';
+import 'arabic_surah.dart';
 import 'read.dart'; // AppColors
 
 final RegExp _verseMark = RegExp(r'\[(\d+)\]');
@@ -229,6 +230,16 @@ class _ReaderScreenState extends State<ReaderScreen> {
               style: const TextStyle(fontSize: 11, color: AppColors.muted)),
         ]),
         actions: [
+          IconButton(
+            tooltip: 'Arabic text',
+            icon: const Icon(Icons.menu_book_outlined),
+            onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+              builder: (_) => ArabicSurahScreen(
+                surahId: widget.surahId,
+                title: '${_meta['en'] ?? 'Surah ${widget.surahId}'}',
+              ),
+            )),
+          ),
           SegmentedButton<String>(
             segments: const [
               ButtonSegment(value: 'both', label: Text('EN বাং')),

@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../db.dart';
 import '../knowledge.dart';
 import '../main.dart';
+import 'arabic_surah.dart';
 import 'reader.dart';
 
 class ReadTab extends StatefulWidget {
@@ -242,6 +243,22 @@ class _ReadTabState extends State<ReadTab> {
               child: Text(type == 'madani' ? 'Madani' : 'Makki',
                   style: TextStyle(color: typeColor, fontSize: 10)),
             ),
+            const SizedBox(width: 2),
+            Tooltip(
+              message: 'Arabic text',
+              child: InkWell(
+                borderRadius: BorderRadius.circular(999),
+                onTap: () => _openArabic(id, '${s['en']}'),
+                child: const Padding(
+                  padding: EdgeInsets.all(8),
+                  child: Text('ع',
+                      style: TextStyle(
+                          color: AppColors.gold,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w700)),
+                ),
+              ),
+            ),
           ]),
         ),
       ),
@@ -251,6 +268,11 @@ class _ReadTabState extends State<ReadTab> {
   void _open(int id) {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (_) => ReaderScreen(surahId: id)));
+  }
+
+  void _openArabic(int id, String title) {
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (_) => ArabicSurahScreen(surahId: id, title: title)));
   }
 }
 

@@ -76,6 +76,13 @@ class Knowledge {
     return const {};
   }
 
+  /// Number of ayahs available for a surah (0 when the text is missing).
+  int ayahCount(int surah) {
+    final s = _ar['$surah'];
+    if (s is Map) return s.length;
+    return 0;
+  }
+
   List<Map<String, dynamic>> forAyah(int surah, int ayah) {
     final list = (_kb['byAyah'] as Map?)?['$surah:$ayah'];
     return _asList(list);

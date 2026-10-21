@@ -311,6 +311,23 @@ function injectReaderControls(){
   wrap.querySelector("#fsMinus").addEventListener("click", ()=>{ px=Math.max(13,px-1); localStorage.setItem("tafsir-px",px); apply(px); });
   wrap.querySelector("#fsPlus").addEventListener("click", ()=>{ px=Math.min(22,px+1); localStorage.setItem("tafsir-px",px); apply(px); });
 }
+function injectArabicLink(){
+  const read = location.pathname.match(/\/chapters\/(\d+)\/read\//);
+  const overview = location.pathname.match(/\/chapters\/(\d+)\.html$/);
+  let href = null;
+  if (read) href = "../arabic.html";
+  else if (overview) href = `${overview[1]}/arabic.html`;
+  if (!href) return;
+  const host = document.querySelector(".top-actions");
+  if (!host || host.querySelector(".ar-link")) return;
+  const a = document.createElement("a");
+  a.className = "btn ghost ar-link";
+  a.href = href;
+  a.textContent = "النص العربي";
+  a.title = "Arabic-only reading";
+  a.style.textDecoration = "none";
+  host.prepend(a);
+}
 function injectToTop(){
   const btn = document.createElement("button");
   btn.className = "to-top"; btn.title = "Back to top"; btn.setAttribute("aria-label","Back to top");
@@ -332,6 +349,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
   try{ loadKnowledge(); }catch(e){ console.error("knowledge", e); }
   try{ injectContinueReading(); }catch(e){ console.error("continue", e); }
   try{ injectReaderControls(); }catch(e){ console.error("readsizer", e); }
+  try{ injectArabicLink(); }catch(e){ console.error("arabic-link", e); }
   try{ injectToTop(); }catch(e){ console.error("totop", e); }
   try{ saveReadSpot(); }catch(e){ console.error("spot", e); }
   if('serviceWorker' in navigator && !location.pathname.includes('sw.js')){
