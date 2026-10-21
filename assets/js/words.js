@@ -96,7 +96,6 @@
 
   function renderSheet(x) {
     const alts = Array.isArray(x.am) ? x.am : [];
-    const ra = typeof x.ra === "string" ? x.ra : (x.ra ? JSON.stringify(x.ra, null, 1) : "");
     return `
       <button class="sheet-close" id="sheetClose" aria-label="Close">✕</button>
       <div class="ar-big">${esc(x.w)}</div>
@@ -110,7 +109,6 @@
       ${x.en ? `<div class="sec-title">Meaning</div><div class="info-block">${esc(x.en)}</div>` : ""}
       ${x.bn ? `<div class="sec-title bn-text">অর্থ (বাংলা)</div><div class="info-block bn-text">${esc(x.bn)}</div>` : ""}
       ${x.root ? `<div class="sec-title">Root · ${(x.root).split("-").join(" ")}</div><div class="info-block glass-gold"><b>${esc(x.root)}</b>${x.root_analysis_text ? `<div style="margin-top:4px">${esc(x.root_analysis_text)}</div>` : ""}</div>` : ""}
-      ${ra ? `<div class="sec-title">Root analysis</div><div class="info-block">${esc(ra)}</div>` : ""}
       ${x.form ? `<div class="sec-title">Linguistic form</div><div class="info-block">${esc(x.form)}</div>` : ""}
       ${x.why ? `<div class="sec-title">Why this word (Ayn)</div><div class="info-block glass-gold">${esc(x.why)}</div>` : ""}
       ${alts.length ? `<div class="sec-title">Alternative meanings — ${alts.length} ${alts.length === 1 ? "view" : "views"}</div>${alts.map(meanBlock).join("")}` : ""}
@@ -158,7 +156,7 @@
     const cat = document.getElementById("catFilter")?.value || "";
     const favOnly = document.getElementById("favOnly")?.checked;
     filtered = WORDS.filter((x) => {
-      if (isPlaceholder(x.w) && q) return false;
+      if (isPlaceholder(x.w) && (q || !cat)) return false;
       if (sn && x.surah !== sn) return false;
       if (cat && x.cat !== cat) return false;
       if (favOnly && !favee.has(x.id)) return false;
@@ -184,7 +182,7 @@
     data.forEach((x, idx) => {
       x.id = idx + 1;
       if (x.ra && typeof x.ra === "object") {
-        const parts = [x.ra.linguistic, x.ra.sci, x.ra.trait].filter(Boolean);
+        const parts = [x.ra.pattern, x.ra.bayyinah_note].filter(Boolean);
         x.root_analysis_text = x.root_analysis_text || parts.join(" · ");
       }
       if (!x.ar_norm) x.ar_norm = normAr(x.w);

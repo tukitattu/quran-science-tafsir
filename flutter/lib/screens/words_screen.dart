@@ -56,6 +56,7 @@ class _WordsTabState extends State<WordsTab> {
   bool _isArabic(String s) => RegExp(r'[\u0600-\u06FF]').hasMatch(s);
 
   List<Map<String, dynamic>> get _filtered => _words.where((w) {
+    if (_cat.isEmpty && _placeholder(w)) return false;
     if (_surah != 0 && w['surah'] != _surah) return false;
     if (_cat.isNotEmpty && w['cat'] != _cat) return false;
     if (_favOnly && !Favs.has((w['id'] as int?) ?? 0)) return false;
@@ -256,7 +257,7 @@ class _WordTile extends StatelessWidget {
   }
 }
 
-class _chip extends StatelessWidget {
+class _Chip extends StatelessWidget {
   const _Chip(this.label, {this.gold = false, this.blue = false});
   final String label;
   final bool gold, blue;
@@ -298,7 +299,7 @@ class _WordSheet extends StatelessWidget {
     final ref = (w['ref'] ?? '').toString();
     final ra = w['ra'];
     final raText = ra is Map
-        ? [ra['linguistic'], ra['sci'], ra['trait']].where((e) => e != null && '$e'.isNotEmpty).join(' · ')
+        ? [ra['pattern'], ra['bayyinah_note']].where((e) => e != null && '$e'.isNotEmpty).join(' · ')
         : (ra ?? '').toString();
     return Container(
       constraints: BoxConstraints(maxHeight: maxHeight),

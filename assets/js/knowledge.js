@@ -3,14 +3,23 @@
  * number of available translations. Data: assets/data/knowledge.json (book
  * extracts) + assets/data/quran_ar.json (ayah text), both fetched lazily. */
 (function () {
-  const KB_URL = relAsset("assets/data/knowledge.json");
-  const AR_URL = relAsset("assets/data/quran_ar.json");
+  // Absolute base derived from this script's URL (works at any depth and under
+  // a GitHub Pages project subpath). Falls back to depth heuristics.
+  const BASE = (function () {
+    try {
+      const s = document.currentScript;
+      if (s && s.src) return s.src.replace(/assets\/js\/knowledge\.js(?:\?.*)?$/, "");
+    } catch (e) {}
+    const p = location.pathname;
+    if (/\/chapters\/\d+\/read\//.test(p) || p.includes("/read/")) return "../../../";
+    if (p.includes("/chapters/")) return "../";
+    return "";
+  })();
+  const KB_URL = BASE + "assets/data/knowledge.json";
+  const AR_URL = BASE + "assets/data/quran_ar.json";
 
   function relAsset(p) {
-    const path = location.pathname;
-    if (path.includes("/read/")) return "../../" + p;
-    if (/\/chapters\//.test(path)) return "../" + p;
-    return p;
+    return BASE + p;
   }
 
   const AR_DIACRITICS = /[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED\u0640]/g;
@@ -138,30 +147,66 @@
     });
   }
 
-  // Inject pills after ayah paragraphs on reading pages and after quote blocks on overview pages.
+  // Inject pills after ayah paragraphs on reading pages and after quote/ref
+  // paragraphs on overview pages.
+  const VERSE_RANGE = /\[\s*(?:Verse|আয়াত|শ্লোক)\s*(\d+)(?:\s*[–—-]\s*(\d+))?\s*\]/i;
+  const REF = /(?:Al[\s-]?Qur'?an|Quran|আল\s*কুরআন)\s*(\d{1,3})\s*[:.]\s*(\d{1,3})/i;
+  const BARE_REF = /\[(\d{1,3})\s*:\s*(\d{1,3})\]/;
+
+  function numsFor(from, to) {
+    const a = parseInt(from, 10), b = to ? parseInt(to, 10) : a;
+    if (!(b >= a) || b - a > 30) return [a];
+    const out = [];
+    for (let n = a; n <= b; n++) out.push(String(n));
+    return out;
+  }
+
+  function injectAfter(el, html) {
+    if (!html) return false;
+    const next = el.nextElementSibling;
+    if (next && next.classList && next.classList.contains("kb-pill")) return false;
+    el.insertAdjacentHTML("afterend", html);
+    return true;
+  }
+
   function injectIntoPage(surah) {
-    if (!surah) return;
+    if (!surah) return false;
     let changed = false;
 
-    // reading pages: paragraphs of verses, may contain several [n] markers
-    document.querySelectorAll(".ch-body .verse.c-en").forEach((p) => {
-      if (p.nextElementSibling && p.nextElementSibling.classList.contains("kb-pill")) return;
-      const nums = (p.textContent.match(/\[(\d+)\]/g) || []).map((s) => s.replace(/[\[\]]/g, ""));
-      if (!nums.length) return;
-      const html = ayahPillHTML(surah, nums, { label: `Ayah ${nums[0]}${nums.length > 1 ? "–" + nums[nums.length - 1] : ""}` });
-      if (html) { p.insertAdjacentHTML("afterend", html); changed = true; }
+    // section headings such as "Section-2 of Chapter-2 [Verse 2-5]: ..."
+    document.querySelectorAll(".ch-body .subhead.c-en, .ch-body h2.c-en, .ch-body h3.c-en").forEach((h) => {
+      const m = h.textContent.match(VERSE_RANGE);
+      if (!m) return;
+      const nums = numsFor(m[1], m[2]);
+      const label = `Ayah ${nums[0]}${nums.length > 1 ? "–" + nums[nums.length - 1] : ""}`;
+      if (injectAfter(h, ayahPillHTML(surah, nums, { label }))) changed = true;
     });
 
-    // overview pages: quotes that cite an ayah, e.g. [Al Quran 2:255]
-    document.querySelectorAll(".quote.c-en").forEach((q) => {
-      if (q.nextElementSibling && q.nextElementSibling.classList.contains("kb-pill")) return;
-      const m = q.textContent.match(/(?:Al[\s-]?Qur'?an|Quran|আল কুরআন)\s*(\d{1,3})\s*[:.]\s*(\d{1,3})/i)
-        || q.textContent.match(/\[(\d{1,3})\s*:\s*(\d{1,3})\]/);
-      if (!m) return;
-      const s = parseInt(m[1], 10), a = parseInt(m[2], 10);
+    // legacy verse paragraphs that still carry [n] markers
+    document.querySelectorAll(".ch-body .verse.c-en").forEach((p) => {
+      const nums = (p.textContent.match(/\[(\d+)\]/g) || []).map((s) => s.replace(/[\[\]]/g, ""));
+      if (!nums.length) return;
+      const label = `Ayah ${nums[0]}${nums.length > 1 ? "–" + nums[nums.length - 1] : ""}`;
+      if (injectAfter(p, ayahPillHTML(surah, nums, { label }))) changed = true;
+    });
+
+    // any English paragraph citing an ayah: "[Al Quran 2:255]", "Al Quran 2:255", "[2:255]"
+    const cited = new Set();
+    document.querySelectorAll(".ch-body .c-en, .quote.c-en").forEach((q) => {
+      if (q.classList.contains("subhead")) return;
+      const m = q.textContent.match(REF);
+      let s, a;
+      if (m) { s = parseInt(m[1], 10); a = parseInt(m[2], 10); }
+      else {
+        const b = q.textContent.match(BARE_REF);
+        if (!b) return;
+        s = parseInt(b[1], 10); a = parseInt(b[2], 10);
+      }
       if (!(s >= 1 && s <= 114)) return;
-      const html = ayahPillHTML(s, [String(a)], { label: `Ayah ${s}:${a}` });
-      if (html) { q.insertAdjacentHTML("afterend", html); changed = true; }
+      const key = `${s}:${a}`;
+      if (cited.has(key)) return; // one pill per ayah per page
+      cited.add(key);
+      if (injectAfter(q, ayahPillHTML(s, [String(a)], { label: `Ayah ${key}` }))) changed = true;
     });
     return changed;
   }

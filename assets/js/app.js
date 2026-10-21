@@ -201,11 +201,30 @@ function setupToday(){
 }
 
 // --- v5 additions: navigation pills, continue reading, reader controls ---
-function relBase(){ // path prefix for root-level assets from any depth (/, /chapters/, /chapters/N/read/)
+// Absolute base for root-level assets, derived from this script's own URL so it
+// works at any page depth (/chapters/N/read/pageX.html included) and under a
+// GitHub Pages project subpath.
+const APP_BASE = (function(){
+  try {
+    const s = document.currentScript;
+    if (s && s.src) return s.src.replace(/assets\/js\/app\.js(?:\?.*)?$/, "");
+  } catch (e) {}
   const p = location.pathname;
-  if (p.includes("/read/")) return "../../";
+  if (/\/chapters\/\d+\/read\//.test(p) || p.includes("/read/")) return "../../../";
   if (p.includes("/chapters/")) return "../";
   return "";
+})();
+function relBase(){ return APP_BASE; }
+function injectBrand(){
+  const a = document.querySelector(".topbar .brand");
+  if(!a || a.querySelector(".brand-logo")) return;
+  const img = document.createElement("img");
+  img.className = "brand-logo";
+  img.src = relBase() + "assets/logo-mark.png";
+  img.alt = "";
+  img.width = 34; img.height = 34;
+  const svg = a.querySelector("svg");
+  if(svg) svg.replaceWith(img); else a.insertBefore(img, a.firstChild);
 }
 function injectTopNav(){
   const host = document.querySelector(".top-actions");
@@ -308,6 +327,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
   updateProgress();
   setupKids();
   setupToday();
+  try{ injectBrand(); }catch(e){ console.error("brand", e); }
   try{ injectTopNav(); }catch(e){ console.error("nav", e); }
   try{ loadKnowledge(); }catch(e){ console.error("knowledge", e); }
   try{ injectContinueReading(); }catch(e){ console.error("continue", e); }
@@ -315,6 +335,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
   try{ injectToTop(); }catch(e){ console.error("totop", e); }
   try{ saveReadSpot(); }catch(e){ console.error("spot", e); }
   if('serviceWorker' in navigator && !location.pathname.includes('sw.js')){
-    navigator.serviceWorker.register('sw.js').catch(()=>{});
+    navigator.serviceWorker.register(relBase()+'sw.js').catch(()=>{});
   }
 });

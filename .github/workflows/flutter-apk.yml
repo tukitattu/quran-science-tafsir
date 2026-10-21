@@ -67,6 +67,60 @@ jobs:
           print('manifest label patched:', 'Al Quran - Scientific Tafsir' in p.read_text())
           EOF
 
+      - name: Enable core-library desugaring (required by flutter_local_notifications)
+        working-directory: flutter
+        run: |
+          python3 - <<'EOF'
+          import pathlib
+          p = pathlib.Path('android/app/build.gradle.kts')
+          kts = p.exists()
+          if not kts:
+              p = pathlib.Path('android/app/build.gradle')
+          s = p.read_text()
+          if 'coreLibraryDesugaring' in s:
+              print('desugaring already enabled')
+              raise SystemExit(0)
+          if 'compileOptions {' not in s:
+              print('!! compileOptions block not found in', p)
+              raise SystemExit(1)
+          if kts:
+              s = s.replace('compileOptions {',
+                            'compileOptions {\n        isCoreLibraryDesugaringEnabled = true', 1)
+              dep = '    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")'
+          else:
+              s = s.replace('compileOptions {',
+                            'compileOptions {\n        coreLibraryDesugaringEnabled true', 1)
+              dep = "    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'"
+          s = s.rstrip() + '\n\ndependencies {\n' + dep + '\n}\n'
+          p.write_text(s)
+          print('patched', p)
+          print(s)
+          EOF
+
+      - name: Add notification receivers to the manifest
+        working-directory: flutter
+        run: |
+          python3 - <<'EOF'
+          import pathlib
+          p = pathlib.Path('android/app/src/main/AndroidManifest.xml')
+          s = p.read_text()
+          if 'ScheduledNotificationReceiver' not in s:
+              recv = (
+                  '        <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />\n'
+                  '        <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver">\n'
+                  '            <intent-filter>\n'
+                  '                <action android:name="android.intent.action.BOOT_COMPLETED"/>\n'
+                  '                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>\n'
+                  '                <action android:name="android.intent.action.QUICKBOOT_POWERON" />\n'
+                  '                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>\n'
+                  '            </intent-filter>\n'
+                  '        </receiver>\n'
+              )
+              s = s.replace('    </application>', recv + '    </application>')
+              p.write_text(s)
+          print('receivers present:', 'ScheduledNotificationReceiver' in p.read_text())
+          EOF
+
       - name: flutter analyze
         working-directory: flutter
         run: flutter pub get && flutter analyze --no-fatal-infos

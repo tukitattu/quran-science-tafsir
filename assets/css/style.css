@@ -151,6 +151,7 @@ body.lang-bn .bn-text, .bn-text { font-family: "Noto Sans Bengali", "Hind Siligu
 }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--ink); text-decoration: none; font-size: 1.02rem; }
 .brand svg { width: 32px; height: 32px; color: var(--accent); background: linear-gradient(180deg, #FFF, #F1EEE2); border-radius: 12px; padding: 5px; box-shadow: var(--shadow-float), var(--inset-hi); }
+.brand-logo { width: 36px; height: 36px; border-radius: 11px; object-fit: contain; background: linear-gradient(180deg, #FFF, #F8F8F4); padding: 2px; box-shadow: var(--shadow-float), var(--inset-hi); flex: 0 0 auto; }
 .brand .ar-tag { color: var(--accent2); font-size: .78rem; font-weight: 400; }
 .top-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
 
@@ -636,6 +637,7 @@ html, body { max-width: 100%; overflow-x: hidden; }
 .kb-card .kbc-bn { font-size: .86rem; line-height: 1.7; color: var(--muted); font-family: var(--font-bn); }
 .kb-card .kbc-src { font-size: .68rem; color: var(--accent2); font-weight: 600; opacity: .85; }
 .kb-empty { font-size: .82rem; color: var(--muted); padding: 8px 6px; }
+.kb-pop[hidden] { display: none; }
 @media (max-width: 560px) { .kb-pop { min-width: 0; width: 100%; } .kb-pill { display: block; } }
 
 /* ============ BUSINESS / CATEGORY PAGES ============ */

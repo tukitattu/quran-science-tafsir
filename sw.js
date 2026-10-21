@@ -1,4 +1,4 @@
-const CACHE = "tafsir-v6";
+const CACHE = "tafsir-v7";
 const ASSETS = [
   "./",
   "./index.html",
@@ -28,6 +28,9 @@ const ASSETS = [
   "./assets/data/words_export.json",
   "./assets/data/business.json",
   "./assets/data/knowledge.json",
+  "./assets/data/quran_ar.json",
+  "./assets/logo-mark.png",
+  "./assets/apple-touch-icon.png",
   "./manifest.json",
   "./assets/icon-192.png",
   "./assets/icon-512.png"
