@@ -125,11 +125,15 @@ def main():
     conn.close()
 
     data = DB_PATH.read_bytes()
+    packed = gzip.compress(data, 9, mtime=0)
+    # Keep the web download (repo root) and the Flutter asset byte-identical.
+    (ROOT / "tafsir.db.gz").write_bytes(packed)
     APP_DB_GZ.parent.mkdir(parents=True, exist_ok=True)
-    APP_DB_GZ.write_bytes(gzip.compress(data, 9, mtime=0))
+    APP_DB_GZ.write_bytes(packed)
     print(
         f"backfill_arabic_local: {changed}/{len(rows)} paragraphs updated, "
-        f"{missing} without markers, {len(ayahs)} ayahs, gz={APP_DB_GZ.stat().st_size} bytes"
+        f"{missing} without markers, {len(ayahs)} ayahs, "
+        f"gz={APP_DB_GZ.stat().st_size} bytes"
     )
     if missing:
         print("warning: some paragraphs had no matching ayah text", file=sys.stderr)
