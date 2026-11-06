@@ -27,7 +27,7 @@ assets/
 tafsir.db[.gz]             SQLite (21M → 6.5M gz): 7,796 paras (EN+BN), 6,236 ayahs,
                            347 words, 114 tafsir rows, alt_meanings, figures, FTS5 search
 flutter/                   Android app (Flutter + sqflite + just_audio + local notifications)
-sw.js / manifest.json      PWA offline (CACHE tafsir-v11, cache-first for jpg/js)
+sw.js / manifest.json      PWA offline (CACHE tafsir-v12, cache-first for jpg/js)
 ```
 
 ## Contents
