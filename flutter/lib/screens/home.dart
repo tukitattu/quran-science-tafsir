@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../l10n.dart';
 import '../main.dart';
 import 'business_screen.dart';
 import 'read.dart';
@@ -16,20 +17,20 @@ class HomeShell extends StatefulWidget {
 class _HomeShellState extends State<HomeShell> {
   int _tab = 0;
 
-  static const _destinations = [
-    (icon: Icons.auto_stories_outlined, selected: Icons.auto_stories, label: 'Read'),
-    (icon: Icons.search_outlined, selected: Icons.search, label: 'Search'),
-    (icon: Icons.translate_outlined, selected: Icons.translate, label: 'Words'),
-    (icon: Icons.storefront_outlined, selected: Icons.storefront, label: 'Business'),
-    (icon: Icons.settings_outlined, selected: Icons.settings, label: 'Settings'),
-  ];
+  List<({IconData icon, IconData selected, String label})> get _destinations => [
+        (icon: Icons.auto_stories_outlined, selected: Icons.auto_stories, label: L.t('nav_read')),
+        (icon: Icons.search_outlined, selected: Icons.search, label: L.t('nav_search')),
+        (icon: Icons.translate_outlined, selected: Icons.translate, label: L.t('nav_words')),
+        (icon: Icons.storefront_outlined, selected: Icons.storefront, label: L.t('nav_business')),
+        (icon: Icons.settings_outlined, selected: Icons.settings, label: L.t('nav_settings')),
+      ];
 
   Widget _page() => [
-        const ReadTab(),
-        const SearchTab(),
-        const WordsTab(),
-        const BusinessTab(),
-        const SettingsTab(),
+        ReadTab(),
+        SearchTab(),
+        WordsTab(),
+        BusinessTab(),
+        SettingsTab(),
       ][_tab];
 
   @override

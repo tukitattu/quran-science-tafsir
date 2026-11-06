@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'db.dart';
+import 'l10n.dart';
 import 'prefs.dart';
 import 'knowledge.dart';
 import 'notify.dart';
@@ -16,7 +17,8 @@ class App extends ChangeNotifier {
 
   final ValueNotifier<List<String>> _snacks = ValueNotifier(const []);
 
-  String lang = 'both'; // en | bn | both
+  String lang = 'both'; // reading content: en | bn | both | ar
+  String uiLang = 'en'; // app chrome: en | bn | ar
   double fontScale = 1.0;
   bool reminderOn = false;
   int reminderHour = 7, reminderMinute = 30, reminderMin = 7, reminderMax = 7;
@@ -26,6 +28,8 @@ class App extends ChangeNotifier {
   Future<void> load() async {
     final sp = await prefsOrNull();
     lang = sp?.getString('lang') ?? 'both';
+    uiLang = sp?.getString('uiLang') ?? 'en';
+    L.code = uiLang;
     fontScale = sp?.getDouble('fontScale') ?? 1.0;
     reminderOn = sp?.getBool('reminderOn') ?? false;
     reminderHour = sp?.getInt('reminderHour') ?? 7;
@@ -43,6 +47,14 @@ class App extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> setUiLang(String v) async {
+    uiLang = v;
+    L.code = v;
+    final sp = await prefsOrNull();
+    await sp?.setString('uiLang', v);
+    notifyListeners();
+  }
+
   Future<void> setFontScale(double v) async {
     fontScale = v;
     final sp = await prefsOrNull();
@@ -57,12 +69,24 @@ class App extends ChangeNotifier {
     notifyListeners();
     try {
       if (on) {
-        final a = await TafsirDb.i.ayahOfTheDay();
+        try {
+          await Knowledge.i.load();
+        } catch (_) {}
+        final a = Knowledge.i.ayahOfDay(DateTime.now());
         final ar = ((a['ar'] ?? '') as String).trim();
-        final surah = (a['surah'] ?? const {}) as Map<String, Object?>;
+        var surahName = '';
+        final sid = a['surah'] as int?;
+        if (sid != null) {
+          try {
+            final rows = await TafsirDb.i.surahs();
+            final row = rows.firstWhere((s) => s['id'] == sid,
+                orElse: () => <String, Object?>{});
+            surahName = (row['en'] ?? '') as String;
+          } catch (_) {}
+        }
         await DailyReminder.i.scheduleDaily(
           reminderHour, reminderMinute, ar,
-          surahName: (surah['en'] ?? '') as String,
+          surahName: surahName,
         );
       } else {
         await DailyReminder.i.cancel();
@@ -149,7 +173,7 @@ class _BootGateState extends State<BootGate> {
       return const TafsirApp();
     }
     return MaterialApp(
-      title: 'Al Quran — Scientific Tafsir',
+      title: L.t('app_title'),
       debugShowCheckedModeBanner: false,
       theme: Paper.theme(),
       home: Scaffold(
@@ -164,8 +188,8 @@ class _BootGateState extends State<BootGate> {
                   children: [
                     Image.asset('assets/icon.png', width: 84, height: 84),
                     const SizedBox(height: 18),
-                    const Text(
-                      'Al Quran — Scientific Tafsir',
+                    Text(
+                      L.t('app_title'),
                       textAlign: TextAlign.center,
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
@@ -174,13 +198,12 @@ class _BootGateState extends State<BootGate> {
                     if (!_ready) ...[
                       const CircularProgressIndicator(),
                       const SizedBox(height: 14),
-                      const Text('Preparing the library…'),
+                      Text(L.t('preparing')),
                     ] else ...[
                       const Icon(Icons.warning_amber_rounded, size: 34),
                       const SizedBox(height: 10),
-                      const Text(
-                        'Some parts could not start. You can retry, or continue '
-                        'and use what is available.',
+                      Text(
+                        L.t('boot_warning'),
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(height: 12),
@@ -202,13 +225,13 @@ class _BootGateState extends State<BootGate> {
                         children: [
                           FilledButton(
                             onPressed: _retry,
-                            child: const Text('Retry'),
+                            child: Text(L.t('retry')),
                           ),
                           const SizedBox(width: 12),
                           TextButton(
                             onPressed: () =>
                                 setState(() => _dismissed = true),
-                            child: const Text('Continue'),
+                            child: Text(L.t('continue_')),
                           ),
                         ],
                       ),
@@ -229,11 +252,18 @@ class TafsirApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Al Quran — Scientific Tafsir',
-      debugShowCheckedModeBanner: false,
-      theme: Paper.theme(),
-      home: const HomeShell(),
+    return AnimatedBuilder(
+      animation: app,
+      builder: (context, _) => MaterialApp(
+        title: L.t('app_title'),
+        debugShowCheckedModeBanner: false,
+        theme: Paper.theme(),
+        builder: (context, child) => Directionality(
+          textDirection: L.rtl ? TextDirection.rtl : TextDirection.ltr,
+          child: child ?? const SizedBox.shrink(),
+        ),
+        home: const HomeShell(),
+      ),
     );
   }
 }

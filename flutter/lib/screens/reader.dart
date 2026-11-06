@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../db.dart';
 import '../knowledge.dart';
+import '../l10n.dart';
 import '../main.dart';
 import '../player.dart';
 import '../prefs.dart';
@@ -186,7 +187,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
     }
     if (_error != null) {
       return Scaffold(
-        appBar: AppBar(title: const Text('Surah')),
+        appBar: AppBar(title: Text(L.t('surah'))),
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(24),
@@ -195,9 +196,9 @@ class _ReaderScreenState extends State<ReaderScreen> {
               children: [
                 const Icon(Icons.storage_rounded, size: 40),
                 const SizedBox(height: 12),
-                const Text('This surah could not be opened.',
+                Text(L.t('surah_error'),
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.w700)),
+                    style: const TextStyle(fontWeight: FontWeight.w700)),
                 const SizedBox(height: 8),
                 Text(_error!, textAlign: TextAlign.center,
                     style: const TextStyle(fontSize: 12)),
@@ -210,7 +211,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
                     });
                     _load();
                   },
-                  child: const Text('Retry'),
+                  child: Text(L.t('retry')),
                 ),
               ],
             ),
@@ -225,34 +226,35 @@ class _ReaderScreenState extends State<ReaderScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text('${_meta['en'] ?? 'Surah ${widget.surahId}'}',
+          Text('${_meta['en'] ?? L.t('surah_n', {'n': '${widget.surahId}'})}',
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
-          Text('${_meta['ar'] ?? ''} · بাংলা ${_meta['bn'] ?? ''}',
+          Text('${_meta['ar'] ?? ''} · বাংলা ${_meta['bn'] ?? ''}',
               style: const TextStyle(fontSize: 11, color: AppColors.muted)),
         ]),
         actions: [
           IconButton(
-            tooltip: 'Tilawah — play this surah',
+            tooltip: L.t('tilawah_tooltip'),
             onPressed: () =>
                 TilawahPlayer.instance.toggleForSurah(widget.surahId),
             icon: TilawahIcon(surah: widget.surahId),
           ),
           IconButton(
-            tooltip: 'Arabic text',
+            tooltip: L.t('arabic_text'),
             icon: const Icon(Icons.menu_book_outlined),
             onPressed: () => Navigator.of(context).push(MaterialPageRoute(
               builder: (_) => ArabicSurahScreen(
                 surahId: widget.surahId,
-                title: '${_meta['en'] ?? 'Surah ${widget.surahId}'}',
+                title:
+                    '${_meta['en'] ?? L.t('surah_n', {'n': '${widget.surahId}'})}',
               ),
             )),
           ),
           SegmentedButton<String>(
-            segments: const [
-              ButtonSegment(value: 'both', label: Text('EN বাং')),
-              ButtonSegment(value: 'en', label: Text('EN')),
-              ButtonSegment(value: 'bn', label: Text('বাং')),
-              ButtonSegment(value: 'ar', label: Text('عربي')),
+            segments: [
+              ButtonSegment(value: 'both', label: Text(L.t('lang_both'))),
+              ButtonSegment(value: 'en', label: Text(L.t('lang_en'))),
+              ButtonSegment(value: 'bn', label: Text(L.t('lang_bn'))),
+              ButtonSegment(value: 'ar', label: Text(L.t('lang_ar'))),
             ],
             selected: {_lang},
             style: const ButtonStyle(visualDensity: VisualDensity.compact),
@@ -263,14 +265,14 @@ class _ReaderScreenState extends State<ReaderScreen> {
         ],
       ),
       body: pages.isEmpty
-          ? const Center(child: Text('No paragraphs found'))
+          ? Center(child: Text(L.t('no_paragraphs')))
           : PageView.builder(
               controller: _pager,
               itemCount: pages.length,
               itemBuilder: (c, i) => ListView(
                 padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
                 children: [
-                  Text('Page ${i + 1} / ${pages.length}',
+                  Text(L.t('page_of', {'i': '${i + 1}', 'n': '${pages.length}'}),
                       style: const TextStyle(
                           color: AppColors.muted, fontSize: 12, fontWeight: FontWeight.w600)),
                   const SizedBox(height: 6),
@@ -314,13 +316,13 @@ class _NavRow extends StatelessWidget {
       OutlinedButton(
         onPressed: page > 0 ? () => Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (_) => ReaderScreen(surahId: surah, startPage: page - 1))) : null,
-        child: const Text('‹ Prev page'),
+        child: Text(L.t('prev_page')),
       ),
       const Spacer(),
       OutlinedButton(
         onPressed: page < pages - 1 ? () => Navigator.of(context).pushReplacement(
             MaterialPageRoute(builder: (_) => ReaderScreen(surahId: surah, startPage: page + 1))) : null,
-        child: const Text('Next page ›'),
+        child: Text(L.t('next_page')),
       ),
     ]);
   }
@@ -337,15 +339,15 @@ class _FontSheet extends StatelessWidget {
       return Padding(
         padding: const EdgeInsets.all(22),
         child: Column(mainAxisSize: MainAxisSize.min, children: [
-          const Text('Text size',
-              style: TextStyle(color: AppColors.gold, fontWeight: FontWeight.w800)),
+          Text(L.t('text_size'),
+              style: const TextStyle(color: AppColors.gold, fontWeight: FontWeight.w800)),
           Slider(
             value: value,
             min: .8, max: 1.6, divisions: 8,
             label: '${(value * 100).round()}%',
             onChanged: (v) { setState(() {}); onChange(v); },
           ),
-          Text('Sample paragraph — the size you are reading right now.',
+          Text(L.t('sample_paragraph'),
               style: TextStyle(fontSize: 16 * value, height: 1.8)),
         ]),
       );

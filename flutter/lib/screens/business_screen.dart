@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../knowledge.dart';
+import '../l10n.dart';
+import '../main.dart';
 import 'read.dart' show AppColors;
 
 class BusinessTab extends StatefulWidget {
@@ -22,7 +24,11 @@ class _BusinessTabState extends State<BusinessTab> {
   }
 
   String _t(dynamic v) {
-    if (v is Map) return (v['en'] ?? '').toString();
+    if (v is Map) {
+      if (app.lang == 'bn') return (v['bn'] ?? v['en'] ?? '').toString();
+      if (app.lang == 'ar') return (v['ar'] ?? v['en'] ?? '').toString();
+      return (v['en'] ?? '').toString();
+    }
     return (v ?? '').toString();
   }
 
@@ -40,7 +46,7 @@ class _BusinessTabState extends State<BusinessTab> {
     final sections = _sections.where((s) => _sec == 'all' || s['id'] == _sec).toList();
     final intro = Knowledge.i.business['intro'];
     return Scaffold(
-      appBar: AppBar(title: const Text('Business & Trade')),
+      appBar: AppBar(title: Text(L.t('business_trade'))),
       body: ListView(
         padding: const EdgeInsets.fromLTRB(16, 8, 16, 28),
         children: [
@@ -62,7 +68,7 @@ class _BusinessTabState extends State<BusinessTab> {
             ),
           const SizedBox(height: 14),
           Wrap(spacing: 7, runSpacing: 7, children: [
-            _tab('all', 'All'),
+            _tab('all', L.t('all')),
             for (final s in _sections) _tab((s['id'] ?? '').toString(), _t(s['title'])),
           ]),
           const SizedBox(height: 8),
@@ -135,7 +141,7 @@ class _BusinessTabState extends State<BusinessTab> {
         const SizedBox(height: 10),
         Wrap(spacing: 7, runSpacing: 6, children: [
           if (src.isNotEmpty) _tag(src, AppColors.gold),
-          if (ref.isNotEmpty) _tag('Qur\'an $ref', const Color(0xFF23638C)),
+          if (ref.isNotEmpty) _tag(L.t('quran_ref', {'ref': ref}), const Color(0xFF23638C)),
         ]),
       ]),
     );

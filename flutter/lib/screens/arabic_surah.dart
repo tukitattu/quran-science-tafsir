@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../knowledge.dart';
+import '../l10n.dart';
 import '../player.dart';
 import 'read.dart' show AppColors;
 import 'word_sheet.dart';
@@ -62,12 +63,12 @@ class _ArabicSurahScreenState extends State<ArabicSurahScreen> {
           Text(widget.title,
               style:
                   const TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),
-          const Text('النص القرآني بالرسم العثماني',
-              style: TextStyle(fontSize: 11, color: AppColors.muted)),
+          Text(L.t('arabic_uthmani'),
+              style: const TextStyle(fontSize: 11, color: AppColors.muted)),
         ]),
         actions: [
           IconButton(
-            tooltip: 'Tilawah — play this surah',
+            tooltip: L.t('tilawah_tooltip'),
             onPressed: () =>
                 TilawahPlayer.instance.toggleForSurah(widget.surahId),
             icon: TilawahIcon(surah: widget.surahId),
@@ -78,7 +79,7 @@ class _ArabicSurahScreenState extends State<ArabicSurahScreen> {
       body: _loading
           ? const Center(child: CircularProgressIndicator())
           : _count == 0
-              ? const Center(child: Text('Arabic text is not available.'))
+              ? Center(child: Text(L.t('arabic_unavailable')))
               : ListView.builder(
                   padding: const EdgeInsets.fromLTRB(16, 8, 16, 32),
                   itemCount: _count,
@@ -124,7 +125,7 @@ class _AyahRow extends StatelessWidget {
       ),
       child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Tooltip(
-          message: 'Play this ayah',
+          message: L.t('play_ayah'),
           child: InkWell(
             borderRadius: BorderRadius.circular(999),
             onTap: onPlay,
@@ -164,7 +165,7 @@ class _AyahRow extends StatelessWidget {
         ),
         const SizedBox(width: 4),
         Tooltip(
-          message: 'Word meanings',
+          message: L.t('word_meanings_tooltip'),
           child: InkWell(
             borderRadius: BorderRadius.circular(999),
             onTap: onWords,

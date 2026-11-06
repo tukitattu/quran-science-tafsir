@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
+import 'l10n.dart';
 import 'screens/read.dart' show AppColors;
 
 /// Offline knowledge layer: book extracts (knowledge.json), the full Uthmani
@@ -141,7 +142,10 @@ class KnowledgePill extends StatefulWidget {
   static KnowledgePill? forWord(String word) {
     final items = Knowledge.i.forWord(word);
     if (items.isEmpty) return null;
-    return KnowledgePill(label: '${items.length} translation${items.length == 1 ? '' : 's'}', items: items);
+    return KnowledgePill(
+      label: L.t('translations_count', {'n': '${items.length}'}),
+      items: items,
+    );
   }
 
   @override
@@ -196,10 +200,10 @@ class _KnowledgePillState extends State<KnowledgePill> {
                       for (final a in widget.ayahs) _AyahBox(ref: a.key, text: a.value),
                       for (final it in widget.items) _ExtractBox(item: it),
                       if (n == 0)
-                        const Padding(
-                          padding: EdgeInsets.all(8),
-                          child: Text('No additional translations yet.',
-                              style: TextStyle(color: AppColors.muted, fontSize: 12)),
+                        Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: Text(L.t('no_additional_translations'),
+                              style: const TextStyle(color: AppColors.muted, fontSize: 12)),
                         ),
                     ],
                   ),

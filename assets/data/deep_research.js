@@ -3,13 +3,13 @@ const DEEP_RESEARCH = {
   "111": {
     "amud": {
       "en": "Amud: Palm Fiber — Abu Lahab",
-      "bn": "আমূদ: Palm Fiber — Abu Lahab",
-      "ar": "العمود: Palm Fiber — Abu Lahab"
+      "bn": "আমূদ: মাসাদ — আবু লাহাব",
+      "ar": "العمود: المسد — أبو لهب"
     },
     "nazm": {
       "en": "Nazm: Perish hands of Abu Lahab, perish he",
-      "bn": "নজম: Perish hands of Abu Lahab, perish he",
-      "ar": "النظم: Perish hands of Abu Lahab, perish he"
+      "bn": "নজম: আবু লাহাবের দুই হাত ধ্বংস হোক, সে নিজেও ধ্বংস হোক",
+      "ar": "النظم: تبت يدا أبي لهب وتب"
     },
     "wordByWord": [
       {
@@ -173,13 +173,13 @@ const DEEP_RESEARCH = {
   "110": {
     "amud": {
       "en": "Amud: Help — Nasr and conquest",
-      "bn": "আমূদ: Help — Nasr and conquest",
-      "ar": "العمود: Help — Nasr and conquest"
+      "bn": "আমূদ: নাসর — সাহায্য ও বিজয়",
+      "ar": "العمود: النصر — النصر والفتح"
     },
     "nazm": {
       "en": "Nazm: When Allah's help and conquest comes, see people entering in droves",
-      "bn": "নজম: When Allah's help and conquest comes, see people entering in droves",
-      "ar": "النظم: When Allah's help and conquest comes, see people entering in droves"
+      "bn": "নজম: যখন আল্লাহর সাহায্য ও বিজয় আসবে, মানুষকে দলে দলে আল্লাহর দ্বীনে প্রবেশ করতে দেখবে",
+      "ar": "النظم: إذا جاء نصر الله والفتح ورأيت الناس يدخلون في دين الله أفواجًا"
     },
     "wordByWord": [
       {
@@ -343,13 +343,13 @@ const DEEP_RESEARCH = {
   "45": {
     "amud": {
       "en": "Amud: Kneeling — Every nation kneeling",
-      "bn": "আমূদ: Kneeling — Every nation kneeling",
-      "ar": "العمود: Kneeling — Every nation kneeling"
+      "bn": "আমূদ: জাসিয়া — প্রত্যেক উম্মত হাঁটু গেড়ে",
+      "ar": "العمود: الجاثية — كل أمة جاثية"
     },
     "nazm": {
       "en": "Nazm: On that Day every ummah kneeling",
-      "bn": "নজম: On that Day every ummah kneeling",
-      "ar": "النظم: On that Day every ummah kneeling"
+      "bn": "নজম: সেদিন প্রত্যেক উম্মত হাঁটু গেড়ে বসবে",
+      "ar": "النظم: يومئذٍ كل أمة جاثية"
     },
     "wordByWord": [
       {
@@ -513,13 +513,13 @@ const DEEP_RESEARCH = {
   "16": {
     "amud": {
       "en": "Amud: Bee — Blessings and gratitude",
-      "bn": "আমূদ: Bee — Blessings and gratitude",
-      "ar": "العمود: Bee — Blessings and gratitude"
+      "bn": "আমূদ: নাহল — নিয়ামত ও কৃতজ্ঞতা",
+      "ar": "العمود: النحل — النعم والشكر"
     },
     "nazm": {
       "en": "Nazm: Every blessing listed = proof of one Giver",
-      "bn": "নজম: Every blessing listed = proof of one Giver",
-      "ar": "النظم: Every blessing listed = proof of one Giver"
+      "bn": "নজম: প্রতিটি নিয়ামত একক দাতার প্রমাণ",
+      "ar": "النظم: كل نعمة مذكورة = دليل على واهب واحد"
     },
     "wordByWord": [
       {
@@ -683,13 +683,13 @@ const DEEP_RESEARCH = {
   "109": {
     "amud": {
       "en": "Amud: Disbelievers — Kafirun",
-      "bn": "আমূদ: Disbelievers — Kafirun",
-      "ar": "العمود: Disbelievers — Kafirun"
+      "bn": "আমূদ: কাফিরুন — অস্বীকারকারীরা",
+      "ar": "العمود: الكافرون — الكافرون"
     },
     "nazm": {
       "en": "Nazm: O disbelievers, I do not worship what you worship",
-      "bn": "নজম: O disbelievers, I do not worship what you worship",
-      "ar": "النظم: O disbelievers, I do not worship what you worship"
+      "bn": "নজম: বলো, হে কাফিররা, আমি তার ইবাদত করি না যার ইবাদত তোমরা করো",
+      "ar": "النظم: قل يا أيها الكافرون لا أعبد ما تعبدون"
     },
     "wordByWord": [
       {
@@ -853,13 +853,13 @@ const DEEP_RESEARCH = {
   "44": {
     "amud": {
       "en": "Amud: Smoke — Affliction and respite",
-      "bn": "আমূদ: Smoke — Affliction and respite",
-      "ar": "العمود: Smoke — Affliction and respite"
+      "bn": "আমূদ: দুখান — বিপদ ও অবকাশ",
+      "ar": "العمود: الدخان — البلاء والمهلة"
     },
     "nazm": {
       "en": "Nazm: Smoke as sign before Hour",
-      "bn": "নজম: Smoke as sign before Hour",
-      "ar": "النظم: Smoke as sign before Hour"
+      "bn": "নজম: কিয়ামতের পূর্বে ধোঁয়া নিদর্শন",
+      "ar": "النظم: الدخان علامة قبل الساعة"
     },
     "wordByWord": [
       {
@@ -1023,13 +1023,13 @@ const DEEP_RESEARCH = {
   "108": {
     "amud": {
       "en": "Amud: Abundance — Kawthar",
-      "bn": "আমূদ: Abundance — Kawthar",
-      "ar": "العمود: Abundance — Kawthar"
+      "bn": "আমূদ: কাউসার — প্রাচুর্য",
+      "ar": "العمود: الكوثر — الكوثر"
     },
     "nazm": {
       "en": "Nazm: Indeed We gave you Kawthar — so pray and sacrifice",
-      "bn": "নজম: Indeed We gave you Kawthar — so pray and sacrifice",
-      "ar": "النظم: Indeed We gave you Kawthar — so pray and sacrifice"
+      "bn": "নজম: আমরা তোমাকে কাউসার দিয়েছি — সুতরাং তোমার রবের জন্য নামাজ পড়ো ও কুরবানি করো",
+      "ar": "النظم: إنا أعطيناك الكوثر فصل لربك وانحر"
     },
     "wordByWord": [
       {
@@ -1193,13 +1193,13 @@ const DEEP_RESEARCH = {
   "20": {
     "amud": {
       "en": "Amud: Ta-Ha — Ease of Quran",
-      "bn": "আমূদ: Ta-Ha — Ease of Quran",
-      "ar": "العمود: Ta-Ha — Ease of Quran"
+      "bn": "আমূদ: ত্বা-হা — কুরআনের সহজতা",
+      "ar": "العمود: طه — يُسر القرآن"
     },
     "nazm": {
       "en": "Nazm: We did not send Quran to distress you",
-      "bn": "নজম: We did not send Quran to distress you",
-      "ar": "النظم: We did not send Quran to distress you"
+      "bn": "নজম: আমরা তোমার প্রতি কুরআন নাযিল করিনি তোমাকে কষ্ট দিতে",
+      "ar": "النظم: ما أنزلنا عليك القرآن لتشقى"
     },
     "wordByWord": [
       {
@@ -1363,13 +1363,13 @@ const DEEP_RESEARCH = {
   "107": {
     "amud": {
       "en": "Amud: Small Kindness — Ma'un",
-      "bn": "আমূদ: Small Kindness — Ma'un",
-      "ar": "العمود: Small Kindness — Ma'un"
+      "bn": "আমূদ: মাঊন — ক্ষুদ্র সহায়তা",
+      "ar": "العمود: الماعون — الماعون"
     },
     "nazm": {
       "en": "Nazm: Have you seen one who denies Deen? Pushes orphan, urges not feeding poor",
-      "bn": "নজম: Have you seen one who denies Deen? Pushes orphan, urges not feeding poor",
-      "ar": "النظم: Have you seen one who denies Deen? Pushes orphan, urges not feeding poor"
+      "bn": "নজম: তুমি কি তাকে দেখেছ যে দিনকে মিথ্যা বলে? সে এতিমকে ধাক্কা দেয় ও মিসকিনকে খাবার দিতে উৎসাহ দেয় না",
+      "ar": "النظم: أرأيت الذي يكذب بالدين؟ فذلك الذي يدع اليتيم ولا يحض على طعام المسكين"
     },
     "wordByWord": [
       {
@@ -1533,13 +1533,13 @@ const DEEP_RESEARCH = {
   "106": {
     "amud": {
       "en": "Amud: Quraysh — Familiarity of Quraysh",
-      "bn": "আমূদ: Quraysh — Familiarity of Quraysh",
-      "ar": "العمود: Quraysh — Familiarity of Quraysh"
+      "bn": "আমূদ: কুরাইশ — কুরাইশদের অভ্যস্ততা",
+      "ar": "العمود: قريش — إيلاف قريش"
     },
     "nazm": {
       "en": "Nazm: For familiarity of Quraysh — their winter and summer journeys",
-      "bn": "নজম: For familiarity of Quraysh — their winter and summer journeys",
-      "ar": "النظم: For familiarity of Quraysh — their winter and summer journeys"
+      "bn": "নজম: কুরাইশদের অভ্যস্ততার জন্য — শীত ও গ্রীষ্মের সফর",
+      "ar": "النظم: لإيلاف قريش رحلة الشتاء والصيف"
     },
     "wordByWord": [
       {
@@ -1703,13 +1703,13 @@ const DEEP_RESEARCH = {
   "22": {
     "amud": {
       "en": "Amud: Hajj — Rites and sacrifice",
-      "bn": "আমূদ: Hajj — Rites and sacrifice",
-      "ar": "العمود: Hajj — Rites and sacrifice"
+      "bn": "আমূদ: হজ — হজের বিধান ও কুরবানি",
+      "ar": "العمود: الحج — المناسك والأضحية"
     },
     "nazm": {
       "en": "Nazm: Hajj remembrance of Ibrahim's surrender",
-      "bn": "নজম: Hajj remembrance of Ibrahim's surrender",
-      "ar": "النظم: Hajj remembrance of Ibrahim's surrender"
+      "bn": "নজম: হজ ইবরাহিমের আত্মসমর্পণের স্মরণ",
+      "ar": "النظم: الحج ذكرى استسلام إبراهيم"
     },
     "wordByWord": [
       {
@@ -1873,13 +1873,13 @@ const DEEP_RESEARCH = {
   "105": {
     "amud": {
       "en": "Amud: Elephant — People of Elephant",
-      "bn": "আমূদ: Elephant — People of Elephant",
-      "ar": "العمود: Elephant — People of Elephant"
+      "bn": "আমূদ: ফীল — হাতিবাহী বাহিনী",
+      "ar": "العمود: الفيل — أصحاب الفيل"
     },
     "nazm": {
       "en": "Nazm: Have you not seen how your Lord dealt with people of elephant?",
-      "bn": "নজম: Have you not seen how your Lord dealt with people of elephant?",
-      "ar": "النظم: Have you not seen how your Lord dealt with people of elephant?"
+      "bn": "নজম: তুমি কি দেখো নি তোমার রব হাতিবাহিনীর সঙ্গে কী করলেন?",
+      "ar": "النظم: ألم تر كيف فعل ربك بأصحاب الفيل؟"
     },
     "wordByWord": [
       {
@@ -2043,13 +2043,13 @@ const DEEP_RESEARCH = {
   "104": {
     "amud": {
       "en": "Amud: Slanderer — Humazah",
-      "bn": "আমূদ: Slanderer — Humazah",
-      "ar": "العمود: Slanderer — Humazah"
+      "bn": "আমূদ: হুমাযা — নিন্দুক",
+      "ar": "العمود: الهمزة — الهمزة"
     },
     "nazm": {
       "en": "Nazm: Woe to every slanderer, backbiter who gathers wealth and counts it",
-      "bn": "নজম: Woe to every slanderer, backbiter who gathers wealth and counts it",
-      "ar": "النظم: Woe to every slanderer, backbiter who gathers wealth and counts it"
+      "bn": "নজম: দুর্দশা প্রত্যেক নিন্দুক-পরনিন্দুকের, যে সম্পদ জমায় ও গোনে",
+      "ar": "النظم: ويل لكل همزة لمزة الذي جمع مالًا وعدده"
     },
     "wordByWord": [
       {
@@ -2213,13 +2213,13 @@ const DEEP_RESEARCH = {
   "41": {
     "amud": {
       "en": "Amud: Expounded — Quran explained in detail",
-      "bn": "আমূদ: Expounded — Quran explained in detail",
-      "ar": "العمود: Expounded — Quran explained in detail"
+      "bn": "আমূদ: ফুসসিলাত — বিস্তারিত কুরআন",
+      "ar": "العمود: فصلت — القرآن مفصّلًا"
     },
     "nazm": {
       "en": "Nazm: Fussilat — verses detailed",
-      "bn": "নজম: Fussilat — verses detailed",
-      "ar": "النظم: Fussilat — verses detailed"
+      "bn": "নজম: এর আয়াতসমূহ বিস্তারিত",
+      "ar": "النظم: فُصّلت آياته"
     },
     "wordByWord": [
       {
@@ -2383,13 +2383,13 @@ const DEEP_RESEARCH = {
   "103": {
     "amud": {
       "en": "Amud: Time — Asr",
-      "bn": "আমূদ: Time — Asr",
-      "ar": "العمود: Time — Asr"
+      "bn": "আমূদ: আসর — সময়",
+      "ar": "العمود: العصر — العصر"
     },
     "nazm": {
       "en": "Nazm: By time, man is in loss except those with faith and righteous deeds",
-      "bn": "নজম: By time, man is in loss except those with faith and righteous deeds",
-      "ar": "النظم: By time, man is in loss except those with faith and righteous deeds"
+      "bn": "নজম: সময়ের কসম, মানুষ ক্ষতিতে, তবে যারা ঈমান আনে ও সৎকর্ম করে",
+      "ar": "النظم: والعصر إن الإنسان لفي خسر إلا الذين آمنوا وعملوا الصالحات"
     },
     "wordByWord": [
       {
@@ -2553,13 +2553,13 @@ const DEEP_RESEARCH = {
   "40": {
     "amud": {
       "en": "Amud: Forgiver — Forgiveness and argument",
-      "bn": "আমূদ: Forgiver — Forgiveness and argument",
-      "ar": "العمود: Forgiver — Forgiveness and argument"
+      "bn": "আমূদ: গাফির — ক্ষমা ও যুক্তি",
+      "ar": "العمود: غافر — المغفرة والحجة"
     },
     "nazm": {
       "en": "Nazm: Forgiver of sin, acceptor of repentance, severe in punishment",
-      "bn": "নজম: Forgiver of sin, acceptor of repentance, severe in punishment",
-      "ar": "النظم: Forgiver of sin, acceptor of repentance, severe in punishment"
+      "bn": "নজম: পাপক্ষমাকারী, তাওবা কবুলকারী, কঠিন শাস্তিদাতা",
+      "ar": "النظم: غافر الذنب وقابل التوب شديد العقاب"
     },
     "wordByWord": [
       {
@@ -2723,13 +2723,13 @@ const DEEP_RESEARCH = {
   "15": {
     "amud": {
       "en": "Amud: Hijr — Preservation despite mockery",
-      "bn": "আমূদ: Hijr — Preservation despite mockery",
-      "ar": "العمود: Hijr — Preservation despite mockery"
+      "bn": "আমূদ: হিজর — উপহাস সত্ত্বেও সংরক্ষণ",
+      "ar": "العمود: الحجر — الحفظ رغم السخرية"
     },
     "nazm": {
       "en": "Nazm: We have sent down the Reminder and We will preserve it",
-      "bn": "নজম: We have sent down the Reminder and We will preserve it",
-      "ar": "النظم: We have sent down the Reminder and We will preserve it"
+      "bn": "নজম: নিশ্চয়ই আমরা যিকর নাযিল করেছি এবং আমরাই তার সংরক্ষক",
+      "ar": "النظم: إنا نحن نزلنا الذكر وإنا له لحافظون"
     },
     "wordByWord": [
       {
@@ -2893,13 +2893,13 @@ const DEEP_RESEARCH = {
   "102": {
     "amud": {
       "en": "Amud: Rivalry — Competing for increase",
-      "bn": "আমূদ: Rivalry — Competing for increase",
-      "ar": "العمود: Rivalry — Competing for increase"
+      "bn": "আমূদ: তাকাসুর — প্রাচুর্যের প্রতিযোগিতা",
+      "ar": "العمود: التكاثر — التفاخر بالزيادة"
     },
     "nazm": {
       "en": "Nazm: Rivalry for increase diverted you until you visit graves",
-      "bn": "নজম: Rivalry for increase diverted you until you visit graves",
-      "ar": "النظم: Rivalry for increase diverted you until you visit graves"
+      "bn": "নজম: প্রাচুর্যের প্রতিযোগিতা তোমাদের মত্ত রাখল যতক্ষণ না কবরে গেলে",
+      "ar": "النظم: ألهاكم التكاثر حتى زرتم المقابر"
     },
     "wordByWord": [
       {
@@ -3063,13 +3063,13 @@ const DEEP_RESEARCH = {
   "39": {
     "amud": {
       "en": "Amud: Crowds — Groups to Paradise/Hell",
-      "bn": "আমূদ: Crowds — Groups to Paradise/Hell",
-      "ar": "العمود: Crowds — Groups to Paradise/Hell"
+      "bn": "আমূদ: যুমার — জান্নাত ও জাহান্নামে দলবদ্ধ",
+      "ar": "العمود: الزمر — جماعات إلى الجنة والنار"
     },
     "nazm": {
       "en": "Nazm: Zumar = crowds driven in groups",
-      "bn": "নজম: Zumar = crowds driven in groups",
-      "ar": "النظم: Zumar = crowds driven in groups"
+      "bn": "নজম: যুমার = দলে দলে চালিত",
+      "ar": "النظم: زمر = جماعات تُساق زُمَرًا"
     },
     "wordByWord": [
       {
@@ -3233,13 +3233,13 @@ const DEEP_RESEARCH = {
   "101": {
     "amud": {
       "en": "Amud: Calamity — Qariah",
-      "bn": "আমূদ: Calamity — Qariah",
-      "ar": "العمود: Calamity — Qariah"
+      "bn": "আমূদ: কারিআ — মহাবিপর্যয়",
+      "ar": "العمود: القارعة — القارعة"
     },
     "nazm": {
       "en": "Nazm: Qariah — what is it? Striking calamity",
-      "bn": "নজম: Qariah — what is it? Striking calamity",
-      "ar": "النظم: Qariah — what is it? Striking calamity"
+      "bn": "নজম: কারিআ — তা কী? কী তোমাকে জানাবে কারিআ কী?",
+      "ar": "النظم: القارعة ما القارعة وما أدراك ما القارعة"
     },
     "wordByWord": [
       {
@@ -3403,13 +3403,13 @@ const DEEP_RESEARCH = {
   "38": {
     "amud": {
       "en": "Amud: Sad — Arrogance of leaders",
-      "bn": "আমূদ: Sad — Arrogance of leaders",
-      "ar": "العمود: Sad — Arrogance of leaders"
+      "bn": "আমূদ: সাদ — নেতাদের অহংকার",
+      "ar": "العمود: ص — كبرياء القادة"
     },
     "nazm": {
       "en": "Nazm: Sad vs truth — Iblis's arrogance repeats",
-      "bn": "নজম: Sad vs truth — Iblis's arrogance repeats",
-      "ar": "النظم: Sad vs truth — Iblis's arrogance repeats"
+      "bn": "নজম: সাদ বনাম সত্য — ইবলিসের অহংকার বারবার",
+      "ar": "النظم: ص مقابل الحق — كبرياء إبليس تتكرر"
     },
     "wordByWord": [
       {
@@ -3573,13 +3573,13 @@ const DEEP_RESEARCH = {
   "12": {
     "amud": {
       "en": "Amud: Yusuf — Best of stories, patience",
-      "bn": "আমূদ: Yusuf — Best of stories, patience",
-      "ar": "العمود: Yusuf — Best of stories, patience"
+      "bn": "আমূদ: ইউসুফ — শ্রেষ্ঠ কাহিনি ও ধৈর্য",
+      "ar": "العمود: يوسف — أحسن القصص والصبر"
     },
     "nazm": {
       "en": "Nazm: Dream → betrayal → prison → power — all by divine planning",
-      "bn": "নজম: Dream → betrayal → prison → power — all by divine planning",
-      "ar": "النظم: Dream → betrayal → prison → power — all by divine planning"
+      "bn": "নজম: স্বপ্ন → বিশ্বাসঘাতকতা → কারাগার → ক্ষমতা — সবই আল্লাহর পরিকল্পনায়",
+      "ar": "النظم: رؤيا ← خيانة ← سجن ← تمكين — كل ذلك بتدبير إلهي"
     },
     "wordByWord": [
       {
@@ -3743,13 +3743,13 @@ const DEEP_RESEARCH = {
   "100": {
     "amud": {
       "en": "Amud: Chargers — Horses charging",
-      "bn": "আমূদ: Chargers — Horses charging",
-      "ar": "العمود: Chargers — Horses charging"
+      "bn": "আমূদ: আদিয়াত — ছুটন্ত ঘোড়া",
+      "ar": "العمود: العاديات — الخيل العادية"
     },
     "nazm": {
       "en": "Nazm: By chargers panting, striking sparks",
-      "bn": "নজম: By chargers panting, striking sparks",
-      "ar": "النظم: By chargers panting, striking sparks"
+      "bn": "নজম: হাঁপাতে থাকা ছুটন্ত ঘোড়ার কসম, যা খুরের আঘাতে আগুনের ফুলকি তোলে",
+      "ar": "النظم: والعاديات ضبحًا فالموريات قدحًا"
     },
     "wordByWord": [
       {
@@ -3913,13 +3913,13 @@ const DEEP_RESEARCH = {
   "37": {
     "amud": {
       "en": "Amud: Ranged in Rows — Angels and tawhid",
-      "bn": "আমূদ: Ranged in Rows — Angels and tawhid",
-      "ar": "العمود: Ranged in Rows — Angels and tawhid"
+      "bn": "আমূদ: সাফফাত — ফেরেশতা ও তাওহিদ",
+      "ar": "العمود: الصافات — الملائكة والتوحيد"
     },
     "nazm": {
       "en": "Nazm: Angels lined up declare One Lord",
-      "bn": "নজম: Angels lined up declare One Lord",
-      "ar": "النظم: Angels lined up declare One Lord"
+      "bn": "নজম: সারিবদ্ধ ফেরেশতা এক রবের ঘোষণা দেয়",
+      "ar": "النظم: الملائكة صافّون يعلنون ربًّا واحدًا"
     },
     "wordByWord": [
       {
@@ -4083,13 +4083,13 @@ const DEEP_RESEARCH = {
   "99": {
     "amud": {
       "en": "Amud: Earthquake — Zalzalah",
-      "bn": "আমূদ: Earthquake — Zalzalah",
-      "ar": "العمود: Earthquake — Zalzalah"
+      "bn": "আমূদ: যিলযাল — ভূমিকম্প",
+      "ar": "العمود: الزلزلة — الزلزلة"
     },
     "nazm": {
       "en": "Nazm: When earth is shaken with its quake, and brings forth its burdens",
-      "bn": "নজম: When earth is shaken with its quake, and brings forth its burdens",
-      "ar": "النظم: When earth is shaken with its quake, and brings forth its burdens"
+      "bn": "নজম: যখন পৃথিবী তার কম্পনে কম্পিত হবে ও তার ভার বের করবে",
+      "ar": "النظم: إذا زلزلت الأرض زلزالها وأخرجت أثقالها"
     },
     "wordByWord": [
       {
@@ -4253,13 +4253,13 @@ const DEEP_RESEARCH = {
   "36": {
     "amud": {
       "en": "Amud: Ya-Sin — Heart of Quran, three parables",
-      "bn": "আমূদ: Ya-Sin — Heart of Quran, three parables",
-      "ar": "العمود: Ya-Sin — Heart of Quran, three parables"
+      "bn": "আমূদ: ইয়া-সিন — কুরআনের হৃদয়, তিনটি উপমা",
+      "ar": "العمود: يس — قلب القرآن، ثلاثة أمثال"
     },
     "nazm": {
       "en": "Nazm: Man in outskirts, sun's orbit, dead earth revived",
-      "bn": "নজম: Man in outskirts, sun's orbit, dead earth revived",
-      "ar": "النظم: Man in outskirts, sun's orbit, dead earth revived"
+      "bn": "নজম: শহরের প্রান্তের ব্যক্তি, সূর্যের কক্ষপথ, মৃত ভূমির পুনর্জীবন",
+      "ar": "النظم: رجل من أطراف المدينة، مدار الشمس، إحياء الأرض الميتة"
     },
     "wordByWord": [
       {
@@ -4391,13 +4391,13 @@ const DEEP_RESEARCH = {
   "98": {
     "amud": {
       "en": "Amud: Clear Proof — Bayyinah",
-      "bn": "আমূদ: Clear Proof — Bayyinah",
-      "ar": "العمود: Clear Proof — Bayyinah"
+      "bn": "আমূদ: বাইয়িনা — সুস্পষ্ট প্রমাণ",
+      "ar": "العمود: البينة — البينة"
     },
     "nazm": {
       "en": "Nazm: Those who disbelieved will not cease until clear proof comes",
-      "bn": "নজম: Those who disbelieved will not cease until clear proof comes",
-      "ar": "النظم: Those who disbelieved will not cease until clear proof comes"
+      "bn": "নজম: কাফিররা বিরত হবে না যতক্ষণ না তাদের কাছে সুস্পষ্ট প্রমাণ আসে",
+      "ar": "النظم: لم يكن الذين كفروا منفكين حتى تأتيهم البينة"
     },
     "wordByWord": [
       {
@@ -4561,13 +4561,13 @@ const DEEP_RESEARCH = {
   "35": {
     "amud": {
       "en": "Amud: Originator — Angels and mercy",
-      "bn": "আমূদ: Originator — Angels and mercy",
-      "ar": "العمود: Originator — Angels and mercy"
+      "bn": "আমূদ: ফাতির — ফেরেশতা ও রহমত",
+      "ar": "العمود: فاطر — الملائكة والرحمة"
     },
     "nazm": {
       "en": "Nazm: No one withholds mercy Allah releases",
-      "bn": "নজম: No one withholds mercy Allah releases",
-      "ar": "النظم: No one withholds mercy Allah releases"
+      "bn": "নজম: আল্লাহর রহমত কেউ আটকাতে পারে না",
+      "ar": "النظم: لا يمسك رحمة الله أحد حين يرسلها"
     },
     "wordByWord": [
       {
@@ -4731,13 +4731,13 @@ const DEEP_RESEARCH = {
   "97": {
     "amud": {
       "en": "Amud: Power — Night of Qadr",
-      "bn": "আমূদ: Power — Night of Qadr",
-      "ar": "العمود: Power — Night of Qadr"
+      "bn": "আমূদ: কাদর — লাইলাতুল কাদর",
+      "ar": "العمود: القدر — ليلة القدر"
     },
     "nazm": {
       "en": "Nazm: We sent it down on Night of Power — better than 1000 months",
-      "bn": "নজম: We sent it down on Night of Power — better than 1000 months",
-      "ar": "النظم: We sent it down on Night of Power — better than 1000 months"
+      "bn": "নজম: আমরা তা নাযিল করেছি কাদরের রাতে — হাজার মাসের চেয়ে উত্তম",
+      "ar": "النظم: إنا أنزلناه في ليلة القدر — خير من ألف شهر"
     },
     "wordByWord": [
       {
@@ -4901,13 +4901,13 @@ const DEEP_RESEARCH = {
   "34": {
     "amud": {
       "en": "Amud: Sheba — Gratitude vs ingratitude",
-      "bn": "আমূদ: Sheba — Gratitude vs ingratitude",
-      "ar": "العمود: Sheba — Gratitude vs ingratitude"
+      "bn": "আমূদ: সাবা — কৃতজ্ঞতা ও অকৃতজ্ঞতা",
+      "ar": "العمود: سبأ — الشكر والكفران"
     },
     "nazm": {
       "en": "Nazm: Sheba's gardens destroyed for kufr",
-      "bn": "নজম: Sheba's gardens destroyed for kufr",
-      "ar": "النظم: Sheba's gardens destroyed for kufr"
+      "bn": "নজম: কুফরির কারণে সাবার বাগান ধ্বংস",
+      "ar": "النظم: دُمّرت جنات سبأ بسبب الكفر"
     },
     "wordByWord": [
       {
@@ -5071,13 +5071,13 @@ const DEEP_RESEARCH = {
   "96": {
     "amud": {
       "en": "Amud: Clot — Read in name of your Lord",
-      "bn": "আমূদ: Clot — Read in name of your Lord",
-      "ar": "العمود: Clot — Read in name of your Lord"
+      "bn": "আমূদ: আলাক — তোমার রবের নামে পড়ো",
+      "ar": "العمود: العلق — اقرأ باسم ربك"
     },
     "nazm": {
       "en": "Nazm: Read — your Lord created from clot, taught by pen",
-      "bn": "নজম: Read — your Lord created from clot, taught by pen",
-      "ar": "النظم: Read — your Lord created from clot, taught by pen"
+      "bn": "নজম: পড়ো তোমার রবের নামে যিনি আলাক থেকে সৃষ্টি করেছেন, কলমে শিক্ষা দিয়েছেন",
+      "ar": "النظم: اقرأ باسم ربك الذي خلق من علق، علّم بالقلم"
     },
     "wordByWord": [
       {
@@ -5241,13 +5241,13 @@ const DEEP_RESEARCH = {
   "33": {
     "amud": {
       "en": "Amud: Confederates — Trench and household",
-      "bn": "আমূদ: Confederates — Trench and household",
-      "ar": "العمود: Confederates — Trench and household"
+      "bn": "আমূদ: আহযাব — খন্দক ও নবীর পরিবার",
+      "ar": "العمود: الأحزاب — الخندق والبيت"
     },
     "nazm": {
       "en": "Nazm: Ahzab battle + Prophet's household",
-      "bn": "নজম: Ahzab battle + Prophet's household",
-      "ar": "النظم: Ahzab battle + Prophet's household"
+      "bn": "নজম: আহযাব যুদ্ধ + নবীর পরিবার",
+      "ar": "النظم: غزوة الأحزاب + بيت النبي"
     },
     "wordByWord": [
       {
@@ -5411,13 +5411,13 @@ const DEEP_RESEARCH = {
   "11": {
     "amud": {
       "en": "Amud: Hud — Persistence of prophets",
-      "bn": "আমূদ: Hud — Persistence of prophets",
-      "ar": "العمود: Hud — Persistence of prophets"
+      "bn": "আমূদ: হুদ — নবীগণের অবিচলতা",
+      "ar": "العمود: هود — ثبات الأنبياء"
     },
     "nazm": {
       "en": "Nazm: Seven prophet stories, each rejected for same reason",
-      "bn": "নজম: Seven prophet stories, each rejected for same reason",
-      "ar": "النظم: Seven prophet stories, each rejected for same reason"
+      "bn": "নজম: সাতটি নবীর কাহিনি, সবাইকে একই কারণে প্রত্যাখ্যান করা হয়",
+      "ar": "النظم: سبع قصص أنبياء، كلها رُفضت للسبب نفسه"
     },
     "wordByWord": [
       {
@@ -5581,13 +5581,13 @@ const DEEP_RESEARCH = {
   "95": {
     "amud": {
       "en": "Amud: Fig — Fig and olive, Sinai, secure city",
-      "bn": "আমূদ: Fig — Fig and olive, Sinai, secure city",
-      "ar": "العمود: Fig — Fig and olive, Sinai, secure city"
+      "bn": "আমূদ: তীন — ডুমুর, জলপাই, সিনাই ও নিরাপদ নগর",
+      "ar": "العمود: التين — التين والزيتون والطور والبلد الأمين"
     },
     "nazm": {
       "en": "Nazm: By fig and olive, Mount Sinai, this secure city",
-      "bn": "নজম: By fig and olive, Mount Sinai, this secure city",
-      "ar": "النظم: By fig and olive, Mount Sinai, this secure city"
+      "bn": "নজম: ডুমুর, জলপাই, সিনাই পর্বত ও এই নিরাপদ নগরের কসম",
+      "ar": "النظم: والتين والزيتون وطور سينين وهذا البلد الأمين"
     },
     "wordByWord": [
       {
@@ -5751,13 +5751,13 @@ const DEEP_RESEARCH = {
   "79": {
     "amud": {
       "en": "Amud: Pulling — Angels that pull",
-      "bn": "আমূদ: Pulling — Angels that pull",
-      "ar": "العمود: Pulling — Angels that pull"
+      "bn": "আমূদ: নাযিআত — উৎপাটনকারী ফেরেশতা",
+      "ar": "العمود: النازعات — الملائكة النازعة"
     },
     "nazm": {
       "en": "Nazm: By those who pull out violently",
-      "bn": "নজম: By those who pull out violently",
-      "ar": "النظم: By those who pull out violently"
+      "bn": "নজম: প্রবলভাবে উৎপাটনকারীদের কসম",
+      "ar": "النظم: والنازعات غرقًا"
     },
     "wordByWord": [
       {
@@ -5921,13 +5921,13 @@ const DEEP_RESEARCH = {
   "19": {
     "amud": {
       "en": "Amud: Maryam — Miraculous births",
-      "bn": "আমূদ: Maryam — Miraculous births",
-      "ar": "العمود: Maryam — Miraculous births"
+      "bn": "আমূদ: মারইয়াম — অলৌকিক জন্ম",
+      "ar": "العمود: مريم — مواليد معجزة"
     },
     "nazm": {
       "en": "Nazm: Zakariya, Maryam, Ibrahim — mercy when means are impossible",
-      "bn": "নজম: Zakariya, Maryam, Ibrahim — mercy when means are impossible",
-      "ar": "النظم: Zakariya, Maryam, Ibrahim — mercy when means are impossible"
+      "bn": "নজম: জাকারিয়া, মারইয়াম, ইবরাহিম — উপায় অসম্ভব হলে আল্লাহর রহমত",
+      "ar": "النظم: زكريا، مريم، إبراهيم — رحمة حين تُستحال الأسباب"
     },
     "wordByWord": [
       {
@@ -6091,13 +6091,13 @@ const DEEP_RESEARCH = {
   "94": {
     "amud": {
       "en": "Amud: Expansion — Did We not expand your chest?",
-      "bn": "আমূদ: Expansion — Did We not expand your chest?",
-      "ar": "العمود: Expansion — Did We not expand your chest?"
+      "bn": "আমূদ: ইনশিরাহ — আমরা কি তোমার বক্ষ প্রশস্ত করিনি?",
+      "ar": "العمود: الشرح — ألم نشرح لك صدرك؟"
     },
     "nazm": {
       "en": "Nazm: Did We not expand for you your chest?",
-      "bn": "নজম: Did We not expand for you your chest?",
-      "ar": "النظم: Did We not expand for you your chest?"
+      "bn": "নজম: আমরা কি তোমার বক্ষ প্রশস্ত করিনি?",
+      "ar": "النظم: ألم نشرح لك صدرك؟"
     },
     "wordByWord": [
       {
@@ -6261,13 +6261,13 @@ const DEEP_RESEARCH = {
   "78": {
     "amud": {
       "en": "Amud: Great News — What they differ about",
-      "bn": "আমূদ: Great News — What they differ about",
-      "ar": "العمود: Great News — What they differ about"
+      "bn": "আমূদ: নাবা — মহান সংবাদ",
+      "ar": "العمود: النبأ — النبأ العظيم"
     },
     "nazm": {
       "en": "Nazm: About what are they asking? About the great news",
-      "bn": "নজম: About what are they asking? About the great news",
-      "ar": "النظم: About what are they asking? About the great news"
+      "bn": "নজম: তারা কী নিয়ে জিজ্ঞাসাবাদ করে? মহান সংবাদ নিয়ে",
+      "ar": "النظم: عم يتساءلون عن النبأ العظيم"
     },
     "wordByWord": [
       {
@@ -6431,13 +6431,13 @@ const DEEP_RESEARCH = {
   "93": {
     "amud": {
       "en": "Amud: Morning — Duha",
-      "bn": "আমূদ: Morning — Duha",
-      "ar": "العمود: Morning — Duha"
+      "bn": "আমূদ: দুহা — পূর্বাহ্ন",
+      "ar": "العمود: الضحى — الضحى"
     },
     "nazm": {
       "en": "Nazm: By morning light, night when still — your Lord has not forsaken you",
-      "bn": "নজম: By morning light, night when still — your Lord has not forsaken you",
-      "ar": "النظم: By morning light, night when still — your Lord has not forsaken you"
+      "bn": "নজম: পূর্বাহ্ন ও নিশ্চল রাতের কসম — তোমার রব তোমাকে ত্যাগ করেননি",
+      "ar": "النظم: والضحى والليل إذا سجى — ما ودعك ربك وما قلى"
     },
     "wordByWord": [
       {
@@ -6601,13 +6601,13 @@ const DEEP_RESEARCH = {
   "77": {
     "amud": {
       "en": "Amud: Sent Forth — Winds sent forth",
-      "bn": "আমূদ: Sent Forth — Winds sent forth",
-      "ar": "العمود: Sent Forth — Winds sent forth"
+      "bn": "আমূদ: মুরসালাত — প্রেরিত বাতাস",
+      "ar": "العمود: المرسلات — الرياح المرسلة"
     },
     "nazm": {
       "en": "Nazm: By those sent forth in succession",
-      "bn": "নজম: By those sent forth in succession",
-      "ar": "النظم: By those sent forth in succession"
+      "bn": "নজম: পরপর প্রেরিতদের কসম",
+      "ar": "النظم: والمرسلات عرفًا"
     },
     "wordByWord": [
       {
@@ -6771,13 +6771,13 @@ const DEEP_RESEARCH = {
   "18": {
     "amud": {
       "en": "Amud: Cave — Trials of faith (4 stories)",
-      "bn": "আমূদ: Cave — Trials of faith (4 stories)",
-      "ar": "العمود: Cave — Trials of faith (4 stories)"
+      "bn": "আমূদ: কাহফ — ঈমানের পরীক্ষা (চারটি কাহিনি)",
+      "ar": "العمود: الكهف — فتن الإيمان (أربع قصص)"
     },
     "nazm": {
       "en": "Nazm: Wealth (man with two gardens), knowledge (Musa-Khidr), power (Dhul Qarnayn), religion (Cave sleepers)",
-      "bn": "নজম: Wealth (man with two gardens), knowledge (Musa-Khidr), power (Dhul Qarnayn), religion (Cave sleepers)",
-      "ar": "النظم: Wealth (man with two gardens), knowledge (Musa-Khidr), power (Dhul Qarnayn), religion (Cave sleepers)"
+      "bn": "নজম: সম্পদ (দুই বাগানের মালিক), জ্ঞান (মুসা-খিজির), ক্ষমতা (যুলকারনাইন), দ্বীন (কাহফের যুবকরা)",
+      "ar": "النظم: المال (صاحب الجنتين)، العلم (موسى والخضر)، السلطة (ذو القرنين)، الدين (فتية الكهف)"
     },
     "wordByWord": [
       {
@@ -6941,13 +6941,13 @@ const DEEP_RESEARCH = {
   "92": {
     "amud": {
       "en": "Amud: Night — Night when it covers",
-      "bn": "আমূদ: Night — Night when it covers",
-      "ar": "العمود: Night — Night when it covers"
+      "bn": "আমূদ: লাইল — রাত যখন ঢেকে দেয়",
+      "ar": "العمود: الليل — الليل إذا يغشى"
     },
     "nazm": {
       "en": "Nazm: By night when it covers, day when it appears",
-      "bn": "নজম: By night when it covers, day when it appears",
-      "ar": "النظم: By night when it covers, day when it appears"
+      "bn": "নজম: রাতের কসম যখন তা ঢেকে দেয়, দিনের যখন তা প্রকাশ পায়",
+      "ar": "النظم: والليل إذا يغشى والنهار إذا تجلى"
     },
     "wordByWord": [
       {
@@ -7111,13 +7111,13 @@ const DEEP_RESEARCH = {
   "76": {
     "amud": {
       "en": "Amud: Man — Time when man was nothing",
-      "bn": "আমূদ: Man — Time when man was nothing",
-      "ar": "العمود: Man — Time when man was nothing"
+      "bn": "আমূদ: ইনসান — যখন মানুষ উল্লেখযোগ্য কিছুই ছিল না",
+      "ar": "العمود: الإنسان — حين لم يكن شيئًا مذكورًا"
     },
     "nazm": {
       "en": "Nazm: Has there come upon man a period when he was nothing mentioned?",
-      "bn": "নজম: Has there come upon man a period when he was nothing mentioned?",
-      "ar": "النظم: Has there come upon man a period when he was nothing mentioned?"
+      "bn": "নজম: মানুষের ওপর এমন সময় এসেছিল যখন সে উল্লেখযোগ্য কিছু ছিল না",
+      "ar": "النظم: هل أتى على الإنسان حين لم يكن شيئًا مذكورًا؟"
     },
     "wordByWord": [
       {
@@ -7281,13 +7281,13 @@ const DEEP_RESEARCH = {
   "91": {
     "amud": {
       "en": "Amud: Sun — Sun and its brightness",
-      "bn": "আমূদ: Sun — Sun and its brightness",
-      "ar": "العمود: Sun — Sun and its brightness"
+      "bn": "আমূদ: শামস — সূর্য ও তার আলো",
+      "ar": "العمود: الشمس — الشمس وضحاها"
     },
     "nazm": {
       "en": "Nazm: By sun and its brightness, moon when it follows",
-      "bn": "নজম: By sun and its brightness, moon when it follows",
-      "ar": "النظم: By sun and its brightness, moon when it follows"
+      "bn": "নজম: সূর্য ও তার আলোর, চন্দ্রের কসম যখন তা অনুসরণ করে",
+      "ar": "النظم: والشمس وضحاها والقمر إذا تلاها"
     },
     "wordByWord": [
       {
@@ -7451,13 +7451,13 @@ const DEEP_RESEARCH = {
   "75": {
     "amud": {
       "en": "Amud: Resurrection — Self-reproaching soul",
-      "bn": "আমূদ: Resurrection — Self-reproaching soul",
-      "ar": "العمود: Resurrection — Self-reproaching soul"
+      "bn": "আমূদ: কিয়ামা — আত্মভর্ত্সনাকারী আত্মা",
+      "ar": "العمود: القيامة — النفس اللوامة"
     },
     "nazm": {
       "en": "Nazm: Does man think We will not assemble his bones?",
-      "bn": "নজম: Does man think We will not assemble his bones?",
-      "ar": "النظم: Does man think We will not assemble his bones?"
+      "bn": "নজম: মানুষ কি মনে করে আমরা তার হাড় একত্র করব না?",
+      "ar": "النظم: أيحسب الإنسان ألن نجمع عظامه؟"
     },
     "wordByWord": [
       {
@@ -7621,13 +7621,13 @@ const DEEP_RESEARCH = {
   "90": {
     "amud": {
       "en": "Amud: City — This city, this parent and child",
-      "bn": "আমূদ: City — This city, this parent and child",
-      "ar": "العمود: City — This city, this parent and child"
+      "bn": "আমূদ: বালাদ — এই নগর, পিতা ও সন্তান",
+      "ar": "العمود: البلد — هذا البلد والوالد والولد"
     },
     "nazm": {
       "en": "Nazm: I swear by this city, you are free in this city",
-      "bn": "নজম: I swear by this city, you are free in this city",
-      "ar": "النظم: I swear by this city, you are free in this city"
+      "bn": "নজম: আমি এই নগরের কসম করি, যেখানে তুমি বসবাসকারী",
+      "ar": "النظم: لا أقسم بهذا البلد وأنت حل بهذا البلد"
     },
     "wordByWord": [
       {
@@ -7791,13 +7791,13 @@ const DEEP_RESEARCH = {
   "74": {
     "amud": {
       "en": "Amud: Covered — Arise and warn",
-      "bn": "আমূদ: Covered — Arise and warn",
-      "ar": "العمود: Covered — Arise and warn"
+      "bn": "আমূদ: মুদ্দাসসির — উঠে সতর্ক করো",
+      "ar": "العمود: المدثر — قم فأنذر"
     },
     "nazm": {
       "en": "Nazm: O you covered, arise and warn, magnify your Lord",
-      "bn": "নজম: O you covered, arise and warn, magnify your Lord",
-      "ar": "النظم: O you covered, arise and warn, magnify your Lord"
+      "bn": "নজম: হে বস্ত্রাবৃত, উঠে সতর্ক করো, তোমার রবের মহিমা ঘোষণা করো",
+      "ar": "النظم: يا أيها المدثر قم فأنذر وربك فكبر"
     },
     "wordByWord": [
       {
@@ -7961,13 +7961,13 @@ const DEEP_RESEARCH = {
   "89": {
     "amud": {
       "en": "Amud: Dawn — Ten nights",
-      "bn": "আমূদ: Dawn — Ten nights",
-      "ar": "العمود: Dawn — Ten nights"
+      "bn": "আমূদ: ফজর — দশ রাত",
+      "ar": "العمود: الفجر — الليالي العشر"
     },
     "nazm": {
       "en": "Nazm: By dawn, ten nights, even and odd, night when it passes",
-      "bn": "নজম: By dawn, ten nights, even and odd, night when it passes",
-      "ar": "النظم: By dawn, ten nights, even and odd, night when it passes"
+      "bn": "নজম: ভোরের, দশ রাতের, জোড় ও বিজোড়ের, রাতের কসম যখন তা চলে যায়",
+      "ar": "النظم: والفجر وليالٍ عشر والشفع والوتر والليل إذا يسر"
     },
     "wordByWord": [
       {
@@ -8131,13 +8131,13 @@ const DEEP_RESEARCH = {
   "73": {
     "amud": {
       "en": "Amud: Wrapped — Night prayer",
-      "bn": "আমূদ: Wrapped — Night prayer",
-      "ar": "العمود: Wrapped — Night prayer"
+      "bn": "আমূদ: মুযযাম্মিল — রাতের নামাজ",
+      "ar": "العمود: المزمل — قيام الليل"
     },
     "nazm": {
       "en": "Nazm: O you wrapped, stand night except a little",
-      "bn": "নজম: O you wrapped, stand night except a little",
-      "ar": "النظم: O you wrapped, stand night except a little"
+      "bn": "নজম: হে চাদরাবৃত, রাতের কিছু অংশ ছাড়া দাঁড়াও",
+      "ar": "النظم: يا أيها المزمل قم الليل إلا قليلًا"
     },
     "wordByWord": [
       {
@@ -8301,13 +8301,13 @@ const DEEP_RESEARCH = {
   "88": {
     "amud": {
       "en": "Amud: Overwhelming — Faces humbled/exalted",
-      "bn": "আমূদ: Overwhelming — Faces humbled/exalted",
-      "ar": "العمود: Overwhelming — Faces humbled/exalted"
+      "bn": "আমূদ: গাশিয়া — অবনত ও সুখী মুখমণ্ডল",
+      "ar": "العمود: الغاشية — وجوه خاشعة وناعمة"
     },
     "nazm": {
       "en": "Nazm: Has there come to you news of the overwhelming?",
-      "bn": "নজম: Has there come to you news of the overwhelming?",
-      "ar": "النظم: Has there come to you news of the overwhelming?"
+      "bn": "নজম: তোমার কাছে ছেয়ে ফেলা বিপদের সংবাদ এসেছে কি?",
+      "ar": "النظم: هل أتاك حديث الغاشية؟"
     },
     "wordByWord": [
       {
@@ -8471,13 +8471,13 @@ const DEEP_RESEARCH = {
   "72": {
     "amud": {
       "en": "Amud: Jinn — Jinn listening to Quran",
-      "bn": "আমূদ: Jinn — Jinn listening to Quran",
-      "ar": "العمود: Jinn — Jinn listening to Quran"
+      "bn": "আমূদ: জিন — জিনের কুরআন শ্রবণ",
+      "ar": "العمود: الجن — الجن يستمعون القرآن"
     },
     "nazm": {
       "en": "Nazm: Jinn heard Quran and said: we heard a wondrous recitation",
-      "bn": "নজম: Jinn heard Quran and said: we heard a wondrous recitation",
-      "ar": "النظم: Jinn heard Quran and said: we heard a wondrous recitation"
+      "bn": "নজম: জিনরা কুরআন শুনে বলল, আমরা বিস্ময়কর কুরআন শুনেছি",
+      "ar": "النظم: سمع الجن القرآن فقالوا: إنا سمعنا قرآنًا عجبًا"
     },
     "wordByWord": [
       {
@@ -8641,13 +8641,13 @@ const DEEP_RESEARCH = {
   "14": {
     "amud": {
       "en": "Amud: Ibrahim — Foundation of dua and security",
-      "bn": "আমূদ: Ibrahim — Foundation of dua and security",
-      "ar": "العمود: Ibrahim — Foundation of dua and security"
+      "bn": "আমূদ: ইবরাহিম — দুআ ও নিরাপত্তার ভিত্তি",
+      "ar": "العمود: إبراهيم — أساس الدعاء والأمن"
     },
     "nazm": {
       "en": "Nazm: Ibrahim's prayer for Mecca's safety",
-      "bn": "নজম: Ibrahim's prayer for Mecca's safety",
-      "ar": "النظم: Ibrahim's prayer for Mecca's safety"
+      "bn": "নজম: মক্কার নিরাপত্তার জন্য ইবরাহিমের দুআ",
+      "ar": "النظم: دعاء إبراهيم لأمن مكة"
     },
     "wordByWord": [
       {
@@ -8811,13 +8811,13 @@ const DEEP_RESEARCH = {
   "87": {
     "amud": {
       "en": "Amud: Most High — Praise the Most High",
-      "bn": "আমূদ: Most High — Praise the Most High",
-      "ar": "العمود: Most High — Praise the Most High"
+      "bn": "আমূদ: আ'লা — তোমার মহান রবের নাম পবিত্র করো",
+      "ar": "العمود: الأعلى — سبّح اسم ربك الأعلى"
     },
     "nazm": {
       "en": "Nazm: Exalt the name of your Lord, the Most High",
-      "bn": "নজম: Exalt the name of your Lord, the Most High",
-      "ar": "النظم: Exalt the name of your Lord, the Most High"
+      "bn": "নজম: তোমার মহান রবের নাম পবিত্র ঘোষণা করো",
+      "ar": "النظم: سبح اسم ربك الأعلى"
     },
     "wordByWord": [
       {
@@ -8981,13 +8981,13 @@ const DEEP_RESEARCH = {
   "71": {
     "amud": {
       "en": "Amud: Noah — 950 years of dawah",
-      "bn": "আমূদ: Noah — 950 years of dawah",
-      "ar": "العمود: Noah — 950 years of dawah"
+      "bn": "আমূদ: নূহ — ৯৫০ বছরের দাওয়াত",
+      "ar": "العمود: نوح — ٩٥٠ سنة دعوة"
     },
     "nazm": {
       "en": "Nazm: Nuh called his people night and day",
-      "bn": "নজম: Nuh called his people night and day",
-      "ar": "النظم: Nuh called his people night and day"
+      "bn": "নজম: নূহ তার সম্প্রদায়কে রাতদিন ডেকেছেন",
+      "ar": "النظم: دعا نوح قومه ليلًا ونهارًا"
     },
     "wordByWord": [
       {
@@ -9151,13 +9151,13 @@ const DEEP_RESEARCH = {
   "86": {
     "amud": {
       "en": "Amud: Night Comer — Tariq",
-      "bn": "আমূদ: Night Comer — Tariq",
-      "ar": "العمود: Night Comer — Tariq"
+      "bn": "আমূদ: তারিক — আলোকিত নক্ষত্র",
+      "ar": "العمود: الطارق — النجم الثاقب"
     },
     "nazm": {
       "en": "Nazm: By sky and Tariq — piercing star, over every soul is a guardian",
-      "bn": "নজম: By sky and Tariq — piercing star, over every soul is a guardian",
-      "ar": "النظم: By sky and Tariq — piercing star, over every soul is a guardian"
+      "bn": "নজম: আকাশ ও তারিকের কসম — আলোকিত নক্ষত্র, প্রত্যেক প্রাণের ওপর রক্ষক",
+      "ar": "النظم: والسماء والطارق — النجم الثاقب، إن كل نفس عليها حافظ"
     },
     "wordByWord": [
       {
@@ -9321,13 +9321,13 @@ const DEEP_RESEARCH = {
   "70": {
     "amud": {
       "en": "Amud: Ascending Ways — Patience beautiful",
-      "bn": "আমূদ: Ascending Ways — Patience beautiful",
-      "ar": "العمود: Ascending Ways — Patience beautiful"
+      "bn": "আমূদ: মাআরিজ — সুন্দর ধৈর্য",
+      "ar": "العمود: المعارج — الصبر الجميل"
     },
     "nazm": {
       "en": "Nazm: Patient patience — Ma'arij, angels ascend in 50k years",
-      "bn": "নজম: Patient patience — Ma'arij, angels ascend in 50k years",
-      "ar": "النظم: Patient patience — Ma'arij, angels ascend in 50k years"
+      "bn": "নজম: সুন্দর ধৈর্য — মাআরিজ, ফেরেশতারা পঞ্চাশ হাজার বছরে আরোহণ করে",
+      "ar": "النظم: صبر جميل — المعارج، الملائكة تعرج في خمسين ألف سنة"
     },
     "wordByWord": [
       {
@@ -9491,13 +9491,13 @@ const DEEP_RESEARCH = {
   "85": {
     "amud": {
       "en": "Amud: Towers — Fortified towers, burning trench",
-      "bn": "আমূদ: Towers — Fortified towers, burning trench",
-      "ar": "العمود: Towers — Fortified towers, burning trench"
+      "bn": "আমূদ: বুরূজ — সুরক্ষিত দুর্গ ও অগ্নিকুণ্ড",
+      "ar": "العمود: البروج — أبراج محصنة وأخدود نار"
     },
     "nazm": {
       "en": "Nazm: By sky with towers, by promised Day, by ditch of fire",
-      "bn": "নজম: By sky with towers, by promised Day, by ditch of fire",
-      "ar": "النظم: By sky with towers, by promised Day, by ditch of fire"
+      "bn": "নজম: বুরুজযুক্ত আকাশ, প্রতিশ্রুত দিন ও অগ্নিকুণ্ডের কসম",
+      "ar": "النظم: والسماء ذات البروج واليوم الموعود وأخدود النار"
     },
     "wordByWord": [
       {
@@ -9661,13 +9661,13 @@ const DEEP_RESEARCH = {
   "69": {
     "amud": {
       "en": "Amud: Inevitable Reality — Haqqah",
-      "bn": "আমূদ: Inevitable Reality — Haqqah",
-      "ar": "العمود: Inevitable Reality — Haqqah"
+      "bn": "আমূদ: হাক্কা — নিশ্চিত বাস্তবতা",
+      "ar": "العمود: الحاقة — الحاقة"
     },
     "nazm": {
       "en": "Nazm: Haqqah — what is it? What will make you know?",
-      "bn": "নজম: Haqqah — what is it? What will make you know?",
-      "ar": "النظم: Haqqah — what is it? What will make you know?"
+      "bn": "নজম: হাক্কা — তা কী? কী তোমাকে জানাবে হাক্কা কী?",
+      "ar": "النظم: الحاقة ما الحاقة وما أدراك ما الحاقة"
     },
     "wordByWord": [
       {
@@ -9831,13 +9831,13 @@ const DEEP_RESEARCH = {
   "68": {
     "amud": {
       "en": "Amud: Pen — Character of Prophet",
-      "bn": "আমূদ: Pen — Character of Prophet",
-      "ar": "العمود: Pen — Character of Prophet"
+      "bn": "আমূদ: কলম — নবীর চরিত্র",
+      "ar": "العمود: القلم — خلق النبي"
     },
     "nazm": {
       "en": "Nazm: Nun, by the pen — you are not mad, you have great character",
-      "bn": "নজম: Nun, by the pen — you are not mad, you have great character",
-      "ar": "النظم: Nun, by the pen — you are not mad, you have great character"
+      "bn": "নজম: নূন, কলমের কসম — তুমি রবের অনুগ্রহে উন্মাদ নও, তুমি মহান চরিত্রে অধিষ্ঠিত",
+      "ar": "النظم: ن والقلم — ما أنت بنعمة ربك بمجنون، وإنك لعلى خلق عظيم"
     },
     "wordByWord": [
       {
@@ -10001,13 +10001,13 @@ const DEEP_RESEARCH = {
   "84": {
     "amud": {
       "en": "Amud: Splitting — Sky split",
-      "bn": "আমূদ: Splitting — Sky split",
-      "ar": "العمود: Splitting — Sky split"
+      "bn": "আমূদ: ইনশিকাক — আকাশ বিদীর্ণ",
+      "ar": "العمود: الانشقاق — السماء تنشق"
     },
     "nazm": {
       "en": "Nazm: When sky is split and listens to its Lord",
-      "bn": "নজম: When sky is split and listens to its Lord",
-      "ar": "النظم: When sky is split and listens to its Lord"
+      "bn": "নজম: যখন আকাশ বিদীর্ণ হবে ও তার রবের আদেশ মানবে",
+      "ar": "النظم: إذا السماء انشقت وأذنت لربها"
     },
     "wordByWord": [
       {
@@ -10171,13 +10171,13 @@ const DEEP_RESEARCH = {
   "83": {
     "amud": {
       "en": "Amud: Defrauders — Woe to those who give less",
-      "bn": "আমূদ: Defrauders — Woe to those who give less",
-      "ar": "العمود: Defrauders — Woe to those who give less"
+      "bn": "আমূদ: মুতাফফিফিন — কম দেওয়াদের দুর্দশা",
+      "ar": "العمود: المطففين — ويل للمطففين"
     },
     "nazm": {
       "en": "Nazm: Woe to mutaffifin who take full but give less",
-      "bn": "নজম: Woe to mutaffifin who take full but give less",
-      "ar": "النظم: Woe to mutaffifin who take full but give less"
+      "bn": "নজম: দুর্দশা তাদের জন্য যারা মাপে পূর্ণ নেয় কিন্তু কম দেয়",
+      "ar": "النظم: ويل للمطففين الذين إذا اكتالوا على الناس يستوفون"
     },
     "wordByWord": [
       {
@@ -10341,13 +10341,13 @@ const DEEP_RESEARCH = {
   "67": {
     "amud": {
       "en": "Amud: Dominion — Who is best in deeds",
-      "bn": "আমূদ: Dominion — Who is best in deeds",
-      "ar": "العمود: Dominion — Who is best in deeds"
+      "bn": "আমূদ: মুলক — কে আমলে শ্রেষ্ঠ",
+      "ar": "العمود: الملك — من أحسن عملًا"
     },
     "nazm": {
       "en": "Nazm: Blessed is He in whose hand is dominion — who will test you",
-      "bn": "নজম: Blessed is He in whose hand is dominion — who will test you",
-      "ar": "النظم: Blessed is He in whose hand is dominion — who will test you"
+      "bn": "নজম: কল্যাণময় তিনি যাঁর হাতে রাজত্ব — তিনি পরীক্ষা করবেন কে আমলে শ্রেষ্ঠ",
+      "ar": "النظم: تبارك الذي بيده الملك — ليبلوكم أيكم أحسن عملًا"
     },
     "wordByWord": [
       {
@@ -10447,13 +10447,13 @@ const DEEP_RESEARCH = {
   "82": {
     "amud": {
       "en": "Amud: Cleaving — Sky cleaved",
-      "bn": "আমূদ: Cleaving — Sky cleaved",
-      "ar": "العمود: Cleaving — Sky cleaved"
+      "bn": "আমূদ: ইনফিতার — আকাশ বিদীর্ণ",
+      "ar": "العمود: الانفطار — السماء تنفطر"
     },
     "nazm": {
       "en": "Nazm: When sky is cleaved, when stars scattered",
-      "bn": "নজম: When sky is cleaved, when stars scattered",
-      "ar": "النظم: When sky is cleaved, when stars scattered"
+      "bn": "নজম: যখন আকাশ বিদীর্ণ হবে ও গ্রহ-নক্ষত্র ছড়িয়ে পড়বে",
+      "ar": "النظم: إذا السماء انفطرت وإذا الكواكب انتثرت"
     },
     "wordByWord": [
       {
@@ -10617,13 +10617,13 @@ const DEEP_RESEARCH = {
   "3": {
     "amud": {
       "en": "Amud: Family of Imran — Steadfastness after Uhud",
-      "bn": "আমূদ: Family of Imran — Steadfastness after Uhud",
-      "ar": "العمود: Family of Imran — Steadfastness after Uhud"
+      "bn": "আমূদ: আলে ইমরান — উহুদের পর অবিচলতা",
+      "ar": "العمود: آل عمران — الثبات بعد أُحد"
     },
     "nazm": {
       "en": "Nazm: Parallel to Baqarah but focus on internal hypocrisy and Christian dialogue",
-      "bn": "নজম: Parallel to Baqarah but focus on internal hypocrisy and Christian dialogue",
-      "ar": "النظم: Parallel to Baqarah but focus on internal hypocrisy and Christian dialogue"
+      "bn": "নজম: বাকারার সমান্তরাল, তবে অভ্যন্তরীণ মুনাফিকি ও খ্রিস্টানদের সঙ্গে সংলাপে মনোযোগী",
+      "ar": "النظم: موازٍ للبقرة لكنه يركّز على النفاق الداخلي والحوار مع النصارى"
     },
     "wordByWord": [
       {
@@ -10787,13 +10787,13 @@ const DEEP_RESEARCH = {
   "5": {
     "amud": {
       "en": "Amud: The Table — Covenant and Law Completed",
-      "bn": "আমূদ: The Table — Covenant and Law Completed",
-      "ar": "العمود: The Table — Covenant and Law Completed"
+      "bn": "আমূদ: মায়িদা — চুক্তি ও বিধানের পূর্ণতা",
+      "ar": "العمود: المائدة — اكتمال العهد والشريعة"
     },
     "nazm": {
       "en": "Nazm: Final halal/haram, covenants with People of Book",
-      "bn": "নজম: Final halal/haram, covenants with People of Book",
-      "ar": "النظم: Final halal/haram, covenants with People of Book"
+      "bn": "নজম: চূড়ান্ত হালাল-হারাম ও আহলে কিতাবের সঙ্গে চুক্তি",
+      "ar": "النظم: الحلال والحرام الأخير، والعهود مع أهل الكتاب"
     },
     "wordByWord": [
       {
@@ -11341,13 +11341,13 @@ const DEEP_RESEARCH = {
   "13": {
     "amud": {
       "en": "Amud: Thunder — Truth's majesty",
-      "bn": "আমূদ: Thunder — Truth's majesty",
-      "ar": "العمود: Thunder — Truth's majesty"
+      "bn": "আমূদ: রাদ — সত্যের মহিমা",
+      "ar": "العمود: الرعد — جلال الحق"
     },
     "nazm": {
       "en": "Nazm: Thunder praises Allah, falsehood is foam",
-      "bn": "নজম: Thunder praises Allah, falsehood is foam",
-      "ar": "النظم: Thunder praises Allah, falsehood is foam"
+      "bn": "নজম: বজ্র আল্লাহর প্রশংসা করে, মিথ্যা ফেনার মতো বিলীন",
+      "ar": "النظم: الرعد يسبّح الله، والباطل زبد يذهب"
     },
     "wordByWord": [
       {
@@ -11511,13 +11511,13 @@ const DEEP_RESEARCH = {
   "32": {
     "amud": {
       "en": "Amud: Prostration — Creation and resurrection",
-      "bn": "আমূদ: Prostration — Creation and resurrection",
-      "ar": "العمود: Prostration — Creation and resurrection"
+      "bn": "আমূদ: সিজদা — সৃষ্টি ও পুনরুত্থান",
+      "ar": "العمود: السجدة — الخلق والبعث"
     },
     "nazm": {
       "en": "Nazm: From creation stages to prostration",
-      "bn": "নজম: From creation stages to prostration",
-      "ar": "النظم: From creation stages to prostration"
+      "bn": "নজম: সৃষ্টির পর্যায় থেকে সিজদা পর্যন্ত",
+      "ar": "النظم: من مراحل الخلق إلى السجود"
     },
     "wordByWord": [
       {
@@ -11681,13 +11681,13 @@ const DEEP_RESEARCH = {
   "4": {
     "amud": {
       "en": "Amud: Women — Justice and Social Structure",
-      "bn": "আমূদ: Women — Justice and Social Structure",
-      "ar": "العمود: Women — Justice and Social Structure"
+      "bn": "আমূদ: নারী — ন্যায়বিচার ও সামাজিক কাঠামো",
+      "ar": "العمود: النساء — العدل والبنية الاجتماعية"
     },
     "nazm": {
       "en": "Nazm: From family law to inheritance to state",
-      "bn": "নজম: From family law to inheritance to state",
-      "ar": "النظم: From family law to inheritance to state"
+      "bn": "নজম: পারিবারিক আইন থেকে উত্তরাধিকার থেকে রাষ্ট্র",
+      "ar": "النظم: من قانون الأسرة إلى الميراث إلى الدولة"
     },
     "wordByWord": [
       {
@@ -11851,13 +11851,13 @@ const DEEP_RESEARCH = {
   "6": {
     "amud": {
       "en": "Amud: Cattle — Tawhid vs Shirk",
-      "bn": "আমূদ: Cattle — Tawhid vs Shirk",
-      "ar": "العمود: Cattle — Tawhid vs Shirk"
+      "bn": "আমূদ: আনআম — তাওহিদ বনাম শিরক",
+      "ar": "العمود: الأنعام — التوحيد مقابل الشرك"
     },
     "nazm": {
       "en": "Nazm: Meccan arguments against polytheism via creation signs",
-      "bn": "নজম: Meccan arguments against polytheism via creation signs",
-      "ar": "النظم: Meccan arguments against polytheism via creation signs"
+      "bn": "নজম: সৃষ্টির নিদর্শনের মাধ্যমে শিরকের বিরুদ্ধে মাক্কী যুক্তি",
+      "ar": "النظم: حجج مكية ضد الشرك عبر آيات الخلق"
     },
     "wordByWord": [
       {
@@ -12021,13 +12021,13 @@ const DEEP_RESEARCH = {
   "31": {
     "amud": {
       "en": "Amud: Luqman — Wisdom to his son",
-      "bn": "আমূদ: Luqman — Wisdom to his son",
-      "ar": "العمود: Luqman — Wisdom to his son"
+      "bn": "আমূদ: লোকমান — পুত্রকে উপদেশ",
+      "ar": "العمود: لقمان — الحكمة لابنه"
     },
     "nazm": {
       "en": "Nazm: Shirk is great injustice — first wisdom",
-      "bn": "নজম: Shirk is great injustice — first wisdom",
-      "ar": "النظم: Shirk is great injustice — first wisdom"
+      "bn": "নজম: শিরক মহা অন্যায় — প্রথম হিকমাহ",
+      "ar": "النظم: الشرك لظلم عظيم — أول الحكمة"
     },
     "wordByWord": [
       {
@@ -12191,13 +12191,13 @@ const DEEP_RESEARCH = {
   "30": {
     "amud": {
       "en": "Amud: Romans — Historical prophecy",
-      "bn": "আমূদ: Romans — Historical prophecy",
-      "ar": "العمود: Romans — Historical prophecy"
+      "bn": "আমূদ: রূম — ঐতিহাসিক ভবিষ্যদ্বাণী",
+      "ar": "العمود: الروم — نبوءة تاريخية"
     },
     "nazm": {
       "en": "Nazm: Romans will win in a few years — divine control of history",
-      "bn": "নজম: Romans will win in a few years — divine control of history",
-      "ar": "النظم: Romans will win in a few years — divine control of history"
+      "bn": "নজম: রোমীয়রা কয়েক বছরে বিজয়ী হবে — ইতিহাসে আল্লাহর নিয়ন্ত্রণ",
+      "ar": "النظم: الروم سيغلبون في بضع سنين — تدبير الله للتاريخ"
     },
     "wordByWord": [
       {
@@ -12361,13 +12361,13 @@ const DEEP_RESEARCH = {
   "29": {
     "amud": {
       "en": "Amud: Spider — Frailty of false protectors",
-      "bn": "আমূদ: Spider — Frailty of false protectors",
-      "ar": "العمود: Spider — Frailty of false protectors"
+      "bn": "আমূদ: আনকাবুত — মিথ্যা রক্ষকদের দুর্বলতা",
+      "ar": "العمود: العنكبوت — وهن الحامية الكاذبة"
     },
     "nazm": {
       "en": "Nazm: Spider's house is frailest — so is shirk",
-      "bn": "নজম: Spider's house is frailest — so is shirk",
-      "ar": "النظم: Spider's house is frailest — so is shirk"
+      "bn": "নজম: মাকড়সার ঘর সবচেয়ে দুর্বল — শিরকও তেমন",
+      "ar": "النظم: بيت العنكبوت أوهن البيوت — وكذلك الشرك"
     },
     "wordByWord": [
       {
@@ -12531,13 +12531,13 @@ const DEEP_RESEARCH = {
   "28": {
     "amud": {
       "en": "Amud: Stories — Musa's full story",
-      "bn": "আমূদ: Stories — Musa's full story",
-      "ar": "العمود: Stories — Musa's full story"
+      "bn": "আমূদ: কাসাস — মুসার পূর্ণ কাহিনি",
+      "ar": "العمود: القصص — قصة موسى كاملة"
     },
     "nazm": {
       "en": "Nazm: From palace to Madyan to Pharaoh",
-      "bn": "নজম: From palace to Madyan to Pharaoh",
-      "ar": "النظم: From palace to Madyan to Pharaoh"
+      "bn": "নজম: প্রাসাদ থেকে মাদইয়ান থেকে ফিরআউন",
+      "ar": "النظم: من القصر إلى مدين إلى فرعون"
     },
     "wordByWord": [
       {
@@ -12701,13 +12701,13 @@ const DEEP_RESEARCH = {
   "66": {
     "amud": {
       "en": "Amud: Prohibition — Prophet and his wives",
-      "bn": "আমূদ: Prohibition — Prophet and his wives",
-      "ar": "العمود: Prohibition — Prophet and his wives"
+      "bn": "আমূদ: তাহরিম — নবী ও তাঁর স্ত্রীগণ",
+      "ar": "العمود: التحريم — النبي وأزواجه"
     },
     "nazm": {
       "en": "Nazm: Why do you prohibit what Allah made lawful?",
-      "bn": "নজম: Why do you prohibit what Allah made lawful?",
-      "ar": "النظم: Why do you prohibit what Allah made lawful?"
+      "bn": "নজম: আল্লাহ যা তোমার জন্য হালাল করেছেন তা কেন হারাম করছ?",
+      "ar": "النظم: لم تحرم ما أحل الله لك؟"
     },
     "wordByWord": [
       {
@@ -12871,13 +12871,13 @@ const DEEP_RESEARCH = {
   "8": {
     "amud": {
       "en": "Amud: Spoils of War — First battle discipline",
-      "bn": "আমূদ: Spoils of War — First battle discipline",
-      "ar": "العمود: Spoils of War — First battle discipline"
+      "bn": "আমূদ: আনফাল — প্রথম যুদ্ধের শৃঙ্খলা",
+      "ar": "العمود: الأنفال — انضباط أول معركة"
     },
     "nazm": {
       "en": "Nazm: Badr as test of sincerity",
-      "bn": "নজম: Badr as test of sincerity",
-      "ar": "النظم: Badr as test of sincerity"
+      "bn": "নজম: বদর ইখলাসের পরীক্ষা",
+      "ar": "النظم: بدر اختبارًا للإخلاص"
     },
     "wordByWord": [
       {
@@ -13041,13 +13041,13 @@ const DEEP_RESEARCH = {
   "27": {
     "amud": {
       "en": "Amud: Ants — Knowledge and power tested (Sulaiman)",
-      "bn": "আমূদ: Ants — Knowledge and power tested (Sulaiman)",
-      "ar": "العمود: Ants — Knowledge and power tested (Sulaiman)"
+      "bn": "আমূদ: নামল — জ্ঞান ও ক্ষমতার পরীক্ষা (সুলাইমান)",
+      "ar": "العمود: النمل — العلم والسلطة في الاختبار (سليمان)"
     },
     "nazm": {
       "en": "Nazm: Ant's warning, Queen's submission",
-      "bn": "নজম: Ant's warning, Queen's submission",
-      "ar": "النظم: Ant's warning, Queen's submission"
+      "bn": "নজম: পিঁপড়ার সতর্কতা ও রানির আত্মসমর্পণ",
+      "ar": "النظم: تحذير النملة وخضوع الملكة"
     },
     "wordByWord": [
       {
@@ -13216,7 +13216,8 @@ const DEEP_RESEARCH = {
     },
     "nazm": {
       "en": "Ring structure: (1) Allah's praise → (7) human's plea; (2-3) Allah's attributes → (5-6) human's dependence; center (4) Master of Judgment — the pivot where divine and human meet. Nouman Ali Khan calls this 'perfect literary symmetry'.",
-      "bn": "রিং স্ট্রাকচার: (১) আল্লাহর প্রশংসা → (৭) মানুষের প্রার্থনা; (২-৩) আল্লাহর গুণ → (৫-৬) মানুষের নির্ভরতা; কেন্দ্র (৪) বিচার দিনের মালিক — যেখানে ঐশী ও মানব মিলিত হয়।"
+      "bn": "রিং স্ট্রাকচার: (১) আল্লাহর প্রশংসা → (৭) মানুষের প্রার্থনা; (২-৩) আল্লাহর গুণ → (৫-৬) মানুষের নির্ভরতা; কেন্দ্র (৪) বিচার দিনের মালিক — যেখানে ঐশী ও মানব মিলিত হয়।",
+      "ar": "النظم: بنية حلقيّة: (١) حمد الله ← (٧) دعاء الإنسان؛ (٢-٣) صفات الله ← (٥-٦) اعتماد الإنسان؛ المركز (٤) مالك يوم الدين — نقطة التقاء الإلهي بالإنساني."
     },
     "wordByWord": [
       {
@@ -13497,13 +13498,13 @@ const DEEP_RESEARCH = {
   "65": {
     "amud": {
       "en": "Amud: Divorce — Limits of Allah",
-      "bn": "আমূদ: Divorce — Limits of Allah",
-      "ar": "العمود: Divorce — Limits of Allah"
+      "bn": "আমূদ: তালাক — আল্লাহর সীমা",
+      "ar": "العمود: الطلاق — حدود الله"
     },
     "nazm": {
       "en": "Nazm: Divorce with precision — do not transgress limits",
-      "bn": "নজম: Divorce with precision — do not transgress limits",
-      "ar": "النظم: Divorce with precision — do not transgress limits"
+      "bn": "নজম: নির্ভুল তালাক — আল্লাহর সীমা অতিক্রম করো না",
+      "ar": "النظم: طلاق بدقة — ولا تتعدوا حدود الله"
     },
     "wordByWord": [
       {
@@ -13667,13 +13668,13 @@ const DEEP_RESEARCH = {
   "26": {
     "amud": {
       "en": "Amud: Poets — True vs false poetry",
-      "bn": "আমূদ: Poets — True vs false poetry",
-      "ar": "العمود: Poets — True vs false poetry"
+      "bn": "আমূদ: শুআরা — সত্য ও মিথ্যা কবিতা",
+      "ar": "العمود: الشعراء — الشعر الحق والباطل"
     },
     "nazm": {
       "en": "Nazm: Poets wander, prophets guide",
-      "bn": "নজম: Poets wander, prophets guide",
-      "ar": "النظم: Poets wander, prophets guide"
+      "bn": "নজম: কবিরা ঘুরে বেড়ায়, নবীরা পথ দেখান",
+      "ar": "النظم: الشعراء يهيمون، والأنبياء يهدون"
     },
     "wordByWord": [
       {
@@ -13837,13 +13838,13 @@ const DEEP_RESEARCH = {
   "64": {
     "amud": {
       "en": "Amud: Mutual Loss — Day of Taghabun",
-      "bn": "আমূদ: Mutual Loss — Day of Taghabun",
-      "ar": "العمود: Mutual Loss — Day of Taghabun"
+      "bn": "আমূদ: তাগাবুন — পারস্পরিক ক্ষতির দিন",
+      "ar": "العمود: التغابن — يوم التغابن"
     },
     "nazm": {
       "en": "Nazm: Day you will be gathered — Day of mutual loss",
-      "bn": "নজম: Day you will be gathered — Day of mutual loss",
-      "ar": "النظم: Day you will be gathered — Day of mutual loss"
+      "bn": "নজম: যেদিন তিনি তোমাদের একত্র করবেন — পারস্পরিক ক্ষতির দিন",
+      "ar": "النظم: يوم يجمعكم — يوم التغابن"
     },
     "wordByWord": [
       {
@@ -14007,13 +14008,13 @@ const DEEP_RESEARCH = {
   "63": {
     "amud": {
       "en": "Amud: Hypocrites — Outward Islam, inward disease",
-      "bn": "আমূদ: Hypocrites — Outward Islam, inward disease",
-      "ar": "العمود: Hypocrites — Outward Islam, inward disease"
+      "bn": "আমূদ: মুনাফিকুন — বাইরে ইসলাম, ভেতরে রোগ",
+      "ar": "العمود: المنافقون — إسلام ظاهر ومرض باطن"
     },
     "nazm": {
       "en": "Nazm: When hypocrites come, they say we bear witness…",
-      "bn": "নজম: When hypocrites come, they say we bear witness…",
-      "ar": "النظم: When hypocrites come, they say we bear witness…"
+      "bn": "নজম: মুনাফিকরা এলে বলে, আমরা সাক্ষ্য দিচ্ছি…",
+      "ar": "النظم: إذا جاءك المنافقون قالوا نشهد…"
     },
     "wordByWord": [
       {
@@ -14177,13 +14178,13 @@ const DEEP_RESEARCH = {
   "62": {
     "amud": {
       "en": "Amud: Friday — Congregation and remembrance",
-      "bn": "আমূদ: Friday — Congregation and remembrance",
-      "ar": "العمود: Friday — Congregation and remembrance"
+      "bn": "আমূদ: জুমআ — জামাত ও যিকর",
+      "ar": "العمود: الجمعة — الجماعة والذكر"
     },
     "nazm": {
       "en": "Nazm: Hasten to remembrance of Allah on Friday",
-      "bn": "নজম: Hasten to remembrance of Allah on Friday",
-      "ar": "النظم: Hasten to remembrance of Allah on Friday"
+      "bn": "নজম: জুমার দিনে আল্লাহর যিকরের দিকে ধাবিত হও",
+      "ar": "النظم: فاسعوا إلى ذكر الله يوم الجمعة"
     },
     "wordByWord": [
       {
@@ -14347,13 +14348,13 @@ const DEEP_RESEARCH = {
   "61": {
     "amud": {
       "en": "Amud: Row — Like a solid structure",
-      "bn": "আমূদ: Row — Like a solid structure",
-      "ar": "العمود: Row — Like a solid structure"
+      "bn": "আমূদ: সাফ — সুদৃঢ় প্রাচীরের মতো",
+      "ar": "العمود: الصف — كالبنيان المرصوص"
     },
     "nazm": {
       "en": "Nazm: Allah loves those who fight in His way as a solid wall",
-      "bn": "নজম: Allah loves those who fight in His way as a solid wall",
-      "ar": "النظم: Allah loves those who fight in His way as a solid wall"
+      "bn": "নজম: আল্লাহ তাদের ভালোবাসেন যারা তাঁর পথে সারিবদ্ধ হয়ে লড়াই করে যেন সুদৃঢ় দেয়াল",
+      "ar": "النظم: إن الله يحب الذين يقاتلون في سبيله صفًّا كأنهم بنيان مرصوص"
     },
     "wordByWord": [
       {
@@ -14517,13 +14518,13 @@ const DEEP_RESEARCH = {
   "43": {
     "amud": {
       "en": "Amud: Ornaments — Dunya's decoration",
-      "bn": "আমূদ: Ornaments — Dunya's decoration",
-      "ar": "العمود: Ornaments — Dunya's decoration"
+      "bn": "আমূদ: যুখরুফ — দুনিয়ার সৌন্দর্য",
+      "ar": "العمود: الزخرف — زينة الدنيا"
     },
     "nazm": {
       "en": "Nazm: If not for humanity being one nation, We would give kuffar gold roofs",
-      "bn": "নজম: If not for humanity being one nation, We would give kuffar gold roofs",
-      "ar": "النظم: If not for humanity being one nation, We would give kuffar gold roofs"
+      "bn": "নজম: মানুষ এক উম্মত না হলে কাফিরদের ঘরের ছাদ সোনার করতাম",
+      "ar": "النظم: لولا أن يكون الناس أمة واحدة لجعلنا لبيوت الكافرين سقفًا من ذهب"
     },
     "wordByWord": [
       {
@@ -14687,13 +14688,13 @@ const DEEP_RESEARCH = {
   "25": {
     "amud": {
       "en": "Amud: Criterion — Quran as Furqan",
-      "bn": "আমূদ: Criterion — Quran as Furqan",
-      "ar": "العمود: Criterion — Quran as Furqan"
+      "bn": "আমূদ: ফুরকান — কুরআন ফুরকান হিসেবে",
+      "ar": "العمود: الفرقان — القرآن فرقانًا"
     },
     "nazm": {
       "en": "Nazm: Distinguishes truth from falsehood",
-      "bn": "নজম: Distinguishes truth from falsehood",
-      "ar": "النظم: Distinguishes truth from falsehood"
+      "bn": "নজম: সত্য ও মিথ্যার মধ্যে পার্থক্য করে",
+      "ar": "النظم: يفرّق بين الحق والباطل"
     },
     "wordByWord": [
       {
@@ -14857,13 +14858,13 @@ const DEEP_RESEARCH = {
   "60": {
     "amud": {
       "en": "Amud: Tested — Emigrant women tested",
-      "bn": "আমূদ: Tested — Emigrant women tested",
-      "ar": "العمود: Tested — Emigrant women tested"
+      "bn": "আমূদ: মুমতাহিনা — হিজরতকারী নারীদের পরীক্ষা",
+      "ar": "العمود: الممتحنة — اختبار المهاجرات"
     },
     "nazm": {
       "en": "Nazm: Test believing women emigrating",
-      "bn": "নজম: Test believing women emigrating",
-      "ar": "النظم: Test believing women emigrating"
+      "bn": "নজম: হিজরতকারী মুমিন নারীদের পরীক্ষা করো",
+      "ar": "النظم: اختبروا المؤمنات المهاجرات"
     },
     "wordByWord": [
       {
@@ -15027,13 +15028,13 @@ const DEEP_RESEARCH = {
   "42": {
     "amud": {
       "en": "Amud: Consultation — Shura as principle",
-      "bn": "আমূদ: Consultation — Shura as principle",
-      "ar": "العمود: Consultation — Shura as principle"
+      "bn": "আমূদ: শূরা — পরামর্শ নীতি",
+      "ar": "العمود: الشورى — الشورى مبدأ"
     },
     "nazm": {
       "en": "Nazm: Their affair is consultation among them",
-      "bn": "নজম: Their affair is consultation among them",
-      "ar": "النظم: Their affair is consultation among them"
+      "bn": "নজম: তাদের কাজ পরস্পর পরামর্শে",
+      "ar": "النظم: وأمرهم شورى بينهم"
     },
     "wordByWord": [
       {
@@ -15197,13 +15198,13 @@ const DEEP_RESEARCH = {
   "24": {
     "amud": {
       "en": "Amud: Light — Purity and slander",
-      "bn": "আমূদ: Light — Purity and slander",
-      "ar": "العمود: Light — Purity and slander"
+      "bn": "আমূদ: নূর — পবিত্রতা ও অপবাদ",
+      "ar": "العمود: النور — الطهر والقذف"
     },
     "nazm": {
       "en": "Nazm: Verse of Light, then Aisha's innocence",
-      "bn": "নজম: Verse of Light, then Aisha's innocence",
-      "ar": "النظم: Verse of Light, then Aisha's innocence"
+      "bn": "নজম: আয়াতুন নূর, এরপর আয়েশার পবিত্রতা",
+      "ar": "النظم: آية النور ثم براءة عائشة"
     },
     "wordByWord": [
       {
@@ -15367,13 +15368,13 @@ const DEEP_RESEARCH = {
   "59": {
     "amud": {
       "en": "Amud: Gathering — Banu Nadir's expulsion",
-      "bn": "আমূদ: Gathering — Banu Nadir's expulsion",
-      "ar": "العمود: Gathering — Banu Nadir's expulsion"
+      "bn": "আমূদ: হাশর — বনু নাদিরের নির্বাসন",
+      "ar": "العمود: الحشر — إجلاء بني النضير"
     },
     "nazm": {
       "en": "Nazm: First gathering of exile — divine planning",
-      "bn": "নজম: First gathering of exile — divine planning",
-      "ar": "النظم: First gathering of exile — divine planning"
+      "bn": "নজম: নির্বাসনের প্রথম হাশর — আল্লাহর পরিকল্পনা",
+      "ar": "النظم: أول حشر للإجلاء — تدبير إلهي"
     },
     "wordByWord": [
       {
@@ -15537,13 +15538,13 @@ const DEEP_RESEARCH = {
   "58": {
     "amud": {
       "en": "Amud: Pleading Woman — Zihar and justice",
-      "bn": "আমূদ: Pleading Woman — Zihar and justice",
-      "ar": "العمود: Pleading Woman — Zihar and justice"
+      "bn": "আমূদ: মুজাদালা — যিহার ও ন্যায়বিচার",
+      "ar": "العمود: المجادلة — الظهار والعدل"
     },
     "nazm": {
       "en": "Nazm: Allah heard the woman who disputes with you",
-      "bn": "নজম: Allah heard the woman who disputes with you",
-      "ar": "النظم: Allah heard the woman who disputes with you"
+      "bn": "নজম: আল্লাহ সেই নারীর কথা শুনেছেন যে তোমার সঙ্গে বিতর্ক করছিল",
+      "ar": "النظم: قد سمع الله قول التي تجادلك"
     },
     "wordByWord": [
       {
@@ -15707,13 +15708,13 @@ const DEEP_RESEARCH = {
   "23": {
     "amud": {
       "en": "Amud: Believers — Qualities of success",
-      "bn": "আমূদ: Believers — Qualities of success",
-      "ar": "العمود: Believers — Qualities of success"
+      "bn": "আমূদ: মুমিনুন — সফলতার গুণাবলি",
+      "ar": "العمود: المؤمنون — صفات الفلاح"
     },
     "nazm": {
       "en": "Nazm: Qad aflaha al-mu'minun — success defined",
-      "bn": "নজম: Qad aflaha al-mu'minun — success defined",
-      "ar": "النظم: Qad aflaha al-mu'minun — success defined"
+      "bn": "নজম: কাদ আফলাহাল মুমিনুন — সফলতার সংজ্ঞা",
+      "ar": "النظم: قد أفلح المؤمنون — تعريف الفلاح"
     },
     "wordByWord": [
       {
@@ -15877,13 +15878,13 @@ const DEEP_RESEARCH = {
   "7": {
     "amud": {
       "en": "Amud: The Heights — Barrier between truth and falsehood",
-      "bn": "আমূদ: The Heights — Barrier between truth and falsehood",
-      "ar": "العمود: The Heights — Barrier between truth and falsehood"
+      "bn": "আমূদ: আরাফ — সত্য ও মিথ্যার মধ্যবর্তী প্রাচীর",
+      "ar": "العمود: الأعراف — الحاجز بين الحق والباطل"
     },
     "nazm": {
       "en": "Nazm: Stories of prophets as warnings on the Heights",
-      "bn": "নজম: Stories of prophets as warnings on the Heights",
-      "ar": "النظم: Stories of prophets as warnings on the Heights"
+      "bn": "নজম: আরাফে নবীগণের কাহিনি সতর্কবার্তা হিসেবে",
+      "ar": "النظم: قصص الأنبياء عِبرًا على الأعراف"
     },
     "wordByWord": [
       {
@@ -16047,13 +16048,13 @@ const DEEP_RESEARCH = {
   "57": {
     "amud": {
       "en": "Amud: Iron — Power and revelation together",
-      "bn": "আমূদ: Iron — Power and revelation together",
-      "ar": "العمود: Iron — Power and revelation together"
+      "bn": "আমূদ: হাদীদ — শক্তি ও ওহি একসঙ্গে",
+      "ar": "العمود: الحديد — القوة والوحي معًا"
     },
     "nazm": {
       "en": "Nazm: We sent iron wherein is great might — power must serve revelation",
-      "bn": "নজম: We sent iron wherein is great might — power must serve revelation",
-      "ar": "النظم: We sent iron wherein is great might — power must serve revelation"
+      "bn": "নজম: আমরা লোহা নাযিল করেছি যাতে প্রচণ্ড শক্তি — শক্তি ওহির সেবায়",
+      "ar": "النظم: أنزلنا الحديد فيه بأس شديد — القوة في خدمة الوحي"
     },
     "wordByWord": [
       {
@@ -16217,13 +16218,13 @@ const DEEP_RESEARCH = {
   "56": {
     "amud": {
       "en": "Amud: The Inevitable — Three groups on Day",
-      "bn": "আমূদ: The Inevitable — Three groups on Day",
-      "ar": "العمود: The Inevitable — Three groups on Day"
+      "bn": "আমূদ: ওয়াকিয়া — কিয়ামতের দিনে তিন দল",
+      "ar": "العمود: الواقعة — ثلاث فرق يوم القيامة"
     },
     "nazm": {
       "en": "Nazm: Waqiah — forerunners, companions of right, companions of left",
-      "bn": "নজম: Waqiah — forerunners, companions of right, companions of left",
-      "ar": "النظم: Waqiah — forerunners, companions of right, companions of left"
+      "bn": "নজম: ওয়াকিয়া — অগ্রগামী, ডানদিকের ও বামদিকের",
+      "ar": "النظم: الواقعة — السابقون وأصحاب اليمين وأصحاب الشمال"
     },
     "wordByWord": [
       {
@@ -16387,13 +16388,13 @@ const DEEP_RESEARCH = {
   "21": {
     "amud": {
       "en": "Amud: Prophets — Urgency of Hour",
-      "bn": "আমূদ: Prophets — Urgency of Hour",
-      "ar": "العمود: Prophets — Urgency of Hour"
+      "bn": "আমূদ: আম্বিয়া — কিয়ামতের নিকটতা",
+      "ar": "العمود: الأنبياء — إلحاح الساعة"
     },
     "nazm": {
       "en": "Nazm: Every prophet warned of the same Hour",
-      "bn": "নজম: Every prophet warned of the same Hour",
-      "ar": "النظم: Every prophet warned of the same Hour"
+      "bn": "নজম: প্রত্যেক নবী একই কিয়ামতের ব্যাপারে সতর্ক করেছেন",
+      "ar": "النظم: كل نبي حذّر من الساعة ذاتها"
     },
     "wordByWord": [
       {
@@ -16557,13 +16558,13 @@ const DEEP_RESEARCH = {
   "55": {
     "amud": {
       "en": "Amud: The Most Gracious — Balance and gratitude",
-      "bn": "আমূদ: The Most Gracious — Balance and gratitude",
-      "ar": "العمود: The Most Gracious — Balance and gratitude"
+      "bn": "আমূদ: আর-রাহমান — ভারসাম্য ও কৃতজ্ঞতা",
+      "ar": "العمود: الرحمن — الميزان والشكر"
     },
     "nazm": {
       "en": "Nazm: Which of your Lord's favors will you deny? (repeated 31 times)",
-      "bn": "নজম: Which of your Lord's favors will you deny? (repeated 31 times)",
-      "ar": "النظم: Which of your Lord's favors will you deny? (repeated 31 times)"
+      "bn": "নজম: তোমরা উভয়ে রবের কোন নিয়ামত অস্বীকার করবে? (৩১ বার)",
+      "ar": "النظم: فبأي آلاء ربكما تكذبان؟ (٣١ مرة)"
     },
     "wordByWord": [
       {
@@ -16727,13 +16728,13 @@ const DEEP_RESEARCH = {
   "54": {
     "amud": {
       "en": "Amud: Moon — Splitting as Hour nears",
-      "bn": "আমূদ: Moon — Splitting as Hour nears",
-      "ar": "العمود: Moon — Splitting as Hour nears"
+      "bn": "আমূদ: কামার — কিয়ামত নিকটে, চন্দ্র বিদীর্ণ",
+      "ar": "العمود: القمر — انشقاق مع اقتراب الساعة"
     },
     "nazm": {
       "en": "Nazm: Hour drew near and moon split — still they turn away",
-      "bn": "নজম: Hour drew near and moon split — still they turn away",
-      "ar": "النظم: Hour drew near and moon split — still they turn away"
+      "bn": "নজম: কিয়ামত নিকটে এল ও চন্দ্র বিদীর্ণ হল — তবু তারা মুখ ফিরিয়ে নেয়",
+      "ar": "النظم: اقتربت الساعة وانشق القمر — وما يزالون معرضين"
     },
     "wordByWord": [
       {
@@ -16897,13 +16898,13 @@ const DEEP_RESEARCH = {
   "53": {
     "amud": {
       "en": "Amud: Star — Revelation not astray",
-      "bn": "আমূদ: Star — Revelation not astray",
-      "ar": "العمود: Star — Revelation not astray"
+      "bn": "আমূদ: নাজম — ওহি পথভ্রষ্ট নয়",
+      "ar": "العمود: النجم — الوحي ليس ضلالًا"
     },
     "nazm": {
       "en": "Nazm: Star when it falls — your companion has not strayed",
-      "bn": "নজম: Star when it falls — your companion has not strayed",
-      "ar": "النظم: Star when it falls — your companion has not strayed"
+      "bn": "নজম: নক্ষত্রের কসম যখন তা পড়ে — তোমাদের সঙ্গী পথভ্রষ্ট হয়নি",
+      "ar": "النظم: والنجم إذا هوى — ما ضل صاحبكم"
     },
     "wordByWord": [
       {
@@ -17067,13 +17068,13 @@ const DEEP_RESEARCH = {
   "52": {
     "amud": {
       "en": "Amud: Mount Tur — Oath of Tur and sea",
-      "bn": "আমূদ: Mount Tur — Oath of Tur and sea",
-      "ar": "العمود: Mount Tur — Oath of Tur and sea"
+      "bn": "আমূদ: তূর — তূর ও সাগরের কসম",
+      "ar": "العمود: الطور — قسم بالطور والبحر"
     },
     "nazm": {
       "en": "Nazm: Tur, Book, House, sea — witnesses to punishment",
-      "bn": "নজম: Tur, Book, House, sea — witnesses to punishment",
-      "ar": "النظم: Tur, Book, House, sea — witnesses to punishment"
+      "bn": "নজম: তূর, কিতাব, ঘর, সাগর — শাস্তির সাক্ষী",
+      "ar": "النظم: الطور والكتاب والبيت والبحر — شهود على العذاب"
     },
     "wordByWord": [
       {
@@ -17237,13 +17238,13 @@ const DEEP_RESEARCH = {
   "10": {
     "amud": {
       "en": "Amud: Yunus — Signs rejected",
-      "bn": "আমূদ: Yunus — Signs rejected",
-      "ar": "العمود: Yunus — Signs rejected"
+      "bn": "আমূদ: ইউনুস — প্রত্যাখ্যাত নিদর্শন",
+      "ar": "العمود: يونس — آيات مُكذَّبة"
     },
     "nazm": {
       "en": "Nazm: People of Yunus believed at last moment — why not others?",
-      "bn": "নজম: People of Yunus believed at last moment — why not others?",
-      "ar": "النظم: People of Yunus believed at last moment — why not others?"
+      "bn": "নজম: ইউনুসের সম্প্রদায় শেষ মুহূর্তে ঈমান আনল — অন্যরা কেন নয়?",
+      "ar": "النظم: قوم يونس آمنوا في اللحظة الأخيرة — فلماذا لم يفعل غيرهم؟"
     },
     "wordByWord": [
       {
@@ -17407,13 +17408,13 @@ const DEEP_RESEARCH = {
   "51": {
     "amud": {
       "en": "Amud: Scattering Winds — Oaths of winds",
-      "bn": "আমূদ: Scattering Winds — Oaths of winds",
-      "ar": "العمود: Scattering Winds — Oaths of winds"
+      "bn": "আমূদ: যারিয়াত — বাতাসের কসম",
+      "ar": "العمود: الذاريات — أقسام بالرياح"
     },
     "nazm": {
       "en": "Nazm: Oaths by winds that scatter, then carry, then easy the matter",
-      "bn": "নজম: Oaths by winds that scatter, then carry, then easy the matter",
-      "ar": "النظم: Oaths by winds that scatter, then carry, then easy the matter"
+      "bn": "নজম: বিক্ষেপকারী বাতাসের কসম, তারপর বহনকারী, তারপর সহজকারী",
+      "ar": "النظم: قسمٌ بالرياح تذرو ثم تحمل ثم تجري بأمره"
     },
     "wordByWord": [
       {
@@ -17577,13 +17578,13 @@ const DEEP_RESEARCH = {
   "50": {
     "amud": {
       "en": "Amud: Qaf — Death and resurrection",
-      "bn": "আমূদ: Qaf — Death and resurrection",
-      "ar": "العمود: Qaf — Death and resurrection"
+      "bn": "আমূদ: কাফ — মৃত্যু ও পুনরুত্থান",
+      "ar": "العمود: ق — الموت والبعث"
     },
     "nazm": {
       "en": "Nazm: Qaf and the glorious Quran — every soul has a driver and witness",
-      "bn": "নজম: Qaf and the glorious Quran — every soul has a driver and witness",
-      "ar": "النظم: Qaf and the glorious Quran — every soul has a driver and witness"
+      "bn": "নজম: কাফ ও মহিমান্বিত কুরআন — প্রত্যেক প্রাণের রয়েছে চালক ও সাক্ষী",
+      "ar": "النظم: ق والقرآن المجيد — لكل نفس سائق وشهيد"
     },
     "wordByWord": [
       {
@@ -17747,13 +17748,13 @@ const DEEP_RESEARCH = {
   "49": {
     "amud": {
       "en": "Amud: Chambers — Manners with Prophet",
-      "bn": "আমূদ: Chambers — Manners with Prophet",
-      "ar": "العمود: Chambers — Manners with Prophet"
+      "bn": "আমূদ: হুজুরাত — নবীর সঙ্গে শিষ্টাচার",
+      "ar": "العمود: الحجرات — الأدب مع النبي"
     },
     "nazm": {
       "en": "Nazm: Do not raise voices above Prophet's voice",
-      "bn": "নজম: Do not raise voices above Prophet's voice",
-      "ar": "النظم: Do not raise voices above Prophet's voice"
+      "bn": "নজম: নবীর কণ্ঠের ওপরে তোমাদের কণ্ঠ উঁচু করো না",
+      "ar": "النظم: لا ترفعوا أصواتكم فوق صوت النبي"
     },
     "wordByWord": [
       {
@@ -17917,13 +17918,13 @@ const DEEP_RESEARCH = {
   "48": {
     "amud": {
       "en": "Amud: Victory — Treaty of Hudaybiyyah as victory",
-      "bn": "আমূদ: Victory — Treaty of Hudaybiyyah as victory",
-      "ar": "العمود: Victory — Treaty of Hudaybiyyah as victory"
+      "bn": "আমূদ: ফাতহ — হুদাইবিয়ার সন্ধি বিজয়",
+      "ar": "العمود: الفتح — صلح الحديبية فتحًا"
     },
     "nazm": {
       "en": "Nazm: Indeed We have given you a clear victory",
-      "bn": "নজম: Indeed We have given you a clear victory",
-      "ar": "النظم: Indeed We have given you a clear victory"
+      "bn": "নজম: নিশ্চয়ই আমরা তোমাকে সুস্পষ্ট বিজয় দিয়েছি",
+      "ar": "النظم: إنا فتحنا لك فتحًا مبينًا"
     },
     "wordByWord": [
       {
@@ -18087,13 +18088,13 @@ const DEEP_RESEARCH = {
   "9": {
     "amud": {
       "en": "Amud: Repentance — Purification of the community",
-      "bn": "আমূদ: Repentance — Purification of the community",
-      "ar": "العمود: Repentance — Purification of the community"
+      "bn": "আমূদ: তাওবা — সমাজের পবিত্রতা",
+      "ar": "العمود: التوبة — تطهير المجتمع"
     },
     "nazm": {
       "en": "Nazm: No basmala — severity of hypocrisy",
-      "bn": "নজম: No basmala — severity of hypocrisy",
-      "ar": "النظم: No basmala — severity of hypocrisy"
+      "bn": "নজম: বিসমিল্লাহ ছাড়া — মুনাফিকির তীব্রতা",
+      "ar": "النظم: بلا بسملة — شدة النفاق"
     },
     "wordByWord": [
       {
@@ -18257,13 +18258,13 @@ const DEEP_RESEARCH = {
   "17": {
     "amud": {
       "en": "Amud: Isra — Night journey and Bani Isra'il's two corruptions",
-      "bn": "আমূদ: Isra — Night journey and Bani Isra'il's two corruptions",
-      "ar": "العمود: Isra — Night journey and Bani Isra'il's two corruptions"
+      "bn": "আমূদ: ইসরা — রাতের ভ্রমণ ও বনী ইসরাইলের দুই বিপর্যয়",
+      "ar": "العمود: الإسراء — رحلة الليل وإفسادا بني إسرائيل"
     },
     "nazm": {
       "en": "Nazm: From Masjid Haram to Aqsa — transfer of trust",
-      "bn": "নজম: From Masjid Haram to Aqsa — transfer of trust",
-      "ar": "النظم: From Masjid Haram to Aqsa — transfer of trust"
+      "bn": "নজম: মসজিদুল হারাম থেকে আকসা — আমানতের হস্তান্তর",
+      "ar": "النظم: من المسجد الحرام إلى الأقصى — انتقال الأمانة"
     },
     "wordByWord": [
       {
@@ -18427,13 +18428,13 @@ const DEEP_RESEARCH = {
   "81": {
     "amud": {
       "en": "Amud: Folding — Sun folded",
-      "bn": "আমূদ: Folding — Sun folded",
-      "ar": "العمود: Folding — Sun folded"
+      "bn": "আমূদ: তাকভির — সূর্য গুটিয়ে নেওয়া",
+      "ar": "العمود: التكوير — الشمس تُكوَّر"
     },
     "nazm": {
       "en": "Nazm: When sun is folded, stars fall",
-      "bn": "নজম: When sun is folded, stars fall",
-      "ar": "النظم: When sun is folded, stars fall"
+      "bn": "নজম: যখন সূর্য গুটিয়ে নেওয়া হবে ও নক্ষত্র ঝরে পড়বে",
+      "ar": "النظم: إذا الشمس كوّرت والنجوم انكدرت"
     },
     "wordByWord": [
       {
@@ -18597,13 +18598,13 @@ const DEEP_RESEARCH = {
   "47": {
     "amud": {
       "en": "Amud: Muhammad — Fighting and hypocrisy",
-      "bn": "আমূদ: Muhammad — Fighting and hypocrisy",
-      "ar": "العمود: Muhammad — Fighting and hypocrisy"
+      "bn": "আমূদ: মুহাম্মদ — যুদ্ধ ও মুনাফিকি",
+      "ar": "العمود: محمد — القتال والنفاق"
     },
     "nazm": {
       "en": "Nazm: Those who disliked what Allah revealed — their deeds null",
-      "bn": "নজম: Those who disliked what Allah revealed — their deeds null",
-      "ar": "النظم: Those who disliked what Allah revealed — their deeds null"
+      "bn": "নজম: যারা আল্লাহর নাযিলকৃত বিষয় অপছন্দ করল, তাদের আমল বিনষ্ট",
+      "ar": "النظم: الذين كرهوا ما أنزل الله حبطت أعمالهم"
     },
     "wordByWord": [
       {
@@ -18767,13 +18768,13 @@ const DEEP_RESEARCH = {
   "46": {
     "amud": {
       "en": "Amud: Winding Tracts — Warnings to Ahqaf",
-      "bn": "আমূদ: Winding Tracts — Warnings to Ahqaf",
-      "ar": "العمود: Winding Tracts — Warnings to Ahqaf"
+      "bn": "আমূদ: আহকাফ — আহকাফবাসীর প্রতি সতর্কবার্তা",
+      "ar": "العمود: الأحقاف — تحذيرات الأحقاف"
     },
     "nazm": {
       "en": "Nazm: Ad's Ahqaf — wind destroyed them",
-      "bn": "নজম: Ad's Ahqaf — wind destroyed them",
-      "ar": "النظم: Ad's Ahqaf — wind destroyed them"
+      "bn": "নজম: আদ জাতির আহকাফ — ঝড় তাদের ধ্বংস করল",
+      "ar": "النظم: أحقاف عاد — أهلكتهم الريح"
     },
     "wordByWord": [
       {
@@ -18937,13 +18938,13 @@ const DEEP_RESEARCH = {
   "80": {
     "amud": {
       "en": "Amud: He Frowned — Blind man vs chiefs",
-      "bn": "আমূদ: He Frowned — Blind man vs chiefs",
-      "ar": "العمود: He Frowned — Blind man vs chiefs"
+      "bn": "আমূদ: আবাসা — অন্ধ ব্যক্তি ও নেতারা",
+      "ar": "العمود: عبس — الأعمى والأشراف"
     },
     "nazm": {
       "en": "Nazm: He frowned and turned away when blind man came",
-      "bn": "নজম: He frowned and turned away when blind man came",
-      "ar": "النظم: He frowned and turned away when blind man came"
+      "bn": "নজম: তিনি মুখ ফিরালেন ও পাশ কাটালেন যখন অন্ধ ব্যক্তি এল",
+      "ar": "النظم: عبس وتولى أن جاءه الأعمى"
     },
     "wordByWord": [
       {
@@ -19107,13 +19108,13 @@ const DEEP_RESEARCH = {
   "112": {
     "amud": {
       "en": "Amud: Sincerity — Ikhlas, 1/3 of Quran",
-      "bn": "আমূদ: Sincerity — Ikhlas, 1/3 of Quran",
-      "ar": "العمود: Sincerity — Ikhlas, 1/3 of Quran"
+      "bn": "আমূদ: ইখলাস — কুরআনের এক-তৃতীয়াংশ",
+      "ar": "العمود: الإخلاص — ثلث القرآن"
     },
     "nazm": {
       "en": "Nazm: Say: He is Allah, One — neither begets nor is born",
-      "bn": "নজম: Say: He is Allah, One — neither begets nor is born",
-      "ar": "النظم: Say: He is Allah, One — neither begets nor is born"
+      "bn": "নজম: বলো, তিনি আল্লাহ, এক — তিনি জন্ম দেননি ও জন্মগ্রহণ করেননি",
+      "ar": "النظم: قل هو الله أحد — لم يلد ولم يولد"
     },
     "wordByWord": [
       {
@@ -19277,13 +19278,13 @@ const DEEP_RESEARCH = {
   "113": {
     "amud": {
       "en": "Amud: Daybreak — Falaq from evil",
-      "bn": "আমূদ: Daybreak — Falaq from evil",
-      "ar": "العمود: Daybreak — Falaq from evil"
+      "bn": "আমূদ: ফালাক — অনিষ্ট থেকে আশ্রয়",
+      "ar": "العمود: الفلق — الفلق من الشر"
     },
     "nazm": {
       "en": "Nazm: Say: I seek refuge in Lord of daybreak from evil of what He created",
-      "bn": "নজম: Say: I seek refuge in Lord of daybreak from evil of what He created",
-      "ar": "النظم: Say: I seek refuge in Lord of daybreak from evil of what He created"
+      "bn": "নজম: বলো, আমি আশ্রয় চাই ভোরের রবের কাছে, তিনি যা সৃষ্টি করেছেন তার অনিষ্ট থেকে",
+      "ar": "النظم: قل أعوذ برب الفلق من شر ما خلق"
     },
     "wordByWord": [
       {
@@ -19447,13 +19448,13 @@ const DEEP_RESEARCH = {
   "114": {
     "amud": {
       "en": "Amud: Mankind — Lord, King, God of mankind",
-      "bn": "আমূদ: Mankind — Lord, King, God of mankind",
-      "ar": "العمود: Mankind — Lord, King, God of mankind"
+      "bn": "আমূদ: নাস — মানুষের রব, অধিপতি ও উপাস্য",
+      "ar": "العمود: الناس — رب الناس وملكهم وإلههم"
     },
     "nazm": {
       "en": "Nazm: Say: I seek refuge in Lord of mankind, King, God — from whisperer",
-      "bn": "নজম: Say: I seek refuge in Lord of mankind, King, God — from whisperer",
-      "ar": "النظم: Say: I seek refuge in Lord of mankind, King, God — from whisperer"
+      "bn": "নজম: বলো, আমি আশ্রয় চাই মানুষের রব, অধিপতি ও উপাস্যের কাছে — কুমন্ত্রণাদাতার অনিষ্ট থেকে",
+      "ar": "النظم: قل أعوذ برب الناس ملك الناس إله الناس من شر الوسواس"
     },
     "wordByWord": [
       {

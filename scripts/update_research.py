@@ -37,7 +37,6 @@ def fetch_json(url, timeout=20):
         return None
 
 def fetch_quran_translations(surah=1, ayah=1):
-    """Try AlQuran.cloud for EN/BN alternative translations."""
     out = {}
     # EN: Pickthall, Yusuf Ali, Sahih
     for tid, name in [("131","Pickthall"),("19","YusufAli"),("20","SahihIntl")]:
@@ -53,6 +52,21 @@ def fetch_quran_translations(surah=1, ayah=1):
             else:
                 txt = data.get("text")
             if txt: out[name] = txt[:400]
+    return out
+
+def fetch_full_pickthall():
+    """All 6,236 ayahs in one request (Pickthall). Keeps coverage complete."""
+    j = fetch_json("https://api.alquran.cloud/v1/quran/en.pickthall", timeout=60)
+    if not j or j.get("code") != 200:
+        return {}
+    out = {}
+    for surah in j.get("data", {}).get("surahs", []):
+        sn = surah.get("number")
+        for ayah in surah.get("ayahs", []):
+            an = ayah.get("numberInSurah")
+            txt = (ayah.get("text") or "").strip()
+            if sn and an and txt:
+                out[f"{sn}:{an}"] = {"Pickthall": txt[:400]}
     return out
 
 def main():
@@ -79,6 +93,14 @@ def main():
     if ALT_PATH.exists():
         try: alt = json.loads(ALT_PATH.read_text(encoding="utf-8"))
         except: alt = {}
+
+    # Ensure complete Pickthall coverage (single bulk request) before the
+    # sample refresh below enriches a handful of ayahs with extra editions.
+    full = fetch_full_pickthall()
+    if full:
+        for key, trans in full.items():
+            alt.setdefault(key, {}).update(trans)
+        print(f"Pickthall coverage: {len(full)} ayahs")
 
     updated = 0
     for s,a in samples:

@@ -137,7 +137,14 @@ def main():
         ayah_key TEXT PRIMARY KEY,
         data TEXT
     );
+    CREATE TABLE quran_ayahs (
+        surah_id INTEGER,
+        ayah_num INTEGER,
+        ar TEXT,
+        PRIMARY KEY (surah_id, ayah_num)
+    );
     CREATE VIRTUAL TABLE verses_fts USING fts5(en, bn, ar, content='verses', content_rowid='id');
+    CREATE VIRTUAL TABLE quran_ayahs_fts USING fts5(ar, content='quran_ayahs', content_rowid='rowid');
     """)
 
     # Insert surahs + related
@@ -218,9 +225,25 @@ def main():
     for k, v in alts.items():
         cur.execute("INSERT OR REPLACE INTO alt_meanings (ayah_key, data) VALUES (?,?)", (k, json.dumps(v, ensure_ascii=False)))
 
+    # Complete Uthmani Arabic text (6,236 ayahs). This is the authoritative
+    # Arabic source for the ayah-of-the-day and Arabic search; `verses.ar`
+    # can only cover the few paragraphs that carry explicit [n] markers.
+    quran_ar_path = ROOT / "assets/data/quran_ar.json"
+    if quran_ar_path.exists():
+        quran = json.loads(quran_ar_path.read_text(encoding="utf-8-sig"))
+        for sn, ayahs in quran.items():
+            for an, txt in ayahs.items():
+                text = (txt or "").replace("\ufeff", "").strip()
+                if text:
+                    cur.execute(
+                        "INSERT OR REPLACE INTO quran_ayahs (surah_id, ayah_num, ar) VALUES (?,?,?)",
+                        (int(sn), int(an), text),
+                    )
+
     # FTS trigger
     cur.executescript("""
     INSERT INTO verses_fts(verses_fts) VALUES('rebuild');
+    INSERT INTO quran_ayahs_fts(quran_ayahs_fts) VALUES('rebuild');
     CREATE INDEX idx_verses_surah ON verses(surah_id);
     CREATE INDEX idx_words_surah ON words(surah_id);
     CREATE INDEX idx_figures_surah ON figures(surah_id);
@@ -240,7 +263,7 @@ def main():
     # Verify
     con2 = sqlite3.connect(str(DB_PATH))
     cur2 = con2.cursor()
-    for tbl in ["surahs","verses","words","tafsir","figures","wiki_map","alt_meanings"]:
+    for tbl in ["surahs","verses","words","tafsir","figures","wiki_map","alt_meanings","quran_ayahs"]:
         cur2.execute(f"SELECT COUNT(*) FROM {tbl}")
         print(f"{tbl}: {cur2.fetchone()[0]}")
     con2.close()

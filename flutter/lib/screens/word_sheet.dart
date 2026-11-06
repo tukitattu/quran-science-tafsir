@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../knowledge.dart';
+import '../l10n.dart';
 import '../player.dart';
 import '../wbw.dart';
 import 'read.dart' show AppColors;
@@ -74,7 +75,7 @@ class _WordSheetState extends State<WordSheet> {
             ),
             const SizedBox(height: 12),
             Row(children: [
-              Text('Word by word',
+              Text(L.t('word_by_word'),
                   style: TextStyle(
                       color: AppColors.gold,
                       fontWeight: FontWeight.w800,
@@ -115,12 +116,12 @@ class _WordSheetState extends State<WordSheet> {
                   }
                   final words = snap.data ?? const <WbwWord>[];
                   if (words.isEmpty) {
-                    return const Padding(
-                      padding: EdgeInsets.all(20),
+                    return Padding(
+                      padding: const EdgeInsets.all(20),
                       child: Text(
-                        'Word meanings for this ayah are not available yet.',
+                        L.t('word_unavailable'),
                         textAlign: TextAlign.center,
-                        style: TextStyle(color: AppColors.muted),
+                        style: const TextStyle(color: AppColors.muted),
                       ),
                     );
                   }
@@ -153,7 +154,7 @@ class _WordSheetState extends State<WordSheet> {
                                 const SizedBox(width: 8),
                                 if (w.hasAudio)
                                   IconButton(
-                                    tooltip: 'Hear the word',
+                                    tooltip: L.t('hear_word'),
                                     onPressed: () =>
                                         TilawahPlayer.instance.playWord(w.audio),
                                     icon: const Icon(Icons.volume_up_rounded,

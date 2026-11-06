@@ -5,14 +5,17 @@ import 'package:flutter/services.dart' show rootBundle;
 
 import '../db.dart';
 import '../knowledge.dart';
+import '../l10n.dart';
 import 'read.dart' show AppColors;
 
-const _catLabel = {
-  'business': 'Business', 'mercy': 'Mercy', 'prayer': 'Prayer', 'justice': 'Justice',
-  'knowledge': 'Knowledge', 'patience': 'Patience', 'creation': 'Creation',
-  'afterlife': 'Afterlife', 'family': 'Family', 'prophets': 'Prophets', 'faith': 'Faith',
-  'language': 'Language', 'general': 'General', 'pending': 'Pending research',
-};
+String _catLabel(String c) {
+  const known = {
+    'business', 'mercy', 'prayer', 'justice', 'knowledge', 'patience',
+    'creation', 'afterlife', 'family', 'prophets', 'faith', 'language',
+    'general', 'pending',
+  };
+  return known.contains(c) ? L.t('cat_$c') : c;
+}
 
 class WordsTab extends StatefulWidget {
   const WordsTab({super.key});
@@ -83,11 +86,11 @@ class _WordsTabState extends State<WordsTab> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Word meanings'),
+        title: Text(L.t('word_meanings')),
         actions: [
           IconButton(
             icon: Icon(_favOnly ? Icons.bookmark : Icons.bookmark_border, color: AppColors.gold),
-            tooltip: 'Saved words only',
+            tooltip: L.t('saved_words'),
             onPressed: () => setState(() => _favOnly = !_favOnly),
           ),
         ],
@@ -100,9 +103,9 @@ class _WordsTabState extends State<WordsTab> {
                 child: Row(children: [
                   Expanded(
                     child: TextField(
-                      decoration: const InputDecoration(
-                          hintText: 'Word, root or meaning…',
-                          prefixIcon: Icon(Icons.search)),
+                      decoration: InputDecoration(
+                          hintText: L.t('word_hint'),
+                          prefixIcon: const Icon(Icons.search)),
                       onChanged: (v) => setState(() => _q = v.trim()),
                       textInputAction: TextInputAction.search,
                       onSubmitted: (_) => setState(() {}),
@@ -116,7 +119,7 @@ class _WordsTabState extends State<WordsTab> {
                       isExpanded: true,
                       underline: const SizedBox(),
                       items: [
-                        const DropdownMenuItem(value: 0, child: Text('All', style: TextStyle(fontSize: 13))),
+                        DropdownMenuItem(value: 0, child: Text(L.t('all'), style: const TextStyle(fontSize: 13))),
                         for (final s in _surahs)
                           DropdownMenuItem(
                               value: s['id'] as int,
@@ -133,9 +136,9 @@ class _WordsTabState extends State<WordsTab> {
                   scrollDirection: Axis.horizontal,
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   children: [
-                    _catChip('', 'All'),
+                    _catChip('', L.t('all')),
                     for (final c in _catCounts.keys)
-                      if (c != 'pending') _catChip(c, '${_catLabel[c] ?? c} (${_catCounts[c]})'),
+                      if (c != 'pending') _catChip(c, '${_catLabel(c)} (${_catCounts[c]})'),
                   ],
                 ),
               ),
@@ -245,10 +248,10 @@ class _WordTile extends StatelessWidget {
                 ),
                 Wrap(spacing: 4, runSpacing: 4, alignment: WrapAlignment.center, children: [
                   if (cat.isNotEmpty && cat != 'pending')
-                    _Chip(_catLabel[cat] ?? cat, gold: true),
+                    _Chip(_catLabel(cat), gold: true),
                   if (am.isNotEmpty) _Chip('${am.length}'),
                   if (ref.isNotEmpty) _Chip(ref, blue: true),
-                  if (placeholder) const _Chip('pending'),
+                  if (placeholder) _Chip(L.t('pending')),
                 ]),
               ]),
         ),
@@ -323,28 +326,28 @@ class _WordSheet extends StatelessWidget {
               padding: const EdgeInsets.only(top: 10),
               child: Center(child: pill),
             ),
-          const _Label('Meaning'),
+          _Label(L.t('meaning')),
           _Box(text: (w['en'] ?? '').toString()),
-          const _Label('অর্থ (বাংলা)'),
+          _Label(L.t('meaning_bn')),
           _Box(text: (w['bn'] ?? '').toString()),
           if ((w['root'] ?? '').toString().isNotEmpty) ...[
-            const _Label('Root'),
+            _Label(L.t('root')),
             _Box(boldRef: (w['root']).toString(), text: raText),
           ],
           if ((w['form'] ?? '').toString().isNotEmpty) ...[
-            const _Label('Linguistic form'),
+            _Label(L.t('linguistic_form')),
             _Box(text: (w['form']).toString()),
           ],
           if ((w['why'] ?? '').toString().isNotEmpty) ...[
-            const _Label('Why this word (Ayn)'),
+            _Label(L.t('why_word')),
             _Box(gold: true, text: (w['why']).toString()),
           ],
           if (ref.isNotEmpty) ...[
-            const _Label('Ayah reference'),
-            _Box(gold: true, text: 'Qur\'an $ref'),
+            _Label(L.t('ayah_reference')),
+            _Box(gold: true, text: L.t('quran_ref', {'ref': ref})),
           ],
           for (final m in _means(w)) ...[
-            const _Label('Alternative meaning'),
+            _Label(L.t('alternative_meaning')),
             _Box(gold: true, text: (m['meaning'] ?? '').toString(),
                 footnote: (m['source'] ?? '').toString(),
                 italic: (m['evidence'] ?? '').toString()),
@@ -353,12 +356,12 @@ class _WordSheet extends StatelessWidget {
           Row(children: [
             Expanded(child: OutlinedButton(
               onPressed: () { Favs.toggle((w['id'] as int?) ?? 0); (context as Element).markNeedsBuild(); },
-              child: const Text('☆ Save'),
+              child: Text(L.t('save')),
             )),
             const SizedBox(width: 10),
             Expanded(child: FilledButton(
               onPressed: () => Navigator.pop(context),
-              child: const Text('Close'),
+              child: Text(L.t('close')),
             )),
           ]),
         ]),

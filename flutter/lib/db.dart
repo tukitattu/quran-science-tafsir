@@ -12,7 +12,7 @@ import 'package:sqflite/sqflite.dart';
 class TafsirDb {
   TafsirDb._();
   static final TafsirDb i = TafsirDb._();
-  static const int kVersion = 2;
+  static const int kVersion = 3;
 
   Database? _db;
 
@@ -99,7 +99,35 @@ class TafsirDb {
   }
 
   /// A deterministic ayah-of-the-day across the whole database.
+  ///
+  /// Prefers the complete `quran_ayahs` table (all 6,236 Uthmani ayahs) so the
+  /// daily reminder never gets stuck on the handful of paragraphs that happen
+  /// to carry an `ar` value. Falls back to `verses.ar` on older databases.
   Future<Map<String, dynamic>> ayahOfTheDay() async {
+    try {
+      final d = await (await db)
+          .query('quran_ayahs', columns: ['COUNT(*) AS c']);
+      final count = (d.isEmpty ? null : d.first['c'] as int?) ?? 0;
+      if (count > 0) {
+        final dayNum = DateTime.now().difference(DateTime(2024)).inDays;
+        final r = await (await db).query('quran_ayahs',
+            limit: 1,
+            offset: dayNum % count,
+            columns: ['surah_id', 'ayah_num', 'ar']);
+        if (r.isNotEmpty) {
+          final row = r.first;
+          final s = await (await db).query('surahs',
+              where: 'id = ?', whereArgs: [row['surah_id']], limit: 1);
+          return {
+            'ar': row['ar'] ?? '',
+            'ayah': row['ayah_num'],
+            'surah': s.isEmpty ? {} : s.first,
+          };
+        }
+      }
+    } catch (_) {
+      // table missing — use the legacy path below
+    }
     final d = await (await db).query('verses',
         columns: ['COUNT(*) AS c'], where: "ar != ''");
     final count = (d.isEmpty ? null : d.first['c'] as int?) ?? 0;

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../db.dart';
+import '../l10n.dart';
 import 'read.dart'; // AppColors
 import 'reader.dart';
 
@@ -34,13 +35,13 @@ class _SearchTabState extends State<SearchTab> {
     for (final s in _surahs) {
       if (s['id'] == sid) return '${s['en']}';
     }
-    return 'Surah $sid';
+    return L.t('surah_n', {'n': '$sid'});
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Search the tafsir')),
+      appBar: AppBar(title: Text(L.t('search_tafsir'))),
       body: Column(children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 6),
@@ -48,27 +49,29 @@ class _SearchTabState extends State<SearchTab> {
             Expanded(
               child: TextField(
                 autofocus: false,
-                decoration: const InputDecoration(
-                    hintText: 'e.g. heavens, রহমত, Iron…',
-                    prefixIcon: Icon(Icons.search)),
+                decoration: InputDecoration(
+                    hintText: L.t('search_hint'),
+                    prefixIcon: const Icon(Icons.search)),
                 textInputAction: TextInputAction.search,
                 onSubmitted: (_) => _run(),
                 onChanged: (v) => _q = v,
               ),
             ),
             const SizedBox(width: 10),
-            FilledButton(onPressed: _run, child: const Text('Go')),
+            FilledButton(onPressed: _run, child: Text(L.t('go'))),
           ]),
         ),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Row(children: [
-            Text('Search in: ',
-                style: const TextStyle(color: AppColors.muted, fontSize: 13)),
+            Expanded(
+              child: Text(L.t('search_in'),
+                  style: const TextStyle(color: AppColors.muted, fontSize: 13)),
+            ),
             SegmentedButton<bool>(
-              segments: const [
-                ButtonSegment(value: false, label: Text('English')),
-                ButtonSegment(value: true, label: Text('বাংলা')),
+              segments: [
+                ButtonSegment(value: false, label: Text(L.t('english'))),
+                ButtonSegment(value: true, label: Text(L.t('bengali'))),
               ],
               selected: {_bengali},
               showSelectedIcon: false,
@@ -83,13 +86,13 @@ class _SearchTabState extends State<SearchTab> {
                   ? Center(
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Text('لا توجد نتائج',
-                                style: TextStyle(
+                          children: [
+                            Text(L.t('no_results'),
+                                style: const TextStyle(
                                     color: Color(0x66A67C1B), fontSize: 22)),
-                            SizedBox(height: 6),
-                            Text('Type a query and press Go',
-                                style: TextStyle(color: AppColors.muted)),
+                            const SizedBox(height: 6),
+                            Text(L.t('type_query'),
+                                style: const TextStyle(color: AppColors.muted)),
                           ]),
                     )
                   : ListView.builder(

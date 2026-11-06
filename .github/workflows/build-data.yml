@@ -59,7 +59,8 @@ jobs:
 
       - name: Sync generated data into the Flutter bundle
         run: |
-          cp assets/data/quran_ar.json flutter/assets/quran_ar.json
+          mkdir -p flutter/assets/data
+          cp assets/data/quran_ar.json flutter/assets/data/quran_ar.json
           cp assets/data/knowledge.json flutter/assets/knowledge.json
           cp assets/data/business.json flutter/assets/business.json
           cp assets/data/words_export.json flutter/assets/words_export.json

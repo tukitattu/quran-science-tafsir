@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../db.dart';
 import '../knowledge.dart';
+import '../l10n.dart';
 import '../main.dart';
 import '../player.dart';
 import '../prefs.dart';
@@ -100,9 +101,9 @@ class _ReadTabState extends State<ReadTab> {
             children: [
               const Icon(Icons.storage_rounded, size: 40),
               const SizedBox(height: 12),
-              const Text('The library could not be opened.',
+              Text(L.t('library_error'),
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontWeight: FontWeight.w700)),
+                  style: const TextStyle(fontWeight: FontWeight.w700)),
               const SizedBox(height: 8),
               Text(_error!, textAlign: TextAlign.center,
                   style: const TextStyle(fontSize: 12)),
@@ -115,7 +116,7 @@ class _ReadTabState extends State<ReadTab> {
                   });
                   _load();
                 },
-                child: const Text('Retry'),
+                child: Text(L.t('retry')),
               ),
             ],
           ),
@@ -126,10 +127,10 @@ class _ReadTabState extends State<ReadTab> {
     return ListView(
       padding: const EdgeInsets.fromLTRB(20, 12, 20, 24),
       children: [
-        Text('Scientific Tafsir',
+        Text(L.t('scientific_tafsir'),
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                 fontWeight: FontWeight.w700, letterSpacing: -0.5)),
-        Text('Zakaria Kamal · English / বাংলা / العربية',
+        Text(L.t('author_line'),
             style: const TextStyle(color: AppColors.muted)),
         const SizedBox(height: 18),
         _TodayCard(today: t),
@@ -137,19 +138,25 @@ class _ReadTabState extends State<ReadTab> {
           const SizedBox(height: 12),
           FilledButton.icon(
             icon: const Icon(Icons.play_arrow_rounded),
-            label: Text('Continue — Surah $_continueTo'),
+            label: Text(L.t('continue_surah', {'n': '$_continueTo'})),
             onPressed: () => _open(_continueTo!),
           ),
         ],
         const SizedBox(height: 18),
         Row(children: [
-          Text('All 114 chapters',
-              style: Theme.of(context)
-                  .textTheme
-                  .titleLarge
-                  ?.copyWith(fontWeight: FontWeight.w700)),
-          const Spacer(),
-          Text('$_visited/114 read · ${(_visited / 114 * 100).round()}%',
+          Expanded(
+            child: Text(L.t('all_chapters'),
+                style: Theme.of(context)
+                    .textTheme
+                    .titleLarge
+                    ?.copyWith(fontWeight: FontWeight.w700)),
+          ),
+          const SizedBox(width: 8),
+          Text(
+              L.t('read_progress', {
+                'v': '$_visited',
+                'p': '${(_visited / 114 * 100).round()}',
+              }),
               style: const TextStyle(color: AppColors.muted, fontSize: 12)),
         ]),
         const SizedBox(height: 6),
@@ -164,8 +171,8 @@ class _ReadTabState extends State<ReadTab> {
         ),
         const SizedBox(height: 16),
         TextField(
-          decoration: const InputDecoration(
-              hintText: 'Find a surah…', prefixIcon: Icon(Icons.search)),
+          decoration: InputDecoration(
+              hintText: L.t('find_surah'), prefixIcon: const Icon(Icons.search)),
           onChanged: (v) => setState(() => _q = v.trim()),
         ),
         const SizedBox(height: 10),
@@ -173,7 +180,11 @@ class _ReadTabState extends State<ReadTab> {
           spacing: 8,
           runSpacing: 8,
           children: [
-            for (final e in {'all': 'All', 'makki': 'Makki', 'madani': 'Madani'}.entries)
+            for (final e in {
+              'all': L.t('all'),
+              'makki': L.t('makki'),
+              'madani': L.t('madani'),
+            }.entries)
               ChoiceChip(
                 label: Text(e.value),
                 selected: _cat == e.key,
@@ -241,12 +252,12 @@ class _ReadTabState extends State<ReadTab> {
                 color: typeColor.withValues(alpha: .13),
                 borderRadius: BorderRadius.circular(999),
               ),
-              child: Text(type == 'madani' ? 'Madani' : 'Makki',
+              child: Text(type == 'madani' ? L.t('madani') : L.t('makki'),
                   style: TextStyle(color: typeColor, fontSize: 10)),
             ),
             const SizedBox(width: 2),
             Tooltip(
-              message: 'Play (tilawah)',
+              message: L.t('play_tilawah'),
               child: InkWell(
                 borderRadius: BorderRadius.circular(999),
                 onTap: () => TilawahPlayer.instance.toggleForSurah(id),
@@ -257,7 +268,7 @@ class _ReadTabState extends State<ReadTab> {
               ),
             ),
             Tooltip(
-              message: 'Arabic text',
+              message: L.t('arabic_text'),
               child: InkWell(
                 borderRadius: BorderRadius.circular(999),
                 onTap: () => _openArabic(id, '${s['en']}'),
@@ -310,7 +321,7 @@ class _TodayCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text("Today's Ayah",
+          Text(L.t('today_ayah'),
               style: TextStyle(
                   color: AppColors.gold,
                   fontWeight: FontWeight.w800,
