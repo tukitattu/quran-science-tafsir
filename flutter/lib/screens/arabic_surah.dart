@@ -64,7 +64,7 @@ class _ArabicSurahScreenState extends State<ArabicSurahScreen> {
               style:
                   const TextStyle(fontSize: 15, fontWeight: FontWeight.w700)),
           Text(L.t('arabic_uthmani'),
-              style: const TextStyle(fontSize: 11, color: AppColors.muted)),
+              style: TextStyle(fontSize: 11, color: AppColors.muted(context))),
         ]),
         actions: [
           IconButton(
@@ -121,7 +121,7 @@ class _AyahRow extends StatelessWidget {
       decoration: BoxDecoration(
         color: active ? AppColors.goldBright.withValues(alpha: .13) : null,
         borderRadius: BorderRadius.circular(12),
-        border: const Border(bottom: BorderSide(color: Color(0x14000000))),
+        border: Border(bottom: BorderSide(color: AppColors.ink(context).withValues(alpha: .08))),
       ),
       child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
         Tooltip(
@@ -156,10 +156,10 @@ class _AyahRow extends StatelessWidget {
             text,
             textDirection: TextDirection.rtl,
             textAlign: TextAlign.right,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 22,
               height: 2.1,
-              color: AppColors.ink,
+              color: AppColors.ink(context),
             ),
           ),
         ),
@@ -169,9 +169,9 @@ class _AyahRow extends StatelessWidget {
           child: InkWell(
             borderRadius: BorderRadius.circular(999),
             onTap: onWords,
-            child: const Padding(
-              padding: EdgeInsets.all(8),
-              child: Icon(Icons.translate, size: 17, color: AppColors.muted),
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: Icon(Icons.translate, size: 17, color: AppColors.muted(context)),
             ),
           ),
         ),

@@ -58,7 +58,7 @@ class _SettingsTabState extends State<SettingsTab> {
                   .headlineSmall
                   ?.copyWith(fontWeight: FontWeight.w800, letterSpacing: -.3)),
           Text(L.t('version_line'),
-              style: const TextStyle(color: AppColors.muted, fontSize: 12)),
+              style: TextStyle(color: AppColors.muted(context), fontSize: 12)),
           const SizedBox(height: 20),
 
           // ——— interface language
@@ -114,11 +114,11 @@ class _SettingsTabState extends State<SettingsTab> {
                   Switch(value: app.reminderOn, onChanged: app.setReminder),
                 ]),
                 Text(L.t('reminder_desc'),
-                    style: const TextStyle(color: AppColors.muted, fontSize: 12.5)),
+                    style: TextStyle(color: AppColors.muted(context), fontSize: 12.5)),
                 const SizedBox(height: 10),
                 Row(children: [
                   Text(L.t('at'),
-                      style: const TextStyle(color: AppColors.muted, fontSize: 13)),
+                      style: TextStyle(color: AppColors.muted(context), fontSize: 13)),
                   const SizedBox(width: 10),
                   DropdownButton<int>(
                     value: app.reminderHour,
@@ -190,7 +190,7 @@ class _SettingsTabState extends State<SettingsTab> {
               TextSpan(text: L.t('about_text')),
               TextSpan(
                   text: L.t('about_data'),
-                  style: const TextStyle(color: AppColors.muted, fontSize: 12)),
+                  style: TextStyle(color: AppColors.muted(context), fontSize: 12)),
             ]),
             style: const TextStyle(fontSize: 13.5, height: 1.65),
           ),

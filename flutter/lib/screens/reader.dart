@@ -133,7 +133,10 @@ class _ReaderScreenState extends State<ReaderScreen> {
         child: Text(ar,
             textDirection: TextDirection.rtl,
             style: TextStyle(
-                fontSize: fontSize + 4, height: 2, color: const Color(0xFF5F4A14))),
+                fontSize: fontSize + 4, height: 2,
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? AppColors.goldBright
+                    : AppColors.goldDeep)),
       ));
     }
     if (_lang == 'ar') {
@@ -155,7 +158,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
       widgets.add(Padding(
           padding: const EdgeInsets.only(bottom: 12),
           child: Text(formatVerseMarks(bn),
-              style: TextStyle(fontSize: fontSize, height: 1.85, color: AppColors.ink))));
+              style: TextStyle(fontSize: fontSize, height: 1.85, color: AppColors.ink(context)))));
     }
     if (_lang != 'bn' && en.isNotEmpty) {
       widgets.add(Padding(
@@ -163,7 +166,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
           child: Text(formatVerseMarks(en),
               style: TextStyle(
                   fontSize: fontSize, height: 1.85,
-                  color: _lang == 'both' ? AppColors.muted : AppColors.ink))));
+                  color: _lang == 'both' ? AppColors.muted(context) : AppColors.ink(context)))));
     }
     if (ayahs.isNotEmpty && Knowledge.i.ready) {
       final pills = ayahs
@@ -233,7 +236,7 @@ class _ReaderScreenState extends State<ReaderScreen> {
           Text('${_meta['ar'] ?? ''}',
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: const TextStyle(fontSize: 11, color: AppColors.muted)),
+              style: TextStyle(fontSize: 11, color: AppColors.muted(context))),
         ]),
         actions: [
           IconButton(
@@ -284,8 +287,8 @@ class _ReaderScreenState extends State<ReaderScreen> {
                 padding: const EdgeInsets.fromLTRB(20, 16, 20, 24),
                 children: [
                   Text(L.t('page_of', {'i': '${i + 1}', 'n': '${pages.length}'}),
-                      style: const TextStyle(
-                          color: AppColors.muted, fontSize: 12, fontWeight: FontWeight.w600)),
+                      style: TextStyle(
+                          color: AppColors.muted(context), fontSize: 12, fontWeight: FontWeight.w600)),
                   const SizedBox(height: 6),
                   ...pages[i],
                   _NavRow(
@@ -297,13 +300,13 @@ class _ReaderScreenState extends State<ReaderScreen> {
               ),
             ),
       floatingActionButton: FloatingActionButton.small(
-        backgroundColor: Colors.white.withValues(alpha: .9),
-        foregroundColor: AppColors.ink,
+        backgroundColor: Theme.of(context).colorScheme.surface.withValues(alpha: .9),
+        foregroundColor: AppColors.ink(context),
         child: const Icon(Icons.text_increase),
         onPressed: () {
           showModalBottomSheet(
             context: context,
-            backgroundColor: Colors.white.withValues(alpha: .96),
+            backgroundColor: Theme.of(context).colorScheme.surface.withValues(alpha: .96),
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(28))),
             builder: (_) => _FontSheet(

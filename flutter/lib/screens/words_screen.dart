@@ -176,7 +176,7 @@ class _WordsTabState extends State<WordsTab> {
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
           decoration: BoxDecoration(
-            color: on ? AppColors.gold : Colors.white.withValues(alpha: .7),
+            color: on ? AppColors.gold : Theme.of(context).colorScheme.surface.withValues(alpha: .7),
             borderRadius: BorderRadius.circular(999),
             border: Border.all(color: AppColors.gold.withValues(alpha: on ? .8 : .3)),
           ),
@@ -193,7 +193,7 @@ class _WordsTabState extends State<WordsTab> {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.white.withValues(alpha: .97),
+      backgroundColor: Theme.of(context).colorScheme.surface.withValues(alpha: .97),
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(28))),
       builder: (_) => _WordSheet(w: w),
@@ -221,7 +221,7 @@ class _WordTile extends StatelessWidget {
     final cat = (w['cat'] ?? '').toString();
     final ref = (w['ref'] ?? '').toString();
     return Card(
-      color: Colors.white.withValues(alpha: placeholder ? .35 : .72),
+      color: Theme.of(context).colorScheme.surface.withValues(alpha: placeholder ? .35 : .72),
       child: InkWell(
         borderRadius: BorderRadius.circular(22),
         onTap: onOpen,
@@ -237,7 +237,7 @@ class _WordTile extends StatelessWidget {
                         height: 1.8)),
                 Text((w['tr'] ?? '').toString(),
                     textDirection: TextDirection.ltr,
-                    style: const TextStyle(color: AppColors.muted, fontSize: 10.5),
+                    style: TextStyle(color: AppColors.muted(context), fontSize: 10.5),
                     maxLines: 1, overflow: TextOverflow.ellipsis),
                 const SizedBox(height: 5),
                 Expanded(
@@ -266,7 +266,7 @@ class _Chip extends StatelessWidget {
   final bool gold, blue;
   @override
   Widget build(BuildContext context) {
-    final color = blue ? const Color(0xFF23638C) : (gold ? AppColors.gold : AppColors.muted);
+    final color = blue ? const Color(0xFF23638C) : (gold ? AppColors.gold : AppColors.muted(context));
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
       decoration: BoxDecoration(
@@ -395,7 +395,7 @@ class _Box extends StatelessWidget {
       decoration: BoxDecoration(
         color: gold
             ? const Color(0xFFD9B44A).withValues(alpha: .10)
-            : AppColors.ink.withValues(alpha: .035),
+            : AppColors.ink(context).withValues(alpha: .035),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -414,7 +414,7 @@ class _Box extends StatelessWidget {
             padding: const EdgeInsets.only(top: 5),
             child: Text(italic,
                 style: const TextStyle(
-                    fontSize: 12.5, color: AppColors.muted, fontStyle: FontStyle.italic)),
+                    fontSize: 12.5, color: AppColors.gold, fontStyle: FontStyle.italic)),
           ),
         if (footnote.isNotEmpty)
           Padding(

@@ -48,9 +48,9 @@ class _WordSheetState extends State<WordSheet> {
     return Container(
       constraints: BoxConstraints(
           maxHeight: MediaQuery.of(context).size.height * 0.78),
-      decoration: const BoxDecoration(
-        color: Color(0xFFFFFDF7),
-        borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surface,
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(28)),
       ),
       child: Padding(
         padding: EdgeInsets.only(
@@ -68,7 +68,7 @@ class _WordSheetState extends State<WordSheet> {
                 width: 44,
                 height: 4,
                 decoration: BoxDecoration(
-                  color: AppColors.ink.withValues(alpha: .15),
+                  color: AppColors.ink(context).withValues(alpha: .15),
                   borderRadius: BorderRadius.circular(99),
                 ),
               ),
@@ -82,8 +82,8 @@ class _WordSheetState extends State<WordSheet> {
                       fontSize: 13)),
               const Spacer(),
               Text('${widget.surah}:${widget.ayah}',
-                  style: const TextStyle(
-                      color: AppColors.muted,
+                  style: TextStyle(
+                      color: AppColors.muted(context),
                       fontSize: 12,
                       fontWeight: FontWeight.w700)),
               const SizedBox(width: 6),
@@ -121,7 +121,7 @@ class _WordSheetState extends State<WordSheet> {
                       child: Text(
                         L.t('word_unavailable'),
                         textAlign: TextAlign.center,
-                        style: const TextStyle(color: AppColors.muted),
+                        style: TextStyle(color: AppColors.muted(context)),
                       ),
                     );
                   }
@@ -146,10 +146,10 @@ class _WordSheetState extends State<WordSheet> {
                                   child: Text(w.text,
                                       textDirection: TextDirection.rtl,
                                       textAlign: TextAlign.right,
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                           fontSize: 26,
                                           height: 1.8,
-                                          color: AppColors.ink)),
+                                          color: AppColors.ink(context))),
                                 ),
                                 const SizedBox(width: 8),
                                 if (w.hasAudio)
@@ -164,8 +164,8 @@ class _WordSheetState extends State<WordSheet> {
                             ),
                             if (w.translit.isNotEmpty)
                               Text(w.translit,
-                                  style: const TextStyle(
-                                      color: AppColors.muted,
+                                  style: TextStyle(
+                                      color: AppColors.muted(context),
                                       fontStyle: FontStyle.italic,
                                       fontSize: 12)),
                             const SizedBox(height: 6),
@@ -175,10 +175,10 @@ class _WordSheetState extends State<WordSheet> {
                                       fontSize: 14, height: 1.5)),
                             if (w.bn.isNotEmpty)
                               Text('বাংলা · ${w.bn}',
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                       fontSize: 14,
                                       height: 1.5,
-                                      color: AppColors.muted)),
+                                      color: AppColors.muted(context))),
                           ],
                         ),
                       ),
@@ -197,7 +197,7 @@ class _WordSheetState extends State<WordSheet> {
                                 decoration: BoxDecoration(
                                   color: k == i
                                       ? AppColors.gold.withValues(alpha: .22)
-                                      : AppColors.ink.withValues(alpha: .05),
+                                      : AppColors.ink(context).withValues(alpha: .05),
                                   borderRadius: BorderRadius.circular(12),
                                   border: Border.all(
                                       color: k == i
@@ -210,7 +210,7 @@ class _WordSheetState extends State<WordSheet> {
                                         fontSize: 17,
                                         color: k == i
                                             ? AppColors.goldDeep
-                                            : AppColors.ink)),
+                                            : AppColors.ink(context))),
                               ),
                             ),
                         ],

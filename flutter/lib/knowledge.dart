@@ -189,7 +189,7 @@ class _KnowledgePillState extends State<KnowledgePill> {
               ),
               child: Material(
                 elevation: 10,
-                color: Colors.white.withValues(alpha: .97),
+                color: Theme.of(ctx).colorScheme.surface.withValues(alpha: .97),
                 borderRadius: BorderRadius.circular(22),
                 child: SingleChildScrollView(
                   padding: const EdgeInsets.all(12),
@@ -203,7 +203,7 @@ class _KnowledgePillState extends State<KnowledgePill> {
                         Padding(
                           padding: const EdgeInsets.all(8),
                           child: Text(L.t('no_additional_translations'),
-                              style: const TextStyle(color: AppColors.muted, fontSize: 12)),
+                              style: TextStyle(color: AppColors.muted(ctx), fontSize: 12)),
                         ),
                     ],
                   ),
@@ -223,7 +223,7 @@ class _KnowledgePillState extends State<KnowledgePill> {
             decoration: BoxDecoration(
               color: _ctrl.isShowing
                   ? const Color(0xFFD9B44A).withValues(alpha: .22)
-                  : Colors.white.withValues(alpha: .8),
+                  : Theme.of(context).colorScheme.surface.withValues(alpha: .8),
               borderRadius: BorderRadius.circular(999),
               border: Border.all(color: AppColors.gold.withValues(alpha: .35)),
             ),
@@ -265,7 +265,7 @@ class _AyahBox extends StatelessWidget {
         Text(text,
             textDirection: TextDirection.rtl,
             textAlign: TextAlign.right,
-            style: const TextStyle(fontSize: 19, height: 1.9, color: AppColors.ink)),
+            style: TextStyle(fontSize: 19, height: 1.9, color: AppColors.ink(context))),
       ]),
     );
   }
@@ -284,7 +284,7 @@ class _ExtractBox extends StatelessWidget {
       margin: const EdgeInsets.only(bottom: 8),
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: AppColors.ink.withValues(alpha: .035),
+        color: AppColors.ink(context).withValues(alpha: .035),
         borderRadius: BorderRadius.circular(15),
       ),
       child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
@@ -292,7 +292,7 @@ class _ExtractBox extends StatelessWidget {
           Text(ar,
               textDirection: TextDirection.rtl,
               textAlign: TextAlign.right,
-              style: const TextStyle(fontSize: 16, height: 1.8, color: AppColors.ink)),
+              style: TextStyle(fontSize: 16, height: 1.8, color: AppColors.ink(context))),
         if (en.isNotEmpty)
           Padding(
             padding: const EdgeInsets.only(top: 4),
@@ -302,7 +302,7 @@ class _ExtractBox extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 4),
             child: Text(bn,
-                style: const TextStyle(fontSize: 12.5, height: 1.6, color: AppColors.muted)),
+                style: TextStyle(fontSize: 12.5, height: 1.6, color: AppColors.muted(context))),
           ),
         if (src.isNotEmpty)
           Padding(

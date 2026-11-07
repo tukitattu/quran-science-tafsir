@@ -133,7 +133,7 @@ class _ReadTabState extends State<ReadTab> {
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                 fontWeight: FontWeight.w700, letterSpacing: -0.5)),
         Text(L.t('author_line'),
-            style: const TextStyle(color: AppColors.muted)),
+            style: TextStyle(color: AppColors.muted(context))),
         const SizedBox(height: 18),
         AnimatedBuilder(
           animation: app,
@@ -162,7 +162,7 @@ class _ReadTabState extends State<ReadTab> {
                 'v': '$_visited',
                 'p': '${(_visited / 114 * 100).round()}',
               }),
-              style: const TextStyle(color: AppColors.muted, fontSize: 12)),
+              style: TextStyle(color: AppColors.muted(context), fontSize: 12)),
         ]),
         const SizedBox(height: 6),
         ClipRRect(
@@ -170,7 +170,7 @@ class _ReadTabState extends State<ReadTab> {
           child: LinearProgressIndicator(
             value: _visited / 114,
             minHeight: 8,
-            backgroundColor: AppColors.ink.withValues(alpha: .07),
+            backgroundColor: AppColors.ink(context).withValues(alpha: .07),
             valueColor: const AlwaysStoppedAnimation(AppColors.gold),
           ),
         ),
@@ -240,8 +240,8 @@ class _ReadTabState extends State<ReadTab> {
                       ),
                     ]),
                     Text('${s['bn']}',
-                        style: const TextStyle(
-                            color: AppColors.muted, fontSize: 12)),
+                        style: TextStyle(
+                            color: AppColors.muted(context), fontSize: 12)),
                   ]),
             ),
             const SizedBox(width: 8),
@@ -305,12 +305,15 @@ class _ReadTabState extends State<ReadTab> {
 }
 
 class AppColors {
-  static const ink = Color(0xFF232B36);
-  static const muted = Color(0xFF5D6875);
   static const gold = Color(0xFFA67C1B);
   static const goldDeep = Color(0xFF5F4A14);
   static const goldBright = Color(0xFFD9B44A);
   static const blue = Color(0xFF23638C);
+
+  static Color ink(BuildContext context) =>
+      Theme.of(context).colorScheme.onSurface;
+  static Color muted(BuildContext context) =>
+      Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.55);
 }
 
 class _TodayCard extends StatelessWidget {
@@ -341,18 +344,18 @@ class _TodayCard extends StatelessWidget {
           const SizedBox(height: 8),
           if (app.lang != 'en' && (today['bn'] ?? '').toString().isNotEmpty)
             Text((today['bn'] ?? '').toString(),
-                style: const TextStyle(
-                    color: AppColors.muted, height: 1.6)),
+                style: TextStyle(
+                    color: AppColors.muted(context), height: 1.6)),
           if ((app.lang == 'en' || app.lang == 'both') &&
               (today['en'] ?? '').toString().isNotEmpty) ...[
             const SizedBox(height: 4),
             Text((today['en'] ?? '').toString(),
-                style: const TextStyle(
-                    color: AppColors.muted, height: 1.6)),
+                style: TextStyle(
+                    color: AppColors.muted(context), height: 1.6)),
           ],
           if (app.lang != 'bn') ...[
             const SizedBox(height: 4),
-            Text(ref, style: const TextStyle(color: AppColors.muted, fontSize: 12)),
+            Text(ref, style: TextStyle(color: AppColors.muted(context), fontSize: 12)),
           ],
         ]),
       ),

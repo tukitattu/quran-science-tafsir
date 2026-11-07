@@ -62,7 +62,7 @@ class _HomeShellState extends State<HomeShell> {
               NavigationRail(
                 selectedIndex: _tab,
                 labelType: NavigationRailLabelType.all,
-                backgroundColor: Colors.white.withValues(alpha: .55),
+                backgroundColor: Theme.of(context).colorScheme.surface.withValues(alpha: .55),
                 indicatorColor: AppColors.gold.withValues(alpha: .18),
                 onDestinationSelected: (i) => setState(() => _tab = i),
                 leading: Padding(

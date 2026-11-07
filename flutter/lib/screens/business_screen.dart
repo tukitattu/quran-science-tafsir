@@ -54,16 +54,16 @@ class _BusinessTabState extends State<BusinessTab> {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.white.withValues(alpha: .7),
+                color: Theme.of(context).colorScheme.surface.withValues(alpha: .7),
                 borderRadius: BorderRadius.circular(22),
-                border: Border.all(color: AppColors.ink.withValues(alpha: .08)),
+                border: Border.all(color: AppColors.ink(context).withValues(alpha: .08)),
               ),
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Text(_t(intro),
-                    style: const TextStyle(fontSize: 13, height: 1.65, color: AppColors.muted)),
+                    style: TextStyle(fontSize: 13, height: 1.65, color: AppColors.muted(context))),
                 const SizedBox(height: 8),
                 Text((intro['bn'] ?? '').toString(),
-                    style: const TextStyle(fontSize: 12.5, height: 1.75, color: AppColors.muted)),
+                    style: TextStyle(fontSize: 12.5, height: 1.75, color: AppColors.muted(context))),
               ]),
             ),
           const SizedBox(height: 14),
@@ -77,7 +77,7 @@ class _BusinessTabState extends State<BusinessTab> {
               padding: const EdgeInsets.only(top: 14, bottom: 6),
               child: Text(_t(s['title']),
                   style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.w800, color: AppColors.ink)),
+                      fontSize: 18, fontWeight: FontWeight.w800, color: AppColors.ink(context))),
             ),
             for (final it in ((s['items'] as List?) ?? const []).whereType<Map>())
               _card(Map<String, dynamic>.from(it)),
@@ -95,7 +95,7 @@ class _BusinessTabState extends State<BusinessTab> {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
         decoration: BoxDecoration(
-          color: on ? AppColors.gold : Colors.white.withValues(alpha: .75),
+          color: on ? AppColors.gold : Theme.of(context).colorScheme.surface.withValues(alpha: .75),
           borderRadius: BorderRadius.circular(999),
           border: Border.all(color: AppColors.gold.withValues(alpha: on ? .8 : .3)),
         ),
@@ -117,9 +117,9 @@ class _BusinessTabState extends State<BusinessTab> {
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        color: Colors.white.withValues(alpha: .72),
+        color: Theme.of(context).colorScheme.surface.withValues(alpha: .72),
         borderRadius: BorderRadius.circular(22),
-        border: Border.all(color: AppColors.ink.withValues(alpha: .07)),
+        border: Border.all(color: AppColors.ink(context).withValues(alpha: .07)),
       ),
       child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
         if (ar.isNotEmpty)
@@ -136,7 +136,7 @@ class _BusinessTabState extends State<BusinessTab> {
           Padding(
             padding: const EdgeInsets.only(top: 6),
             child: Text(bn,
-                style: const TextStyle(fontSize: 13, height: 1.7, color: AppColors.muted)),
+                style: TextStyle(fontSize: 13, height: 1.7, color: AppColors.muted(context))),
           ),
         const SizedBox(height: 10),
         Wrap(spacing: 7, runSpacing: 6, children: [

@@ -66,7 +66,7 @@ class _SearchTabState extends State<SearchTab> {
           child: Row(children: [
             Expanded(
               child: Text(L.t('search_in'),
-                  style: const TextStyle(color: AppColors.muted, fontSize: 13)),
+                  style: TextStyle(color: AppColors.muted(context), fontSize: 13)),
             ),
             SegmentedButton<bool>(
               segments: [
@@ -92,7 +92,7 @@ class _SearchTabState extends State<SearchTab> {
                                     color: Color(0x66A67C1B), fontSize: 22)),
                             const SizedBox(height: 6),
                             Text(L.t('type_query'),
-                                style: const TextStyle(color: AppColors.muted)),
+                                style: TextStyle(color: AppColors.muted(context))),
                           ]),
                     )
                   : ListView.builder(
@@ -138,7 +138,7 @@ class _SearchTabState extends State<SearchTab> {
             const SizedBox(height: 8),
             Text(_first(formatVerseMarks(body), 220),
                 style:
-                    const TextStyle(fontSize: 14, height: 1.7, color: AppColors.ink)),
+                    TextStyle(fontSize: 14, height: 1.7, color: AppColors.ink(context))),
           ]),
         ),
       ),
