@@ -135,7 +135,10 @@ class _ReadTabState extends State<ReadTab> {
         Text(L.t('author_line'),
             style: const TextStyle(color: AppColors.muted)),
         const SizedBox(height: 18),
-        _TodayCard(today: t),
+        AnimatedBuilder(
+          animation: app,
+          builder: (_, __) => _TodayCard(today: t),
+        ),
         if (_continueTo != null) ...[
           const SizedBox(height: 12),
           FilledButton.icon(

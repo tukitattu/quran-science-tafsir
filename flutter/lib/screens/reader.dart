@@ -227,15 +227,18 @@ class _ReaderScreenState extends State<ReaderScreen> {
       appBar: AppBar(
         title: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Text('${_meta['en'] ?? L.t('surah_n', {'n': '${widget.surahId}'})}',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
-          Text('${_meta['ar'] ?? ''} · বাংলা ${_meta['bn'] ?? ''}',
+          Text('${_meta['ar'] ?? ''}',
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: const TextStyle(fontSize: 11, color: AppColors.muted)),
         ]),
         actions: [
           IconButton(
             tooltip: L.t('tilawah_tooltip'),
-            onPressed: () =>
-                TilawahPlayer.instance.toggleForSurah(widget.surahId),
+            onPressed: () => TilawahPlayer.instance.toggleForSurah(widget.surahId),
             icon: TilawahIcon(surah: widget.surahId),
           ),
           IconButton(
@@ -244,25 +247,33 @@ class _ReaderScreenState extends State<ReaderScreen> {
             onPressed: () => Navigator.of(context).push(MaterialPageRoute(
               builder: (_) => ArabicSurahScreen(
                 surahId: widget.surahId,
-                title:
-                    '${_meta['en'] ?? L.t('surah_n', {'n': '${widget.surahId}'})}',
+                title: '${_meta['en'] ?? L.t('surah_n', {'n': '${widget.surahId}'})}',
               ),
             )),
           ),
-          SegmentedButton<String>(
-            segments: [
-              ButtonSegment(value: 'both', label: Text(L.t('lang_both'))),
-              ButtonSegment(value: 'en', label: Text(L.t('lang_en'))),
-              ButtonSegment(value: 'bn', label: Text(L.t('lang_bn'))),
-              ButtonSegment(value: 'ar', label: Text(L.t('lang_ar'))),
-            ],
-            selected: {_lang},
-            style: const ButtonStyle(visualDensity: VisualDensity.compact),
-            showSelectedIcon: false,
-            onSelectionChanged: (s) => _setLang(s.first),
-          ),
           const SizedBox(width: 8),
         ],
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(44),
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16, right: 16, bottom: 8),
+            child: SegmentedButton<String>(
+              segments: [
+                ButtonSegment(value: 'both', label: Text(L.t('lang_both'))),
+                ButtonSegment(value: 'en', label: Text(L.t('lang_en'))),
+                ButtonSegment(value: 'bn', label: Text(L.t('lang_bn'))),
+                ButtonSegment(value: 'ar', label: Text(L.t('lang_ar'))),
+              ],
+              selected: {_lang},
+              style: ButtonStyle(
+                visualDensity: VisualDensity.compact,
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              ),
+              showSelectedIcon: false,
+              onSelectionChanged: (s) => _setLang(s.first),
+            ),
+          ),
+        ),
       ),
       body: pages.isEmpty
           ? Center(child: Text(L.t('no_paragraphs')))
