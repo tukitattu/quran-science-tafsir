@@ -45,6 +45,8 @@ class _ReadTabState extends State<ReadTab> {
         final sid = pick['surah'] as int;
         today = {
           'ar': pick['ar'],
+          'en': pick['en'],
+          'bn': pick['bn'],
           'ayah': pick['ayah'],
           'surah': surahs.firstWhere(
             (s) => (s['id'] as int?) == sid,
@@ -338,6 +340,13 @@ class _TodayCard extends StatelessWidget {
             Text((today['bn'] ?? '').toString(),
                 style: const TextStyle(
                     color: AppColors.muted, height: 1.6)),
+          if ((app.lang == 'en' || app.lang == 'both') &&
+              (today['en'] ?? '').toString().isNotEmpty) ...[
+            const SizedBox(height: 4),
+            Text((today['en'] ?? '').toString(),
+                style: const TextStyle(
+                    color: AppColors.muted, height: 1.6)),
+          ],
           if (app.lang != 'bn') ...[
             const SizedBox(height: 4),
             Text(ref, style: const TextStyle(color: AppColors.muted, fontSize: 12)),

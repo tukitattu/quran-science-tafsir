@@ -176,6 +176,8 @@ class _BootGateState extends State<BootGate> {
       title: L.t('app_title'),
       debugShowCheckedModeBanner: false,
       theme: Paper.theme(),
+      darkTheme: Paper.darkTheme(),
+      themeMode: ThemeMode.system,
       home: Scaffold(
         body: SafeArea(
           child: Center(
@@ -258,6 +260,8 @@ class TafsirApp extends StatelessWidget {
         title: L.t('app_title'),
         debugShowCheckedModeBanner: false,
         theme: Paper.theme(),
+        darkTheme: Paper.darkTheme(),
+        themeMode: ThemeMode.system,
         builder: (context, child) => Directionality(
           textDirection: L.rtl ? TextDirection.rtl : TextDirection.ltr,
           child: child ?? const SizedBox.shrink(),

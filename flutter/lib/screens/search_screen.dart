@@ -115,7 +115,10 @@ class _SearchTabState extends State<SearchTab> {
       child: InkWell(
         borderRadius: BorderRadius.circular(22),
         onTap: () => Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => ReaderScreen(surahId: sid)),
+          MaterialPageRoute(builder: (_) => ReaderScreen(
+            surahId: sid,
+            startPage: ((r['ayah_num'] as int? ?? 1) - 1) ~/ 25,
+          )),
         ),
         child: Padding(
           padding: const EdgeInsets.all(16),

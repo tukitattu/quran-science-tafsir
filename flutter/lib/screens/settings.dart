@@ -150,6 +150,10 @@ class _SettingsTabState extends State<SettingsTab> {
                         app.reminderHour, app.reminderMinute, ar,
                         surahName: surahName,
                       );
+                      final sp = await prefsOrNull();
+                      await sp?.setInt('reminderHour', app.reminderHour);
+                      await sp?.setInt('reminderMinute', app.reminderMinute);
+                      await sp?.setBool('reminderOn', true);
                       app.toast(L.t('reminder_set', {
                         'h': '${app.reminderHour}',
                         'm': app.reminderMinute.toString().padLeft(2, '0'),
