@@ -21,7 +21,7 @@ class L {
 
   static const Map<String, Map<String, String>> _m = {
     'en': {
-      'app_title': 'Al Quran — Scientific Tafsir',
+      'app_title': 'Al Quran - Tafsir (Scientific)',
       'nav_read': 'Read',
       'nav_search': 'Search',
       'nav_words': 'Words',
@@ -58,7 +58,7 @@ class L {
       'arabic': 'العربية',
       'settings': 'Settings',
       'version_line':
-          'Al Quran — Scientific Tafsir · v2.2.1 (Flutter, embedded SQLite)',
+          'Al Quran - Tafsir (Scientific) · v2.3.0 (Flutter, embedded SQLite)',
       'reading_language': 'Reading language',
       'en_plus_bn': 'EN + বাংলা',
       'ui_language': 'Interface language',
@@ -73,7 +73,7 @@ class L {
       'surahs_opened': '{v} of 114 surahs opened',
       'about': 'About',
       'about_text':
-          'Al Quran — Scientific Tafsir of the Quran by Zakaria Kamal. All content is embedded offline: 114 surahs, 7,796 paragraphs, word studies with roots and ayah references, 666 figures, the business knowledge set and the Uthmani Arabic text. The SQLite research database is bundled inside the app. Bengali is machine translation. Freely shareable per the author\'s notice.\n',
+          'Al Quran - Tafsir (Scientific) by Zakaria Kamal. All content is embedded offline: 114 surahs, 7,796 paragraphs, word studies with roots and ayah references, 666 figures, the business knowledge set and the Uthmani Arabic text. The SQLite research database is bundled inside the app. Bengali is machine translation. Freely shareable per the author\'s notice.\n',
       'about_data':
           'Data: backfilled Arabic Uthmani text & multiple alternative translations (Pickthall, Yusuf Ali, Sahih Intl).',
       'surah_error': 'This surah could not be opened.',

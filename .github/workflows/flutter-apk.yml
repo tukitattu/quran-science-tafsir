@@ -109,7 +109,7 @@ jobs:
           )
           if 'POST_NOTIFICATIONS' not in s:
               s = s.replace('<application', add + '    <application')
-          s = re.sub(r'android:label="[^"]*"', 'android:label="Al Quran - Scientific Tafsir"', s, count=1)
+          s = re.sub(r'android:label="[^"]*"', 'android:label="Al Quran - Tafsir (Scientific)"', s, count=1)
           # Old Mali/Adreno drivers occasionally render a black frame with
           # Impeller; Skia is plenty for a text-first reader.
           if 'EnableImpeller' not in s:
