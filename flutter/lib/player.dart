@@ -154,6 +154,15 @@ class TilawahPlayer {
     return '';
   }
 
+  String _surahUrl(int s) {
+    final r = _reciter;
+    var t = (r?.surah != null && r!.surah!.isNotEmpty)
+        ? r.surah!
+        : _surahTmpl;
+    if (t.isEmpty) return '';
+    return t.replaceAll('{sp}', _pad(s)).replaceAll('{s}', '$s');
+  }
+
   void _listenOnce() {
     _p.playbackEventStream.listen((ev) {
       if (ev.processingState == ProcessingState.completed) {
@@ -174,7 +183,7 @@ class TilawahPlayer {
     final s = _st.surah, a = _st.ayah;
     String url;
     if (_st.mode == 'full') {
-      url = _surahTmpl.replaceAll('{s}', '$s');
+      url = _surahUrl(s);
     } else {
       url = _ayahUrl(s, a);
     }
@@ -191,6 +200,13 @@ class TilawahPlayer {
     } catch (e) {
       if (t != _token) return;
       debugPrint('tilawah play failed ($url): $e');
+      if (_st.mode == 'full') {
+        // whole-surah file unavailable: continue recitation ayah by ayah
+        _triedFallback = false;
+        _emit(_st.copyWith(mode: 'ayah', ayah: 1, clearError: true));
+        await _playCurrent();
+        return;
+      }
       final r = _reciter;
       if (!_triedFallback && r != null && r.fallback != null && a > 0) {
         _triedFallback = true;
@@ -249,7 +265,7 @@ class TilawahPlayer {
     _triedFallback = false;
     _endedHandled = false;
     _emit(TilawahState(
-        mode: (_reciter?.surah != null && _surahTmpl.isNotEmpty) ? 'full' : 'ayah',
+        mode: _surahUrl(s).isNotEmpty ? 'full' : 'ayah',
         surah: s,
         ayah: 1,
         reciterIndex: _st.reciterIndex,

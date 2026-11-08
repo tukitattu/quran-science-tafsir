@@ -19,10 +19,16 @@ void main() {
     }
     final reciters = (m['reciters'] as List).cast<Map<String, dynamic>>();
     expect(reciters.length, greaterThanOrEqualTo(4));
-    expect(reciters.first['surah'], contains('{s}'),
+    expect(reciters.first['surah'], anyOf(contains('{s}'), contains('{sp}')),
         reason: 'first reciter streams whole surahs');
     expect(reciters.first['ayah'], contains('{g}'),
         reason: 'per-ayah template uses the global ayah number');
+    for (final r in reciters) {
+      expect(r['surah'].toString(), isNot(''),
+          reason: '${r['id']} should offer whole-surah audio');
+      expect(r['fallback'].toString(), isNot(''),
+          reason: '${r['id']} should have a per-ayah fallback');
+    }
     expect((m['wordBase'] ?? '').toString(), isNotEmpty);
   });
 

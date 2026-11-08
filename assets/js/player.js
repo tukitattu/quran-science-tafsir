@@ -42,6 +42,11 @@
     audio.addEventListener("playing", function () { S.playing = true; render(); });
     audio.addEventListener("pause", function () { S.playing = false; render(); });
     audio.addEventListener("error", function () {
+      if (S.mode === "surah-full") {
+        // whole-surah file unavailable: continue recitation ayah by ayah
+        S.mode = "ayah"; S.ayah = 1; S.triedFallback = false;
+        playCurrent(); return;
+      }
       var r = reciter();
       if (!S.triedFallback && r.fallback && S.mode === "ayah") {
         S.triedFallback = true;
@@ -64,11 +69,18 @@
     return "";
   }
 
+  function surahUrl(s) {
+    var r = reciter();
+    var t = (r.surah && r.surah.length) ? r.surah : (M.surah || "");
+    if (!t) return "";
+    return t.replace(/\{sp\}/g, pad(s)).replace(/\{s\}/g, String(s));
+  }
+
   function playCurrent() {
     var a = getAudio();
     S.triedFallback = false;
     var u = S.mode === "surah-full"
-      ? M.surah.replace("{s}", S.surah)
+      ? surahUrl(S.surah)
       : ayahUrl(S.surah, S.ayah);
     if (!u) { stop(); return; }
     a.src = u;
@@ -96,7 +108,7 @@
     loadSafely(function () {
       stop0();
       S.surah = s; S.ayah = 1;
-      S.mode = reciter().surah ? "surah-full" : "ayah";
+      S.mode = surahUrl(s) ? "surah-full" : "ayah";
       playCurrent();
     });
   }

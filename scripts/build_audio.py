@@ -2,8 +2,9 @@
 """Build assets/data/audio.json — free tilawah audio manifest.
 
 Verified-free sources (public CDNs, streamed at playback time, never bundled):
-  * cdn.islamic.network   — per-ayah (global 1..6236) + whole-surah (Alafasy)
-  * everyayah.com         — per-ayah fallback for reciters missing on the CDN
+  * cdn.islamic.network   — per-ayah (global 1..6236) + whole-surah fallback
+  * everyayah.com         — per-ayah fallback for every reciter
+  * cdn.mp3quran.net      — whole-surah audio for every reciter (CORS-enabled)
   * audio.qurancdn.com    — per-word pronunciation (wbw/SSS_AAA_PPP.mp3)
 
   --check : structural validation (CI, no network)
@@ -16,35 +17,41 @@ OUT = ROOT / "assets" / "data" / "audio.json"
 
 CDN = "https://cdn.islamic.network/quran/audio/128/{reciter}/{g}.mp3"
 CDN_SURAH = "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/{s}.mp3"
+MP3QURAN_SURAH = "https://cdn.mp3quran.net/audio/{slug}/r{n}/{sp}.mp3"
 EVERYAYAH = "https://everyayah.com/data/{dir}/{padded}.mp3"
 WORD_BASE = "https://audio.qurancdn.com/"
+
+
+def surah(slug, n=1):
+    return MP3QURAN_SURAH.replace("{slug}", slug).replace("{n}", str(n))
+
 
 RECITERS = [
     {"id": "ar.alafasy", "en": "Mishary Rashid Alafasy", "bn": "মিশারি রাশিদ আল-আফাসি",
      "ayah": CDN.replace("{reciter}", "ar.alafasy"),
      "fallback": EVERYAYAH.replace("{dir}", "Alafasy_128kbps"),
-     "surah": CDN_SURAH},
+     "surah": surah("mishary-alafasy")},
     {"id": "ar.husary", "en": "Mahmoud Khalil Al-Husary", "bn": "মাহমুদ খালিল আল-হুসাইনি",
      "ayah": CDN.replace("{reciter}", "ar.husary"),
      "fallback": EVERYAYAH.replace("{dir}", "Husary_128kbps"),
-     "surah": ""},
+     "surah": surah("mahmoud-husary")},
     {"id": "ar.minshawi", "en": "Mohamed Siddiq El-Minshawi", "bn": "মোহাম্মদ সিদ্দিক আল-মিনশাওি",
      "ayah": CDN.replace("{reciter}", "ar.minshawi"),
-     "fallback": "",
-     "surah": ""},
+     "fallback": EVERYAYAH.replace("{dir}", "Minshawy_Murattal_128kbps"),
+     "surah": surah("muhammad-minshawi")},
     {"id": "ar.hudhaify", "en": "Ali Al-Hudhaify", "bn": "আলী আল-হুদাইফি",
      "ayah": CDN.replace("{reciter}", "ar.hudhaify"),
-     "fallback": "",
-     "surah": ""},
+     "fallback": EVERYAYAH.replace("{dir}", "Hudhaify_128kbps"),
+     "surah": surah("ali-hudhaifi")},
     {"id": "abdulbasit", "en": "Abdul Basit Abdus Samad (Murattal)",
      "bn": "আবদুল বাসিত আবদুস সামাদ",
      "ayah": "",
      "fallback": EVERYAYAH.replace("{dir}", "Abdul_Basit_Murattal_192kbps"),
-     "surah": ""},
+     "surah": surah("abdulbasit-abdulsamad", 3)},
     {"id": "ghamadi", "en": "Saad Al-Ghamadi", "bn": "সা'দ আল-ঘামদি",
      "ayah": "",
      "fallback": EVERYAYAH.replace("{dir}", "Ghamadi_40kbps"),
-     "surah": ""},
+     "surah": surah("saad-ghamdi")},
 ]
 
 
@@ -68,8 +75,9 @@ def build():
         "surah": CDN_SURAH,
         "wordBase": WORD_BASE,
         "reciters": RECITERS,
-        "source": "cdn.islamic.network · everyayah.com · audio.qurancdn.com "
-                  "(free public Quran audio CDNs; streamed, not redistributed)",
+        "source": "cdn.islamic.network · everyayah.com · cdn.mp3quran.net · "
+                  "audio.qurancdn.com (free public Quran audio CDNs; "
+                  "streamed, not redistributed)",
     }
     OUT.write_text(json.dumps(manifest, ensure_ascii=False, indent=1) + "\n",
                    encoding="utf-8")
@@ -95,6 +103,10 @@ def check():
     for r in rec:
         if not (r.get("ayah") or r.get("fallback")):
             raise SystemExit(f"reciter {r.get('id')} has no ayah url")
+        sur = r.get("surah") or ""
+        if sur and "{s}" not in sur and "{sp}" not in sur:
+            raise SystemExit(f"reciter {r.get('id')} surah template has no "
+                             f"{{s}}/{{sp}}")
     if "{s}" not in m["surah"]:
         raise SystemExit("surah template missing {s}")
     if not m.get("wordBase", "").startswith("http"):
@@ -111,9 +123,12 @@ def probe():
     for r in m["reciters"]:
         tmpl = r.get("ayah") or r.get("fallback")
         g = 6236  # last ayah — hardest file
-        u = tmpl.format(g=g, padded="114006", s=1)
+        u = tmpl.format(g=g, padded="114006", s=1, sp="001")
         probes.append((r["id"], u))
-    probes.append(("surah", m["surah"].format(s=114)))
+        sur = r.get("surah") or ""
+        if sur:
+            probes.append((f"{r['id']}/surah", sur.format(s=114, sp="114")))
+    probes.append(("surah-fallback", m["surah"].format(s=114)))
     probes.append(("word", m["wordBase"] + "wbw/112_001_001.mp3"))
     bad = 0
     for name, u in probes:

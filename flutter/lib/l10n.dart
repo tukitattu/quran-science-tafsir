@@ -58,7 +58,7 @@ class L {
       'arabic': 'العربية',
       'settings': 'Settings',
       'version_line':
-          'Al Quran - Tafsir (Scientific) · v2.3.0 (Flutter, embedded SQLite)',
+          'Al Quran - Tafsir (Scientific) · v2.3.1 (Flutter, embedded SQLite)',
       'reading_language': 'Reading language',
       'en_plus_bn': 'EN + বাংলা',
       'ui_language': 'Interface language',
@@ -166,7 +166,7 @@ class L {
       'arabic': 'আরবি',
       'settings': 'সেটিংস',
       'version_line':
-          'আল কুরআন — বৈজ্ঞানিক তাফসির · v2.2.1 (Flutter, অন্তর্নির্মিত SQLite)',
+          'আল কুরআন — বৈজ্ঞানিক তাফসির · v2.3.1 (Flutter, অন্তর্নির্মিত SQLite)',
       'reading_language': 'পাঠের ভাষা',
       'en_plus_bn': 'ইংরেজি + বাংলা',
       'ui_language': 'ইন্টারফেসের ভাষা',
@@ -272,7 +272,7 @@ class L {
       'arabic': 'العربية',
       'settings': 'الإعدادات',
       'version_line':
-          'القرآن الكريم — التفسير العلمي · v2.2.1 (Flutter، SQLite مضمّن)',
+          'القرآن الكريم — التفسير العلمي · v2.3.1 (Flutter، SQLite مضمّن)',
       'reading_language': 'لغة القراءة',
       'en_plus_bn': 'الإنجليزية + البنغالية',
       'ui_language': 'لغة الواجهة',
