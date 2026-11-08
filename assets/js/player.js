@@ -119,12 +119,19 @@
       playCurrent();
     });
   }
+  function wordUrl(u) {
+    if (u.indexOf("http") === 0) return u;
+    var base = (M && M.wordBase) ? M.wordBase : "https://audio.qurancdn.com/";
+    if (base.slice(-1) !== "/") base += "/";
+    return base + u.replace(/^\/+/, "");
+  }
+
   function playWord(u) {
     loadSafely(function () {
       stop0();
       var a = getAudio();
       S.mode = "word"; S.surah = 0; S.ayah = 0;
-      a.src = u.indexOf("http") === 0 ? u : rel(u);
+      a.src = wordUrl(u);
       a.play().catch(function () {});
       render();
     });

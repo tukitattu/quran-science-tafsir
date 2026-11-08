@@ -50,7 +50,7 @@ sw.js / manifest.json      PWA offline (CACHE tafsir-v12, cache-first for jpg/js
 - **Complete tilawah**: 6 reciters × 6,236 ayahs (CDN + `everyayah.com` fallback) and 114 whole-surah files per reciter (`cdn.mp3quran.net`, CORS-enabled), plus 77,429 word pronunciations (`audio.qurancdn.com`). Audio is streamed from free public CDNs, never bundled.
 - **Kids & Builder**: `Kids` toggle + daily streak, `builder.js` tadabbur picker (localStorage + URL hash).
 - **Vocabulary**: 82-word `vocabulary.html` with categories + 5-word quiz (flashcard).
-- **Offline PWA + APK**: `sw.js` v13 caches all chapters/read pages/assets, `manifest.json`, Flutter app bundles `tafsir.db.gz` and word-by-word audio metadata; GitHub Releases publish `arm64-v8a`, `armeabi-v7a` and `x86_64` APKs built by `flutter-apk.yml`.
+- **Offline PWA + APK**: `sw.js` v14 caches all chapters/read pages/assets, `manifest.json`, Flutter app bundles `tafsir.db.gz` and word-by-word audio metadata; GitHub Releases publish `arm64-v8a`, `armeabi-v7a` and `x86_64` APKs built by `flutter-apk.yml`.
 
 ## How it was built
 
