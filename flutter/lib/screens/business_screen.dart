@@ -141,7 +141,7 @@ class _BusinessTabState extends State<BusinessTab> {
         const SizedBox(height: 10),
         Wrap(spacing: 7, runSpacing: 6, children: [
           if (src.isNotEmpty) _tag(src, AppColors.gold),
-          if (ref.isNotEmpty) _tag(L.t('quran_ref', {'ref': ref}), const Color(0xFF23638C)),
+          if (ref.isNotEmpty) _tag(L.t('quran_ref', {'ref': ref}), AppColors.blueRef(context)),
         ]),
       ]),
     );

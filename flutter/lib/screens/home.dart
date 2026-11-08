@@ -6,6 +6,7 @@ import 'business_screen.dart';
 import 'read.dart';
 import 'search_screen.dart';
 import 'settings.dart';
+import 'videos_screen.dart';
 import 'words_screen.dart';
 
 class HomeShell extends StatefulWidget {
@@ -22,6 +23,7 @@ class _HomeShellState extends State<HomeShell> {
         (icon: Icons.search_outlined, selected: Icons.search, label: L.t('nav_search')),
         (icon: Icons.translate_outlined, selected: Icons.translate, label: L.t('nav_words')),
         (icon: Icons.storefront_outlined, selected: Icons.storefront, label: L.t('nav_business')),
+        (icon: Icons.play_circle_outline, selected: Icons.play_circle, label: L.t('nav_videos')),
         (icon: Icons.settings_outlined, selected: Icons.settings, label: L.t('nav_settings')),
       ];
 
@@ -30,6 +32,7 @@ class _HomeShellState extends State<HomeShell> {
         SearchTab(),
         WordsTab(),
         BusinessTab(),
+        VideosTab(),
         SettingsTab(),
       ][_tab];
 

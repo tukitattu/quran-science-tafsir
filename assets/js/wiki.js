@@ -228,7 +228,7 @@
       if(el.dataset.done) return;
       if(ghaurData.length===0){
         if(window.VT && VT.renderChannelLinks) VT.renderChannelLinks(el);
-        else el.innerHTML='<p class="small" style="color:var(--muted)">No videos mapped for this surah yet — <a href="https://www.youtube.com/@NAKBangla/videos" target="_blank" rel="noopener" style="color:var(--accent2)">NAK Bangla</a> · <a href="https://www.youtube.com/@qurandailydose2985/videos" target="_blank" rel="noopener" style="color:var(--accent2)">Dr Sufyan — Quran Daily Dose</a></p>';
+        else el.innerHTML='<p class="small" style="color:var(--muted)">No videos mapped for this surah yet — <a href="https://www.youtube.com/@NAKBangla/videos" target="_blank" rel="noopener" style="color:var(--accent2)">NAK Bangla</a> · <a href="https://www.youtube.com/@qurandailydose2985/videos" target="_blank" rel="noopener" style="color:var(--accent2)">Dr Sufyan — Quran Daily Dose</a> · <a href="https://www.youtube.com/@xaryabhaschmiofficial/videos" target="_blank" rel="noopener" style="color:var(--accent2)">Xaryab Haschmi</a></p>';
       } else {
         el.innerHTML = '<div class="yt-grid"></div>';
         const grid = el.querySelector('.yt-grid');

@@ -68,11 +68,11 @@ window.VT = (function(){
     return valid.length;
   }
 
-  /** Render the two-channel "no videos yet" footer with links to both channels. */
+  /** Render the three-channel "no videos yet" footer with links to all channels. */
   function renderChannelLinks(el){
     if(!el) return;
-    el.innerHTML = '<p class="small" style="color:var(--muted)">No videos from the two channels mapped to this surah yet.<br>Watch on: '
-      + ['nak','qdd'].map(k => {
+    el.innerHTML = '<p class="small" style="color:var(--muted)">No videos from the channels mapped to this surah yet.<br>Watch on: '
+      + ['nak','qdd','xarya'].map(k => {
           const c = channelMeta(k);
           return `<a href="${esc(c.videos)}" target="_blank" rel="noopener" style="color:var(--accent2)">${esc(c.name)}</a>`;
         }).join(' · ')

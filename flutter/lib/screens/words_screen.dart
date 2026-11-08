@@ -266,7 +266,7 @@ class _Chip extends StatelessWidget {
   final bool gold, blue;
   @override
   Widget build(BuildContext context) {
-    final color = blue ? const Color(0xFF23638C) : (gold ? AppColors.gold : AppColors.muted(context));
+    final color = blue ? AppColors.blueRef(context) : (gold ? AppColors.gold : AppColors.muted(context));
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
       decoration: BoxDecoration(

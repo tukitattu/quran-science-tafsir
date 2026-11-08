@@ -309,11 +309,18 @@ class AppColors {
   static const goldDeep = Color(0xFF5F4A14);
   static const goldBright = Color(0xFFD9B44A);
   static const blue = Color(0xFF23638C);
+  static const blueDark = Color(0xFF7FB3DA);
+  static const mutedLight = Color(0xFF5D6875);
+  static const mutedDark = Color(0xFF98A5B1);
 
   static Color ink(BuildContext context) =>
       Theme.of(context).colorScheme.onSurface;
-  static Color muted(BuildContext context) =>
-      Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.55);
+  static Color muted(BuildContext context) => Theme.of(context).brightness == Brightness.dark
+      ? mutedDark
+      : mutedLight;
+  static Color blueRef(BuildContext context) =>
+      Theme.of(context).brightness == Brightness.dark ? blueDark : blue;
+  static Color goldOnDark(BuildContext) => goldBright;
 }
 
 class _TodayCard extends StatelessWidget {

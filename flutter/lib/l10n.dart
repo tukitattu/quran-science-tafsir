@@ -26,7 +26,11 @@ class L {
       'nav_search': 'Search',
       'nav_words': 'Words',
       'nav_business': 'Business',
+      'nav_videos': 'Videos',
       'nav_settings': 'Settings',
+      'related_videos': 'Related videos',
+      'related_videos_intro': 'Videos from NAK Bangla, Dr Sufyan — Quran Daily Dose, and Xaryab Haschmi — mapped to surahs, with thumbnails and play links.',
+      'no_videos_mapped': 'No videos mapped for this surah yet.',
       'preparing': 'Preparing the library…',
       'boot_warning':
           'Some parts could not start. You can retry, or continue and use what is available.',
@@ -58,7 +62,7 @@ class L {
       'arabic': 'العربية',
       'settings': 'Settings',
       'version_line':
-          'Al Quran - Tafsir (Scientific) · v2.4.0 (Flutter, embedded SQLite)',
+          'Al Quran - Tafsir (Scientific) · v2.5.0 (Flutter, embedded SQLite)',
       'reading_language': 'Reading language',
       'en_plus_bn': 'EN + বাংলা',
       'ui_language': 'Interface language',
@@ -134,7 +138,11 @@ class L {
       'nav_search': 'খুঁজুন',
       'nav_words': 'শব্দ',
       'nav_business': 'ব্যবসা',
+      'nav_videos': 'ভিডিও',
       'nav_settings': 'সেটিংস',
+      'related_videos': 'সম্পর্কিত ভিডিও',
+      'related_videos_intro': 'NAK Bangla, Dr Sufyan এবং Xaryab Haschmi থেকে সূরা-ভিত্তিক ভিডিও।',
+      'no_videos_mapped': 'এই সূরার জন্য ভিডিও এখনো মিলানো হয়নি।',
       'preparing': 'গ্রন্থাগার প্রস্তুত হচ্ছে…',
       'boot_warning':
           'কিছু অংশ চালু হয়নি। আবার চেষ্টা করুন বা যা পাওয়া যাচ্ছে তা দিয়ে চালিয়ে যান।',
@@ -166,7 +174,7 @@ class L {
       'arabic': 'আরবি',
       'settings': 'সেটিংস',
       'version_line':
-          'আল কুরআন — বৈজ্ঞানিক তাফসির · v2.4.0 (Flutter, অন্তর্নির্মিত SQLite)',
+          'আল কুরআন — বৈজ্ঞানিক তাফসির · v2.5.0 (Flutter, অন্তর্নির্মিত SQLite)',
       'reading_language': 'পাঠের ভাষা',
       'en_plus_bn': 'ইংরেজি + বাংলা',
       'ui_language': 'ইন্টারফেসের ভাষা',
@@ -240,7 +248,11 @@ class L {
       'nav_search': 'بحث',
       'nav_words': 'الكلمات',
       'nav_business': 'التجارة',
+      'nav_videos': 'الفيديو',
       'nav_settings': 'الإعدادات',
+      'related_videos': 'فيديوهات مرتبطة',
+      'related_videos_intro': 'فيديوهات من NAK Bangla وDr Sufyan وXaryab Haschmi مرتبطة بالسور.',
+      'no_videos_mapped': 'لا توجد فيديوهات مرتبطة بهذه السورة بعد.',
       'preparing': 'جارٍ تجهيز المكتبة…',
       'boot_warning':
           'تعذّر تشغيل بعض الأجزاء. يمكنك إعادة المحاولة أو المتابعة بما هو متاح.',
@@ -272,7 +284,7 @@ class L {
       'arabic': 'العربية',
       'settings': 'الإعدادات',
       'version_line':
-          'القرآن الكريم — التفسير العلمي · v2.4.0 (Flutter، SQLite مضمّن)',
+          'القرآن الكريم — التفسير العلمي · v2.5.0 (Flutter، SQLite مضمّن)',
       'reading_language': 'لغة القراءة',
       'en_plus_bn': 'الإنجليزية + البنغالية',
       'ui_language': 'لغة الواجهة',
