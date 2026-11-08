@@ -76,7 +76,7 @@ class _BusinessTabState extends State<BusinessTab> {
             Padding(
               padding: const EdgeInsets.only(top: 14, bottom: 6),
               child: Text(_t(s['title']),
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontSize: 18, fontWeight: FontWeight.w800, color: AppColors.ink(context))),
             ),
             for (final it in ((s['items'] as List?) ?? const []).whereType<Map>())
