@@ -122,13 +122,13 @@ class Paper {
         backgroundColor: darkBg,
         indicatorColor: goldBright.withValues(alpha: 0.25),
         labelTextStyle: const WidgetStatePropertyAll(TextStyle(
-            fontSize: 12, fontWeight: FontWeight.w600, color: muted)),
+            fontSize: 12, fontWeight: FontWeight.w600, color: Color(0xFFA9B4BF))),
       ),
       chipTheme: base.chipTheme.copyWith(
         backgroundColor: darkCard,
         side: BorderSide(color: darkInk.withValues(alpha: 0.12)),
         shape: const StadiumBorder(),
-        labelStyle: const TextStyle(color: muted, fontSize: 12),
+        labelStyle: const TextStyle(color: Color(0xFFA9B4BF), fontSize: 12),
       ),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(

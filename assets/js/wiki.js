@@ -139,30 +139,6 @@
         });
         if(added) tabEl.dataset.wikiAdded='1';
       });
-      // Also populate Ghaur o Fikr science tab
-      setTimeout(()=>{
-        const ghaurContainer = document.querySelector(`[data-kb="ghaur-science"]`);
-        const ghaurContainer2 = document.querySelector(`[data-kb="ghaur-fikr-science"]`);
-        const ghaurData = (window.GHAUR_O_FIKR_MAP||{})[n] || [];
-        [ghaurContainer, ghaurContainer2].forEach(el=>{
-          if(!el || el.dataset.done) return;
-          if(ghaurData.length===0){
-            el.innerHTML='<p class="small" style="color:var(--muted)">No Ghaur o Fikr episodes for this surah yet — check back or explore the <a href="https://www.youtube.com/playlist?list=PL" target="_blank" style="color:var(--accent2)">full playlist</a>.</p>';
-          } else {
-            el.innerHTML = ghaurData.map(item=>`
-              <div style="display:flex; gap:10px; padding:10px; background:var(--bg2); border:1px solid var(--border); border-radius:8px; margin:8px 0">
-                <div style="width:80px; height:45px; background:var(--bg); border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:18px">▶️</div>
-                <div style="flex:1">
-                  <b style="color:var(--accent2); font-size:0.85rem">${item.title}</b>
-                  <div style="font-size:0.78rem; color:var(--muted)">${item.ayah} · ${item.topic}</div>
-                  <a href="https://www.youtube.com/watch?v=${item.youtubeId}&t=${item.timestamp}s" target="_blank" rel="noopener" style="font-size:0.78rem; color:var(--accent2)">Watch on YouTube →</a>
-                </div>
-              </div>
-            `).join('');
-          }
-          el.dataset.done='1';
-        });
-      }, 1200);
     }, 1000);
     el.innerHTML = html;
   }
@@ -240,12 +216,36 @@
     else container.innerHTML = `<p class="small">Wikipedia: <a href="https://en.wikipedia.org/wiki/${surahTitle}" target="_blank" rel="noopener">View ${surahTitle} on Wikipedia →</a></p>`;
   }
 
+  // Render related videos from the two curated channels — independent of Wikipedia.
+  function renderVideos(n){
+    const containers = [
+      document.querySelector('[data-kb="ghaur-science"]'),
+      document.querySelector('[data-kb="ghaur-fikr-science"]')
+    ].filter(Boolean);
+    if(!containers.length) return;
+    const ghaurData = (window.GHAUR_O_FIKR_MAP||{})[n] || (window.GHAUR_O_FIKR_MAP||{})[String(n)] || [];
+    containers.forEach(el=>{
+      if(el.dataset.done) return;
+      if(ghaurData.length===0){
+        if(window.VT && VT.renderChannelLinks) VT.renderChannelLinks(el);
+        else el.innerHTML='<p class="small" style="color:var(--muted)">No videos mapped for this surah yet — <a href="https://www.youtube.com/@NAKBangla/videos" target="_blank" rel="noopener" style="color:var(--accent2)">NAK Bangla</a> · <a href="https://www.youtube.com/@qurandailydose2985/videos" target="_blank" rel="noopener" style="color:var(--accent2)">Dr Sufyan — Quran Daily Dose</a></p>';
+      } else {
+        el.innerHTML = '<div class="yt-grid"></div>';
+        const grid = el.querySelector('.yt-grid');
+        if(window.VT && VT.render) VT.render(grid, ghaurData);
+        else el.innerHTML = ghaurData.map(item=>`<div style="margin:8px 0"><a href="https://www.youtube.com/watch?v=${item.youtubeId}" target="_blank" rel="noopener" style="color:var(--accent2)">${item.title}</a></div>`).join('');
+      }
+      el.dataset.done='1';
+    });
+  }
+
   // Auto-enhance on load — auto-fetch via WIKI_MAP (no manual search needed)
   function initWiki(){
     const m = location.pathname.match(/chapters\/(\d+)\.html/);
     if(m){
       const n=parseInt(m[1]);
       autoFetchWikiForSurah(n);
+      renderVideos(n);
       setTimeout(enhanceScienceCards, 800);
       document.addEventListener('click', e=>{
         if(e.target.closest('summary')) setTimeout(enhanceScienceCards, 300);
@@ -287,5 +287,5 @@
     return result;
   }
 
-  window.Wiki = {fetchWiki, fetchWikiSections, renderWikiSurah: autoFetchWikiForSurah, enhanceScienceCards, autoFetchWikiForSurah, fetchKnowledgeData};
+  window.Wiki = {fetchWiki, fetchWikiSections, renderWikiSurah: autoFetchWikiForSurah, enhanceScienceCards, autoFetchWikiForSurah, fetchKnowledgeData, renderVideos};
 })();

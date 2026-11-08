@@ -1,34 +1,37 @@
-# Adding Knowledge — Ghaur o Fikr & Bayyinah Guide
+# Adding Knowledge — Related Videos & Bayyinah Guide
 
-This project consolidates local JSON, WIKI_MAP, Ghaur o Fikr, and Bayyinah via `fetchKnowledgeData(surahNumber)` in `assets/js/wiki.js`.
+This project consolidates local JSON, WIKI_MAP and curated videos from both YouTube channels, plus Bayyinah via `fetchKnowledgeData(surahNumber)` in `assets/js/wiki.js`.
 
-## 1. Ghaur o Fikr (Dr. Sufyan — YouTube)
+## 1. Related Videos — NAK Bangla & Dr Sufyan (YouTube)
 
-**File:** `assets/data/ghaur_ofikr_map.js` — `const GHAUR_O_FIKR_MAP = { 2: [...] }`
+**File:** `assets/data/ghaur_ofikr_map.js` — `const GHAUR_O_FIKR_MAP = { 2: [...] }` (legacy name kept; the map now holds curated, real videos from both channels)
+
+**Channels:**
+- [NAK Bangla — নোমান আলী খান](https://www.youtube.com/@NAKBangla/videos) (`channel: "nak"`) — Bangla dars, Bayyinah-style breakdowns
+- [Dr Sufyan — Quran Daily Dose](https://www.youtube.com/@qurandailydose2985/videos) (`channel: "qdd"`) — Quran & Modern Science / Ghaur o Fikr (Urdu · English)
 
 **Schema:**
 ```js
 GHAUR_O_FIKR_MAP[surahNumber] = [
   {
-    ayah: "2:29", // or "2:29-31"
-    title: "Seven Heavens — Layered Universe", // display title
-    youtubeId: "dQw4w9WgXcQ", // YouTube video ID (from URL ?v=ID)
-    timestamp: 120, // seconds, optional
-    topic: "Seven samawat & cosmology" // for Science tab matching
+    ayah: "2:255",       // or "2:29-31"
+    title: "আয়াতুল কুরসির লুকানো নকশা", // exact title as published on the channel
+    youtubeId: "IMzP_NAPlt0", // YouTube video ID (from URL ?v=ID)
+    timestamp: 0,            // seconds, optional
+    topic: "Ayatul Kursi — the hidden design", // for the Science tab matching
+    channel: "nak"          // "nak" | "qdd"
   }
 ]
 ```
 
 **To add:**
-1. Find the YouTube video in [Dr. Sufyan's Ghaur o Fikr playlist](https://www.youtube.com/playlist?list=PL) — copy URL `https://www.youtube.com/watch?v=VIDEO_ID&t=123s`
+1. Find the video on [NAK Bangla](https://www.youtube.com/@NAKBangla/videos) or [Dr Sufyan — Quran Daily Dose](https://www.youtube.com/@qurandailydose2985/videos) — copy URL `https://www.youtube.com/watch?v=VIDEO_ID&t=123s`
 2. Extract `VIDEO_ID` and `t` (timestamp)
-3. Add entry to `GHAUR_O_FIKR_MAP[surahNumber]` array
-4. Commit and push — no rebuild needed (JS loads at runtime). If you add a new surah key, it will auto-appear in `Science References → Ghaur o Fikr` and the standalone `Ghaur o Fikr — Deep Contemplation` accordion.
+3. Verify the ID resolves: `curl -s -o /dev/null -w "%{http_code}" "https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=VIDEO_ID&format=json"` → must be `200`
+4. Add entry to `GHAUR_O_FIKR_MAP[surahNumber]` array
+5. Commit and push — no rebuild needed (JS loads at runtime; `VT` in `assets/js/video.js` renders the lazy facade, iframe only on click). If you add a new surah key, it will auto-appear in `Science References` and the standalone `Watch — Related Videos` accordion.
 
-**Example for Surah 2, Ayah 255:**
-```js
-{ ayah: "2:255", title: "Ayatul Kursi — Throne & Knowledge", youtubeId: "abc123", timestamp: 560, topic: "Kursi as knowledge" }
-```
+Surahs without curated matches show channel links — **never** placeholder video IDs.
 
 ## 2. Bayyinah (Nouman Ali Khan — Root Analysis)
 
@@ -86,8 +89,8 @@ async function fetchKnowledgeData(n){
 
 ## 4. UI
 
-- **Science References:** Now has sub-section `Ghaur o Fikr — Deep Contemplation` with YouTube cards (thumbnail, title, ayah, timestamp link)
+- **Watch — Related Videos:** `Watch — Related Videos (NAK Bangla · Dr. Sufyan)` accordion renders real YouTube videos (thumbnail + play, `youtube-nocookie.com` iframe on click via `assets/js/video.js`) matched to the surah from `GHAUR_O_FIKR_MAP`; same videos also appear under `Science References`. Surahs without curated matches show channel links — no placeholder videos.
 - **Word-by-Word:** Each `wbw-card` now shows `Bayyinah Root Analysis` (with Corpus link) + `Alternative Meanings` list
 - All accordions use premium SVG (no emoji), skeletons while loading, and `Reload` → `fetchKnowledgeData(n)` (not just `location.reload()`)
 
-**To test:** Open `chapters/2.html`, expand `Word-by-Word`, check for Bayyinah notes; expand `Science References` → `Ghaur o Fikr` → should show 3 YouTube cards for 2:29, 2:31, 2:255.
+**To test:** Open `chapters/112.html`, expand `Watch — Related Videos` → should show 4 clickable video facades; clicking one embeds the YouTube player inline. `chapters/2.html` shows 8.

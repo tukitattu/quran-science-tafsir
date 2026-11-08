@@ -27,7 +27,7 @@ assets/
 tafsir.db[.gz]             SQLite (21M → 6.5M gz): 7,796 paras (EN+BN), 6,236 ayahs,
                            347 words, 114 tafsir rows, alt_meanings, figures, FTS5 search
 flutter/                   Android app (Flutter + sqflite + just_audio + local notifications)
-sw.js / manifest.json      PWA offline (CACHE tafsir-v12, cache-first for jpg/js)
+sw.js / manifest.json      PWA offline (CACHE tafsir-v15, cache-first for jpg/js)
 ```
 
 ## Contents
@@ -45,12 +45,13 @@ sw.js / manifest.json      PWA offline (CACHE tafsir-v12, cache-first for jpg/js
 - **Side-by-side EN/BN**: all 7,796 paras have BN (FTS5-searchable, e.g. `রহমত`).
 - **Complete Arabic**: `quran_ayahs` holds all 6,236 Uthmani ayahs; the Arabic reader and the daily-ayah reminder read from it (with a `verses.ar` fallback for older databases).
 - **Deep research**: `SURAH_KNOWLEDGE` (114) + `DEEP_RESEARCH` (Amud/Nazm in EN/BN/AR, 347 words with Bayyinah roots, Balagha, GaurFikr).
+- **Related videos, in-page player**: each surah chapter embeds real videos from [NAK Bangla](https://www.youtube.com/@NAKBangla/videos) and [Dr Sufyan — Quran Daily Dose](https://www.youtube.com/@qurandailydose2985/videos) via a lazy facade player (`assets/js/video.js`) — thumbnail first, no YouTube JS until you press play; mapped in `assets/data/ghaur_ofikr_map.js` (68 curated entries, all IDs verified against YouTube oEmbed; `youtube-nocookie.com`, `rel=0`).
 - **Ghaur o Fikr & Wikipedia**: `WIKI_MAP` + `GHAUR_O_FIKR_MAP` via `fetchKnowledgeData()`; `alt_meanings.json` now covers all 6,236 ayahs (Pickthall, refreshed daily by `update_research.py`).
 - **TTS verse-only**: `tts.js` reads only `.verse` (Quranic rule), per-para 🔊, cloud hook `window.TTS_CLOUD_URL`.
 - **Complete tilawah**: 6 reciters × 6,236 ayahs (CDN + `everyayah.com` fallback) and 114 whole-surah files per reciter (`cdn.mp3quran.net`, CORS-enabled), plus 77,429 word pronunciations (`audio.qurancdn.com`). Audio is streamed from free public CDNs, never bundled.
 - **Kids & Builder**: `Kids` toggle + daily streak, `builder.js` tadabbur picker (localStorage + URL hash).
 - **Vocabulary**: 82-word `vocabulary.html` with categories + 5-word quiz (flashcard).
-- **Offline PWA + APK**: `sw.js` v14 caches all chapters/read pages/assets, `manifest.json`, Flutter app bundles `tafsir.db.gz` and word-by-word audio metadata; GitHub Releases publish `arm64-v8a`, `armeabi-v7a` and `x86_64` APKs built by `flutter-apk.yml`.
+- **Offline PWA + APK**: `sw.js` v15 caches all chapters/read pages/assets (incl. the video facade player), `manifest.json`, Flutter app bundles `tafsir.db.gz` and word-by-word audio metadata; GitHub Releases publish `arm64-v8a`, `armeabi-v7a` and `x86_64` APKs built by `flutter-apk.yml`.
 
 ## How it was built
 

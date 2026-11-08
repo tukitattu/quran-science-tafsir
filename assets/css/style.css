@@ -28,6 +28,7 @@
   --font-read: "Crimson Pro", Georgia, serif;
   --font-ar: "Amiri", "Noto Naskh Arabic", "Traditional Arabic", serif;
   --font-bn: "Noto Sans Bengali", "Hind Siliguri", sans-serif;
+  --text: var(--ink);          /* legacy alias — always resolves to theme ink */
   /* spacing scale */
   --s1: 4px; --s2: 8px; --s3: 14px; --s4: 20px; --s5: 28px; --s6: 44px; --s7: 68px;
   --max-w: 1160px;
@@ -247,7 +248,7 @@ footer .arabic-text { color: var(--accent2); display: block; margin-top: 6px; fo
 .toolbar input[type="text"] { min-width: 140px; flex: 1; }
 .toolbar button:hover { border-color: rgba(166, 124, 27, .4); color: var(--accent2); }
 .pageinfo { margin-left: auto; color: var(--muted); font-size: .85rem; white-space: nowrap; }
-canvas { display: block; margin: 0 auto; background: #fff; }
+canvas { display: block; margin: 0 auto; background: var(--card-solid); }
 .page-nav { display: flex; justify-content: center; gap: 10px; padding: 14px; border-top: 1px solid var(--border); }
 
 /* search results */
@@ -1037,6 +1038,7 @@ body { padding-bottom: 64px; }
     --shadow-lift: 0 20px 44px -18px rgba(0,0,0,.6), 0 3px 10px -5px rgba(0,0,0,.4);
     --inset-hi: inset 0 1px 0 rgba(255,255,255,.06), inset 0 -1px 0 rgba(0,0,0,.2);
     --blue: #7FB3DA;
+    --text: var(--ink);
   }
   body { background: #14181D; color: var(--ink); }
   body::before {
@@ -1047,6 +1049,23 @@ body { padding-bottom: 64px; }
       #14181D;
   }
   .notes-card, .root-card, .ns-item, .bnav { background: var(--card-solid); color: var(--ink); }
+  .ch-body .verse { color: var(--gold-bright); }
+  .ch-body .quote { color: #C9D4DE; background: rgba(30, 37, 45, .62); border-left-color: rgba(127, 179, 218, .4); }
+  .wbw-card .w-why { color: var(--gold-bright); }
+  .gaur-q .a { color: var(--ink); }
+  .offline-badge { color: #8BD5A8; border-color: rgba(139, 213, 168, .35); background: rgba(84, 154, 108, .16); }
+  .word-tile.fav .w-chip.favchip { color: #F0A266; }
+  .nb-read { color: #8BD5A8; }
+  .nb-hl { color: var(--gold-bright); }
+  canvas { background: var(--card-solid); }
+  /* bright-gold pills must carry dark ink, not white, on dark theme */
+  .btn.gold, .kids-toggle, .wiki-search button, .filter-bar button.active,
+  .tts-bar button, .word-alts button.active, .kb-pill.open .kb-toggle,
+  .biz-tabs button.active, .langbtns button.active, .set-lang button.on,
+  .anchor-tab.on, .ht.on, .notes-save {
+    color: #241A0A;
+    text-shadow: none;
+  }
   .bnav { background: rgba(24,29,35,.92); }
   #wbw-pop { background: #22292F; }
   .wbw-pop .wbw-ar, #wbw-pop .wbw-ar, #wbw-pop .wbw-dw, #wbw-pop .wbw-root { color: var(--ink); }
@@ -1063,4 +1082,38 @@ body { padding-bottom: 64px; }
   .sheet { background: var(--card-solid); color: var(--ink); }
   .set-lang button, .set-btn { background: rgba(232,237,243,.06); color: var(--ink); border-color: var(--border); }
   #textSize { accent-color: var(--gold-bright); }
+}
+
+/* ============ RELATED VIDEOS — lazy YouTube facade player ============ */
+.yt-grid { display: flex; flex-direction: column; gap: 12px; margin: 8px 0; }
+.yt-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+.yt-card:hover { box-shadow: var(--shadow-lift); transform: translateY(-1px); }
+.yt-card.yt-playing { box-shadow: var(--shadow-float); }
+.yt-facade {
+  position: relative; display: block; width: 100%; padding: 0; margin: 0;
+  border: 0; border-bottom: 1px solid var(--border);
+  aspect-ratio: 16 / 9; cursor: pointer; overflow: hidden; background: #000;
+}
+.yt-thumb { width: 100%; height: 100%; object-fit: cover; display: block; opacity: .92; transition: transform .35s ease, opacity .25s ease; }
+.yt-facade:hover .yt-thumb { transform: scale(1.03); opacity: 1; }
+.yt-play {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  pointer-events: none;
+}
+.yt-facade:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+.yt-frame { width: 100%; aspect-ratio: 16 / 9; border: 0; display: block; background: #000; }
+.yt-meta { display: flex; flex-direction: column; gap: 3px; padding: 10px 12px 12px; }
+.yt-title { color: var(--text); font-size: .88rem; font-weight: 600; line-height: 1.45; }
+.yt-sub { color: var(--muted); font-size: .78rem; }
+.yt-channel { color: var(--muted); font-size: .72rem; margin-top: 2px; }
+.yt-channel a { color: var(--accent2); text-decoration: none; }
+.yt-channel a:hover { text-decoration: underline; }
+@media (prefers-reduced-motion: reduce) {
+  .yt-card:hover, .yt-facade:hover .yt-thumb { transform: none; }
 }

@@ -10,6 +10,7 @@ import 'prefs.dart';
 
 const _iconGold = Color(0xFFA67C1B);
 const _iconMuted = Color(0xFF5D6875);
+const _iconMutedDark = Color(0xFF98A5B1);
 
 /// One reciter entry from assets/data/audio.json.
 class Reciter {
@@ -411,7 +412,11 @@ class TilawahIcon extends StatelessWidget {
         return Icon(
           on ? Icons.pause_circle_filled : Icons.play_circle_outline,
           size: size,
-          color: on ? _iconGold : _iconMuted,
+          color: on
+              ? _iconGold
+              : (Theme.of(context).brightness == Brightness.dark
+                  ? _iconMutedDark
+                  : _iconMuted),
         );
       },
     );

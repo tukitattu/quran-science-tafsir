@@ -339,8 +339,12 @@ class _TodayCard extends StatelessWidget {
             Text(ar,
                 textDirection: TextDirection.rtl,
                 textAlign: TextAlign.right,
-                style: const TextStyle(
-                    fontSize: 22, height: 2, color: AppColors.goldDeep)),
+                style: TextStyle(
+                    fontSize: 22,
+                    height: 2,
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? AppColors.goldBright
+                        : AppColors.goldDeep)),
           const SizedBox(height: 8),
           if (app.lang != 'en' && (today['bn'] ?? '').toString().isNotEmpty)
             Text((today['bn'] ?? '').toString(),

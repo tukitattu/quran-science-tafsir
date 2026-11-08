@@ -69,7 +69,7 @@ class _HomeShellState extends State<HomeShell> {
                   padding: const EdgeInsets.symmetric(vertical: 12),
                   child: CircleAvatar(
                     radius: 22,
-                    backgroundColor: const Color(0xFFF1EEE2),
+                    backgroundColor: AppColors.gold.withValues(alpha: .14),
                     child: Icon(Icons.menu_book, color: AppColors.gold, size: 24),
                   ),
                 ),

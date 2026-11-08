@@ -99,10 +99,12 @@ class _WordSheetState extends State<WordSheet> {
                   textAlign: TextAlign.right,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: const TextStyle(
+                  style: TextStyle(
                       fontSize: 20,
                       height: 1.9,
-                      color: AppColors.goldDeep)),
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? AppColors.goldBright
+                          : AppColors.goldDeep)),
             const SizedBox(height: 6),
             Flexible(
               child: FutureBuilder<List<WbwWord>>(
@@ -209,7 +211,9 @@ class _WordSheetState extends State<WordSheet> {
                                     style: TextStyle(
                                         fontSize: 17,
                                         color: k == i
-                                            ? AppColors.goldDeep
+                                            ? (Theme.of(context).brightness == Brightness.dark
+                                                ? AppColors.goldBright
+                                                : AppColors.goldDeep)
                                             : AppColors.ink(context))),
                               ),
                             ),
