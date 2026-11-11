@@ -12,7 +12,7 @@ import 'package:sqflite/sqflite.dart';
 class TafsirDb {
   TafsirDb._();
   static final TafsirDb i = TafsirDb._();
-  static const int kVersion = 3;
+  static const int kVersion = 4;
 
   Database? _db;
 
@@ -96,6 +96,43 @@ class TafsirDb {
   Future<List<Map<String, Object?>>> altMeaningsFor(int surah, int ayah) async {
     return (await db).query('alt_meanings',
         where: 'ayah_key = ?', whereArgs: ['$surah:$ayah']);
+  }
+
+  /// All ayah translations for one surah (7 editions + transliteration +
+  /// Bangla pronunciation), from the `translations` table.
+  Future<List<Map<String, Object?>>> translations(int surah) async {
+    try {
+      return await (await db).query('translations',
+          where: 'surah_id = ?', whereArgs: [surah], orderBy: 'ayah_num');
+    } catch (_) {
+      return const [];
+    }
+  }
+
+  /// Bangla footnotes for one surah, keyed by ayah number.
+  Future<Map<int, String>> ayahNotes(int surah) async {
+    final out = <int, String>{};
+    try {
+      final rows = await (await db).query('ayah_notes',
+          where: 'surah_id = ?', whereArgs: [surah], orderBy: 'ayah_num');
+      for (final r in rows) {
+        final a = (r['ayah_num'] as num?)?.toInt() ?? 0;
+        final n = (r['note'] ?? '') as String;
+        if (a > 0 && n.isNotEmpty) out[a] = n;
+      }
+    } catch (_) {}
+    return out;
+  }
+
+  /// Classical surah introduction (Bangla) + pronunciation aid map.
+  Future<Map<String, Object?>?> surahIntro(int surah) async {
+    try {
+      final r = await (await db).query('surah_intros',
+          where: 'surah_id = ?', whereArgs: [surah], limit: 1);
+      return r.isEmpty ? null : r.first;
+    } catch (_) {
+      return null;
+    }
   }
 
   /// A deterministic ayah-of-the-day across the whole database.

@@ -252,7 +252,8 @@ function injectTopNav(){
     ["search.html", "Search", is("search.html")],
     ["words.html", "Word Meanings", is("words.html")],
     ["business.html", "Business", is("business.html")],
-    ["vocabulary.html", "Vocabulary", is("vocabulary.html")]
+    ["vocabulary.html", "Vocabulary", is("vocabulary.html")],
+    ["more.html", "Knowledge Hub", is("more.html")]
   ].map(([href,label,cur])=>`<a href="${b}${href}" ${cur?'class="cur" aria-current="page"':'aria-current="false"'}>${label}</a>`).join("");
   host.insertBefore(el, host.firstChild);
 

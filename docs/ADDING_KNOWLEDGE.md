@@ -94,3 +94,75 @@ async function fetchKnowledgeData(n){
 - All accordions use premium SVG (no emoji), skeletons while loading, and `Reload` → `fetchKnowledgeData(n)` (not just `location.reload()`)
 
 **To test:** Open `chapters/112.html`, expand `Watch — Related Videos` → should show 4 clickable video facades; clicking one embeds the YouTube player inline. `chapters/2.html` shows 8.
+
+## 5. Complete word index (14,660 forms)
+
+**File:** `assets/data/words_index.json` (web) and `flutter/assets/words_index.json.gz`
+**Generator:** `python3 scripts/build_words_index.py`
+
+Aggregates `assets/data/wbw/*.json` into one entry per normalized Arabic form:
+
+```json
+{"w":"ٱلْحَمْدُ","tr":"al-ḥamdu","en":"All praises","bn":"সকল প্রশংসা",
+ "n":5,"s":1,"a":2,"ref":"1:2","refs":["1:2","6:1"],
+ "ar_norm":"الحمد","cat":"prayer","srch":"..."}
+```
+
+`n` is the frequency, `refs` the first occurrences, `cat` a topical category inferred from the gloss. `words.js` merges this index with the curated deep-study entries from `words_export.json` (curated entries win, so roots/forms/why-notes are never lost) and paginates the grid at 300 tiles. Flutter does the same merge in `words_screen.dart` and shows the frequency chip.
+
+## 6. Ayah-by-ayah translations (7 editions)
+
+**Files:** `assets/data/tr/{1..114}.json`
+**Generator:** `python3 scripts/build_translations.py --src /tmp/opencode/eqdata`
+
+Each file:
+
+```json
+{"s":2,"sources":[{"id":"en","name":"Saheeh International"}, ...],
+ "intro":"<b>...</b>","fu":{"arabic phrase":"bangla pronunciation"},
+ "ayahs":[{"a":1,"ar":"...","en":"...","bq":"...","taisir":"...","bayan":"...",
+           "mujib":"...","khan":"...","hoque":"...","tr":"...","uc":"...",
+           "fn":{"1":"footnote"}}]}
+```
+
+Editions: `en` Saheeh International · `bq` Islamic Foundation Bangladesh · `taisir` Taisirul Quran · `bayan` Al-Bayan · `mujib` Sheikh Mujibur Rahman · `khan` Muhiuddin Khan · `hoque` Zahurul Haque.
+
+Web: `assets/js/translations.js` is included on every `chapters/N.html` and builds a `<details>` accordion that lazy-fetches `../assets/data/tr/N.json` on first open, with a source switcher. Flutter: `TafsirDb.i.translations(surah)` / `ayahNotes(surah)` from the `translations` / `ayah_notes` tables, shown in the reader's `_TranslationsSheet`.
+
+After changing translation sources, run:
+
+```bash
+python3 scripts/build_translations.py
+python3 scripts/build_extra_db.py   # fills translations/ayah_notes/surah_intros + repacks the Flutter DB
+```
+
+## 7. Knowledge Hub data
+
+**Files:** `assets/data/more/{names,duas,learn,daily,topics}.json` (+ Flutter copies)
+**Generator:** `python3 scripts/build_more_data.py`
+
+| File | Contents |
+|------|----------|
+| `names.json` | 99 names — Arabic, transliteration, English + Bangla meaning, description, Qur'an refs |
+| `duas.json` | 12 categories / 70 du'as — Arabic, pronunciation, Bangla, source |
+| `learn.json` | 10 step-by-step guides — intro, ordered steps with Arabic/pronunciation/source |
+| `daily.json` | 61 daily ayahs + 50 hadith |
+| `topics.json` | 16 topic collections (prayer, patience, mercy, parents, family, rizq, charity, truthfulness, justice, knowledge, character, gratitude, death, Paradise…) |
+
+Web UI: `more.html` + `assets/js/more.js` (tabs + search + topic drill-down). Flutter: `flutter/lib/screens/more_screen.dart`, opened from Read and Settings. No 7th bottom-nav destination is added.
+
+## 8. Business & Trade (147 entries)
+
+**Generator:** `python3 scripts/build_business_expanded.py`
+
+Sections and counts: `quran` 61 (generated from exact eQuran Arabic/EN/BN), `hadith` 25, `sahaba` 13, `growth` 24, `ethics` 12, `finance` 12. Existing section/item ids are preserved; the script rewrites both `assets/data/business.json` and `flutter/assets/business.json`.
+
+## 9. Database versioning
+
+`flutter/lib/db.dart` uses `kVersion` (currently **4**). Bump it whenever the bundled `tafsir.db.gz` schema or content changes so existing installs re-unpack the asset. Repack with:
+
+```bash
+gzip -9 -c tafsir.db > flutter/assets/tafsir.db.gz
+```
+
+Web cache: bump `CACHE` in `sw.js` (currently `tafsir-v17`) and add any new HTML/JS/JSON files to `ASSETS`.

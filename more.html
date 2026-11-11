@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knowledge Hub — 99 Names, Du'as, Learn, Daily & Topics | Scientific Tafsir</title>
+  <meta name="description" content="99 names of Allah, 70+ everyday du'as, step-by-step guides (wudu, salah, hajj, ruqyah), daily ayah and hadith, and 16 Qur'anic topic collections.">
+  <meta name="theme-color" content="#F8F8F4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#14181D" media="(prefers-color-scheme: dark)">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>">
+  <style>
+    .more-tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:18px auto 8px;max-width:980px;padding:0 16px}
+    .more-tabs button{background:var(--card);border:1px solid var(--border);color:var(--muted);padding:7px 14px;border-radius:999px;cursor:pointer;font-size:.86rem}
+    .more-tabs button.active{background:var(--accent);border-color:var(--accent);color:#17202a;font-weight:700}
+    .more-wrap{max-width:1100px;margin:10px auto 40px;padding:0 16px}
+    .more-search{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:9px 12px;color:var(--text);margin:8px 0 16px}
+    .names-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+    .name-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px}
+    .name-card .ar{font-size:1.5rem;color:var(--accent2);font-weight:800;text-align:center}
+    .name-card .tr{text-align:center;color:var(--muted);font-size:.8rem}
+    .name-card .me{text-align:center;font-weight:700;margin-top:4px}
+    .name-card .desc{font-size:.8rem;color:var(--muted);line-height:1.6;margin-top:6px}
+    .qrefs{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
+    .qrefs a{font-size:.72rem;color:var(--accent2);border:1px solid var(--border);border-radius:999px;padding:1px 7px;text-decoration:none}
+    .dua-cats{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+    .dua-cats button{background:var(--card);border:1px solid var(--border);color:var(--muted);padding:5px 11px;border-radius:999px;cursor:pointer;font-size:.8rem}
+    .dua-cats button.active{background:var(--accent);color:#17202a;border-color:var(--accent)}
+    .dua-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:10px}
+    .dua-card .ar{font-size:1.25rem;color:var(--accent2);line-height:2;direction:rtl;text-align:right}
+    .dua-card .bn{line-height:1.75;margin-top:6px}
+    .dua-card .src{font-size:.75rem;color:var(--muted);margin-top:6px}
+    .learn-card{background:var(--card);border:1px solid var(--border);border-radius:14px;margin-bottom:10px;overflow:hidden}
+    .learn-card>summary{cursor:pointer;padding:14px;font-weight:700;display:flex;gap:8px;align-items:center}
+    .learn-card .body{padding:0 14px 14px}
+    .step{border-top:1px solid var(--border);padding:10px 0}
+    .step h5{margin:0 0 4px;color:var(--accent2)}
+    .step .ar{font-size:1.1rem;direction:rtl;text-align:right;margin:4px 0}
+    .step .src{font-size:.72rem;color:var(--muted)}
+    .topic-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px}
+    .topic-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px;cursor:pointer}
+    .topic-card .n{font-size:2rem}
+    .topic-card .t{font-weight:700;margin-top:4px}
+    .topic-card .c{font-size:.78rem;color:var(--muted)}
+    .topic-list .ayah{border-top:1px solid var(--border);padding:10px 0}
+    .topic-list .ar{font-size:1.15rem;direction:rtl;text-align:right;color:var(--accent2);line-height:1.9}
+    .topic-list .bn{font-size:.86rem;line-height:1.7;margin-top:4px}
+    .empty{padding:30px;text-align:center;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      <span class="txt" style="line-height:1.3">
+        <span data-i18n="tagline">Bilingual Scientific Tafsir</span>
+        <span class="bn-text" style="display:block;font-size:.78rem;color:var(--accent2)">দ্বিভাষিক বৈজ্ঞানিক তাফসির</span>
+        <span class="ar-tag" style="display:block">التفسير العلمي للقرآن الكريم</span>
+      </span>
+    </a>
+    <div class="top-actions">
+      <div class="langbtns" id="langBtns">
+        <button data-lang="en">English</button>
+        <button data-lang="bn">বাংলা</button>
+        <button data-lang="ar">العربية</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="reader-header">
+    <p class="breadcrumbs"><a href="index.html">Home</a> · Knowledge Hub</p>
+    <h1>Knowledge Hub <span class="bn-text" style="display:block;font-size:.6em;color:var(--accent2)">জ্ঞানকোষ</span></h1>
+    <div class="arabic-text" style="color:var(--accent2);font-size:1.3rem;margin-top:6px">أسماء الله الحسنى · الأدعية · التعلّم · آية اليوم · الموضوعات</div>
+  </section>
+
+  <nav class="more-tabs" id="moreTabs" aria-label="Knowledge sections">
+    <button data-tab="names" class="active">99 Names · أسماء الله</button>
+    <button data-tab="duas">Du'as · দোয়া</button>
+    <button data-tab="learn">Learn · শিক্ষা</button>
+    <button data-tab="daily">Daily · দৈনিক</button>
+    <button data-tab="topics">Topics · বিষয়</button>
+  </nav>
+
+  <main class="more-wrap">
+    <input class="more-search" id="moreSearch" type="search" placeholder="Search names, du'as, guides, topics…" aria-label="Search knowledge hub">
+    <div id="moreBody"><div class="empty">Loading the knowledge hub…</div></div>
+  </main>
+
+  <footer>
+    <span data-i18n="footerNote">Scientific Tafsir of the Quran by Zakaria Kamal. Freely shareable and publishable per the author's notice.</span>
+    <span class="arabic-text">التفسير العلمي للقرآن الكريم — بقلم زكريا كمال</span>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+  <script src="assets/js/more.js"></script>
+</body>
+</html>

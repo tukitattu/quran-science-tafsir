@@ -20,14 +20,23 @@ assets/
   js/app.js|tts.js|wiki.js|builder.js  trilingual toggle, TTS (verse-only), deep research, Ghaur o Fikr
   data/chapters.js|surah_knowledge.js|deep_research.js|wiki_map.js|ghaur_ofikr_map.js
   data/quran_ar.json       Complete Uthmani text (114 surahs, 6,236 ayahs)
-  data/alt_meanings.json   Alternative translations for all 6,236 ayahs (Pickthall)
+  data/alt_meanings.json   Alternative translations for all 6,236 ayahs
+                           (Pickthall + Saheeh International + Muhiuddin Khan)
   data/wbw/*.json          Word-by-word meanings (77,429 words, EN + BN + transliteration)
+  data/words_index.json    14,660 distinct Quranic word forms — frequency, refs,
+                           trilingual gloss, category (Word Meanings explorer)
+  data/tr/{1..114}.json    Ayah-by-ayah translations — 7 editions + transliteration
+                           + Bangla pronunciation + footnotes + surah introduction
+  data/business.json       147 business & trade entries in 6 sections
+  data/more/*.json         Knowledge Hub — 99 names, 70 du'as, 10 guides,
+                           61 daily ayahs + 50 hadith, 16 topic collections
   figures/fig_*.jpg        666 figures (pdfimages -png → JPG q78, 109M → 22M)
   pdf/part{1..3}.pdf       original volumes (24M)
-tafsir.db[.gz]             SQLite (21M → 6.5M gz): 7,796 paras (EN+BN), 6,236 ayahs,
-                           347 words, 114 tafsir rows, alt_meanings, figures, FTS5 search
+tafsir.db[.gz]             SQLite (53M → 12M gz): 7,796 paras (EN+BN), 6,236 ayahs,
+                           14,660-form word index, 7 translations per ayah (6,236 rows),
+                           ayah notes, surah intros, 347 deep-study words, figures, FTS5
 flutter/                   Android app (Flutter + sqflite + just_audio + local notifications)
-sw.js / manifest.json      PWA offline (CACHE tafsir-v15, cache-first for jpg/js)
+sw.js / manifest.json      PWA offline (CACHE tafsir-v17, cache-first for jpg/js)
 ```
 
 ## Contents
@@ -46,12 +55,16 @@ sw.js / manifest.json      PWA offline (CACHE tafsir-v15, cache-first for jpg/js
 - **Complete Arabic**: `quran_ayahs` holds all 6,236 Uthmani ayahs; the Arabic reader and the daily-ayah reminder read from it (with a `verses.ar` fallback for older databases).
 - **Deep research**: `SURAH_KNOWLEDGE` (114) + `DEEP_RESEARCH` (Amud/Nazm in EN/BN/AR, 347 words with Bayyinah roots, Balagha, GaurFikr).
 - **Related videos, in-page player**: each surah chapter embeds real videos from [NAK Bangla](https://www.youtube.com/@NAKBangla/videos), [Dr Sufyan — Quran Daily Dose](https://www.youtube.com/@qurandailydose2985/videos) and [Xaryab Haschmi Podcast](https://www.youtube.com/@xaryabhaschmiofficial/videos) via a lazy facade player (`assets/js/video.js`) — thumbnail first, no YouTube JS until you press play; mapped in `assets/data/ghaur_ofikr_map.js` (98 curated entries across 48 surahs from three channels, all IDs verified against YouTube oEmbed; `youtube-nocookie.com`, `rel=0`).
-- **Ghaur o Fikr & Wikipedia**: `WIKI_MAP` + `GHAUR_O_FIKR_MAP` via `fetchKnowledgeData()`; `alt_meanings.json` now covers all 6,236 ayahs (Pickthall, refreshed daily by `update_research.py`).
+- **Ghaur o Fikr & Wikipedia**: `WIKI_MAP` + `GHAUR_O_FIKR_MAP` via `fetchKnowledgeData()`; `alt_meanings.json` now covers all 6,236 ayahs with Pickthall + Saheeh International + Muhiuddin Khan.
+- **Word Meanings — complete vocabulary**: `words.html` merges the curated deep-study entries (roots, forms, why-this-word, alternative meanings) with a full frequency index of **14,660 distinct Quranic word forms** from the word-by-word corpus. Search in Arabic, transliteration, English or Bangla; filter by surah/category; every tile shows its frequency (`×2763`) and tapping opens occurrences, root and glosses. Render is paginated (300 tiles at a time) so the full index stays fast.
+- **Ayah-by-ayah translations — 7 editions**: every chapter page has a lazy accordion with **Saheeh International (EN)** and six Bangla editions — Islamic Foundation, Taisirul Quran, Al-Bayan, Sheikh Mujibur Rahman, Muhiuddin Khan and Zahurul Haque — plus transliteration, Bangla pronunciation, footnotes (`fn`) and the classical surah introduction. Files are per-surah (`assets/data/tr/N.json`), fetched only when opened. The Flutter reader exposes the same set in a bottom sheet from the `translations` table.
+- **Knowledge Hub** (`more.html`): **99 Names of Allah** with meanings and Qur'an references, **70 du'as in 12 categories** (morning/evening, sleep, food, travel, hardship, fasting, Umrah…), **10 step-by-step guides** (wudu, ghusl, salah, fasting, zakat, hajj, Umrah, ruqyah, janazah, marriage), **61 daily ayahs + 50 hadith**, and **16 topic collections** (prayer, patience, mercy, parents, family, rizq, charity, truthfulness, justice, knowledge, character, gratitude, death, Paradise…). Flutter reaches the same content from Read and Settings.
+- **Business & Trade — expanded to 147 entries**: 61 Qur'anic cards generated from exact eQuran Arabic/EN/BN, 25 well-attested hadith, 13 Companions' market stories, 24 halal-growth tactics, 12 modern ethics and 12 riba-free finance structures.
 - **TTS verse-only**: `tts.js` reads only `.verse` (Quranic rule), per-para 🔊, cloud hook `window.TTS_CLOUD_URL`.
 - **Complete tilawah**: 6 reciters × 6,236 ayahs (CDN + `everyayah.com` fallback) and 114 whole-surah files per reciter (`cdn.mp3quran.net`, CORS-enabled), plus 77,429 word pronunciations (`audio.qurancdn.com`). Audio is streamed from free public CDNs, never bundled.
 - **Kids & Builder**: `Kids` toggle + daily streak, `builder.js` tadabbur picker (localStorage + URL hash).
 - **Vocabulary**: 82-word `vocabulary.html` with categories + 5-word quiz (flashcard).
-- **Offline PWA + APK**: `sw.js` v15 caches all chapters/read pages/assets (incl. the video facade player), `manifest.json`, Flutter app bundles `tafsir.db.gz` and word-by-word audio metadata; GitHub Releases publish `arm64-v8a`, `armeabi-v7a` and `x86_64` APKs built by `flutter-apk.yml`.
+- **Offline PWA + APK**: `sw.js` **v17** caches all chapters/read pages/assets (incl. the video facade player, translation files and Knowledge Hub data), `manifest.json`; the Flutter app bundles `tafsir.db.gz` (DB v4), the 14,660-form word index and knowledge data. GitHub Releases publish `arm64-v8a`, `armeabi-v7a` and `x86_64` APKs built by `flutter-apk.yml`.
 
 ## How it was built
 
@@ -60,7 +73,8 @@ sw.js / manifest.json      PWA offline (CACHE tafsir-v15, cache-first for jpg/js
 3. `gen_site.py` emits 114 overviews + 372 `chapters/N/read/pageX.html` (smart nav) + `vocabulary.html`.
 4. `scripts/build_db.py` → `tafsir.db` (VACUUM + gzip, FTS5); `scripts/backfill_arabic_local.py` adds `quran_ayahs` (6,236) + FTS, syncs `alt_meanings` and refreshes the Flutter asset.
 5. `scripts/update_research.py --daily` (03:00 UTC, `Daily Research Update` workflow) refreshes `alt_meanings.json` from AlQuran.cloud.
-6. `flutter build apk --split-per-abi` in `flutter-apk.yml`, triggered on each GitHub Release.
+6. `scripts/build_words_index.py` → 14,660-form `words_index.json` (+ gzip for Flutter); `scripts/build_translations.py` → 114 per-surah 7-edition files; `scripts/build_extra_db.py` → `translations`/`ayah_notes`/`surah_intros` tables, DB v4; `scripts/build_business_expanded.py` → 147 business entries; `scripts/build_more_data.py` → Knowledge Hub data. These read the public eQuran dataset (`https://equran.alshahriar.dev/`).
+7. `flutter build apk --split-per-abi` in `flutter-apk.yml`, triggered on each GitHub Release.
 
 ## Development
 
@@ -70,6 +84,12 @@ python3 scripts/build_wbw.py --check        # validate word-by-word data
 python3 scripts/build_audio.py --check      # validate audio manifest
 python3 scripts/backfill_arabic_local.py    # rebuild quran_ayahs/alt_meanings + flutter/assets/tafsir.db.gz
 python3 scripts/update_research.py --daily  # refresh alt_meanings.json
+# content expansion (needs the eQuran dataset in /tmp/opencode/eqdata):
+python3 scripts/build_words_index.py
+python3 scripts/build_translations.py
+python3 scripts/build_extra_db.py
+python3 scripts/build_business_expanded.py
+python3 scripts/build_more_data.py
 cd flutter && flutter pub get && flutter build apk --split-per-abi
 ```
 

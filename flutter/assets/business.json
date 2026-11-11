@@ -1,349 +1,1904 @@
 {
-  "title": "Business & Trade",
-  "subtitle": "Prophetic trade ethics, the market of the Companions, and halal growth for today",
-  "intro": {
-    "en": "Islam treats trade as a path of worship. The Prophet Muhammad صلى الله عليه وسلم was himself a merchant, and the market of Madinah was built on trust, clarity and fairness. This section gathers the Qur'anic principles, well-attested Hadith, the example of the Companions (Sahaba), and practical halal tactics for building a business today.",
-    "bn": "ইসলাম ব্যবসাকে ইবাদাতের একটি পথ হিসেবে দেখে। মহানবী সাঃ নিজে একজন ব্যবসায়ী ছিলেন, আর মদীনার বাজার দাঁড়িয়েছিল বিশ্বাস, স্পষ্টতা ও ন্যায়ের উপর। এই শ্রেণীতে কুরআনিক নীতি, বিশ্বস্ত হাদীস, সাহাবাদের দৃষ্টান্ত এবং আজকার হালাল প্রবৃদ্ধির কৌশল সংগ্রহ করা হয়েছে।",
-    "ar": "التِّجَارَةُ عِبَادَةٌ وَطَرِيقٌ شَرِيفٌ؛ فَقَدْ كَانَ النَّبِيُّ صلى الله عليه وسلم تَاجِرًا، وَبُنِيَ سُوقُ المَدِينَةِ عَلى الأَمَانَةِ وَالصِّدْقِ وَالعَدْلِ."
-  },
-  "sections": [
+ "title": "Business & Trade",
+ "subtitle": {
+  "en": "Qur'anic ethics, authentic Hadith, the market of the Companions, modern ethics and riba-free finance — 145+ entries",
+  "bn": "কুরআনিক নীতি, বিশুদ্ধ হাদীস, সাহাবাদের বাজার, আধুনিক নৈতিকতা ও সুদমুক্ত অর্থায়ন — ১৪৫+ এন্ট্রি"
+ },
+ "intro": {
+  "en": "Islam treats trade as a path of worship. The Prophet Muhammad صلى الله عليه وسلم was himself a merchant, and the market of Madinah was built on trust, clarity and fairness. This section gathers the Qur'anic principles, well-attested Hadith, the example of the Companions (Sahaba), and practical halal tactics for building a business today.",
+  "bn": "ইসলাম ব্যবসাকে ইবাদাতের একটি পথ হিসেবে দেখে। মহানবী সাঃ নিজে একজন ব্যবসায়ী ছিলেন, আর মদীনার বাজার দাঁড়িয়েছিল বিশ্বাস, স্পষ্টতা ও ন্যায়ের উপর। এই শ্রেণীতে কুরআনিক নীতি, বিশ্বস্ত হাদীস, সাহাবাদের দৃষ্টান্ত এবং আজকার হালাল প্রবৃদ্ধির কৌশল সংগ্রহ করা হয়েছে।",
+  "ar": "التِّجَارَةُ عِبَادَةٌ وَطَرِيقٌ شَرِيفٌ؛ فَقَدْ كَانَ النَّبِيُّ صلى الله عليه وسلم تَاجِرًا، وَبُنِيَ سُوقُ المَدِينَةِ عَلى الأَمَانَةِ وَالصِّدْقِ وَالعَدْلِ."
+ },
+ "sections": [
+  {
+   "id": "quran",
+   "title": {
+    "en": "Qur'anic Foundations",
+    "bn": "কুরআনিক ভিত্তি",
+    "ar": "أسس قرآنية"
+   },
+   "items": [
     {
-      "id": "quran",
-      "title": {
-        "en": "Qur'anic Foundations",
-        "bn": "কুরআনিক ভিত্তি",
-        "ar": "أسُسُ قُرْآنِيّة"
-      },
-      "items": [
-        {
-          "id": "q-275",
-          "ref": "2:275",
-          "source": "Qur'an",
-          "tags": [
-            "business",
-            "riba",
-            "trade"
-          ],
-          "ar": "وَأَحَلَّ اللَّهُ الْبَيْعَ وَحَرَّمَ الرِّبَا",
-          "en": "Allah has permitted trade and forbidden interest (riba).",
-          "bn": "আল্লাহ বিক্রয়কে হালাল ও সুদকে হারাম করেছেন।"
-        },
-        {
-          "id": "q-276",
-          "ref": "2:276",
-          "source": "Qur'an",
-          "tags": [
-            "business",
-            "riba",
-            "charity"
-          ],
-          "ar": "يَمْحَقُ اللَّهُ الرِّبَا وَيُرْبِي الصَّدَقَاتِ",
-          "en": "Allah destroys interest and gives increase for charities.",
-          "bn": "আল্লাহ সুদ ধ্বংস করেন এবং দান-সদকার বৃদ্ধি দেন।"
-        },
-        {
-          "id": "q-198",
-          "ref": "2:198",
-          "source": "Qur'an",
-          "tags": [
-            "business",
-            "trade",
-            "blessing"
-          ],
-          "ar": "لَيْسَ عَلَيْكُمْ جُنَاحٌ أَنْ تَبْتَغُوا فَضْلًا مِّن رَّبِّكُمْ",
-          "en": "It is no crime for you to seek the bounty of your Lord (through trade).",
-          "bn": "তোমাদের রবের অনুগ্রহ (ব্যবসায়) অন্বেষণ করা তোমাদের জন্য অপরাধ নয়।"
-        },
-        {
-          "id": "q-29",
-          "ref": "4:29",
-          "source": "Qur'an",
-          "tags": [
-            "business",
-            "consent",
-            "contract"
-          ],
-          "ar": "إِلَّا أَنْ تَكُونَ تِجَارَةً عَن تَرَاضٍ مِّنكُمْ",
-          "en": "Do not consume your own wealth unjustly — except by mutual trade with your consent.",
-          "bn": "হারামপূর্বক একে অন্যের সম্পদ ও খাও না — তোমাদের পরস্পর সম্মতিতে বাণিজ্য ছাড়া।"
-        },
-        {
-          "id": "q-188",
-          "ref": "2:188",
-          "source": "Qur'an",
-          "tags": [
-            "business",
-            "honesty",
-            "lawful"
-          ],
-          "ar": "وَلَا تَأْكُلُوا أَمْوَالَكُم بَيْنَكُم بِالْبَاطِلِ",
-          "en": "Do not devour one another's wealth by false means.",
-          "bn": "পরস্পরের সম্পদ মিথ্যাপূর্বক খাও না।"
-        },
-        {
-          "id": "q-buyu",
-          "ref": "62:10",
-          "source": "Qur'an",
-          "tags": [
-            "business",
-            "trade",
-            "work"
-          ],
-          "ar": "فَإِذَا قُضِيَتِ الصَّلَاةُ فَانتَشِرُوا فِي الأَرْضِ وَابْتَغُوا مِن فَضْلِ اللَّهِ",
-          "en": "When the prayer is finished, disperse in the land and seek the bounty of Allah.",
-          "bn": "নামাজ শেষে তোমরা পৃথিবীতে ছড়িয়ে পড়ো এবং আল্লাহের অনুগ্রহ অন্বেষণ করো।"
-        },
-        {
-          "id": "q-debt",
-          "ref": "2:282",
-          "source": "Qur'an",
-          "tags": [
-            "business",
-            "contract",
-            "debt"
-          ],
-          "ar": "إِذَا تَدَايَنتُم بِدَيْنٍ إِلَى أَجَلٍ مُّسَمًّى فَاكْتُبُوهُ",
-          "en": "When you contract a debt for a fixed term, write it down. Clarity in contracts is a command, not a courtesy.",
-          "bn": "নির্দিষ্ট মিয়াদে ঋণ করলে তা লিখে রাখো। চুক্তিতে স্পষ্টতা আদেশ, উপকার নয়।"
-        },
-        {
-          "id": "q-measure",
-          "ref": "17:35",
-          "source": "Qur'an",
-          "tags": [
-            "business",
-            "measure",
-            "honesty"
-          ],
-          "ar": "وَأَوْفُوا الْكَيْلَ إِذَا كِلْتُمْ وَزِنُوا بِالقِسْطَاسِ المُسْتَقِيمِ",
-          "en": "Give full measure when you measure, and weigh with an even balance.",
-          "bn": "মাপের সময় পূর্ণ মাপ দাও এবং সরল দাণ্ডিকে ওজন করো।"
-        }
-      ]
+     "id": "q-2-188",
+     "ref": "2:188",
+     "source": "Qur'an",
+     "tags": [
+      "bribery",
+      "justice",
+      "wealth"
+     ],
+     "ar": "وَلَا تَأۡكُلُوٓاْ أَمۡوَٰلَكُم بَيۡنَكُم بِٱلۡبَٰطِلِ وَتُدۡلُواْ بِهَآ إِلَى ٱلۡحُكَّامِ لِتَأۡكُلُواْ فَرِيقٗا مِّنۡ أَمۡوَٰلِ ٱلنَّاسِ بِٱلۡإِثۡمِ وَأَنتُمۡ تَعۡلَمُونَ",
+     "en": "And do not consume one another's wealth unjustly or send it [in bribery] to the rulers in order that [they might aid] you [to] consume a portion of the wealth of the people in sin, while you know [it is unlawful].",
+     "bn": "আর তোমরা নিজেদের মধ্যে একে অন্যের অর্থ-সম্পদ অন্যায়ভাবে খেয়ো না এবং মানুষের ধন-সম্পত্তির কিছু অংশ জেনে বুঝে অন্যায়ভাবে আত্মসাৎ করার উদ্দেশ্যে বিচারকদের কাছে পেশ করো না [১]।",
+     "note": "Do not consume one another's wealth unjustly or send it to rulers to consume a part of it sinfully."
     },
     {
-      "id": "hadith",
-      "title": {
-        "en": "Well-Attested Hadith",
-        "bn": "বিশ্বস্ত হাদীস",
-        "ar": "أحَادِيثُ صَحِيحَةٌ"
-      },
-      "items": [
-        {
-          "id": "h-trust",
-          "source": "Ibn Majah / Tirmidhi",
-          "tags": [
-            "business",
-            "trust",
-            "merchant"
-          ],
-          "ar": "التَّاجِرُ الصَّدُوقُ الأَمِينُ مَعَ النَّبِيِّينَ وَالصِّدِّيقِينَ وَالشُّهَدَاءِ",
-          "en": "The truthful, trustworthy merchant will be with the prophets, the truthful and the martyrs.",
-          "bn": "সত্যবাদী ও আমানতদার ব্যবসায়ী নবী, সিদ্দিক ও শহীদদের সঙ্গে থাকবে।"
-        },
-        {
-          "id": "h-cheat",
-          "source": "Sahih Muslim",
-          "tags": [
-            "business",
-            "deception",
-            "quality"
-          ],
-          "ar": "مَنْ غَشَّنَا فَلَيْسَ مِنَّا",
-          "en": "Whoever deceives us is not one of us.",
-          "bn": "যে প্রতারণা করে সে আমাদের দলের নয়।"
-        },
-        {
-          "id": "h-conditions",
-          "source": "Tirmidhi",
-          "tags": [
-            "business",
-            "contract"
-          ],
-          "ar": "المُسْلِمُونَ عَلَى شُرُوطِهِمْ",
-          "en": "The Muslims are bound by their conditions (contracts).",
-          "bn": "মুসলিমরা তাদের শর্তের (চুক্তির) অনুসারী।"
-        },
-        {
-          "id": "h-hoarding",
-          "source": "Sahih Muslim",
-          "tags": [
-            "business",
-            "monopoly"
-          ],
-          "ar": "لَا يَحْتَكِرُ إِلَّا خَاطِئٌ",
-          "en": "None hoards (to raise prices) except a wrongdoer.",
-          "bn": "পন্না করে (দাম বাড়ায়) সে ছাড়া কেউ নয়।"
-        },
-        {
-          "id": "h-excellence",
-          "source": "Widely reported",
-          "tags": [
-            "business",
-            "excellence",
-            "work"
-          ],
-          "ar": "إِنَّ اللَّهَ يُحِبُّ إِذَا عَمِلَ أَحَدُكُمْ عَمَلًا أَنْ يُتْقِنَهُ",
-          "en": "Allah loves that when any of you does a work, he perfects it (itqan).",
-          "bn": "আল্লাহ ভালোবাসেন যাকে কোনো কাজ করলে তা নিপুণভাবে (ইতবান) করার।"
-        },
-        {
-          "id": "h-option",
-          "source": "Sahih al-Bukhari & Muslim",
-          "tags": [
-            "business",
-            "sale",
-            "consent"
-          ],
-          "ar": "الْبَيِّعَانِ بِالْخِيَارِ مَا لَمْ يَتَفَرَّقَا",
-          "en": "The buyer and the seller have the option (to cancel) until they part.",
-          "bn": "ক্রেতা ও বিক্রেতা পৃথক্হন্ি পর্যন্ত বাতিলের অধিকার রাখে।"
-        }
-      ]
+     "id": "q-2-275",
+     "ref": "2:275",
+     "source": "Qur'an",
+     "tags": [
+      "trade",
+      "riba"
+     ],
+     "ar": "ٱلَّذِينَ يَأۡكُلُونَ ٱلرِّبَوٰاْ لَا يَقُومُونَ إِلَّا كَمَا يَقُومُ ٱلَّذِي يَتَخَبَّطُهُ ٱلشَّيۡطَٰنُ مِنَ ٱلۡمَسِّۚ ذَٰلِكَ بِأَنَّهُمۡ قَالُوٓاْ إِنَّمَا ٱلۡبَيۡعُ مِثۡلُ ٱلرِّبَوٰاْۗ وَأَحَلَّ ٱللَّهُ ٱلۡبَيۡعَ وَحَرَّمَ ٱلرِّبَوٰاْۚ فَمَن جَآءَهُۥ مَوۡعِظَةٞ مِّن رَّبِّهِۦ فَٱنتَهَىٰ فَلَهُۥ مَا سَلَفَ وَأَمۡرُهُۥٓ إِلَى ٱللَّهِۖ وَمَنۡ عَادَ فَأُوْلَٰٓئِكَ أَصۡحَٰبُ ٱلنَّارِۖ هُمۡ فِيهَا خَٰلِدُونَ",
+     "en": "Those who consume interest cannot stand [on the Day of Resurrection] except as one stands who is being beaten by Satan into insanity. That is because they say, \"Trade is [just] like interest.\" But Allāh has permitted trade and has forbidden interest. So whoever has received an admonition from his Lord and desists may have what is past, and his affair rests with Allāh. But whoever returns [to dealing in interest or usury] - those are the companions of the Fire; they will abide eternally therein.",
+     "bn": "যারা সুদ [১] খায় [২] তারা তার ন্যায় দাঁড়াবে যাকে শয়তান স্পর্শ দ্বারা পাগল করে [৩]। এটা এ জন্য যে, তারা বলে [৪], ‘ক্রয়-বিক্রয় তো সূদেরই মত।’ অথচ আল্লাহ্‌ ক্রয়-বিক্রয়কে হালাল ও সূদকে হারাম করেছেন [৫]। অতএব, যার নিকট তার রবের পক্ষ হতে উপদেশ আসার পর সে বিরত হল, তাহলে অতীতে যা হয়েছে তা তারই এবং তার ব্যাপার আল্লাহ্‌র ইখতিয়ারে। আর যারা পুনরায় আরম্ভ করবে তারাই আগুনের অধিবাসী, সেখানে তারা স্থায়ী হবে।",
+     "note": "Allah has permitted trade and forbidden interest."
     },
     {
-      "id": "sahaba",
-      "title": {
-        "en": "The Market of the Companions",
-        "bn": "সাহাবাদের বাজার",
-        "ar": "سُوقُ الصَّحَابَةِ"
-      },
-      "items": [
-        {
-          "id": "s-khadijah",
-          "source": "Sirah",
-          "tags": [
-            "business",
-            "sahaba",
-            "women"
-          ],
-          "ar": "كَانَتْ خَدِيجَةُ رَضِيَ اللَّهُ عَنْهَا تَاجِرَةً شَرِيفَةً",
-          "en": "Khadijah (RA) was a noble merchant who ran her own caravans — and later employed the Prophet صلى الله عليه وسلم to trade for her.",
-          "bn": "খদীজা (রাঃ) একজন মর্যাদাবান ব্যবসায়ী ছিলেন; নিজের কারভান চালাতেন এবং পরে নবী সাঃকে তাঁর ব্যবসায়ে নিয়োগ করেন।"
-        },
-        {
-          "id": "s-abdulrahman",
-          "source": "Sahih al-Bukhari",
-          "tags": [
-            "business",
-            "sahaba",
-            "trade"
-          ],
-          "ar": "دُلُّونِي عَلَى السُّوقِ",
-          "en": "Abdur-Rahman ibn Awf (RA) arrived in Madinah poor, and when offered help said: “Show me the market.” He traded until he became wealthy by his own work.",
-          "bn": "আব্দুর রহমান ইব্নে আউফ (রাঃ) নির্ধন অবস্থায় মদীনায় আসেন; সাহায্যের বদলে বলেন—‘আমাকে বাজার দেখাও’। নিজ পরিশ্রমে ধনী হন।"
-        },
-        {
-          "id": "s-uthman",
-          "source": "Sirah / Hadith",
-          "tags": [
-            "business",
-            "sahaba",
-            "charity"
-          ],
-          "ar": "تَصَدَّقَ عُثْمَانُ بِقَافِلَتِهِ",
-          "en": "Uthman (RA), a wealthy merchant, gave away whole caravans for the army and bought the well of Rumah to give it to the Muslims for free.",
-          "bn": "ধনী ব্যবসায়ী উসমান (রাঃ) সেনাবাহিনির জন্য পূরো কারভান দান করেন এবং রূমাহ কূপ কিনে মুসলিমদের বিনামূল্যে ওয়াকফ করেন।"
-        },
-        {
-          "id": "s-umar",
-          "source": "Sirah",
-          "tags": [
-            "business",
-            "sahaba",
-            "market",
-            "justice"
-          ],
-          "ar": "كَانَ عُمَرُ يَتَفَقَّدُ السُّوقَ",
-          "en": "Umar (RA) personally patrolled the market, checking weights and prices, and appointed inspectors (the early hisba) so no one was cheated.",
-          "bn": "উমর (রাঃ) নিজে বাজার পরিদর্শন করতেন, ওজন ও দাম যাচাই করতেন এবং পরিদর্শক নিয়োগ করতেন যাতে কেউ ঠকা না হয়।"
-        },
-        {
-          "id": "s-ali",
-          "source": "Sirah",
-          "tags": [
-            "business",
-            "sahaba",
-            "labour"
-          ],
-          "ar": "عَمِلَ عَلِيٌّ بِيدِهِ",
-          "en": "Ali (RA) earned from his own hands — irrigating date groves for wages — teaching that work and sweat are dignified, and wages must be paid fairly.",
-          "bn": "আলী (রাঃ) নিজ হাতে কাজ করে উপার্জন করতেন — মজুরিতে খেজুরের বাগানে পানি দিতেন — শ্রম আর মজুরি সম্মানের শিক্ষা।"
-        },
-        {
-          "id": "s-hasan",
-          "source": "Sirah",
-          "tags": [
-            "business",
-            "sahaba",
-            "generosity"
-          ],
-          "ar": "عُرِفَ الحَسَنُ وَالحُسَيْنُ بِالسَّخَاءِ",
-          "en": "Hasan and Hussain (RA), the grandsons of the Prophet, were remembered for open-handed generosity — giving away what they had to the needy, a spirit that pairs wealth with responsibility.",
-          "bn": "নবীর নাতি হাসান ও হোসাইন (রাঃ) মুক্তহাস্তে দানশীলতার জন্য স্মরণীয় — ধনকে দায়িত্বের সাথে যুক্ত করতেন।"
-        }
-      ]
+     "id": "q-2-276",
+     "ref": "2:276",
+     "source": "Qur'an",
+     "tags": [
+      "riba",
+      "charity"
+     ],
+     "ar": "يَمۡحَقُ ٱللَّهُ ٱلرِّبَوٰاْ وَيُرۡبِي ٱلصَّدَقَٰتِۗ وَٱللَّهُ لَا يُحِبُّ كُلَّ كَفَّارٍ أَثِيمٍ",
+     "en": "Allāh destroys interest and gives increase for charities. And Allāh does not like every sinning disbeliever.",
+     "bn": "আল্লাহ্‌ সূদকে নিশ্চিহ্ন করেন এবং দানকে বর্ধিত করেন [১]। আর আল্লাহ্‌ কোনো অধিক কুফরকারী, পাপীকে ভালবাসেন না [২]।",
+     "note": "Allah destroys interest and gives increase for charities."
     },
     {
-      "id": "growth",
-      "title": {
-        "en": "Halal Growth Tactics Today",
-        "bn": "আজকার হালাল প্রবৃদ্ধি কৌশল",
-        "ar": "اسْترَاتِيجِيَّاتُ النُّمُوِّ الحَلَالِ"
-      },
-      "items": [
-        {
-          "id": "g-transparency",
-          "ref": "2:188",
-          "source": "Principle",
-          "tags": [
-            "business",
-            "marketing",
-            "honesty"
-          ],
-          "ar": "الصِّدْقُ فِي البَيْعِ",
-          "en": "Market with truth. Describe what a product truly is — no exaggeration, no hidden fees, no fake reviews. Honest positioning builds the reputation that compounds.",
-          "bn": "সত্য দিয়ে মার্কেটিং করো। পণ্য আসলে যা তাই বলো — বাড়ানো না, লুকানো ফি, বানানো রিভিউ না। সততা সুনাম গড়ে।"
-        },
-        {
-          "id": "g-contracts",
-          "ref": "2:282",
-          "source": "Principle",
-          "tags": [
-            "business",
-            "contract",
-            "risk"
-          ],
-          "ar": "اكْتُبُوهُ",
-          "en": "Write every deal down: scope, price, timeline, return policy. Clear contracts prevent disputes and protect both sides — an act of worship, not bureaucracy.",
-          "bn": "প্রতিটি চুক্তি লিখে রাখো: কাজের পরিসীমা, দাম, সময়, ফেরত নীতি। স্পষ্ট চুক্তি বিবাদ রোকে।"
-        },
-        {
-          "id": "g-riba",
-          "ref": "2:275",
-          "source": "Principle",
-          "tags": [
-            "business",
-            "riba",
-            "finance"
-          ],
-          "ar": "وَحَرَّمَ الرِّبَا",
-          "en": "Grow with equity, profit-share (mudarabah/musharakah) and asset-backed deals — not interest-bearing debt. Halal capital keeps the business blessed and resilient.",
-          "bn": "সুদভিত্তিক ঋণ নয়, বরং লাভ-ভাগ (মুদারাবা/মুশারাকা) ও সম্পদ-ভিত্তিক লেনদেনে বাড়ো।"
-        },
-        {
-          "id": "g-zakat",
-          "source": "Principle",
-          "tags": [
-            "business",
-            "zakat",
-            "charity"
-          ],
-          "ar": "وَيُرْبِي الصَّدَقَاتِ",
-          "en": "Budget zakat and charity into the business from day one. Purified wealth attracts barakah and builds a customer community that trusts you.",
-          "bn": "প্রথম দিন থেকেই ব্যবসায়ে যাকাত ও দানের বাজেট রাখো। পবিত্র ধন বরকত আনে।"
-        }
-      ]
+     "id": "q-2-278",
+     "ref": "2:278",
+     "source": "Qur'an",
+     "tags": [
+      "riba",
+      "faith"
+     ],
+     "ar": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُواْ ٱتَّقُواْ ٱللَّهَ وَذَرُواْ مَا بَقِيَ مِنَ ٱلرِّبَوٰٓاْ إِن كُنتُم مُّؤۡمِنِينَ",
+     "en": "O you who have believed, fear Allāh and give up what remains [due to you] of interest, if you should be believers.",
+     "bn": "হে মুমিনগণ! তোমরা আল্লাহ্‌র তাকওয়া অবলম্বন কর এবং সুদের যা বকেয়া আছে তা ছেড়ে দাও যদি তোমরা মুমিন হও।",
+     "note": "Fear Allah and give up what remains of interest, if you are believers."
+    },
+    {
+     "id": "q-2-279",
+     "ref": "2:279",
+     "source": "Qur'an",
+     "tags": [
+      "riba",
+      "justice"
+     ],
+     "ar": "فَإِن لَّمۡ تَفۡعَلُواْ فَأۡذَنُواْ بِحَرۡبٖ مِّنَ ٱللَّهِ وَرَسُولِهِۦۖ وَإِن تُبۡتُمۡ فَلَكُمۡ رُءُوسُ أَمۡوَٰلِكُمۡ لَا تَظۡلِمُونَ وَلَا تُظۡلَمُونَ",
+     "en": "And if you do not, then be informed of a war [against you] from Allāh and His Messenger. But if you repent, you may have your principal - [thus] you do no wrong, nor are you wronged.",
+     "bn": "অতঃপর যদি তোমরা না কর তবে আল্লাহ্‌ ও তাঁর রাসুলের পক্ষ থেকে যুদ্ধের ঘোষণা নাও [১]। আর যদি তোমরা তাওবা কর তবে তোমাদের মূলধন তোমাদেরই [২]। তোমরা যুলুম করবে না এবং তোমাদের উপরও যুলুম করা হবে না [৩]।",
+     "note": "If you do not, then be informed of a war from Allah and His Messenger."
+    },
+    {
+     "id": "q-2-280",
+     "ref": "2:280",
+     "source": "Qur'an",
+     "tags": [
+      "debt",
+      "mercy"
+     ],
+     "ar": "وَإِن كَانَ ذُو عُسۡرَةٖ فَنَظِرَةٌ إِلَىٰ مَيۡسَرَةٖۚ وَأَن تَصَدَّقُواْ خَيۡرٞ لَّكُمۡ إِن كُنتُمۡ تَعۡلَمُونَ",
+     "en": "And if someone is in hardship, then [let there be] postponement until [a time of] ease. But if you give [from your right as] charity, then it is better for you, if you only knew.",
+     "bn": "আর যদি সে অভাবগ্রস্থ হয় তবে সচ্ছলতা পর্যন্ত তার অবকাশ। আর যদি তোমরা সাদকা কর তবে তা তোমাদের জন্য কল্যাণকর [১], যদি তোমরা জানতে [২]।",
+     "note": "If the debtor is in hardship, grant him time until it is easy; to forgive is better."
+    },
+    {
+     "id": "q-2-282",
+     "ref": "2:282",
+     "source": "Qur'an",
+     "tags": [
+      "contract",
+      "debt",
+      "witness"
+     ],
+     "ar": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓاْ إِذَا تَدَايَنتُم بِدَيۡنٍ إِلَىٰٓ أَجَلٖ مُّسَمّٗى فَٱكۡتُبُوهُۚ وَلۡيَكۡتُب بَّيۡنَكُمۡ كَاتِبُۢ بِٱلۡعَدۡلِۚ وَلَا يَأۡبَ كَاتِبٌ أَن يَكۡتُبَ كَمَا عَلَّمَهُ ٱللَّهُۚ فَلۡيَكۡتُبۡ وَلۡيُمۡلِلِ ٱلَّذِي عَلَيۡهِ ٱلۡحَقُّ وَلۡيَتَّقِ ٱللَّهَ رَبَّهُۥ وَلَا يَبۡخَسۡ مِنۡهُ شَيۡـٔٗاۚ فَإِن كَانَ ٱلَّذِي عَلَيۡهِ ٱلۡحَقُّ سَفِيهًا أَوۡ ضَعِيفًا أَوۡ لَا يَسۡتَطِيعُ أَن يُمِلَّ هُوَ فَلۡيُمۡلِلۡ وَلِيُّهُۥ بِٱلۡعَدۡلِۚ وَٱسۡتَشۡهِدُواْ شَهِيدَيۡنِ مِن رِّجَالِكُمۡۖ فَإِن لَّمۡ يَكُونَا رَجُلَيۡنِ فَرَجُلٞ وَٱمۡرَأَتَانِ مِمَّن تَرۡضَوۡنَ مِنَ ٱلشُّهَدَآءِ أَن تَضِلَّ إِحۡدَىٰهُمَا فَتُذَكِّرَ إِحۡدَىٰهُمَا ٱلۡأُخۡرَىٰۚ وَلَا يَأۡبَ ٱلشُّهَدَآءُ إِذَا مَا دُعُواْۚ وَلَا تَسۡـَٔمُوٓاْ أَن تَكۡتُبُوهُ صَغِيرًا أَوۡ كَبِيرًا إِلَىٰٓ أَجَلِهِۦۚ ذَٰلِكُمۡ أَقۡسَطُ عِندَ ٱللَّهِ وَأَقۡوَمُ لِلشَّهَٰدَةِ وَأَدۡنَىٰٓ أَلَّا تَرۡتَابُوٓاْ إِلَّآ أَن تَكُونَ تِجَٰرَةً حَاضِرَةٗ تُدِيرُونَهَا بَيۡنَكُمۡ فَلَيۡسَ عَلَيۡكُمۡ جُنَاحٌ أَلَّا تَكۡتُبُوهَاۗ وَأَشۡهِدُوٓاْ إِذَا تَبَايَعۡتُمۡۚ وَلَا يُضَآرَّ كَاتِبٞ وَلَا شَهِيدٞۚ وَإِن تَفۡعَلُواْ فَإِنَّهُۥ فُسُوقُۢ بِكُمۡۗ وَٱتَّقُواْ ٱللَّهَۖ وَيُعَلِّمُكُمُ ٱللَّهُۗ وَٱللَّهُ بِكُلِّ شَيۡءٍ عَلِيمٞ",
+     "en": "O you who have believed, when you contract a debt for a specified term, write it down. And let a scribe write [it] between you in justice. Let no scribe refuse to write as Allāh has taught him. So let him write and let the one who has the obligation [i.e., the debtor] dictate. And let him fear Allāh, his Lord, and not leave anything out of it. But if the one who has the obligation is of limited understanding or weak or unable to dictate himself, then let his guardian dictate in justice. And bring to witness two witnesses from among your men. And if there are not two men [available], then a man and two women from those whom you accept as witnesses - so that if one of them [i.e., the women] errs, then the other can remind her. And let not the witnesses refuse when they are called upon. And do not be [too] weary to write it, whether it is small or large, for its [specified] term. That is more just in the sight of Allāh and stronger as evidence and more likely to prevent doubt between you, except when it is an immediate transaction which you conduct among yourselves. For [then] there is no blame upon you if you do not write it. And take witnesses when you conclude a contract. Let no scribe be harmed or any witness. For if you do so, indeed, it is [grave] disobedience in you. And fear Allāh. And Allāh teaches you. And Allāh is Knowing of all things.",
+     "bn": "হে মুমিনগণ! তোমরা যখন একে অন্যের সাথে নির্ধারিত সময়ের জন্য ঋণের আদান-প্রদান কর তখন তা লিখে রেখো [১]; তোমাদের মধ্যে কোনো লেখক যেন তা ন্যায়ভাবে লিখে দেয়; কোনো লেখক লিখতে তা অস্বীকার করবে না, যেমন আল্লাহ্‌ তাকে শিক্ষা দিয়েছেন। সুতরাং সে যেন লিখে [২] এবং যে ব্যক্তির উপর হক্ক রয়েছে (ঋণগ্রহীতা) সে যেন লেখার বিষয়বস্তু বলে দেয় [৩] এবং সে যেন তার রব আল্লাহ্‌র তাকওয়া অবলম্বন করে। আর তা থেকে কিছু যেন না কমায় (ব্যতিক্রম না করে)। অতঃপর যার উপর হক্ক রয়েছে (ঋণগ্রহীতা) যদি নির্বোধ অথবা দুর্বল হয় অথবা লেখার বিষয়বস্তু সে বলে দিতে না পারে তবে যেন তার অভিভাবক ন্যায্যভাবে লেখার বিষয়বস্তু বলে দেয় [৪]। আর তোমরা তোমাদের পুরুষদের মধ্য হতে দু’জন সাক্ষী রাখ, অতঃপর যদি দুজন পুরুষ না হয় তবে একজন পুরুষ ও দু’জন স্ত্রীলোক যাদেরকে তোমরা সাক্ষী হিসেবে পছন্দ কর, যাতে স্ত্রীলোকদের মধ্যে একজন ভুলে গেলে তাদের একজন অপরজনকে স্মরণ করিয়ে দেয় [৫]। আর সাক্ষীগণকে যখন ডাকা হবে তখন তারা যেন অস্বীকার না করে [৬]। আর তা (লেন-দেন) ছোট-বড় যাই হোক, মেয়াদসহ লিখতে তোমরা কোনোরূপ বিরক্ত হয়ো না। এটাই আল্লাহ্‌র নিকট ন্যায্যতর ও সাক্ষ্যদানের জন্য দৃঢ়তর এবং তোমাদের মধ্যে সন্দেহের উদ্রেক না হওয়ার জন্য অধিকতর উপযুক্ত। তবে তোমরা পরস্পর যে নগদ ব্যবসা পরিচালনা কর তা তোমরা না লিখলে কোনো দোষ নেই। আর তোমরা যখন পরস্পর বেচা-কেনা কর তখন সাক্ষী রেখো। আর কোনো লেখক ও সাক্ষীকে খতিগ্রস্থ করা হবে না। আর যদি তোমরা খতিগ্রস্থ কর, তবে তা হবে তোমাদের সাথে অনাচার [৭]। আর তোমরা আল্লাহ্‌র তাকওয়া অবলম্বন কর এবং আল্লাহ্‌ তোমাদেরকে শিক্ষা দিবেন। আর আল্লাহ্‌ সবকিছু সম্পর্কে সবিশেষ জ্ঞানী।",
+     "note": "When you contract a debt, write it down; let a scribe write in justice and let witnesses testify."
+    },
+    {
+     "id": "q-2-283",
+     "ref": "2:283",
+     "source": "Qur'an",
+     "tags": [
+      "contract",
+      "trust"
+     ],
+     "ar": "۞ وَإِن كُنتُمۡ عَلَىٰ سَفَرٖ وَلَمۡ تَجِدُواْ كَاتِبٗا فَرِهَٰنٞ مَّقۡبُوضَةٞۖ فَإِنۡ أَمِنَ بَعۡضُكُم بَعۡضٗا فَلۡيُؤَدِّ ٱلَّذِي ٱؤۡتُمِنَ أَمَٰنَتَهُۥ وَلۡيَتَّقِ ٱللَّهَ رَبَّهُۥۗ وَلَا تَكۡتُمُواْ ٱلشَّهَٰدَةَۚ وَمَن يَكۡتُمۡهَا فَإِنَّهُۥٓ ءَاثِمٞ قَلۡبُهُۥۗ وَٱللَّهُ بِمَا تَعۡمَلُونَ عَلِيمٞ",
+     "en": "And if you are on a journey and cannot find a scribe, then a security deposit [should be] taken. And if one of you entrusts another, then let him who is entrusted discharge his trust [faithfully] and let him fear Allāh, his Lord. And do not conceal testimony, for whoever conceals it - his heart is indeed sinful, and Allāh is Knowing of what you do.",
+     "bn": "আর যদি তোমরা সফরে থাক এবং কোনো লেখক না পাও তবে হস্তান্তরকৃত বন্ধক রাখবে [১]। অতঃপর তোমাদের একে অপরকে বিশ্বস্ত মনে করলে, যার কাছে আমানত রাখা হয়েছে সে যেন আমানত প্রত্যার্পণ করে এবং তার রব আল্লাহ্‌র তাকওয়া অবলম্বন করে। আর তোমরা সাক্ষ্য গোপন করো না [২]। আর যে কেউ তা গোপন করে অবশ্যই তার অন্তর পাপী [৩]। আর তোমরা যা কর আল্লাহ্‌ তা সবিশেষ অবগত।",
+     "note": "If you are on a journey and cannot find a scribe, take a pledge; do not conceal testimony."
+    },
+    {
+     "id": "q-3-130",
+     "ref": "3:130",
+     "source": "Qur'an",
+     "tags": [
+      "riba"
+     ],
+     "ar": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُواْ لَا تَأۡكُلُواْ ٱلرِّبَوٰٓاْ أَضۡعَٰفٗا مُّضَٰعَفَةٗۖ وَٱتَّقُواْ ٱللَّهَ لَعَلَّكُمۡ تُفۡلِحُونَ",
+     "en": "O you who have believed, do not consume usury, doubled and multiplied, but fear Allāh that you may be successful.",
+     "bn": "হে মুমিনগণ! তোমরা চক্রবৃ্দ্ধি হারে সুদ [১] খেয়ো না [২] এবং আল্লাহর তাকওয়া অবলম্বন কর যাতে তোমরা সফলকাম হতে পার।",
+     "note": "Do not consume interest, doubled and multiplied, but fear Allah that you may succeed."
+    },
+    {
+     "id": "q-4-5",
+     "ref": "4:5",
+     "source": "Qur'an",
+     "tags": [
+      "wealth",
+      "stewardship"
+     ],
+     "ar": "وَلَا تُؤۡتُواْ ٱلسُّفَهَآءَ أَمۡوَٰلَكُمُ ٱلَّتِي جَعَلَ ٱللَّهُ لَكُمۡ قِيَٰمٗا وَٱرۡزُقُوهُمۡ فِيهَا وَٱكۡسُوهُمۡ وَقُولُواْ لَهُمۡ قَوۡلٗا مَّعۡرُوفٗا",
+     "en": "And do not give the weak-minded your property, which Allāh has made a means of sustenance for you, but provide for them with it and clothe them and speak to them words of appropriate kindness.",
+     "bn": "আর তোমরা অল্প বুদ্ধিমানদেরকে তাদের ধন-সম্পদ অর্পণ করো না [১]; যা দ্বারা আল্লাহ তোমাদের জীবন চালানোর ব্যবস্থা করেছেন এবং তা থেকে তাদের আহার-বিহার ও ভরণ-পোষণের ব্যবস্থা কর। আর তোমরা তাদের সাথে সদালাপ কর।",
+     "note": "Do not give your property to the foolish, but provide for them from it and speak to them kindly."
+    },
+    {
+     "id": "q-4-6",
+     "ref": "4:6",
+     "source": "Qur'an",
+     "tags": [
+      "orphan",
+      "wealth"
+     ],
+     "ar": "وَٱبۡتَلُواْ ٱلۡيَتَٰمَىٰ حَتَّىٰٓ إِذَا بَلَغُواْ ٱلنِّكَاحَ فَإِنۡ ءَانَسۡتُم مِّنۡهُمۡ رُشۡدٗا فَٱدۡفَعُوٓاْ إِلَيۡهِمۡ أَمۡوَٰلَهُمۡۖ وَلَا تَأۡكُلُوهَآ إِسۡرَافٗا وَبِدَارًا أَن يَكۡبَرُواْۚ وَمَن كَانَ غَنِيّٗا فَلۡيَسۡتَعۡفِفۡۖ وَمَن كَانَ فَقِيرٗا فَلۡيَأۡكُلۡ بِٱلۡمَعۡرُوفِۚ فَإِذَا دَفَعۡتُمۡ إِلَيۡهِمۡ أَمۡوَٰلَهُمۡ فَأَشۡهِدُواْ عَلَيۡهِمۡۚ وَكَفَىٰ بِٱللَّهِ حَسِيبٗا",
+     "en": "And test the orphans [in their abilities] until they reach marriageable age. Then if you perceive in them sound judgement, release their property to them. And do not consume it excessively and quickly, [anticipating] that they will grow up. And whoever, [when acting as guardian], is self-sufficient should refrain [from taking a fee]; and whoever is poor - let him take according to what is acceptable. Then when you release their property to them, bring witnesses upon them. And sufficient is Allāh as Accountant.",
+     "bn": "আর ইয়াতিমদেরকে যাচাই করবে [১] যে পর্যন্ত না তারা বিয়ের যোগ্য হয়; অতঃপর তাদের মধ্যে ভালো-মন্দ বিচারের জ্ঞান দেখতে পেলে [২] তাদের সম্পদ তাদেরকে ফিরিয়ে দাও [৩]। তারা বড় হয়ে যাবে বলে অপচয় করে তাড়াতাড়ি খেয়ে ফেলো না। যে অভাবমুক্ত সে যেন নিবৃত্ত থাকে এবং যে বিত্তহীন সে যেন সংযত পরিমাণে ভোগ করে [৪]। অতঃপর তোমরা যখন তাদেরকে তাদের সম্পদ ফিরিয়ে দিবে তখন সাক্ষী রেখো। আর হিসেব গ্রহণে আল্লাহই যথেষ্ট।",
+     "note": "Test the orphans; when mature, give them their property. Do not consume it extravagantly."
+    },
+    {
+     "id": "q-4-29",
+     "ref": "4:29",
+     "source": "Qur'an",
+     "tags": [
+      "trade",
+      "consent",
+      "justice"
+     ],
+     "ar": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُواْ لَا تَأۡكُلُوٓاْ أَمۡوَٰلَكُم بَيۡنَكُم بِٱلۡبَٰطِلِ إِلَّآ أَن تَكُونَ تِجَٰرَةً عَن تَرَاضٖ مِّنكُمۡۚ وَلَا تَقۡتُلُوٓاْ أَنفُسَكُمۡۚ إِنَّ ٱللَّهَ كَانَ بِكُمۡ رَحِيمٗا",
+     "en": "O you who have believed, do not consume one another's wealth unjustly but only [in lawful] business by mutual consent. And do not kill yourselves [or one another]. Indeed, Allāh is to you ever Merciful.",
+     "bn": "হে মুমিনগণ! তোমরা একে অপরের সম্পত্তি [১] অন্যায়ভাবে [২] গ্রাস করো না; কিন্তু তোমরা পরস্পর রাযী হয়ে [৩] ব্যবসা করা বৈধ [৪]; এবং নিজেদেরকে হত্যা করো না [৫]; নিশ্চয় আল্লাহ তোমাদের প্রতি পরম দয়ালু।",
+     "note": "Do not consume one another's wealth unjustly, but only by trade by mutual consent."
+    },
+    {
+     "id": "q-4-58",
+     "ref": "4:58",
+     "source": "Qur'an",
+     "tags": [
+      "trust",
+      "justice"
+     ],
+     "ar": "۞ إِنَّ ٱللَّهَ يَأۡمُرُكُمۡ أَن تُؤَدُّواْ ٱلۡأَمَٰنَٰتِ إِلَىٰٓ أَهۡلِهَا وَإِذَا حَكَمۡتُم بَيۡنَ ٱلنَّاسِ أَن تَحۡكُمُواْ بِٱلۡعَدۡلِۚ إِنَّ ٱللَّهَ نِعِمَّا يَعِظُكُم بِهِۦٓۗ إِنَّ ٱللَّهَ كَانَ سَمِيعَۢا بَصِيرٗا",
+     "en": "Indeed, Allāh commands you to render trusts to whom they are due and when you judge between people to judge with justice. Excellent is that which Allāh instructs you. Indeed, Allāh is ever Hearing and Seeing.",
+     "bn": "নিশ্চয় আল্লাহ তোমাদেরকে নির্দেশ দিচ্ছেন আমানত [১] তার হকদারকে ফিরিয়ে দিতে [২]। তোমরা যখন মানুষের মধ্যে বিচারকার্য পরিচালনা করবে তখন ন্যায়পরায়ণতার সাথে বিচার করবে [৩]। আল্লাহ তোমাদেরকে যে উপদেশ দেন তা কত উৎকৃষ্ট[৪]! নিশ্চয় আল্লাহ সর্বশ্রোতা, সর্বদ্রষ্টা [৫]।",
+     "note": "Return trusts to their owners and judge with justice when you judge between people."
+    },
+    {
+     "id": "q-5-1",
+     "ref": "5:1",
+     "source": "Qur'an",
+     "tags": [
+      "contract",
+      "faith"
+     ],
+     "ar": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓاْ أَوۡفُواْ بِٱلۡعُقُودِۚ أُحِلَّتۡ لَكُم بَهِيمَةُ ٱلۡأَنۡعَٰمِ إِلَّا مَا يُتۡلَىٰ عَلَيۡكُمۡ غَيۡرَ مُحِلِّي ٱلصَّيۡدِ وَأَنتُمۡ حُرُمٌۗ إِنَّ ٱللَّهَ يَحۡكُمُ مَا يُرِيدُ",
+     "en": "O you who have believed, fulfill [all] contracts. Lawful for you are the animals of grazing livestock except for that which is recited to you [in this Qur’ān] - hunting not being permitted while you are in the state of iḥrām. Indeed, Allāh ordains what He intends.",
+     "bn": "হে মুমিনগণ [১] ! তোমরা অঙ্গীকারসমূহ [২] পূর্ণ করবে [৩]। যা তোমাদের নিকট বর্ণিত হচ্ছে [৪] তা ছাড়া গৃহপালিত [৫] চতুষ্পদ জন্তু [৬] তোমাদের জন্য হালাল করা হল, তবে ইহরাম অবস্থায় শিকার করাকে বৈধ মনে করবে না [৭]। নিশ্চয়ই আল্লাহ যা ইচ্ছে আদেশ করেন [৮]।",
+     "note": "Fulfil your contracts. Lawful for you are the animals of grazing livestock."
+    },
+    {
+     "id": "q-5-90",
+     "ref": "5:90",
+     "source": "Qur'an",
+     "tags": [
+      "gambling",
+      "intoxicants"
+     ],
+     "ar": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓاْ إِنَّمَا ٱلۡخَمۡرُ وَٱلۡمَيۡسِرُ وَٱلۡأَنصَابُ وَٱلۡأَزۡلَٰمُ رِجۡسٞ مِّنۡ عَمَلِ ٱلشَّيۡطَٰنِ فَٱجۡتَنِبُوهُ لَعَلَّكُمۡ تُفۡلِحُونَ",
+     "en": "O you who have believed, indeed, intoxicants, gambling, [sacrificing on] stone alters [to other than Allāh], and divining arrows are but defilement from the work of Satan, so avoid it that you may be successful.",
+     "bn": "হে মুমিনগণ! মদ [১], জুয়া, পূর্তিপূজার বেদী ও ভাগ্য নির্ণয় করার শর [২] তো কেবল ঘৃণার বস্তু, শয়তানের কাজ। কাজেই তোমরা সেগুলোকে বর্জন কর –যাতে তোমরা সফলকাম হতে পার [৩]।",
+     "note": "Intoxicants, gambling, idolatry and divination are abominations of Satan's work; avoid them."
+    },
+    {
+     "id": "q-6-141",
+     "ref": "6:141",
+     "source": "Qur'an",
+     "tags": [
+      "harvest",
+      "charity"
+     ],
+     "ar": "۞ وَهُوَ ٱلَّذِيٓ أَنشَأَ جَنَّٰتٖ مَّعۡرُوشَٰتٖ وَغَيۡرَ مَعۡرُوشَٰتٖ وَٱلنَّخۡلَ وَٱلزَّرۡعَ مُخۡتَلِفًا أُكُلُهُۥ وَٱلزَّيۡتُونَ وَٱلرُّمَّانَ مُتَشَٰبِهٗا وَغَيۡرَ مُتَشَٰبِهٖۚ كُلُواْ مِن ثَمَرِهِۦٓ إِذَآ أَثۡمَرَ وَءَاتُواْ حَقَّهُۥ يَوۡمَ حَصَادِهِۦۖ وَلَا تُسۡرِفُوٓاْۚ إِنَّهُۥ لَا يُحِبُّ ٱلۡمُسۡرِفِينَ",
+     "en": "And He it is who causes gardens to grow, [both] trellised and untrellised, and palm trees and crops of different [kinds of] food and olives and pomegranates, similar and dissimilar. Eat of [each of] its fruit when it yields and give its due [zakāh] on the day of its harvest. And be not excessive. Indeed, He does not like those who commit excess.",
+     "bn": "আর তিনিই সৃষ্টি করেছেন এমন বাগানসমূহ যার কিছু মাচানির্ভর অপর কিছু মাচানির্ভর নয় এবং খেজুর বৃক্ষ ও শস্য, যার স্বাদ বিভিন্ন রকম, আর যায়তুন ও আনার, এগুলো একটি অন্যটির মত, আবার বিভিন্ন রূপেরও। যখন ওগুলো ফলবান হবে তখন সেগুলোর ফল খাবে এবং ফসল তোলার দিন সে সবের হক প্রদান করবে [১]। আর অপচয় করবে না; নিশ্চয় তিনি অপচয়কারীদেরকে পছন্দ করেন না।",
+     "note": "Eat of their fruit when they bear, and give its due on the day of harvest; do not waste."
+    },
+    {
+     "id": "q-6-152",
+     "ref": "6:152",
+     "source": "Qur'an",
+     "tags": [
+      "measure",
+      "orphan",
+      "justice"
+     ],
+     "ar": "وَلَا تَقۡرَبُواْ مَالَ ٱلۡيَتِيمِ إِلَّا بِٱلَّتِي هِيَ أَحۡسَنُ حَتَّىٰ يَبۡلُغَ أَشُدَّهُۥۚ وَأَوۡفُواْ ٱلۡكَيۡلَ وَٱلۡمِيزَانَ بِٱلۡقِسۡطِۖ لَا نُكَلِّفُ نَفۡسًا إِلَّا وُسۡعَهَاۖ وَإِذَا قُلۡتُمۡ فَٱعۡدِلُواْ وَلَوۡ كَانَ ذَا قُرۡبَىٰۖ وَبِعَهۡدِ ٱللَّهِ أَوۡفُواْۚ ذَٰلِكُمۡ وَصَّىٰكُم بِهِۦ لَعَلَّكُمۡ تَذَكَّرُونَ",
+     "en": "And do not approach the orphan's property except in a way that is best [i.e., intending improvement] until he reaches maturity. And give full measure and weight in justice. We do not charge any soul except [with that within] its capacity. And when you speak [i.e., testify], be just, even if [it concerns] a near relative. And the covenant of Allāh fulfill. This has He instructed you that you may remember.",
+     "bn": "আর ইয়াতীম বয়ঃপ্রাপ্ত না হওয়া পর্যন্ত উত্তম ব্যবস্থা ছাড়া তোমারা তার সম্পত্তির ধারে-কাছেও যাবে না [১] এবং পরিমাপ ও ওজন ন্যায্যভাবে পুরোপুরি দেবে [২]। আমরা কাউকেও তার সাধ্যের চেয়ে বেশী ভার অর্পণ করি না। আর যখন তোমরা কথা বলবে তখন ন্যায্য বলবে, স্বজনের সম্পর্কে হলেও [৩] এবং আল্লাহকে দেয়া অঙ্গীকার পূর্ণ করবে [৪]। এভাবে আল্লাহ্‌ তোমাদেরকে নির্দেশ দিলেন যেন তোমরা উপদেশ গ্রহণ কর।",
+     "note": "Do not approach the orphan's property except for improvement; give full measure and weight with justice."
+    },
+    {
+     "id": "q-7-31",
+     "ref": "7:31",
+     "source": "Qur'an",
+     "tags": [
+      "moderation",
+      "consumption"
+     ],
+     "ar": "۞ يَٰبَنِيٓ ءَادَمَ خُذُواْ زِينَتَكُمۡ عِندَ كُلِّ مَسۡجِدٖ وَكُلُواْ وَٱشۡرَبُواْ وَلَا تُسۡرِفُوٓاْۚ إِنَّهُۥ لَا يُحِبُّ ٱلۡمُسۡرِفِينَ",
+     "en": "O children of Adam, take your adornment [i.e., wear your clothing] at every masjid, and eat and drink, but be not excessive. Indeed, He likes not those who commit excess.",
+     "bn": "হে বনী আদম! প্রত্যেক সালাতের সময় তোমরা সুন্দর পোষাক গ্রহণ কর [১]। আর খাও এবং পান কর কিন্তু অপচয় কর না [২] নিশ্চয় তিনি অপচয়কারীদেরকে পছন্দ করেন না।",
+     "note": "O children of Adam, take your adornment at every mosque, eat and drink but do not be excessive."
+    },
+    {
+     "id": "q-7-85",
+     "ref": "7:85",
+     "source": "Qur'an",
+     "tags": [
+      "measure",
+      "justice",
+      "trade"
+     ],
+     "ar": "وَإِلَىٰ مَدۡيَنَ أَخَاهُمۡ شُعَيۡبٗاۚ قَالَ يَٰقَوۡمِ ٱعۡبُدُواْ ٱللَّهَ مَا لَكُم مِّنۡ إِلَٰهٍ غَيۡرُهُۥۖ قَدۡ جَآءَتۡكُم بَيِّنَةٞ مِّن رَّبِّكُمۡۖ فَأَوۡفُواْ ٱلۡكَيۡلَ وَٱلۡمِيزَانَ وَلَا تَبۡخَسُواْ ٱلنَّاسَ أَشۡيَآءَهُمۡ وَلَا تُفۡسِدُواْ فِي ٱلۡأَرۡضِ بَعۡدَ إِصۡلَٰحِهَاۚ ذَٰلِكُمۡ خَيۡرٞ لَّكُمۡ إِن كُنتُم مُّؤۡمِنِينَ",
+     "en": "And to [the people of] Madyan [We sent] their brother Shuʿayb. He said, \"O my people, worship Allāh; you have no deity other than Him. There has come to you clear evidence from your Lord. So fulfill the measure and weight and do not deprive people of their due and cause not corruption upon the earth after its reformation. That is better for you, if you should be believers.",
+     "bn": "আর মাদয়ানবাসীদের [১]  নিকট তাদের ভাই শু’আইবকে পাঠিয়েছিলাম। তিনি বলেছিলেন, ‘হে আমার সম্প্রদায়! তোমরা আল্লাহ্‌র ইবাদত কর, তিনি ব্যতীত তোমাদের অন্য কোনো সত্য ইলাহ নেই; তোমাদের রবের কাছ থেকে তোমাদের কাছে স্পষ্ট প্রমাণ এসেছে। কাজেই তোমরা মাপ ও অজন ঠিকভাবে দেবে, লোকদেরকে তাদের প্রাপ্য বস্তু কম দেবে না এবং দুনিয়ার শান্তি স্থাপনের পর বিপর্যয় ঘটাবে না; তোমরা মুমিন হলে তোমাদের জন্য এটাই কল্যাণকর।’",
+     "note": "Give full measure and weight and do not deprive people of what is rightfully theirs."
+    },
+    {
+     "id": "q-8-27",
+     "ref": "8:27",
+     "source": "Qur'an",
+     "tags": [
+      "trust",
+      "faith"
+     ],
+     "ar": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُواْ لَا تَخُونُواْ ٱللَّهَ وَٱلرَّسُولَ وَتَخُونُوٓاْ أَمَٰنَٰتِكُمۡ وَأَنتُمۡ تَعۡلَمُونَ",
+     "en": "O you who have believed, do not betray Allāh and the Messenger or betray your trusts while you know [the consequence].",
+     "bn": "হে  ইমানদারগণ! জেনে –বুঝে আল্লাহ্‌ ও তাঁর রাসূলের খেয়ানত করো না [১] এবং তোমাদের পরস্পরের আমানতেরও [২] খেয়ানত করো না [৩];",
+     "note": "Do not betray Allah, the Messenger, or your trusts while you know."
+    },
+    {
+     "id": "q-9-34",
+     "ref": "9:34",
+     "source": "Qur'an",
+     "tags": [
+      "hoarding",
+      "wealth"
+     ],
+     "ar": "۞ يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُوٓاْ إِنَّ كَثِيرٗا مِّنَ ٱلۡأَحۡبَارِ وَٱلرُّهۡبَانِ لَيَأۡكُلُونَ أَمۡوَٰلَ ٱلنَّاسِ بِٱلۡبَٰطِلِ وَيَصُدُّونَ عَن سَبِيلِ ٱللَّهِۗ وَٱلَّذِينَ يَكۡنِزُونَ ٱلذَّهَبَ وَٱلۡفِضَّةَ وَلَا يُنفِقُونَهَا فِي سَبِيلِ ٱللَّهِ فَبَشِّرۡهُم بِعَذَابٍ أَلِيمٖ",
+     "en": "O you who have believed, indeed many of the scholars and the monks devour the wealth of people unjustly and avert [them] from the way of Allāh. And those who hoard gold and silver and spend it not in the way of Allāh - give them tidings of a painful punishment.",
+     "bn": "হে ঈমানদারগণ! পণ্ডিত এবং সংসার-বিরাগীদের মধ্যে অনেকেই তো জনসাধারণের ধন-সম্পদ অন্যায়ভাবে খায় এবং মানুষকে আল্লাহ্‌র পথ থেকে নিবৃত্ত করে [১]। আর যারা স্বর্ণ ও রৌপ্য পুঞ্জীভূত করে এবং তা আল্লাহ্‌র পথে ব্যয় করে না [২] আপনি তাদেরকে যন্ত্রণাদায়ক শাস্তির সুসংবাদ দিন [৩]।",
+     "note": "Those who hoard gold and silver and do not spend them in the way of Allah — give them tidings of punishment."
+    },
+    {
+     "id": "q-9-60",
+     "ref": "9:60",
+     "source": "Qur'an",
+     "tags": [
+      "zakat",
+      "charity"
+     ],
+     "ar": "۞ إِنَّمَا ٱلصَّدَقَٰتُ لِلۡفُقَرَآءِ وَٱلۡمَسَٰكِينِ وَٱلۡعَٰمِلِينَ عَلَيۡهَا وَٱلۡمُؤَلَّفَةِ قُلُوبُهُمۡ وَفِي ٱلرِّقَابِ وَٱلۡغَٰرِمِينَ وَفِي سَبِيلِ ٱللَّهِ وَٱبۡنِ ٱلسَّبِيلِۖ فَرِيضَةٗ مِّنَ ٱللَّهِۗ وَٱللَّهُ عَلِيمٌ حَكِيمٞ",
+     "en": "Zakāh expenditures are only for the poor and for the needy and for those employed for it and for bringing hearts together [for Islām] and for freeing captives [or slaves] and for those in debt and for the cause of Allāh and for the [stranded] traveler - an obligation [imposed] by Allāh. And Allāh is Knowing and Wise.",
+     "bn": "সদকা [১] তো শুধু [২] ফকীর, মিসকীন [৩] ও সদকা আদায়ের কাজে নিযুক্ত কর্মচারীদের জন্য [৪], যাদের অন্তর আকৃষ্ট করতে হয় তাদের জন্য [৫], দাসমুক্তিতে [৬], ঋণ ভারাক্রান্তদের জন্য [৭], আল্লাহ্‌র পথে [৮] ও মুসাফিরদের [৯] জন্য। এটা আল্লাহ্‌র  পক্ষ থেকে নির্ধারিত [১০]। আর আল্লাহ্‌ সর্বজ্ঞ, প্রজ্ঞাময় [১১]।",
+     "note": "Zakat is for the poor, the needy, those employed to collect it, and other named categories."
+    },
+    {
+     "id": "q-9-103",
+     "ref": "9:103",
+     "source": "Qur'an",
+     "tags": [
+      "zakat",
+      "purification"
+     ],
+     "ar": "خُذۡ مِنۡ أَمۡوَٰلِهِمۡ صَدَقَةٗ تُطَهِّرُهُمۡ وَتُزَكِّيهِم بِهَا وَصَلِّ عَلَيۡهِمۡۖ إِنَّ صَلَوٰتَكَ سَكَنٞ لَّهُمۡۗ وَٱللَّهُ سَمِيعٌ عَلِيمٌ",
+     "en": "Take, [O Muḥammad], from their wealth a charity by which you purify them and cause them increase, and invoke [Allāh's blessings] upon them. Indeed, your invocations are reassurance for them. And Allāh is Hearing and Knowing.",
+     "bn": "আপনি তাদের সম্পদ থেকে ‘সদকা’ গ্রহন করুন [১]। এর দ্বারা আপনি তাদেরকে পবিত্র করবেন এবং পরিশোধিত করবেন। আর আপনি তেদের জন্য দো’আ করুন। আপনার দো’আ তো তোদের জন্য প্রশান্তি কর [২]। আর আল্লাহ্‌ সর্বশ্রোতা, সর্বজ্ঞ।",
+     "note": "Take from their wealth a charity by which you purify and sanctify them."
+    },
+    {
+     "id": "q-11-84",
+     "ref": "11:84",
+     "source": "Qur'an",
+     "tags": [
+      "measure",
+      "trade"
+     ],
+     "ar": "۞ وَإِلَىٰ مَدۡيَنَ أَخَاهُمۡ شُعَيۡبٗاۚ قَالَ يَٰقَوۡمِ ٱعۡبُدُواْ ٱللَّهَ مَا لَكُم مِّنۡ إِلَٰهٍ غَيۡرُهُۥۖ وَلَا تَنقُصُواْ ٱلۡمِكۡيَالَ وَٱلۡمِيزَانَۖ إِنِّيٓ أَرَىٰكُم بِخَيۡرٖ وَإِنِّيٓ أَخَافُ عَلَيۡكُمۡ عَذَابَ يَوۡمٖ مُّحِيطٖ",
+     "en": "And to Madyan [We sent] their brother Shuʿayb. He said, \"O my people, worship Allāh; you have no deity other than Him. And do not decrease from the measure and the scale. Indeed, I see you in prosperity, but indeed, I fear for you the punishment of an all-encompassing Day.",
+     "bn": "আর মাদ্ইয়ানবাসীদের [১] কাছে তাদের ভাই শু’আইবকে পাঠিয়েছিলাম [২]। তিনি বলেছিলেন, ‘হে আমার সম্প্রদায়! তোমরা আল্লাহর ইবাদত কর, তিনি ছাড়া তোমাদের অন্য কোনো সত্য ইলাহ্ নেই, আর মাপে ও ওজনে কম করো না; নিশ্চয়ই আমি তোমাদেরকে কল্যাণের মধ্যে দেখছি [৩], কিন্তু আমি তোমাদের উপর আশংকা করছি এক সর্বগ্রাসী দিনের শাস্তি।",
+     "note": "Shu'ayb said: O my people, worship Allah; I fear for you the punishment of a dreadful day."
+    },
+    {
+     "id": "q-11-85",
+     "ref": "11:85",
+     "source": "Qur'an",
+     "tags": [
+      "measure",
+      "justice"
+     ],
+     "ar": "وَيَٰقَوۡمِ أَوۡفُواْ ٱلۡمِكۡيَالَ وَٱلۡمِيزَانَ بِٱلۡقِسۡطِۖ وَلَا تَبۡخَسُواْ ٱلنَّاسَ أَشۡيَآءَهُمۡ وَلَا تَعۡثَوۡاْ فِي ٱلۡأَرۡضِ مُفۡسِدِينَ",
+     "en": "And O my people, give full measure and weight in justice and do not deprive the people of their due and do not commit abuse on the earth, spreading corruption.",
+     "bn": "‘হে আমার সম্প্রদায় ! তোমরা ন্যায়সঙ্গত ভাবে মাপো ও ওজন করো, লোকদেরকে তাদের প্রাপ্য  বস্তু কম দিও না এবং যমীনে বিপর্যয় সৃষ্টি করে বেড়িও না [১]।",
+     "note": "O my people, give full measure and weight in justice and do not deprive people of their due."
+    },
+    {
+     "id": "q-16-14",
+     "ref": "16:14",
+     "source": "Qur'an",
+     "tags": [
+      "sea",
+      "trade",
+      "provision"
+     ],
+     "ar": "وَهُوَ ٱلَّذِي سَخَّرَ ٱلۡبَحۡرَ لِتَأۡكُلُواْ مِنۡهُ لَحۡمٗا طَرِيّٗا وَتَسۡتَخۡرِجُواْ مِنۡهُ حِلۡيَةٗ تَلۡبَسُونَهَاۖ وَتَرَى ٱلۡفُلۡكَ مَوَاخِرَ فِيهِ وَلِتَبۡتَغُواْ مِن فَضۡلِهِۦ وَلَعَلَّكُمۡ تَشۡكُرُونَ",
+     "en": "And it is He who subjected the sea for you to eat from it tender meat and to extract from it ornaments which you wear. And you see the ships plowing through it, and [He subjected it] that you may seek of His bounty; and perhaps you will be grateful.",
+     "bn": "আর তিনিই সাগরকে নিয়োজিত করেছেন [১] যাতে তোমরা তা থেকে তাজা (মাছের) গোশত খেতে পার এবং যাতে তা থেকে আহরণ করতে পার রত্নাবলী যা তোমরা ভূষণরূপে পরে থাক [২] এবং তোমরা দেখতে পাও, তার বুক চিরে নৌযান চলাচল করে [৩] এবং এটা এ জন্যে যে, তোমরা যেন তাঁর অনুগ্রহ সন্ধান করতে পার এবং তোমরা যেন কৃতজ্ঞতা প্রকাশ কর;",
+     "note": "He subjected the sea so you may eat fresh meat and extract ornaments, and you see ships sailing."
+    },
+    {
+     "id": "q-16-91",
+     "ref": "16:91",
+     "source": "Qur'an",
+     "tags": [
+      "contract",
+      "oath"
+     ],
+     "ar": "وَأَوۡفُواْ بِعَهۡدِ ٱللَّهِ إِذَا عَٰهَدتُّمۡ وَلَا تَنقُضُواْ ٱلۡأَيۡمَٰنَ بَعۡدَ تَوۡكِيدِهَا وَقَدۡ جَعَلۡتُمُ ٱللَّهَ عَلَيۡكُمۡ كَفِيلًاۚ إِنَّ ٱللَّهَ يَعۡلَمُ مَا تَفۡعَلُونَ",
+     "en": "And fulfill the covenant of Allāh when you have taken it, [O believers], and do not break oaths after their confirmation while you have made Allāh, over you, a security [i.e., witness]. Indeed, Allāh knows what you do.",
+     "bn": "আর তোমরা আল্লাহ্‌র অঙ্গীকার পূর্ণ কর যখন পরস্পর অঙ্গীকার কর এবং তোমরা আল্লাহ্‌কে তোমাদের জামিন করে শপথ দৃঢ় করার পর তা ভঙ্গ করো না [১]। নিশ্চয় আল্লাহ্‌ জানেন যা তোমরা কর।",
+     "note": "Fulfil the covenant of Allah when you have taken it, and do not break your oaths."
+    },
+    {
+     "id": "q-17-29",
+     "ref": "17:29",
+     "source": "Qur'an",
+     "tags": [
+      "spending",
+      "moderation"
+     ],
+     "ar": "وَلَا تَجۡعَلۡ يَدَكَ مَغۡلُولَةً إِلَىٰ عُنُقِكَ وَلَا تَبۡسُطۡهَا كُلَّ ٱلۡبَسۡطِ فَتَقۡعُدَ مَلُومٗا مَّحۡسُورًا",
+     "en": "And do not make your hand [as] chained to your neck or extend it completely and [thereby] become blamed and insolvent.",
+     "bn": "আর তুমি তোমার হাত গলায় বেঁধে রেখো না এবং তা সম্পূর্ণরূপে মেলেও দিও না, তাহলে তুমি তিরস্কৃত ও আফসোসকৃত হয়ে বসে পড়বে [১]।",
+     "note": "Do not tie your hand to your neck nor stretch it out entirely, lest you sit blameworthy and regretful."
+    },
+    {
+     "id": "q-17-35",
+     "ref": "17:35",
+     "source": "Qur'an",
+     "tags": [
+      "measure",
+      "trade"
+     ],
+     "ar": "وَأَوۡفُواْ ٱلۡكَيۡلَ إِذَا كِلۡتُمۡ وَزِنُواْ بِٱلۡقِسۡطَاسِ ٱلۡمُسۡتَقِيمِۚ ذَٰلِكَ خَيۡرٞ وَأَحۡسَنُ تَأۡوِيلٗا",
+     "en": "And give full measure when you measure, and weigh with an even [i.e., honest] balance. That is the best [way] and best in result.",
+     "bn": "আর মেপে দেয়ার সময় পূর্ণ মাপে দাও এবং ওজন কর সঠিক দাঁড়িপাল্লায় [১], এটাই উত্তম এবং  পরিণামে উৎকৃষ্ট [২]।",
+     "note": "Give full measure when you measure and weigh with an accurate balance."
+    },
+    {
+     "id": "q-18-46",
+     "ref": "18:46",
+     "source": "Qur'an",
+     "tags": [
+      "wealth",
+      "afterlife"
+     ],
+     "ar": "ٱلۡمَالُ وَٱلۡبَنُونَ زِينَةُ ٱلۡحَيَوٰةِ ٱلدُّنۡيَاۖ وَٱلۡبَٰقِيَٰتُ ٱلصَّٰلِحَٰتُ خَيۡرٌ عِندَ رَبِّكَ ثَوَابٗا وَخَيۡرٌ أَمَلٗا",
+     "en": "Wealth and children are [but] adornment of the worldly life. But the enduring good deeds are better to your Lord for reward and better for [one's] hope.",
+     "bn": "ধন-সম্পদ ও সন্তান-সন্ততি দুনিয়ার জীবনের শোভা; আর স্থায়ী সৎকাজ [১] আপনার রবের কাছে পুরস্কার প্রাপ্তির জন্য শ্রেষ্ঠ এবং কাঙ্ক্ষিত হিসেবেও উৎকৃষ্ট।",
+     "note": "Wealth and children are the adornment of worldly life, but lasting good deeds are better."
+    },
+    {
+     "id": "q-21-80",
+     "ref": "21:80",
+     "source": "Qur'an",
+     "tags": [
+      "craft",
+      "industry"
+     ],
+     "ar": "وَعَلَّمۡنَٰهُ صَنۡعَةَ لَبُوسٖ لَّكُمۡ لِتُحۡصِنَكُم مِّنۢ بَأۡسِكُمۡۖ فَهَلۡ أَنتُمۡ شَٰكِرُونَ",
+     "en": "And We taught him the fashioning of coats of armor to protect you from your [enemy in] battle. So will you then be grateful?",
+     "bn": "আর আমরা তাকে তোমাদের জন্য বর্ম নির্মাণ শিক্ষা দিয়েছিলাম [১], যাতে তা তোমাদের যুদ্ধে তোমাদেরকে রক্ষা করে; কাজেই তোমরা কি কৃতজ্ঞ হবে?",
+     "note": "We taught David the making of armour to protect you from your might; will you then be grateful?"
+    },
+    {
+     "id": "q-23-8",
+     "ref": "23:8",
+     "source": "Qur'an",
+     "tags": [
+      "trust",
+      "contract"
+     ],
+     "ar": "وَٱلَّذِينَ هُمۡ لِأَمَٰنَٰتِهِمۡ وَعَهۡدِهِمۡ رَٰعُونَ",
+     "en": "And they who are to their trusts and their promises attentive",
+     "bn": "আর যারা রক্ষা করে নিজেদের আমানত [১] ও প্রতিশ্রুতি [২],",
+     "note": "The believers are those who are faithful to their trusts and their covenant."
+    },
+    {
+     "id": "q-25-67",
+     "ref": "25:67",
+     "source": "Qur'an",
+     "tags": [
+      "spending",
+      "moderation"
+     ],
+     "ar": "وَٱلَّذِينَ إِذَآ أَنفَقُواْ لَمۡ يُسۡرِفُواْ وَلَمۡ يَقۡتُرُواْ وَكَانَ بَيۡنَ ذَٰلِكَ قَوَامٗا",
+     "en": "And [they are] those who, when they spend, do so not excessively or sparingly but are ever, between that, [justly] moderate",
+     "bn": "এবং যখন তারা ব্যয় করে তখন অপব্যয় করে না, কৃপনতাও করে না, আর তাদের পন্থা হয় এতদুভয়ের মধ্যবর্তী [১]।",
+     "note": "Those who spend are neither extravagant nor stingy, but keep a balance between."
+    },
+    {
+     "id": "q-26-181",
+     "ref": "26:181",
+     "source": "Qur'an",
+     "tags": [
+      "measure",
+      "trade"
+     ],
+     "ar": "۞ أَوۡفُواْ ٱلۡكَيۡلَ وَلَا تَكُونُواْ مِنَ ٱلۡمُخۡسِرِينَ",
+     "en": "Give full measure and do not be of those who cause loss.",
+     "bn": "‘মাপে পূর্ণ মাত্রায় দেবে; আর যারা মাপে কম দেয় তোমরা তাদের অন্তর্ভুক্ত হয়ো না",
+     "note": "Give full measure and do not be among those who cause loss."
+    },
+    {
+     "id": "q-26-182",
+     "ref": "26:182",
+     "source": "Qur'an",
+     "tags": [
+      "measure",
+      "trade"
+     ],
+     "ar": "وَزِنُواْ بِٱلۡقِسۡطَاسِ ٱلۡمُسۡتَقِيمِ",
+     "en": "And weigh with an even [i.e., honest] balance.",
+     "bn": "‘এবং ওজন করবে সঠিক দাঁড়িপাল্লায়।",
+     "note": "Weigh with an accurate balance."
+    },
+    {
+     "id": "q-26-183",
+     "ref": "26:183",
+     "source": "Qur'an",
+     "tags": [
+      "justice",
+      "trade"
+     ],
+     "ar": "وَلَا تَبۡخَسُواْ ٱلنَّاسَ أَشۡيَآءَهُمۡ وَلَا تَعۡثَوۡاْ فِي ٱلۡأَرۡضِ مُفۡسِدِينَ",
+     "en": "And do not deprive people of their due and do not commit abuse on earth, spreading corruption.",
+     "bn": "‘আর লোকদেরকে তাদের প্রাপ্য বস্তু কম দিও না এবং পৃথিবীতে বিপর্যয় সৃষ্টি করে বেড়িও না।",
+     "note": "Do not deprive people of their things and do not spread corruption on earth."
+    },
+    {
+     "id": "q-28-26",
+     "ref": "28:26",
+     "source": "Qur'an",
+     "tags": [
+      "employment",
+      "trust"
+     ],
+     "ar": "قَالَتۡ إِحۡدَىٰهُمَا يَٰٓأَبَتِ ٱسۡتَـٔۡجِرۡهُۖ إِنَّ خَيۡرَ مَنِ ٱسۡتَـٔۡجَرۡتَ ٱلۡقَوِيُّ ٱلۡأَمِينُ",
+     "en": "One of the women said, \"O my father, hire him. Indeed, the best one you can hire is the strong and the trustworthy.\"",
+     "bn": "নারীদ্বয়ের একজন বলল, ‘হে আমার পিতা! আপনি একে মজুর নিযুক্ত করুন, কারণ আপনার মজুর হিসেবে উত্তম হবে সে ব্যক্তি, যে শক্তিশালী, বিশ্বস্ত [১]।’",
+     "note": "The best person you can hire is the strong and trustworthy one."
+    },
+    {
+     "id": "q-30-39",
+     "ref": "30:39",
+     "source": "Qur'an",
+     "tags": [
+      "riba",
+      "charity"
+     ],
+     "ar": "وَمَآ ءَاتَيۡتُم مِّن رِّبٗا لِّيَرۡبُوَاْ فِيٓ أَمۡوَٰلِ ٱلنَّاسِ فَلَا يَرۡبُواْ عِندَ ٱللَّهِۖ وَمَآ ءَاتَيۡتُم مِّن زَكَوٰةٖ تُرِيدُونَ وَجۡهَ ٱللَّهِ فَأُوْلَٰٓئِكَ هُمُ ٱلۡمُضۡعِفُونَ",
+     "en": "And whatever you give for interest [i.e., advantage] to increase within the wealth of people will not increase with Allāh. But what you give in zakāh, desiring the face [i.e., approval] of Allāh - those are the multipliers.",
+     "bn": "আর মানুষের সম্পদ বৃদ্ধি পাবে বলে তোমরা যে সুদ দাও, আল্লাহর দৃষ্টিতে তা ধন-সম্পদ বৃদ্ধি করে না। কিন্তু আল্লাহ্‌র সন্তষ্টি লাভের জন্য যে যাকাত তোমরা দাও (তা-ই বৃদ্ধি পায়) সুতরাং তারাই সমৃদ্ধশালী [১]।",
+     "note": "Whatever you give in interest to increase people's wealth does not increase with Allah; charity does."
+    },
+    {
+     "id": "q-34-12",
+     "ref": "34:12",
+     "source": "Qur'an",
+     "tags": [
+      "industry",
+      "provision"
+     ],
+     "ar": "وَلِسُلَيۡمَٰنَ ٱلرِّيحَ غُدُوُّهَا شَهۡرٞ وَرَوَاحُهَا شَهۡرٞۖ وَأَسَلۡنَا لَهُۥ عَيۡنَ ٱلۡقِطۡرِۖ وَمِنَ ٱلۡجِنِّ مَن يَعۡمَلُ بَيۡنَ يَدَيۡهِ بِإِذۡنِ رَبِّهِۦۖ وَمَن يَزِغۡ مِنۡهُمۡ عَنۡ أَمۡرِنَا نُذِقۡهُ مِنۡ عَذَابِ ٱلسَّعِيرِ",
+     "en": "And to Solomon [We subjected] the wind - its morning [journey was that of] a month - and its afternoon [journey was that of] a month, and We made flow for him a spring of [liquid] copper. And among the jinn were those who worked for him by the permission of his Lord. And whoever deviated among them from Our command - We will make him taste of the punishment of the Blaze.",
+     "bn": "আর সুলাইমানের অধীন করেছিলাম বায়ুকে যা ভোরে একমাসের পথ অতিক্রম করত ও সন্ধ্যায় একমাসের পথ অতিক্রম করত [১]। আমরা তার জন্য গলিত তামার এক প্রস্রবণ প্রবাহিত করেছিলাম এবং তার রবের অনুমতিক্রমে জিনদের কিছু সংখ্যক তার সামনে কাজ করত। আর তাদের মধ্যে যে আমাদের নির্দেশ অমান্য করে, তাকে আমরা জ্বলন্ত আগুনের শাস্তি আস্বাদন করাব [২]।",
+     "note": "We made the wind subject to Solomon, and We caused a spring of copper to flow for him."
+    },
+    {
+     "id": "q-34-13",
+     "ref": "34:13",
+     "source": "Qur'an",
+     "tags": [
+      "craft",
+      "gratitude"
+     ],
+     "ar": "يَعۡمَلُونَ لَهُۥ مَا يَشَآءُ مِن مَّحَٰرِيبَ وَتَمَٰثِيلَ وَجِفَانٖ كَٱلۡجَوَابِ وَقُدُورٖ رَّاسِيَٰتٍۚ ٱعۡمَلُوٓاْ ءَالَ دَاوُۥدَ شُكۡرٗاۚ وَقَلِيلٞ مِّنۡ عِبَادِيَ ٱلشَّكُورُ",
+     "en": "They made for him what he willed of elevated chambers, statues, bowls like reservoirs, and stationary kettles. [We said], \"Work, O family of David, in gratitude.\" And few of My servants are grateful.",
+     "bn": "তারা সুলাইমানের ইচ্ছানুযায়ী তার জন্য প্রাসাদ [১], ভাস্কৰ্য, হাউজসদৃশ বৃহদাকার পাত্ৰ এবং সুদৃঢ়ভাবে স্থাপিত ডেগ নির্মাণ করত। 'হে দাউদ পরিবার! কৃতজ্ঞতার সাথে তোমরা কাজ করতে থাক। আর আমার বান্দাদের মধ্যে অল্পই কৃতজ্ঞ!’",
+     "note": "They made for him what he willed: arches, statues, basins and fixed cauldrons. Work, O family of David, in gratitude."
+    },
+    {
+     "id": "q-35-29",
+     "ref": "35:29",
+     "source": "Qur'an",
+     "tags": [
+      "trade",
+      "recitation"
+     ],
+     "ar": "إِنَّ ٱلَّذِينَ يَتۡلُونَ كِتَٰبَ ٱللَّهِ وَأَقَامُواْ ٱلصَّلَوٰةَ وَأَنفَقُواْ مِمَّا رَزَقۡنَٰهُمۡ سِرّٗا وَعَلَانِيَةٗ يَرۡجُونَ تِجَٰرَةٗ لَّن تَبُورَ",
+     "en": "Indeed, those who recite the Book of Allāh and establish prayer and spend [in His cause] out of what We have provided them, secretly and publicly, [can] expect a transaction [i.e., profit] that will never perish -",
+     "bn": "নিশ্চয় যারা আল্লাহর কিতাব তিলাওয়াত করে এবং সালাত কায়েম করে, আর আমরা তাদেরকে যে রিযিক দিয়েছি তা থেকে গোপনে ও প্রকাশ্যে ব্যয় করে, তারাই আশা করে এমন ব্যবসায়ের, যার ক্ষয় নেই।",
+     "note": "Those who recite the Book, establish prayer and spend from what We gave them hope for a trade that will not perish."
+    },
+    {
+     "id": "q-55-7",
+     "ref": "55:7",
+     "source": "Qur'an",
+     "tags": [
+      "balance",
+      "creation"
+     ],
+     "ar": "وَٱلسَّمَآءَ رَفَعَهَا وَوَضَعَ ٱلۡمِيزَانَ",
+     "en": "And the heaven He raised and imposed the balance",
+     "bn": "আর আসমান, তিনি তাকে করেছেন সমুন্নত এবং স্থাপন করেছেন দাঁড়িপাল্লা,",
+     "note": "He raised the heaven and set up the balance."
+    },
+    {
+     "id": "q-55-8",
+     "ref": "55:8",
+     "source": "Qur'an",
+     "tags": [
+      "balance",
+      "justice"
+     ],
+     "ar": "أَلَّا تَطۡغَوۡاْ فِي ٱلۡمِيزَانِ",
+     "en": "That you not transgress within the balance.",
+     "bn": "যাতে তোমরা সীমালজান না কর দাঁড়িপাল্লায়।",
+     "note": "Do not transgress the balance."
+    },
+    {
+     "id": "q-55-9",
+     "ref": "55:9",
+     "source": "Qur'an",
+     "tags": [
+      "measure",
+      "justice"
+     ],
+     "ar": "وَأَقِيمُواْ ٱلۡوَزۡنَ بِٱلۡقِسۡطِ وَلَا تُخۡسِرُواْ ٱلۡمِيزَانَ",
+     "en": "And establish weight in justice and do not make deficient the balance.",
+     "bn": "আর তোমরা ওজনের ন্যায্য মান প্রতিষ্ঠিত কর এবং ওজনে কম দিও না।",
+     "note": "Establish weight with justice and do not cause loss in the balance."
+    },
+    {
+     "id": "q-57-7",
+     "ref": "57:7",
+     "source": "Qur'an",
+     "tags": [
+      "spending",
+      "stewardship"
+     ],
+     "ar": "ءَامِنُواْ بِٱللَّهِ وَرَسُولِهِۦ وَأَنفِقُواْ مِمَّا جَعَلَكُم مُّسۡتَخۡلَفِينَ فِيهِۖ فَٱلَّذِينَ ءَامَنُواْ مِنكُمۡ وَأَنفَقُواْ لَهُمۡ أَجۡرٞ كَبِيرٞ",
+     "en": "Believe in Allāh and His Messenger and spend out of that in which He has made you successive inheritors. For those who have believed among you and spent, there will be a great reward.",
+     "bn": "তোমরা আল্লাহ ও তাঁর রাসূলের প্রতি ঈমান আন এবং আল্লাহ তোমাদেরকে যা কিছুর উত্তরাধিকারী করেছেন তা হতে ব্যয় কর। অতঃপর তোমাদের মধ্যে যারা ঈমান আনে ও ব্যয় করে, তাদের জন্য রয়েছে মহাপুরস্কার।",
+     "note": "Believe in Allah and His Messenger and spend from that over which He made you trustees."
+    },
+    {
+     "id": "q-59-7",
+     "ref": "59:7",
+     "source": "Qur'an",
+     "tags": [
+      "wealth",
+      "distribution"
+     ],
+     "ar": "مَّآ أَفَآءَ ٱللَّهُ عَلَىٰ رَسُولِهِۦ مِنۡ أَهۡلِ ٱلۡقُرَىٰ فَلِلَّهِ وَلِلرَّسُولِ وَلِذِي ٱلۡقُرۡبَىٰ وَٱلۡيَتَٰمَىٰ وَٱلۡمَسَٰكِينِ وَٱبۡنِ ٱلسَّبِيلِ كَيۡ لَا يَكُونَ دُولَةَۢ بَيۡنَ ٱلۡأَغۡنِيَآءِ مِنكُمۡۚ وَمَآ ءَاتَىٰكُمُ ٱلرَّسُولُ فَخُذُوهُ وَمَا نَهَىٰكُمۡ عَنۡهُ فَٱنتَهُواْۚ وَٱتَّقُواْ ٱللَّهَۖ إِنَّ ٱللَّهَ شَدِيدُ ٱلۡعِقَابِ",
+     "en": "And what Allāh restored to His Messenger from the people of the towns - it is for Allāh and for the Messenger and for [his] near relatives and orphans and the needy and the [stranded] traveler - so that it will not be a perpetual distribution among the rich from among you. And whatever the Messenger has given you - take; and what he has forbidden you - refrain from. And fear Allāh; indeed, Allāh is severe in penalty.",
+     "bn": "আল্লাহ্‌ জনপদবাসীদের কাছ থেকে তাঁর রাসূলকে 'ফায়’ হিসেবে যা কিছু দিয়েছেন তা আল্লাহ্‌র, রাসূলের,  রাসূলের স্বজনদের, ইয়াতীমদের,  মিসকীন ও পথচারীদের [১], যাতে তোমাদের মধ্যে যারা বিত্তবান শুধু তাদের মধ্যেই ঐশ্বর্য আবর্তন না করে। রাসূল তোমাদেরকে যা দেয় তা তোমারা গ্রহণ কর এবং যা থেকে তোমাদেরকে নিষেধ কর তা থেকে বিরত থাক [২] এবং তোমরা আল্লাহর তাকওয়া অবলম্বন কর; নিশ্চয় আল্লাহ্‌ শাস্তি দানে কঠোর।",
+     "note": "Whatever Allah restored to His Messenger from the people of the towns belongs to Allah, the Messenger, relatives, orphans, the poor and the traveller — so it is not a circulation among the rich."
+    },
+    {
+     "id": "q-61-10",
+     "ref": "61:10",
+     "source": "Qur'an",
+     "tags": [
+      "trade",
+      "faith"
+     ],
+     "ar": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُواْ هَلۡ أَدُلُّكُمۡ عَلَىٰ تِجَٰرَةٖ تُنجِيكُم مِّنۡ عَذَابٍ أَلِيمٖ",
+     "en": "O you who have believed, shall I guide you to a transaction that will save you from a painful punishment?",
+     "bn": "হে ঈমানদারগণ! আমি কি তোমাদেরকে এমন এক ব্যবসার সন্ধান দেব, যা তোমাদেরকে রক্ষা করবে যন্ত্রণাদায়ক শাস্তি থেকে?",
+     "note": "Shall I guide you to a trade that will save you from a painful punishment?"
+    },
+    {
+     "id": "q-61-11",
+     "ref": "61:11",
+     "source": "Qur'an",
+     "tags": [
+      "trade",
+      "faith"
+     ],
+     "ar": "تُؤۡمِنُونَ بِٱللَّهِ وَرَسُولِهِۦ وَتُجَٰهِدُونَ فِي سَبِيلِ ٱللَّهِ بِأَمۡوَٰلِكُمۡ وَأَنفُسِكُمۡۚ ذَٰلِكُمۡ خَيۡرٞ لَّكُمۡ إِن كُنتُمۡ تَعۡلَمُونَ",
+     "en": "[It is that] you believe in Allāh and His Messenger and strive in the cause of Allāh with your wealth and your lives. That is best for you, if you only knew.",
+     "bn": "তা এই যে, তোমরা আল্লাহ ও তাঁর রাসূলের উপর ঈমান আনবে এবং তোমরা তোমাদের ধন-সম্পদ ও জীবন দ্বারা আল্লাহর পথে জিহাদ করবে। এটাই তোমাদের জন্য শ্রেয় যদি তোমরা জানতে!",
+     "note": "Believe in Allah and His Messenger and strive in the way of Allah with your wealth and lives."
+    },
+    {
+     "id": "q-62-10",
+     "ref": "62:10",
+     "source": "Qur'an",
+     "tags": [
+      "trade",
+      "prayer"
+     ],
+     "ar": "فَإِذَا قُضِيَتِ ٱلصَّلَوٰةُ فَٱنتَشِرُواْ فِي ٱلۡأَرۡضِ وَٱبۡتَغُواْ مِن فَضۡلِ ٱللَّهِ وَٱذۡكُرُواْ ٱللَّهَ كَثِيرٗا لَّعَلَّكُمۡ تُفۡلِحُونَ",
+     "en": "And when the prayer has been concluded, disperse within the land and seek from the bounty of Allāh, and remember Allāh often that you may succeed.",
+     "bn": "অতঃপর সালাত শেষ হলে তোমরা যমীনে ছড়িয়ে পড় এবং আল্লাহর অমুগ্রহ সন্ধান কর ও আল্লহকে খুব বেশী স্মরণ কর, যাতে তোমরা সফলকাম হও ।",
+     "note": "When the prayer is finished, disperse through the land and seek the bounty of Allah."
+    },
+    {
+     "id": "q-63-9",
+     "ref": "63:9",
+     "source": "Qur'an",
+     "tags": [
+      "wealth",
+      "prayer"
+     ],
+     "ar": "يَٰٓأَيُّهَا ٱلَّذِينَ ءَامَنُواْ لَا تُلۡهِكُمۡ أَمۡوَٰلُكُمۡ وَلَآ أَوۡلَٰدُكُمۡ عَن ذِكۡرِ ٱللَّهِۚ وَمَن يَفۡعَلۡ ذَٰلِكَ فَأُوْلَٰٓئِكَ هُمُ ٱلۡخَٰسِرُونَ",
+     "en": "O you who have believed, let not your wealth and your children divert you from the remembrance of Allāh. And whoever does that - then those are the losers.",
+     "bn": "‘হে মুমিনগণ! তোমাদের ধন-সম্পদ ও সন্তান–সন্ততি যেন তোমাদেরকে আল্লাহর স্মরণে উদাসীন না করে। আর যারা এরূপ উদাসীন হবে তারাই তো ক্ষতিগ্রস্ত [১]।",
+     "note": "Do not let your wealth or children divert you from the remembrance of Allah."
+    },
+    {
+     "id": "q-64-16",
+     "ref": "64:16",
+     "source": "Qur'an",
+     "tags": [
+      "spending",
+      "charity"
+     ],
+     "ar": "فَٱتَّقُواْ ٱللَّهَ مَا ٱسۡتَطَعۡتُمۡ وَٱسۡمَعُواْ وَأَطِيعُواْ وَأَنفِقُواْ خَيۡرٗا لِّأَنفُسِكُمۡۗ وَمَن يُوقَ شُحَّ نَفۡسِهِۦ فَأُوْلَٰٓئِكَ هُمُ ٱلۡمُفۡلِحُونَ",
+     "en": "So fear Allāh as much as you are able and listen and obey and spend [in the way of Allāh]; it is better for your selves. And whoever is protected from the stinginess of his soul - it is those who will be the successful.",
+     "bn": "সুতরাং তোমরা যথাসাধ্য আল্লাহর তাকওয়া অবলম্বন কর, শ্রবণ কর, আনুগত্য কর এবং ব্যয় কর তোমাদের নিজেদেরই কল্যাণের জন্য; আর যাদেরকে অন্তরের কার্পণ্য হতে রক্ষা করা হয়; তারাই তো সফলকাম।",
+     "note": "Fear Allah as much as you are able; listen, obey and spend — it is better for your souls."
+    },
+    {
+     "id": "q-65-6",
+     "ref": "65:6",
+     "source": "Qur'an",
+     "tags": [
+      "family",
+      "employment"
+     ],
+     "ar": "أَسۡكِنُوهُنَّ مِنۡ حَيۡثُ سَكَنتُم مِّن وُجۡدِكُمۡ وَلَا تُضَآرُّوهُنَّ لِتُضَيِّقُواْ عَلَيۡهِنَّۚ وَإِن كُنَّ أُوْلَٰتِ حَمۡلٖ فَأَنفِقُواْ عَلَيۡهِنَّ حَتَّىٰ يَضَعۡنَ حَمۡلَهُنَّۚ فَإِنۡ أَرۡضَعۡنَ لَكُمۡ فَـَٔاتُوهُنَّ أُجُورَهُنَّ وَأۡتَمِرُواْ بَيۡنَكُم بِمَعۡرُوفٖۖ وَإِن تَعَاسَرۡتُمۡ فَسَتُرۡضِعُ لَهُۥٓ أُخۡرَىٰ",
+     "en": "Lodge them [in a section] of where you dwell out of your means and do not harm them in order to oppress them. And if they should be pregnant, then spend on them until they give birth. And if they breastfeed for you, then give them their payment and confer among yourselves in the acceptable way; but if you are in discord, then there may breastfeed for him [i.e., the father] another woman.",
+     "bn": "তোমরা তোমাদের সামর্থ্য অনুযায়ী যেরূপ ঘরে তোমরা বাস কর তাদেরকেও সেরূপ ঘরে বাস করতে দেবে; তাদেরকে উত্ত্যক্ত করবে না সংকটে ফেলার জন্য; আর তারা গর্ভবতী হয়ে থাকলে সন্তান প্রসব পর্যন্ত তাদের জন্য ব্যয় করবে। অতঃপর যদি তারা তোমাদের সন্তানদেরকে স্তন্য দান করেন তবে তাদেরকে পারিশ্রমিক দেবে এবং (সন্তানের কল্যাণ সম্পর্কে) তোমরা সংগতভাবে নিজেদের মধ্যে পরামর্শ কর। আর তোমরা যদি নিজ নিজ দাবীতে অনমনীয় হও তাহলে অন্য নারী পিতার পক্ষে স্তন্য দান করবে।",
+     "note": "If they suckle your children, give them their wages and consult together in kindness."
+    },
+    {
+     "id": "q-65-7",
+     "ref": "65:7",
+     "source": "Qur'an",
+     "tags": [
+      "spending",
+      "means"
+     ],
+     "ar": "لِيُنفِقۡ ذُو سَعَةٖ مِّن سَعَتِهِۦۖ وَمَن قُدِرَ عَلَيۡهِ رِزۡقُهُۥ فَلۡيُنفِقۡ مِمَّآ ءَاتَىٰهُ ٱللَّهُۚ لَا يُكَلِّفُ ٱللَّهُ نَفۡسًا إِلَّا مَآ ءَاتَىٰهَاۚ سَيَجۡعَلُ ٱللَّهُ بَعۡدَ عُسۡرٖ يُسۡرٗا",
+     "en": "Let a man of wealth spend from his wealth, and he whose provision is restricted - let him spend from what Allāh has given him. Allāh does not charge a soul except [according to] what He has given it. Allāh will bring about, after hardship, ease [i.e., relief].",
+     "bn": "বিত্তবান নিজ সমৰ্থ্য অনুযায়ী ব্যয় করবে এবং যার জীবনোপকরণ সীমিত সে আল্লাহ যা দান করেছেন তা থেকে ব্যয় করবে। আল্লাহ যাকে যে সামর্থ্য দিয়েছেন তার চেয়ে গুরুতর বোঝা তিনি তার উপর চাপান না। অবশ্যই আল্লাহ কষ্টের পর দেবেন স্বস্তি।",
+     "note": "Let the one with abundance spend from his abundance, and the one with limited means from what Allah gave him."
+    },
+    {
+     "id": "q-73-20",
+     "ref": "73:20",
+     "source": "Qur'an",
+     "tags": [
+      "trade",
+      "prayer"
+     ],
+     "ar": "۞ إِنَّ رَبَّكَ يَعۡلَمُ أَنَّكَ تَقُومُ أَدۡنَىٰ مِن ثُلُثَيِ ٱلَّيۡلِ وَنِصۡفَهُۥ وَثُلُثَهُۥ وَطَآئِفَةٞ مِّنَ ٱلَّذِينَ مَعَكَۚ وَٱللَّهُ يُقَدِّرُ ٱلَّيۡلَ وَٱلنَّهَارَۚ عَلِمَ أَن لَّن تُحۡصُوهُ فَتَابَ عَلَيۡكُمۡۖ فَٱقۡرَءُواْ مَا تَيَسَّرَ مِنَ ٱلۡقُرۡءَانِۚ عَلِمَ أَن سَيَكُونُ مِنكُم مَّرۡضَىٰ وَءَاخَرُونَ يَضۡرِبُونَ فِي ٱلۡأَرۡضِ يَبۡتَغُونَ مِن فَضۡلِ ٱللَّهِ وَءَاخَرُونَ يُقَٰتِلُونَ فِي سَبِيلِ ٱللَّهِۖ فَٱقۡرَءُواْ مَا تَيَسَّرَ مِنۡهُۚ وَأَقِيمُواْ ٱلصَّلَوٰةَ وَءَاتُواْ ٱلزَّكَوٰةَ وَأَقۡرِضُواْ ٱللَّهَ قَرۡضًا حَسَنٗاۚ وَمَا تُقَدِّمُواْ لِأَنفُسِكُم مِّنۡ خَيۡرٖ تَجِدُوهُ عِندَ ٱللَّهِ هُوَ خَيۡرٗا وَأَعۡظَمَ أَجۡرٗاۚ وَٱسۡتَغۡفِرُواْ ٱللَّهَۖ إِنَّ ٱللَّهَ غَفُورٞ رَّحِيمُۢ",
+     "en": "Indeed, your Lord knows, [O Muḥammad], that you stand [in prayer] almost two thirds of the night or half of it or a third of it, and [so do] a group of those with you. And Allāh determines [the extent of] the night and the day. He has known that you [Muslims] will not be able to do it and has turned to you in forgiveness, so recite what is easy [for you] of the Qur’ān. He has known that there will be among you those who are ill and others traveling throughout the land seeking [something] of the bounty of Allāh and others fighting for the cause of Allāh. So recite what is easy from it and establish prayer and give zakāh and loan Allāh a goodly loan. And whatever good you put forward for yourselves - you will find it with Allāh. It is better and greater in reward. And seek forgiveness of Allāh. Indeed, Allāh is Forgiving and Merciful.",
+     "bn": "নিশ্চয় আপনার রব জানেন যে, আপনি সালাতে দাঁড়ান কখনও রাতের প্রায় দুই-তৃতীয়াংশ, কখনও অর্ধাংশ এবং কখনও এক-তৃতীয়াংশ এবং দাঁড়ায় আপনার সঙ্গে যারা আছে তাদের একটি দলও। আর আল্লাহ্ই নির্ধারণ করেন দিন ও রাতের পরিমান [১]। তিনি জানেন যে, তোমরা এটা পুরোপুরি পালন করতে পারবে না [২], তাই আল্লাহ্ তোমাদের ক্ষমা করলেন [৩]। কাজেই কুরআন থেকে যতটুকু সহজ ততটুকু পড়, আল্লাহ্ জানেন যে, তোমাদের মধ্যে কেউ কেউ অসুস্থ হয়ে পড়বে, আর কেউ কেউ আল্লাহর অনুগ্রহ সন্ধানে দেশ ভ্ৰমন করবে এবং কেউ কেউ আল্লাহর পথে লড়াইয়ে লিপ্ত হবে। কাজেই তোমরা কুরআন হতে যতটুকু সহজসাধ্য ততটুকু পড়। আর তোমরা সালাত কায়েম কর, যাকাত প্ৰদান কর [৪] এবং আল্লাহ্কে দাও উত্তম ঋণ [৫]। তোমরা তোমাদের নিজেদের জন্য ভাল যা কিছু অগ্রিম পাঠাবে তোমরা তা পাবে আল্লাহর কাছে [৬]। তা উৎকৃষ্টতর এবং পুরস্কার হিসেবে মহত্তর। আর তোমরা ক্ষমা প্রার্থনা কর আল্লাহর কাছে। নিশ্চয় আল্লাহ্ ক্ষমাশীল, পরম দয়ালু।",
+     "note": "Others travel through the land seeking the bounty of Allah; recite what is easy and establish prayer."
+    },
+    {
+     "id": "q-83-1",
+     "ref": "83:1",
+     "source": "Qur'an",
+     "tags": [
+      "measure",
+      "justice"
+     ],
+     "ar": "وَيۡلٞ لِّلۡمُطَفِّفِينَ",
+     "en": "Woe to those who give less [than due],",
+     "bn": "দুর্ভোগ তাদের জন্য যারা মাপে কম দেয় [১],",
+     "note": "Woe to those who give less than due."
+    },
+    {
+     "id": "q-83-2",
+     "ref": "83:2",
+     "source": "Qur'an",
+     "tags": [
+      "measure",
+      "trade"
+     ],
+     "ar": "ٱلَّذِينَ إِذَا ٱكۡتَالُواْ عَلَى ٱلنَّاسِ يَسۡتَوۡفُونَ",
+     "en": "Who, when they take a measure from people, take in full.",
+     "bn": "যারা লোকদের কাছ থেকে মেপে নেয়ার সময় পূর্ণমাত্রায় গ্রহণ করে,",
+     "note": "Those who, when they measure for people, demand full measure."
+    },
+    {
+     "id": "q-83-3",
+     "ref": "83:3",
+     "source": "Qur'an",
+     "tags": [
+      "measure",
+      "trade"
+     ],
+     "ar": "وَإِذَا كَالُوهُمۡ أَو وَّزَنُوهُمۡ يُخۡسِرُونَ",
+     "en": "But if they give by measure or by weight to them, they cause loss.",
+     "bn": "আর যখন তাদেরকে মেপে দেয় অথবা ওজন করে দেয়, তখন কম দেয়।",
+     "note": "But when they measure or weigh for others, they give less."
+    },
+    {
+     "id": "q-102-1",
+     "ref": "102:1",
+     "source": "Qur'an",
+     "tags": [
+      "wealth",
+      "distraction"
+     ],
+     "ar": "أَلۡهَىٰكُمُ ٱلتَّكَاثُرُ",
+     "en": "Competition in [worldly] increase diverts you",
+     "bn": "তোমাদেরকে মোহাচ্ছন্ন রাখে [১] প্রাচুর্যের প্রতিযোগিতা [২]",
+     "note": "Competition for increase has diverted you."
+    },
+    {
+     "id": "q-104-1",
+     "ref": "104:1",
+     "source": "Qur'an",
+     "tags": [
+      "hoarding",
+      "wealth"
+     ],
+     "ar": "وَيۡلٞ لِّكُلِّ هُمَزَةٖ لُّمَزَةٍ",
+     "en": "Woe to every scorner and mocker",
+     "bn": "দুর্ভোগ প্রত্যেকের, যে পিছনে ও সামনে লোকের নিন্দা করে [১],",
+     "note": "Woe to every scorner and mocker."
+    },
+    {
+     "id": "q-104-2",
+     "ref": "104:2",
+     "source": "Qur'an",
+     "tags": [
+      "hoarding",
+      "wealth"
+     ],
+     "ar": "ٱلَّذِي جَمَعَ مَالٗا وَعَدَّدَهُۥ",
+     "en": "Who collects wealth and [continuously] counts it.",
+     "bn": "যে সম্পদ জমায় ও তা বার বার গণনা করে [১];",
+     "note": "Who collects wealth and counts it."
+    },
+    {
+     "id": "q-104-3",
+     "ref": "104:3",
+     "source": "Qur'an",
+     "tags": [
+      "hoarding",
+      "wealth"
+     ],
+     "ar": "يَحۡسَبُ أَنَّ مَالَهُۥٓ أَخۡلَدَهُۥ",
+     "en": "He thinks that his wealth will make him immortal.",
+     "bn": "সে ধারণা করে যে, তার অর্থ তাকে অমর করে রাখবে [১] ;",
+     "note": "He thinks his wealth will make him immortal."
     }
-  ]
+   ]
+  },
+  {
+   "id": "hadith",
+   "title": {
+    "en": "Well-Attested Hadith",
+    "bn": "বিশুদ্ধ হাদীস",
+    "ar": "أحاديث صحيحة"
+   },
+   "items": [
+    {
+     "id": "h-1",
+     "ref": "Jami' at-Tirmidhi 1209",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "The truthful, trustworthy merchant will be with the prophets, the truthful and the martyrs.",
+     "bn": "সত্যবাদী ও বিশ্বস্ত ব্যবসায়ী নবী, সিদ্দিক ও শহীদদের সঙ্গে থাকবেন।"
+    },
+    {
+     "id": "h-2",
+     "ref": "Sahih al-Bukhari 2076",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "May Allah have mercy on a person who is generous when he sells, when he buys and when he demands payment.",
+     "bn": "আল্লাহ তার প্রতি দয়া করুন যে বিক্রয়, ক্রয় ও পাওনা আদায়ে উদার।"
+    },
+    {
+     "id": "h-3",
+     "ref": "Sahih al-Bukhari 2107; Sahih Muslim 1531",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "The buyer and seller have the option to cancel as long as they have not separated.",
+     "bn": "ক্রেতা-বিক্রেতার বিচ্ছিন্ন না হওয়া পর্যন্ত চুক্তি বাতিলের অধিকার আছে।"
+    },
+    {
+     "id": "h-4",
+     "ref": "Sunan Ibn Majah 2246",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "Whoever sells defective goods without disclosing the defect, Allah remains angry with him.",
+     "bn": "যে ব্যক্তি দোষ গোপন করে পণ্য বিক্রি করে, আল্লাহ তার প্রতি ক্রুদ্ধ থাকেন।"
+    },
+    {
+     "id": "h-5",
+     "ref": "Sunan Abu Dawud 3503; Jami' at-Tirmidhi 1232",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "It is not lawful for a man to sell what he does not possess.",
+     "bn": "যে জিনিস নিজের মালিকানায় নেই, তা বিক্রি করা কারও জন্য হালাল নয়।"
+    },
+    {
+     "id": "h-6",
+     "ref": "Sahih al-Bukhari 2165; Sahih Muslim 1517",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "Do not go out to meet the caravans before they reach the market.",
+     "bn": "বাজারে পৌঁছানোর আগে পণ্যবাহী কাফেলার সঙ্গে গিয়ে ক্রয় করো না।"
+    },
+    {
+     "id": "h-7",
+     "ref": "Sahih al-Bukhari 2150",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "A town-dweller should not sell on behalf of a bedouin.",
+     "bn": "শহরের লোক গ্রামের লোকের পক্ষে বিক্রি করবে না।"
+    },
+    {
+     "id": "h-8",
+     "ref": "Sahih al-Bukhari 2140, 2139",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "Do not outbid one another and do not sell over the sale of your brother.",
+     "bn": "একে অন্যের ওপর দাম বাড়িয়ে দিও না এবং ভাইয়ের বিক্রয়ের ওপর বিক্রি করো না।"
+    },
+    {
+     "id": "h-9",
+     "ref": "Sahih Muslim 1605",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "Whoever hoards goods is a sinner.",
+     "bn": "যে ব্যক্তি পণ্য মজুতদারি করে সে পাপী।"
+    },
+    {
+     "id": "h-10",
+     "ref": "Sahih al-Bukhari 2087",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "Do not swear oaths to sell goods; an oath may sell them but erases the blessing.",
+     "bn": "পণ্য বিক্রির জন্য বেশি শপথ করো না; শপথ বিক্রি বাড়াতে পারে কিন্তু বরকত মুছে দেয়।"
+    },
+    {
+     "id": "h-11",
+     "ref": "Sunan Ibn Majah 2443",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "Pay the worker his wage before his sweat dries.",
+     "bn": "শ্রমিকের ঘাম শুকানোর আগেই তার পারিশ্রমিক দিয়ে দাও।"
+    },
+    {
+     "id": "h-12",
+     "ref": "Sunan Abu Dawud 3502",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "Whoever employs a worker should inform him of his wage.",
+     "bn": "যে ব্যক্তি শ্রমিক নিয়োগ করে, সে যেন তার পারিশ্রমিক জানিয়ে দেয়।"
+    },
+    {
+     "id": "h-13",
+     "ref": "Sahih Muslim 2588",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "Charity does not decrease wealth.",
+     "bn": "দান-সদকা সম্পদ কমায় না।"
+    },
+    {
+     "id": "h-14",
+     "ref": "Sahih al-Bukhari 1429",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "The upper hand is better than the lower hand.",
+     "bn": "উপরের হাত নিচের হাতের চেয়ে উত্তম।"
+    },
+    {
+     "id": "h-15",
+     "ref": "Sahih al-Bukhari 6446",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "Richness is not abundance of wealth, but richness of the soul.",
+     "bn": "প্রাচুর্য সম্পদের আধিক্যে নয়, আত্মার প্রাচুর্যে।"
+    },
+    {
+     "id": "h-16",
+     "ref": "Jami' at-Tirmidhi 2376",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "Two hungry wolves let loose among sheep are not more harmful than greed for wealth and status is to one's religion.",
+     "bn": "সম্পদ ও মর্যাদার লোভ দ্বীনের জন্য দুটি ক্ষুধার্ত নেকড়ের চেয়েও বেশি ক্ষতিকর।"
+    },
+    {
+     "id": "h-17",
+     "ref": "Jami' at-Tirmidhi 2340",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "The son of Adam has no right except to a house, a garment and food.",
+     "bn": "আদম-সন্তানের অধিকার কেবল ঘর, বস্ত্র ও খাবারের মধ্যে।"
+    },
+    {
+     "id": "h-18",
+     "ref": "Sahih al-Bukhari 1487",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "Do not sell fruits until they are ripe.",
+     "bn": "ফল পরিপক্ব না হওয়া পর্যন্ত বিক্রি করো না।"
+    },
+    {
+     "id": "h-19",
+     "ref": "Sahih al-Bukhari 2136",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "Whoever buys food should not sell it until he takes possession.",
+     "bn": "যে ব্যক্তি খাদ্য ক্রয় করে, সে তা দখলে না নেওয়া পর্যন্ত বিক্রি করবে না।"
+    },
+    {
+     "id": "h-20",
+     "ref": "Sahih Muslim 1598",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "Allah has cursed the one who takes interest, the one who pays it, the one who records it and the two witnesses.",
+     "bn": "আল্লাহ সুদ গ্রহণকারী, প্রদানকারী, লেখক ও দুই সাক্ষীকে অভিশাপ করেছেন।"
+    },
+    {
+     "id": "h-21",
+     "ref": "Sahih al-Bukhari 2766",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "Avoid the seven destructive sins — including consuming interest.",
+     "bn": "সাতটি ধ্বংসকারী পাপ থেকে বাঁচো — তন্মধ্যে সুদ ভক্ষণও রয়েছে।"
+    },
+    {
+     "id": "h-22",
+     "ref": "Sahih Muslim 1581",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "Allah and His Messenger have forbidden the sale of intoxicants.",
+     "bn": "আল্লাহ ও তাঁর রাসূল মাদক বিক্রয় হারাম করেছেন।"
+    },
+    {
+     "id": "h-23",
+     "ref": "Sunan Ibn Majah 2246",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "A Muslim is the brother of a Muslim; it is not lawful for him to sell him defective goods without informing him.",
+     "bn": "মুসলিম মুসলিমের ভাই; দোষ জানানো ছাড়া তার কাছে ত্রুটিপূর্ণ পণ্য বিক্রি করা বৈধ নয়।"
+    },
+    {
+     "id": "h-24",
+     "ref": "Sahih Muslim 2699",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "Whoever relieves a believer of a worldly distress, Allah will relieve him of a distress on the Day of Resurrection.",
+     "bn": "যে ব্যক্তি কোনো মুমিনের দুনিয়ার কষ্ট দূর করে, আল্লাহ কিয়ামতের দিন তার কষ্ট দূর করবেন।"
+    },
+    {
+     "id": "h-25",
+     "ref": "Sahih al-Bukhari 3480",
+     "source": "Hadith",
+     "tags": [
+      "hadith",
+      "business"
+     ],
+     "ar": "",
+     "en": "Give respite to the one in difficulty, or forgive him the debt.",
+     "bn": "অসচ্ছল ঋণগ্রস্তকে সময় দাও, অথবা ঋণ মাফ করে দাও।"
+    }
+   ]
+  },
+  {
+   "id": "sahaba",
+   "title": {
+    "en": "The Market of the Companions",
+    "bn": "সাহাবাদের বাজার",
+    "ar": "سوق الصحابة"
+   },
+   "items": [
+    {
+     "id": "s-1",
+     "ref": "Sirah Ibn Hisham; Sahih al-Bukhari 3",
+     "source": "Sirah",
+     "tags": [
+      "sahaba",
+      "business"
+     ],
+     "ar": "",
+     "en": "Khadijah bint Khuwaylid (RA) — the merchant who hired the Prophet — Khadijah ran caravans to Syria and hired Muhammad ﷺ for his honesty and skill. She paid him a fair wage, and their partnership became the foundation of the first Muslim household. Lesson: hire on merit, pay fairly, and let character be the first CV.",
+     "bn": "খাদিজা বিনতু খুওয়াইলিদ (রা.) — যিনি নবীকে ব্যবসায় নিয়োগ দিয়েছিলেন — খাদিজা (রা.) সিরিয়ায় বাণিজ্য কাফেলা পরিচালনা করতেন এবং সততা ও দক্ষতার কারণে মুহাম্মদ ﷺ-কে নিয়োগ দেন। তিনি ন্যায্য পারিশ্রমিক দেন; এই অংশীদারিত্ব প্রথম মুসলিম পরিবারের ভিত্তি হয়। শিক্ষা: যোগ্যতার ভিত্তিতে নিয়োগ, ন্যায্য মজুরি এবং চরিত্রই প্রথম জীবনবৃত্তান্ত।"
+    },
+    {
+     "id": "s-2",
+     "ref": "Sirah; al-Bukhari",
+     "source": "Sirah",
+     "tags": [
+      "sahaba",
+      "business"
+     ],
+     "ar": "",
+     "en": "Abu Bakr as-Siddiq (RA) — the cloth merchant — Abu Bakr traded cloth in Makkah and continued lawful trade after the caliphate, saying he would not abandon a livelihood he had known. Lesson: dignity in work, and leadership does not make trade beneath you.",
+     "bn": "আবু বকর সিদ্দিক (রা.) — কাপড়ের ব্যবসায়ী — আবু বকর (রা.) মক্কায় কাপড়ের ব্যবসা করতেন এবং খিলাফতের পরও হালাল ব্যবসা চালিয়ে যান। শিক্ষা: কাজের মর্যাদা; নেতৃত্ব ব্যবসাকে ছোট করে না।"
+    },
+    {
+     "id": "s-3",
+     "ref": "Sirah; Jami' at-Tirmidhi 3699",
+     "source": "Sirah",
+     "tags": [
+      "sahaba",
+      "business"
+     ],
+     "ar": "",
+     "en": "Uthman ibn Affan (RA) — the caravan and the well — Uthman became wealthy through trade, equipped the army of Tabuk, and bought the well of Rumah to give Muslims free water. Lesson: wealth is a trust; the best profit is what serves the ummah.",
+     "bn": "উসমান ইবনে আফফান (রা.) — কাফেলা ও কূপ — উসমান (রা.) ব্যবসায় সম্পদ গড়েন, তাবুকের সেনাদল সজ্জিত করেন এবং রুমার কূপ কিনে মুসলিমদের বিনামূল্যে পানি দেন। শিক্ষা: সম্পদ আমানত; সর্বোত্তম মুনাফা উম্মাহর সেবায়।"
+    },
+    {
+     "id": "s-4",
+     "ref": "Sahih al-Bukhari 2049",
+     "source": "Sirah",
+     "tags": [
+      "sahaba",
+      "business"
+     ],
+     "ar": "",
+     "en": "Abdur-Rahman ibn Awf (RA) — from refugee to trader — When he migrated to Madinah with nothing, he refused charity and asked to be shown the market. He traded in cheese and butter until he became independent. Lesson: the market is a path out of dependency when effort meets honesty.",
+     "bn": "আবদুর রহমান ইবনে আউফ (রা.) — শরণার্থী থেকে ব্যবসায়ী — মদিনায় কিছুই না নিয়ে হিজরত করে তিনি দান নিতে অস্বীকার করেন এবং বাজার দেখতে চান। পনির ও মাখন ব্যবসা করে স্বাবলম্বী হন। শিক্ষা: পরিশ্রম ও সততা থাকলে বাজারই স্বনির্ভরতার পথ।"
+    },
+    {
+     "id": "s-5",
+     "ref": "Sirah; al-Bukhari",
+     "source": "Sirah",
+     "tags": [
+      "sahaba",
+      "business"
+     ],
+     "ar": "",
+     "en": "Umar ibn al-Khattab (RA) — the market inspector — Umar personally walked the market, checked weights, punished cheating and appointed inspectors. He said no one should sell in the market who does not understand trade. Lesson: fair markets need visible, consistent regulation.",
+     "bn": "উমর ইবনে খাত্তাব (রা.) — বাজার পরিদর্শক — উমর (রা.) নিজে বাজার পরিদর্শন করতেন, ওজন যাচাই করতেন, প্রতারণার শাস্তি দিতেন এবং পরিদর্শক নিয়োগ দিতেন। শিক্ষা: ন্যায্য বাজারের জন্য সুস্পষ্ট ও ধারাবাহিক নিয়ন্ত্রণ দরকার।"
+    },
+    {
+     "id": "s-6",
+     "ref": "Sirah; Nahj al-Balagha",
+     "source": "Sirah",
+     "tags": [
+      "sahaba",
+      "business"
+     ],
+     "ar": "",
+     "en": "Ali ibn Abi Talib (RA) — work and trust — Ali worked, traded and refused to live on the treasury. He insisted that a worker's wage is a right before the work is done. Lesson: labour is worship when rights are honoured.",
+     "bn": "আলী ইবনে আবি তালিব (রা.) — কাজ ও আমানত — আলী (রা.) কাজ ও ব্যবসা করতেন, বাইতুলমালের ওপর নির্ভর করতেন না। তিনি শ্রমিকের মজুরিকে কাজের আগেই অধিকার বলেছেন। শিক্ষা: অধিকার রক্ষিত হলে শ্রম ইবাদত।"
+    },
+    {
+     "id": "s-7",
+     "ref": "Sirah Ibn Hisham",
+     "source": "Sirah",
+     "tags": [
+      "sahaba",
+      "business"
+     ],
+     "ar": "",
+     "en": "The Prophet ﷺ as Al-Amin in trade — Before prophethood, Muhammad ﷺ traded for Khadijah and was known as al-Amin (the trustworthy). He refused to hide defects, misrepresent goods or take unfair advantage. Lesson: reputation is the longest-term asset.",
+     "bn": "রাসূল ﷺ — ব্যবসায় আল-আমিন — নবুওয়াতের আগে মুহাম্মদ ﷺ খাদিজার পক্ষে ব্যবসা করেন এবং আল-আমিন নামে পরিচিত হন। তিনি দোষ গোপন, পণ্যের ভুল বর্ণনা বা অন্যায় সুবিধা নিতেন না। শিক্ষা: সুনাম দীর্ঘমেয়াদি সম্পদ।"
+    },
+    {
+     "id": "s-8",
+     "ref": "Sirah; al-Bukhari",
+     "source": "Sirah",
+     "tags": [
+      "sahaba",
+      "business"
+     ],
+     "ar": "",
+     "en": "Bilal ibn Rabah (RA) — honest stewardship — Bilal managed the treasury and was trusted with distribution. Lesson: the person who handles money must be more trustworthy than the money itself.",
+     "bn": "বিলাল ইবনে রাবাহ (রা.) — সৎ তত্ত্বাবধান — বিলাল (রা.) বাইতুলমাল পরিচালনা করতেন এবং বণ্টনে বিশ্বস্ত ছিলেন। শিক্ষা: অর্থ পরিচালনকারীকে অর্থের চেয়েও বিশ্বস্ত হতে হবে।"
+    },
+    {
+     "id": "s-9",
+     "ref": "Sahih al-Bukhari 3120",
+     "source": "Sirah",
+     "tags": [
+      "sahaba",
+      "business"
+     ],
+     "ar": "",
+     "en": "Zubayr ibn al-Awwam (RA) — trade and generosity — Zubayr traded, invested and gave generously; his estate was large but his debts and charity were larger. Lesson: keep a clear ledger of both profit and obligation.",
+     "bn": "যুবাইর ইবনে আউম (রা.) — ব্যবসা ও দানশীলতা — যুবাইর (রা.) ব্যবসা, বিনিয়োগ ও দান করতেন; সম্পদ বড় ছিল, ঋণ ও দানও বড় ছিল। শিক্ষা: মুনাফা ও দায়িত্ব—দুটোরই হিসাব রাখো।"
+    },
+    {
+     "id": "s-10",
+     "ref": "Sirah; al-Bukhari",
+     "source": "Sirah",
+     "tags": [
+      "sahaba",
+      "business"
+     ],
+     "ar": "",
+     "en": "Talha ibn Ubaydullah (RA) — the cloth trade — Talha traded cloth between Syria, Iraq and Madinah and was known for fair dealing. Lesson: cross-border trade works when quality and promises are reliable.",
+     "bn": "তালহা ইবনে উবাইদুল্লাহ (রা.) — বস্ত্র বাণিজ্য — তালহা (রা.) সিরিয়া, ইরাক ও মদিনার মধ্যে বস্ত্র বাণিজ্য করতেন এবং ন্যায্য লেনদেনের জন্য পরিচিত ছিলেন। শিক্ষা: মান ও প্রতিশ্রুতি নির্ভরযোগ্য হলে আন্তঃসীমান্ত বাণিজ্য সফল হয়।"
+    },
+    {
+     "id": "s-11",
+     "ref": "Sirah; al-Bukhari",
+     "source": "Sirah",
+     "tags": [
+      "sahaba",
+      "business"
+     ],
+     "ar": "",
+     "en": "Sa'd ibn Abi Waqqas (RA) — the arrow-maker — Sa'd made arrows with his own hands and sold them. Lesson: skilled craft is a noble source of income, even for a military leader.",
+     "bn": "সা'দ ইবনে আবি ওয়াক্কাস (রা.) — তীর নির্মাতা — সা'দ (রা.) নিজ হাতে তীর তৈরি করে বিক্রি করতেন। শিক্ষা: দক্ষ কারিগরি আয়ের সম্মানজনক উৎস, এমনকি সামরিক নেতার জন্যও।"
+    },
+    {
+     "id": "s-12",
+     "ref": "Sirah; al-Bukhari",
+     "source": "Sirah",
+     "tags": [
+      "sahaba",
+      "business"
+     ],
+     "ar": "",
+     "en": "Salman al-Farsi (RA) — value before price — Salman advised buyers to inspect, ask questions and not be rushed by a seller's oath. Lesson: due diligence is part of taqwa, not distrust.",
+     "bn": "সালমান ফারসি (রা.) — দামের আগে মূল্য — সালমান (রা.) ক্রেতাদের পরীক্ষা, প্রশ্ন ও বিক্রেতার শপথে তাড়াহুড়ো না করার পরামর্শ দিতেন। শিক্ষা: যথাযথ যাচাই তাকওয়ার অংশ, অবিশ্বাস নয়।"
+    },
+    {
+     "id": "s-13",
+     "ref": "Sahih al-Bukhari 2049",
+     "source": "Sirah",
+     "tags": [
+      "sahaba",
+      "business"
+     ],
+     "ar": "",
+     "en": "The Ansar and Muhajirun market partnership — The Ansar shared homes and wealth with the Muhajirun, but the Muhajirun preferred trade to dependency. Lesson: charity is a bridge, not a permanent business model.",
+     "bn": "আনসার ও মুহাজিরদের বাজার অংশীদারিত্ব — আনসাররা মুহাজিরদের ঘর ও সম্পদ ভাগ করে দেন, কিন্তু মুহাজিররা নির্ভরতার চেয়ে ব্যবসাকে বেছে নেন। শিক্ষা: দান সেতু, স্থায়ী ব্যবসায়িক মডেল নয়।"
+    }
+   ]
+  },
+  {
+   "id": "growth",
+   "title": {
+    "en": "Halal Growth Tactics Today",
+    "bn": "আজকের হালাল প্রবৃদ্ধি",
+    "ar": "نمو حلال"
+   },
+   "items": [
+    {
+     "id": "g-1",
+     "ref": "Business ethics",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Start with a halal product, not just a profitable one — Screen the product, the supply chain and the customer use. If the core value is haram, a beautiful business plan cannot purify it. Write your halal red lines before you write your budget.",
+     "bn": "হালাল পণ্য দিয়ে শুরু করুন, শুধু লাভজনক নয় — পণ্য, সরবরাহ শৃঙ্খল ও ব্যবহারের উদ্দেশ্য যাচাই করুন। মূল মূল্য হারাম হলে সুন্দর পরিকল্পনা তা হালাল করতে পারে না। বাজেটের আগে হালাল সীমারেখা লিখুন।"
+    },
+    {
+     "id": "g-2",
+     "ref": "Qur'an 2:282",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Put every partnership in writing — Qur'an 2:282 commands written contracts for debts. Use a simple agreement: capital, profit share, loss share, roles, exit, and dispute resolution. Verbal goodwill is not a substitute for clarity.",
+     "bn": "প্রতিটি অংশীদারিত্ব লিখিত করুন — কুরআন ২:২৮২ ঋণের চুক্তি লিখতে নির্দেশ দেয়। সহজ চুক্তিতে মূলধন, মুনাফা ও ক্ষতির অংশ, দায়িত্ব, প্রস্থান ও বিরোধ নিষ্পত্তি লিখুন। মুখের সদিচ্ছা স্পষ্টতার বিকল্প নয়।"
+    },
+    {
+     "id": "g-3",
+     "ref": "Prophetic ethics",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Price transparently — Show the total price, taxes, delivery and return terms before payment. Hidden charges are a form of deception and destroy repeat business.",
+     "bn": "স্বচ্ছভাবে মূল্য নির্ধারণ করুন — পেমেন্টের আগে মোট মূল্য, কর, ডেলিভারি ও ফেরতের শর্ত দেখান। গোপন চার্জ এক ধরনের প্রতারণা এবং পুনঃক্রয় নষ্ট করে।"
+    },
+    {
+     "id": "g-4",
+     "ref": "Sunan Ibn Majah 2246",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Disclose every defect — A disclosed defect is a fair sale; a hidden defect is a lawsuit waiting to happen. Train staff to mention scratches, delays and limitations in the same breath as benefits.",
+     "bn": "প্রতিটি ত্রুটি প্রকাশ করুন — প্রকাশিত ত্রুটি ন্যায্য বিক্রয়; গোপন ত্রুটি মামলার অপেক্ষা। কর্মীদের শেখান—সুবিধার সঙ্গে সীমাবদ্ধতাও বলা।"
+    },
+    {
+     "id": "g-5",
+     "ref": "Qur'an 2:275-279",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Avoid riba in every layer — Check overdrafts, late fees, supplier finance, buy-now-pay-later and investment structures. Prefer cash, equity, murabaha, salam, istisna, ijara and genuine profit-and-loss sharing.",
+     "bn": "প্রতিটি স্তরে সুদ এড়িয়ে চলুন — ওভারড্রাফট, দেরি ফি, সরবরাহকারী финанс, বিএনপিএল ও বিনিয়োগ কাঠামো যাচাই করুন। নগদ, ইক্যুইটি, মুরাবাহা, সালাম, ইস্তিসনা, ইজারা ও প্রকৃত লাভ-ক্ষতি ভাগ পছন্দ করুন।"
+    },
+    {
+     "id": "g-6",
+     "ref": "Sahih Muslim 1513",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Remove gharar (excessive uncertainty) — Specify what, how much, when, where and at what quality. Avoid selling what you do not own, unborn animals, unripe crops and vague delivery promises.",
+     "bn": "অতিরিক্ত অনিশ্চয়তা (গারার) দূর করুন — কী, কত, কখন, কোথায় ও কোন মানে—সব স্পষ্ট করুন। নিজের মালিকানায় নেই এমন জিনিস, গর্ভস্থ প্রাণী, অপরিপক্ব ফসল ও অস্পষ্ট ডেলিভারি প্রতিশ্রুতি এড়ান।"
+    },
+    {
+     "id": "g-7",
+     "ref": "Sahih Muslim 1605",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Do not hoard or manipulate supply — Hoarding to raise prices harms the community and is condemned. Keep stock moving, share lead times honestly and compete on service, not scarcity.",
+     "bn": "মজুতদারি ও সরবরাহ কারসাজি করবেন না — দাম বাড়াতে মজুতদারি সমাজের ক্ষতি করে এবং নিন্দনীয়। পণ্য চলমান রাখুন, সময়সীমা সৎভাবে জানান এবং সেবার মাধ্যমে প্রতিযোগিতা করুন।"
+    },
+    {
+     "id": "g-8",
+     "ref": "Sunan Ibn Majah 2443",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Pay wages before the sweat dries — Set a payroll date and keep it. Contractors and freelancers are workers too. Late payment is a trust breach, even if the amount is small.",
+     "bn": "ঘাম শুকানোর আগে মজুরি দিন — বেতনের তারিখ নির্ধারণ করুন ও রক্ষা করুন। ঠিকাদার ও ফ্রিল্যান্সারও শ্রমিক। অল্প অঙ্ক হলেও দেরি আমানত ভঙ্গ।"
+    },
+    {
+     "id": "g-9",
+     "ref": "Sahih Muslim 1827",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Treat employees as partners in the mission — Clear job descriptions, safe conditions, fair pay, training and a complaints channel reduce turnover. The Prophet ﷺ said the best leader is the servant of his people.",
+     "bn": "কর্মীদের মিশনের অংশীদার ভাবুন — স্পষ্ট কাজের বিবরণ, নিরাপদ পরিবেশ, ন্যায্য বেতন, প্রশিক্ষণ ও অভিযোগের মাধ্যম কর্মী ধরে রাখে। নবী ﷺ বলেছেন, সেরা নেতা তার লোকের সেবক।"
+    },
+    {
+     "id": "g-10",
+     "ref": "Qur'an 9:103",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Keep zakat and sadaqah in the business plan — Zakat is not a year-end afterthought; calculate it on inventory, cash and receivables. A business that gives consistently is more resilient and more blessed.",
+     "bn": "ব্যবসায়িক পরিকল্পনায় যাকাত ও সদকা রাখুন — যাকাত বছর শেষের ভুলে যাওয়া বিষয় নয়; মজুত, নগদ ও প্রাপ্যের ওপর হিসাব করুন। নিয়মিত দানশীল ব্যবসা বেশি টেকসই ও বরকতময়।"
+    },
+    {
+     "id": "g-11",
+     "ref": "Financial stewardship",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Keep business and family money separate — Use separate accounts and a written salary for family drawings. Mixing them hides the true profit and creates family disputes.",
+     "bn": "ব্যবসা ও পরিবারের অর্থ আলাদা রাখুন — আলাদা হিসাব ও পারিবারিক খরচের লিখিত বেতন রাখুন। মিশিয়ে ফেললে প্রকৃত মুনাফা লুকায় ও পারিবারিক বিরোধ তৈরি হয়।"
+    },
+    {
+     "id": "g-12",
+     "ref": "Risk management",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Build a cash buffer before you expand — Aim for three to six months of fixed costs. Growth funded by costly debt often destroys the business it was meant to grow.",
+     "bn": "সম্প্রসারণের আগে নগদ বাফার গড়ুন — তিন থেকে ছয় মাসের স্থায়ী খরচের বাফার রাখুন। ব্যয়বহুল ঋণে সম্প্রসারণ প্রায়ই business-কে ধ্বংস করে।"
+    },
+    {
+     "id": "g-13",
+     "ref": "Risk management",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Diversify customers, not just products — One big customer is a single point of failure. Build a pipeline and a waiting list; no client should be more than a quarter of revenue.",
+     "bn": "পণ্য নয়, ক্রেতাও বৈচিত্র্যময় করুন — এক বড় ক্রেতা একক ব্যর্থতার ঝুঁকি। পাইপলাইন ও অপেক্ষমাণ তালিকা গড়ুন; কোনো ক্লায়েন্ট রাজস্বের এক-চতুর্থাংশের বেশি না হয়।"
+    },
+    {
+     "id": "g-14",
+     "ref": "Islamic finance",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Use Islamic finance structures correctly — Murabaha needs a real sale and ownership; ijara needs a real usufruct; musharakah needs genuine sharing. A label without substance is still riba.",
+     "bn": "ইসলামি অর্থায়ন কাঠামো সঠিকভাবে ব্যবহার করুন — মুরাবাহায় প্রকৃত বিক্রয় ও মালিকানা লাগে; ইজারায় প্রকৃত উপভোগ; মুশারাকায় প্রকৃত অংশগ্রহণ। সারমর্ম ছাড়া লেবেলও সুদ।"
+    },
+    {
+     "id": "g-15",
+     "ref": "Qur'an 2:282",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Invoice, record and reconcile — Small businesses die from untracked receivables. Invoice the same day, follow up weekly, reconcile monthly and keep receipts for zakat and tax.",
+     "bn": "চালান, রেকর্ড ও মিলকরণ করুন — ছোট ব্যবসা অনাদায়ী প্রাপ্যের কারণে মরে। একই দিনে চালান, সাপ্তাহিক অনুসরণ, মাসিক মিলকরণ এবং যাকাত-কর জন্য রসিদ রাখুন।"
+    },
+    {
+     "id": "g-16",
+     "ref": "Prophetic ethics",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Market with truth, not pressure — No fake scarcity, fake reviews, hidden subscriptions or fear-based claims. Your ad is a testimony; a false testimony is a sin.",
+     "bn": "চাপ নয়, সত্য দিয়ে মার্কেটিং করুন — নকল ঘাটতি, ভুয়া রিভিউ, গোপন সাবস্ক্রিপশন বা ভয়ভিত্তিক দাবি নয়। বিজ্ঞাপন এক ধরনের সাক্ষ্য; মিথ্যা সাক্ষ্য পাপ।"
+    },
+    {
+     "id": "g-17",
+     "ref": "Modern ethics",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Protect customer data — Collect only what you need, protect it, and never sell it without consent. Trust is easier to lose than to rebuild.",
+     "bn": "গ্রাহকের তথ্য সুরক্ষিত রাখুন — যতটুকু দরকার ততটুকু নিন, সুরক্ষিত রাখুন, সম্মতি ছাড়া বিক্রি করবেন না। বিশ্বাস হারানো সহজ, ফেরানো কঠিন।"
+    },
+    {
+     "id": "g-18",
+     "ref": "Qur'an 28:26",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Choose partners by character and competence — The Qur'an praises the strong and trustworthy hire (28:26). Check references, test small, and define decision rights before money is involved.",
+     "bn": "চরিত্র ও দক্ষতা দিয়ে অংশীদার বাছুন — কুরআন শক্তিশালী ও বিশ্বস্ত নিয়োগের প্রশংসা করে (২৮:২৬)। রেফারেন্স যাচাই করুন, ছোট পরীক্ষা করুন, অর্থ জড়ানোর আগে সিদ্ধান্তের অধিকার নির্ধারণ করুন।"
+    },
+    {
+     "id": "g-19",
+     "ref": "Qur'an 2:188",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Avoid bribery and 'facilitation payments' — A payment to bend a rule is bribery, even when it is called a gift or speed money. Build compliance into your cost, not your relationships.",
+     "bn": "ঘুষ ও 'সুবিধা ফি' এড়ান — নিয়ম বাঁকাতে দেওয়া অর্থ ঘুষ, তা উপহার বা দ্রুতগতির টাকা নামেই হোক। সম্মতি খরচে রাখুন, সম্পর্কে নয়।"
+    },
+    {
+     "id": "g-20",
+     "ref": "Qur'an 62:10, 63:9",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Do not let trade distract from prayer — Close the laptop for prayer, keep Friday trading light, and build rest into the schedule. Barakah is not the same as busyness.",
+     "bn": "ব্যবসা নামাজ থেকে বিরত করুক না — নামাজের জন্য ল্যাপটপ বন্ধ করুন, জুমার দিন ব্যবসা হালকা রাখুন, বিশ্রামকে সময়সূচিতে রাখুন। বরকত ব্যস্ততার সমান নয়।"
+    },
+    {
+     "id": "g-21",
+     "ref": "Sahih Muslim 1955",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Give the customer more than the contract — A small extra, a clear explanation or a fast return turns a buyer into an advocate. Excellence (ihsan) is a marketing strategy with an afterlife.",
+     "bn": "চুক্তির চেয়ে বেশি দিন — একটু অতিরিক্ত, স্পষ্ট ব্যাখ্যা বা দ্রুত ফেরত ক্রেতাকে প্রচারকে পরিণত করে। ইহসান এমন মার্কেটিং যা আখিরাতেও ফল দেয়।"
+    },
+    {
+     "id": "g-22",
+     "ref": "Stewardship",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Plan for succession — Write who takes over, train them, and document processes. A business that depends on one person is a job, not an institution.",
+     "bn": "উত্তরাধিকার পরিকল্পনা করুন — কে দায়িত্ব নেবে, তাকে প্রশিক্ষণ ও প্রক্রিয়া লিখিত করুন। এক ব্যক্তিনির্ভর ব্যবসা প্রতিষ্ঠান নয়, চাকরি।"
+    },
+    {
+     "id": "g-23",
+     "ref": "Financial stewardship",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Measure profit after zakat and risk — Net profit after zakat, bad debt and replacement cost is the real number. A high turnover with no reserve is fragile.",
+     "bn": "যাকাত ও ঝুঁকির পরে মুনাফা মাপুন — যাকাত, কু-ঋণ ও প্রতিস্থাপন ব্যয়ের পরে নিট মুনাফাই প্রকৃত সংখ্যা। রিজার্ভহীন উচ্চ টার্নওভার ভঙ্গুর।"
+    },
+    {
+     "id": "g-24",
+     "ref": "Qur'an 42:38",
+     "source": "Practical",
+     "tags": [
+      "growth",
+      "business"
+     ],
+     "ar": "",
+     "en": "Use consultation (shura) for big decisions — The Qur'an praises those who consult (42:38). Ask an accountant, a scholar and a customer before a major pivot; then decide and own it.",
+     "bn": "বড় সিদ্ধান্তে শূরা করুন — কুরআন পরামর্শকারীদের প্রশংসা করে (৪২:৩৮)। বড় পরিবর্তনের আগে হিসাবরক্ষক, আলিম ও ক্রেতাকে জিজ্ঞাসা করুন; তারপর সিদ্ধান্ত নিন।"
+    }
+   ]
+  },
+  {
+   "id": "ethics",
+   "title": {
+    "en": "Modern Business Ethics",
+    "bn": "আধুনিক ব্যবসায়িক নৈতিকতা",
+    "ar": "أخلاق الأعمال"
+   },
+   "items": [
+    {
+     "id": "e-1",
+     "ref": "Qur'an 2:188",
+     "source": "Ethics",
+     "tags": [
+      "ethics",
+      "business"
+     ],
+     "ar": "",
+     "en": "Bribery — Qur'an 2:188 forbids consuming wealth unjustly and using it to influence rulers. Compliance is cheaper than corruption.",
+     "bn": "ঘুষ — কুরআন ২:১৮৮ অন্যায়ভাবে সম্পদ ভক্ষণ ও শাসককে প্রভাবিত করতে তা ব্যবহার নিষিদ্ধ করে। নিয়মপালন দুর্নীতির চেয়ে সস্তা।"
+    },
+    {
+     "id": "e-2",
+     "ref": "Qur'an 5:90",
+     "source": "Ethics",
+     "tags": [
+      "ethics",
+      "business"
+     ],
+     "ar": "",
+     "en": "Gambling and speculation — Qur'an 5:90 joins gambling with intoxicants and divination. Avoid lotteries, betting and products whose return is pure chance.",
+     "bn": "জুয়া ও অতিরিক্ত সpekulation — কুরআন ৫:৯০ জুয়াকে মাদক ও ভাগ্য গণনার সঙ্গে যুক্ত করে। লটারি, বাজি ও নিছক ভাগ্যভিত্তিক পণ্য এড়ান।"
+    },
+    {
+     "id": "e-3",
+     "ref": "Sahih Muslim 1581",
+     "source": "Ethics",
+     "tags": [
+      "ethics",
+      "business"
+     ],
+     "ar": "",
+     "en": "Intoxicants — Muslims may not sell, transport, serve or invest in intoxicants. Screen hospitality, retail and logistics contracts.",
+     "bn": "মাদক — মুসলিমরা মাদক বিক্রি, পরিবহন, পরিবেশন বা বিনিয়োগ করতে পারে না। হোটেল, খুচরা ও লজিস্টিকস চুক্তি যাচাই করুন।"
+    },
+    {
+     "id": "e-4",
+     "ref": "Islamic ethics",
+     "source": "Ethics",
+     "tags": [
+      "ethics",
+      "business"
+     ],
+     "ar": "",
+     "en": "Pornography and exploitative media — Do not earn from content that violates modesty or exploits people. Ad networks and app stores increasingly enforce this too.",
+     "bn": "পর্নোগ্রাফি ও শোষণমূলক মিডিয়া — শালীনতা লঙ্ঘন বা মানুষকে শোষণ করে এমন কনটেন্ট থেকে আয় করবেন না। বিজ্ঞাপন নেটওয়ার্ক ও অ্যাপ স্টোরও এটি কঠোরভাবে প্রয়োগ করে।"
+    },
+    {
+     "id": "e-5",
+     "ref": "Prophetic ethics",
+     "source": "Ethics",
+     "tags": [
+      "ethics",
+      "business"
+     ],
+     "ar": "",
+     "en": "Hidden fees — A fee disclosed after the decision is deception. Put every charge in the quote and the checkout.",
+     "bn": "লুকানো ফি — সিদ্ধান্তের পরে প্রকাশিত ফি প্রতারণা। প্রতিটি চার্জ কোট ও চেকআউটে দেখান।"
+    },
+    {
+     "id": "e-6",
+     "ref": "Qur'an 9:119",
+     "source": "Ethics",
+     "tags": [
+      "ethics",
+      "business"
+     ],
+     "ar": "",
+     "en": "Fake reviews and false claims — Manufactured social proof is lying. Ask for real reviews, publish both good and bad, and correct mistakes publicly.",
+     "bn": "ভুয়া রিভিউ ও মিথ্যা দাবি — বানানো সামাজিক প্রমাণ মিথ্যা। প্রকৃত রিভিউ চান, ভালো-মন্দ প্রকাশ করুন, ভুল প্রকাশ্যে সংশোধন করুন।"
+    },
+    {
+     "id": "e-7",
+     "ref": "Sahih Muslim 1827",
+     "source": "Ethics",
+     "tags": [
+      "ethics",
+      "business"
+     ],
+     "ar": "",
+     "en": "Exploitative labour — Withholding passports, unpaid overtime and unsafe sites are modern slavery. Pay, protect and document.",
+     "bn": "শোষণমূলক শ্রম — পাসপোর্ট আটকে রাখা, বিনা বেতনে ওভারটাইম ও অনিরাপদ কাজ আধুনিক দাসত্ব। বেতন দিন, সুরক্ষা দিন, নথিভুক্ত করুন।"
+    },
+    {
+     "id": "e-8",
+     "ref": "Sahih Muslim 1605",
+     "source": "Ethics",
+     "tags": [
+      "ethics",
+      "business"
+     ],
+     "ar": "",
+     "en": "Monopoly abuse — Dominance used to crush competitors and raise prices harms the public. Compete on quality, not on blocking access.",
+     "bn": "একচেটিয়া অপব্যবহার — প্রতিযোগী ধ্বংস ও দাম বাড়াতে আধিপত্য জনগণের ক্ষতি করে। প্রবেশ আটকানো নয়, মানে প্রতিযোগিতা করুন।"
+    },
+    {
+     "id": "e-9",
+     "ref": "Qur'an 7:31",
+     "source": "Ethics",
+     "tags": [
+      "ethics",
+      "business"
+     ],
+     "ar": "",
+     "en": "Environmental waste — Qur'an 7:31 forbids excess. Cut packaging, repair products, disclose emissions and choose suppliers who do the same.",
+     "bn": "পরিবেশগত অপচয় — কুরআন ৭:৩১ অতিরিক্ত নিষিদ্ধ করে। প্যাকেজিং কমান, পণ্য মেরামত করুন, নির্গমন প্রকাশ করুন এবং অনুরূপ সরবরাহকারী বাছুন।"
+    },
+    {
+     "id": "e-10",
+     "ref": "Qur'an 8:27",
+     "source": "Ethics",
+     "tags": [
+      "ethics",
+      "business"
+     ],
+     "ar": "",
+     "en": "Insider trading — Using confidential information to trade is a betrayal of trust (8:27). It is both illegal and unethical.",
+     "bn": "ইনসাইডার ট্রেডিং — গোপন তথ্য ব্যবহার করে লেনদেন আমানত ভঙ্গ (৮:২৭)। এটি বেআইনি ও অনৈতিক উভয়ই।"
+    },
+    {
+     "id": "e-11",
+     "ref": "Qur'an 2:280",
+     "source": "Ethics",
+     "tags": [
+      "ethics",
+      "business"
+     ],
+     "ar": "",
+     "en": "Predatory lending — Loans designed to trap borrowers in rolling charges are riba by another name. Offer clear, affordable terms or equity.",
+     "bn": "শোষণমূলক ঋণ — ঋণগ্রহীতাকে ঘুরমান চার্জে আটকে রাখার ঋণ অন্য নামে সুদ। স্পষ্ট, সাশ্রয়ী শর্ত বা ইক্যুইটি দিন।"
+    },
+    {
+     "id": "e-12",
+     "ref": "Qur'an 4:135",
+     "source": "Ethics",
+     "tags": [
+      "ethics",
+      "business"
+     ],
+     "ar": "",
+     "en": "Conflict of interest — Disclose personal interests in suppliers and deals. A hidden interest turns advice into exploitation.",
+     "bn": "স্বার্থের সংঘাত — সরবরাহকারী ও চুক্তিতে ব্যক্তিগত স্বার্থ প্রকাশ করুন। গোপন স্বার্থ পরামর্শকে শোষণে পরিণত করে।"
+    }
+   ]
+  },
+  {
+   "id": "finance",
+   "title": {
+    "en": "Riba-Free Finance",
+    "bn": "সুদমুক্ত অর্থায়ন",
+    "ar": "تمويل إسلامي"
+   },
+   "items": [
+    {
+     "id": "f-1",
+     "ref": "Islamic finance",
+     "source": "Finance",
+     "tags": [
+      "finance",
+      "business"
+     ],
+     "ar": "",
+     "en": "Murabaha — The bank buys the asset, takes ownership, then sells it to you at a disclosed profit. It must not be a cash loan with an interest label.",
+     "bn": "মুরাবাহা — ব্যাংক সম্পদ ক্রয় করে মালিকানা নেয়, তারপর প্রকাশিত মুনাফায় আপনার কাছে বিক্রি করে। এটি সুদি লেবেলযুক্ত নগদ ঋণ নয়।"
+    },
+    {
+     "id": "f-2",
+     "ref": "Islamic finance",
+     "source": "Finance",
+     "tags": [
+      "finance",
+      "business"
+     ],
+     "ar": "",
+     "en": "Musharakah — Partners contribute capital and share profit by agreement and loss by capital ratio. Roles and exit must be written.",
+     "bn": "মুশারাকাহ — অংশীদাররা মূলধন দেয়, চুক্তিতে মুনাফা ও মূলধন অনুপাতে ক্ষতি ভাগ করে। দায়িত্ব ও প্রস্থান লিখিত হতে হবে।"
+    },
+    {
+     "id": "f-3",
+     "ref": "Islamic finance",
+     "source": "Finance",
+     "tags": [
+      "finance",
+      "business"
+     ],
+     "ar": "",
+     "en": "Mudarabah — One provides capital, the other provides work. Profit is shared; financial loss falls on the capital provider unless the manager was negligent.",
+     "bn": "মুদারাবাহ — একজন মূলধন, অন্যজন শ্রম দেয়। মুনাফা ভাগ হয়; অবহেলা না হলে আর্থিক ক্ষতি মূলধনদাতার।"
+    },
+    {
+     "id": "f-4",
+     "ref": "Islamic finance",
+     "source": "Finance",
+     "tags": [
+      "finance",
+      "business"
+     ],
+     "ar": "",
+     "en": "Salam — Full advance payment for a precisely specified good delivered later. Specification must cover quality, quantity and date.",
+     "bn": "সালাম — পরে সরবরাহের জন্য সুনির্দিষ্ট পণ্যের সম্পূর্ণ অগ্রিম মূল্য। মান, পরিমাণ ও তারিখ স্পষ্ট থাকতে হবে।"
+    },
+    {
+     "id": "f-5",
+     "ref": "Islamic finance",
+     "source": "Finance",
+     "tags": [
+      "finance",
+      "business"
+     ],
+     "ar": "",
+     "en": "Istisna — A manufacturing order with milestones and a defined specification. Payment can be staged as work progresses.",
+     "bn": "ইস্তিসনা — মাইলফলক ও নির্দিষ্ট স্পেসিফিকেশনসহ উৎপাদন আদেশ। কাজের অগ্রগতিতে ধাপে ধাপে পেমেন্ট হতে পারে।"
+    },
+    {
+     "id": "f-6",
+     "ref": "Islamic finance",
+     "source": "Finance",
+     "tags": [
+      "finance",
+      "business"
+     ],
+     "ar": "",
+     "en": "Ijara — Lease the use of an asset for a rent. The lessor keeps ownership and major maintenance; the lessee pays for ordinary use.",
+     "bn": "ইজারা — সম্পদের ব্যবহারের জন্য ভাড়া। মালিক মালিকানা ও বড় রক্ষণাবেক্ষণ রাখে; ভাড়াটিয়া সাধারণ ব্যবহারের খরচ দেয়।"
+    },
+    {
+     "id": "f-7",
+     "ref": "Islamic finance",
+     "source": "Finance",
+     "tags": [
+      "finance",
+      "business"
+     ],
+     "ar": "",
+     "en": "Takaful — Cooperative risk-sharing instead of conventional insurance. Contributions go to a pool; surplus and claims follow the policy.",
+     "bn": "তাকাফুল — প্রচলিত বীমার বদলে সহযোগিতামূলক ঝুঁকি ভাগ। চাঁদা পুলে যায়; উদ্বৃত্ত ও দাবি নীতিমালা অনুযায়ী।"
+    },
+    {
+     "id": "f-8",
+     "ref": "Qur'an 2:245",
+     "source": "Finance",
+     "tags": [
+      "finance",
+      "business"
+     ],
+     "ar": "",
+     "en": "Qard hasan — A benevolent loan with no interest. Document it, and do not attach hidden fees or gifts as a condition.",
+     "bn": "কারযে হাসান — সুদবিহীন কল্যাণমূলক ঋণ। লিখে রাখুন; গোপন ফি বা শর্তসাপেক্ষ উপহার যুক্ত করবেন না।"
+    },
+    {
+     "id": "f-9",
+     "ref": "Fiqh al-zakat",
+     "source": "Finance",
+     "tags": [
+      "finance",
+      "business"
+     ],
+     "ar": "",
+     "en": "Zakat on inventory — Zakat applies to cash, receivables and goods held for sale at the zakat date. Fixed assets used in the business are generally excluded.",
+     "bn": "মজুতের যাকাত — যাকাতের তারিখে নগদ, প্রাপ্য ও বিক্রয়ের জন্য রাখা পণ্যের ওপর যাকাত। ব্যবসায় ব্যবহৃত স্থায়ী সম্পদ সাধারণত বাদ।"
+    },
+    {
+     "id": "f-10",
+     "ref": "Qur'an 2:280",
+     "source": "Finance",
+     "tags": [
+      "finance",
+      "business"
+     ],
+     "ar": "",
+     "en": "Debt collection — Remind kindly, give time, document promises and forgive where genuine hardship exists. Harassment is not a collection strategy.",
+     "bn": "ঋণ আদায় — সদয়ভাবে মনে করান, সময় দিন, প্রতিশ্রুতি লিখুন এবং প্রকৃত অসচ্ছলতায় মাফ করুন। হয়রানি আদায় কৌশল নয়।"
+    },
+    {
+     "id": "f-11",
+     "ref": "Islamic finance",
+     "source": "Finance",
+     "tags": [
+      "finance",
+      "business"
+     ],
+     "ar": "",
+     "en": "Late fees — A fee that grows with time is riba. Cover real administrative cost only, and give the extra to charity.",
+     "bn": "দেরি ফি — সময়ের সঙ্গে বাড়া ফি সুদ। কেবল প্রকৃত প্রশাসনিক ব্যয় নিন, অতিরিক্ত দান করুন।"
+    },
+    {
+     "id": "f-12",
+     "ref": "Islamic finance",
+     "source": "Finance",
+     "tags": [
+      "finance",
+      "business"
+     ],
+     "ar": "",
+     "en": "Profit-and-loss sharing — True Islamic finance shares both outcomes. A guaranteed return with no risk is a loan in disguise.",
+     "bn": "লাভ-ক্ষতি ভাগ — প্রকৃত ইসলামি অর্থায়ন দুই ফলাফলই ভাগ করে। ঝুঁকিহীন নিশ্চিত রিটার্ন ছদ্মবেশে ঋণ।"
+    }
+   ]
+  }
+ ]
 }

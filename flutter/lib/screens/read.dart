@@ -8,6 +8,7 @@ import '../player.dart';
 import '../prefs.dart';
 import 'arabic_surah.dart';
 import 'reader.dart';
+import 'more_screen.dart';
 
 class ReadTab extends StatefulWidget {
   const ReadTab({super.key});
@@ -134,6 +135,19 @@ class _ReadTabState extends State<ReadTab> {
                 fontWeight: FontWeight.w700, letterSpacing: -0.5)),
         Text(L.t('author_line'),
             style: TextStyle(color: AppColors.muted(context))),
+        const SizedBox(height: 14),
+        Card(
+          child: ListTile(
+            leading: const Icon(Icons.hub_outlined, color: AppColors.gold),
+            title: Text(L.t('more_hub'),
+                style: const TextStyle(fontWeight: FontWeight.w800)),
+            subtitle: Text(L.t('hub_intro'),
+                style: TextStyle(color: AppColors.muted(context), fontSize: 12)),
+            trailing: const Icon(Icons.chevron_right),
+            onTap: () => Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => const MoreScreen())),
+          ),
+        ),
         const SizedBox(height: 18),
         AnimatedBuilder(
           animation: app,

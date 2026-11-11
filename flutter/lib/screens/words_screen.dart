@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io' show gzip;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -39,14 +40,37 @@ class _WordsTabState extends State<WordsTab> {
   }
 
   Future<void> _loadWords() async {
-    List<Map<String, dynamic>> words = [];
+    final words = <Map<String, dynamic>>[];
+    final curated = <String>{};
+    // 1) the curated deep-study entries (roots, forms, why-this-word, views)
     try {
       final raw = await rootBundle.loadString('assets/words_export.json');
       final list = jsonDecode(raw) as List;
-      words = list.whereType<Map>().map((e) => Map<String, dynamic>.from(e)).toList();
+      for (final e in list.whereType<Map>()) {
+        final m = Map<String, dynamic>.from(e);
+        words.add(m);
+        curated.add((m['ar_norm'] ?? m['w'] ?? '').toString());
+      }
+    } catch (_) {}
+    // 2) the complete Quranic frequency index (all ~14.7k distinct forms)
+    try {
+      final data = await rootBundle.load('assets/words_index.json.gz');
+      final bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
+      final list = jsonDecode(utf8.decode(gzip.decode(bytes))) as List;
+      var i = 0;
+      for (final e in list.whereType<Map>()) {
+        final m = Map<String, dynamic>.from(e);
+        final key = (m['ar_norm'] ?? m['w'] ?? '').toString();
+        if (curated.contains(key)) continue;
+        m['id'] = 100000 + (i++);
+        words.add(m);
+      }
     } catch (_) {
-      final dbWords = await TafsirDb.i.words();
-      words = dbWords.map((e) => Map<String, dynamic>.from(e)).toList();
+      // older bundle: fall back to the SQLite word list
+      if (words.isEmpty) {
+        final dbWords = await TafsirDb.i.words();
+        words.addAll(dbWords.map((e) => Map<String, dynamic>.from(e)));
+      }
     }
     await Knowledge.i.load();
     if (!mounted) return;
@@ -251,6 +275,8 @@ class _WordTile extends StatelessWidget {
                     _Chip(_catLabel(cat), gold: true),
                   if (am.isNotEmpty) _Chip('${am.length}'),
                   if (ref.isNotEmpty) _Chip(ref, blue: true),
+                  if ((w['n'] as num?) != null && (w['n'] as num) > 1)
+                    _Chip('×${w['n']}'),
                   if (placeholder) _Chip(L.t('pending')),
                 ]),
               ]),
@@ -300,6 +326,9 @@ class _WordSheet extends StatelessWidget {
     final maxHeight = MediaQuery.of(context).size.height * .88;
     final pill = KnowledgePill.forWord((w['w'] ?? '').toString());
     final ref = (w['ref'] ?? '').toString();
+    final freq = (w['n'] as num?)?.toInt() ?? 0;
+    final refs = w['refs'] is List ? (w['refs'] as List) : const [];
+    final also = refs.length > 1 ? refs.skip(1).join(', ') : '';
     final ra = w['ra'];
     final raText = ra is Map
         ? [ra['pattern'], ra['bayyinah_note']].where((e) => e != null && '$e'.isNotEmpty).join(' · ')
@@ -345,6 +374,11 @@ class _WordSheet extends StatelessWidget {
           if (ref.isNotEmpty) ...[
             _Label(L.t('ayah_reference')),
             _Box(gold: true, text: L.t('quran_ref', {'ref': ref})),
+          ],
+          if (freq > 0) ...[
+            _Label('Frequency'),
+            _Box(text: '$freq× in the Qur\'an · first at $ref'
+                '${also.isEmpty ? '' : ' · also $also'}'),
           ],
           for (final m in _means(w)) ...[
             _Label(L.t('alternative_meaning')),

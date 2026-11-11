@@ -6,6 +6,7 @@
   let filtered = [];
   let favee = new Set(JSON.parse(localStorage.getItem("tafsir-fav") || "[]"));
   let current = null;
+  let shownLimit = 300;
 
   const CAT_LABEL = {
     business: "Business", mercy: "Mercy", prayer: "Prayer", justice: "Justice",
@@ -53,6 +54,7 @@
     if (x.cat && x.cat !== "pending") chips += `<span class="w-chip gold">${esc(CAT_LABEL[x.cat] || x.cat)}</span>`;
     if (x.root) chips += `<span class="w-chip">${esc(x.root)}</span>`;
     if (x.am && x.am.length) chips += `<span class="w-chip">${x.am.length} ${x.am.length === 1 ? "meaning" : "meanings"}</span>`;
+    if (x.n && x.n > 1) chips += `<span class="w-chip">×${x.n}</span>`;
     if (isPlaceholder(x.w)) chips += `<span class="w-chip">data pending</span>`;
     return chips;
   }
@@ -107,6 +109,7 @@
       ${knowledgePill(x)}
       ${x.en ? `<div class="sec-title">Meaning</div><div class="info-block">${esc(x.en)}</div>` : ""}
       ${x.bn ? `<div class="sec-title bn-text">অর্থ (বাংলা)</div><div class="info-block bn-text">${esc(x.bn)}</div>` : ""}
+      ${x.n ? `<div class="sec-title">Frequency</div><div class="info-block">${esc(String(x.n))}× in the Qur'an · first at ${esc(x.ref || "")}${Array.isArray(x.refs) && x.refs.length > 1 ? " · also " + esc(x.refs.slice(1).join(", ")) : ""}</div>` : ""}
       ${x.root ? `<div class="sec-title">Root · ${(x.root).split("-").join(" ")}</div><div class="info-block glass-gold"><b>${esc(x.root)}</b>${x.root_analysis_text ? `<div style="margin-top:4px">${esc(x.root_analysis_text)}</div>` : ""}</div>` : ""}
       ${x.form ? `<div class="sec-title">Linguistic form</div><div class="info-block">${esc(x.form)}</div>` : ""}
       ${x.why ? `<div class="sec-title">Why this word (Ayn)</div><div class="info-block glass-gold">${esc(x.why)}</div>` : ""}
@@ -163,13 +166,24 @@
     });
     // group visually: business first, then alphabetical by category label
     const grid = document.getElementById("wordGrid");
-    grid.innerHTML = filtered.map(tile).join("");
+    grid.innerHTML = filtered.slice(0, shownLimit).map(tile).join("");
     grid.hidden = filtered.length === 0;
     document.getElementById("wEmpty").hidden = filtered.length !== 0;
+    let more = document.getElementById("wMore");
+    if (!more) {
+      more = document.createElement("button");
+      more.id = "wMore";
+      more.className = "btn ghost";
+      more.style.cssText = "display:block;margin:16px auto 30px";
+      more.addEventListener("click", () => { shownLimit += 300; apply(); });
+      grid.parentNode.insertBefore(more, grid.nextSibling);
+    }
+    more.hidden = filtered.length <= shownLimit;
+    more.textContent = `Show more — ${filtered.length - shownLimit} remaining`;
     const shown = WORDS.filter((x) => x.cat !== "pending" && !isPlaceholder(x.w)).length;
     document.getElementById("wCount").textContent = q || cat || sn
       ? `${filtered.length} of ${WORDS.length} words`
-      : `${shown} study words`;
+      : `${shown} words · ${WORDS.filter((x) => x.root).length} deep studies`;
     grid.querySelectorAll(".word-tile").forEach((t) => {
       const i = parseInt(t.dataset.i, 10);
       t.addEventListener("click", () => openSheet(i));
@@ -177,9 +191,16 @@
     });
   }
 
-  function boot(data) {
+  function boot(deep, index) {
+    const seen = new Set(deep.map((x) => x.ar_norm || normAr(x.w)));
+    const extra = (index || []).filter((x) => !seen.has(x.ar_norm || normAr(x.w))).map((x, i) => {
+      x.id = 100000 + i;
+      x.cat = x.cat || "general";
+      return x;
+    });
+    const data = deep.concat(extra);
     data.forEach((x, idx) => {
-      x.id = idx + 1;
+      if (x.id == null || x.id < 100000) x.id = idx + 1;
       if (x.ra && typeof x.ra === "object") {
         const parts = [x.ra.pattern, x.ra.bayyinah_note].filter(Boolean);
         x.root_analysis_text = x.root_analysis_text || parts.join(" · ");
@@ -193,16 +214,21 @@
     initSurahFilter();
     initCategoryFilter();
     apply();
-    document.getElementById("wSearch")?.addEventListener("input", apply);
-    document.getElementById("surahFilter")?.addEventListener("change", apply);
-    document.getElementById("catFilter")?.addEventListener("change", apply);
-    document.getElementById("favOnly")?.addEventListener("change", apply);
+    const reset = () => { shownLimit = 300; apply(); };
+    document.getElementById("wSearch")?.addEventListener("input", reset);
+    document.getElementById("surahFilter")?.addEventListener("change", reset);
+    document.getElementById("catFilter")?.addEventListener("change", reset);
+    document.getElementById("favOnly")?.addEventListener("change", reset);
   }
 
   document.addEventListener("DOMContentLoaded", () => {
     const ready = window.TafsirKnowledge ? TafsirKnowledge.loadKB() : Promise.resolve();
-    Promise.all([fetch("assets/data/words_export.json").then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); }), ready])
-      .then(([words]) => boot(words))
+    Promise.all([
+      fetch("assets/data/words_export.json").then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); }),
+      fetch("assets/data/words_index.json").then((r) => (r.ok ? r.json() : [])).catch(() => []),
+      ready,
+    ])
+      .then(([words, index]) => boot(words, index))
       .catch(() => {
         const el = document.getElementById("wLoading");
         if (el) el.textContent = "Word data could not load — check your connection and reload.";

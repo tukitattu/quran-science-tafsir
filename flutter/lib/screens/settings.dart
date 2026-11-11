@@ -7,6 +7,7 @@ import '../main.dart';
 import '../notify.dart';
 import '../prefs.dart';
 import 'read.dart'; // AppColors
+import 'more_screen.dart';
 
 class SettingsTab extends StatefulWidget {
   const SettingsTab({super.key});
@@ -59,6 +60,19 @@ class _SettingsTabState extends State<SettingsTab> {
                   ?.copyWith(fontWeight: FontWeight.w800, letterSpacing: -.3)),
           Text(L.t('version_line'),
               style: TextStyle(color: AppColors.muted(context), fontSize: 12)),
+          const SizedBox(height: 14),
+          Card(
+            child: ListTile(
+              leading: const Icon(Icons.hub_outlined, color: AppColors.gold),
+              title: Text(L.t('more_hub'),
+                  style: const TextStyle(fontWeight: FontWeight.w800)),
+              subtitle: Text(L.t('hub_intro'),
+                  style: TextStyle(color: AppColors.muted(context), fontSize: 12)),
+              trailing: const Icon(Icons.chevron_right),
+              onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (_) => const MoreScreen())),
+            ),
+          ),
           const SizedBox(height: 20),
 
           // ——— interface language

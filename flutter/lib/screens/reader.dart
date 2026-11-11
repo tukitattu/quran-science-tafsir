@@ -245,6 +245,18 @@ class _ReaderScreenState extends State<ReaderScreen> {
             icon: TilawahIcon(surah: widget.surahId),
           ),
           IconButton(
+            tooltip: L.t('translations'),
+            icon: const Icon(Icons.format_quote_outlined),
+            onPressed: () => showModalBottomSheet(
+              context: context,
+              isScrollControlled: true,
+              backgroundColor: Theme.of(context).colorScheme.surface.withValues(alpha: .97),
+              shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(28))),
+              builder: (_) => _TranslationsSheet(surahId: widget.surahId),
+            ),
+          ),
+          IconButton(
             tooltip: L.t('arabic_text'),
             icon: const Icon(Icons.menu_book_outlined),
             onPressed: () => Navigator.of(context).push(MaterialPageRoute(
@@ -366,5 +378,134 @@ class _FontSheet extends StatelessWidget {
         ]),
       );
     });
+  }
+}
+
+
+/// Bottom sheet: 7 translation editions, transliteration, pronunciation and
+/// Bangla footnotes for every ayah of the surah.
+class _TranslationsSheet extends StatefulWidget {
+  final int surahId;
+  const _TranslationsSheet({required this.surahId});
+  @override
+  State<_TranslationsSheet> createState() => _TranslationsSheetState();
+}
+
+class _TranslationsSheetState extends State<_TranslationsSheet> {
+  static const _sources = [
+    ('en', 'English · Saheeh International'),
+    ('bq', 'বাংলা · ইসলামিক ফাউন্ডেশন'),
+    ('taisir', 'বাংলা · তাইসীরুল কুরআন'),
+    ('bayan', 'বাংলা · আল-বায়ান'),
+    ('mujib', 'বাংলা · শাইখ মুজিবুর রহমান'),
+    ('khan', 'বাংলা · মুহিউদ্দীন খান'),
+    ('hoque', 'বাংলা · জহুরুল হক'),
+  ];
+  List<Map<String, Object?>> _rows = [];
+  Map<int, String> _notes = {};
+  String _src = 'en';
+  bool _loading = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _load();
+  }
+
+  Future<void> _load() async {
+    final rows = await TafsirDb.i.translations(widget.surahId);
+    final notes = await TafsirDb.i.ayahNotes(widget.surahId);
+    if (!mounted) return;
+    setState(() {
+      _rows = rows;
+      _notes = notes;
+      _loading = false;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FractionallySizedBox(
+      heightFactor: .92,
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(18, 12, 18, 16),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+          Row(children: [
+            Expanded(
+              child: Text(L.t('translations'),
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800)),
+            ),
+            IconButton(icon: const Icon(Icons.close), onPressed: () => Navigator.pop(context)),
+          ]),
+          DropdownButton<String>(
+            value: _src,
+            isExpanded: true,
+            items: [
+              for (final s in _sources)
+                DropdownMenuItem(value: s.$1, child: Text(s.$2, style: const TextStyle(fontSize: 13))),
+            ],
+            onChanged: (v) => setState(() => _src = v ?? 'en'),
+          ),
+          const SizedBox(height: 6),
+          Expanded(
+            child: _loading
+                ? const Center(child: CircularProgressIndicator())
+                : _rows.isEmpty
+                    ? Center(child: Text(L.t('no_results')))
+                    : ListView.separated(
+                        itemCount: _rows.length,
+                        separatorBuilder: (_, __) => const Divider(height: 18),
+                        itemBuilder: (c, i) {
+                          final r = _rows[i];
+                          final n = (r['ayah_num'] as num?)?.toInt() ?? i + 1;
+                          final ar = Knowledge.i.ayahText(widget.surahId, n);
+                          final text = (r[_src] ?? '').toString();
+                          final tr = (r['translit'] ?? '').toString();
+                          final pron = (r['pron'] ?? '').toString();
+                          final note = _notes[n] ?? '';
+                          return Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+                            Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                              Container(
+                                padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 2),
+                                decoration: BoxDecoration(
+                                  color: AppColors.gold.withValues(alpha: .14),
+                                  borderRadius: BorderRadius.circular(999)),
+                                child: Text('$n',
+                                    style: const TextStyle(fontSize: 10.5, color: AppColors.gold, fontWeight: FontWeight.w800)),
+                              ),
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: Text(ar,
+                                    textDirection: TextDirection.rtl,
+                                    textAlign: TextAlign.right,
+                                    style: const TextStyle(fontSize: 19, height: 1.95, color: AppColors.gold)),
+                              ),
+                            ]),
+                            if (tr.isNotEmpty)
+                              Text(tr,
+                                  style: TextStyle(color: AppColors.muted(context), fontSize: 11.5, fontStyle: FontStyle.italic)),
+                            if (pron.isNotEmpty)
+                              Text('উচ্চারণ: $pron',
+                                  style: TextStyle(color: AppColors.muted(context), fontSize: 11.5)),
+                            if (text.isNotEmpty)
+                              Padding(
+                                padding: const EdgeInsets.only(top: 4),
+                                child: Text(text, style: const TextStyle(fontSize: 13.5, height: 1.7)),
+                              ),
+                            if (note.isNotEmpty)
+                              ExpansionTile(
+                                tilePadding: EdgeInsets.zero,
+                                childrenPadding: const EdgeInsets.only(bottom: 8),
+                                title: Text('Footnotes / টীকা',
+                                    style: TextStyle(color: AppColors.blueRef(context), fontSize: 11.5)),
+                                children: [Text(note, style: const TextStyle(fontSize: 12, height: 1.65))],
+                              ),
+                          ]);
+                        },
+                      ),
+          ),
+        ]),
+      ),
+    );
   }
 }
