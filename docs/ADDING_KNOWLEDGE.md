@@ -166,3 +166,20 @@ gzip -9 -c tafsir.db > flutter/assets/tafsir.db.gz
 ```
 
 Web cache: bump `CACHE` in `sw.js` (currently `tafsir-v17`) and add any new HTML/JS/JSON files to `ASSETS`.
+
+## 10. Validation checklist (run before every release)
+
+```bash
+python3 scripts/validate_data.py        # counts, parity, CSP, sw.js assets, action pins
+python3 -m py_compile scripts/*.py tests/*.py
+find assets/js -name '*.js' -print0 | xargs -0 -n1 node --check
+cd flutter && flutter analyze --no-fatal-infos && flutter test
+```
+
+`validate_data.py` must be green before tagging a release; **Web CI** runs it on
+every push along with a Playwright smoke test of the word explorer, Knowledge
+Hub, business page, chapter translations and dark theme.
+
+If paginated read pages are regenerated, run
+`python3 scripts/normalize_read_pages.py` afterwards so each page loads
+`chapters.js`, `app.js` and `tts.js` exactly once.

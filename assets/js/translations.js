@@ -30,6 +30,31 @@
       return { "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c];
     });
   }
+  // Bundled data is third-party sourced: keep only harmless inline markup.
+  function sanitize(html) {
+    var tpl = document.createElement("template");
+    tpl.innerHTML = String(html == null ? "" : html);
+    tpl.content
+      .querySelectorAll("script,style,iframe,object,embed,img,svg,link,meta,form,input")
+      .forEach(function (n) {
+        n.remove();
+      });
+    tpl.content.querySelectorAll("*").forEach(function (n) {
+      if (
+        ["B", "STRONG", "I", "EM", "BR", "P", "DIV", "SPAN", "UL", "OL", "LI", "SUP", "SUB"].indexOf(
+          n.tagName
+        ) < 0
+      ) {
+        n.replaceWith.apply(n, Array.prototype.slice.call(n.childNodes));
+      } else {
+        Array.prototype.slice.call(n.attributes).forEach(function (a) {
+          n.removeAttribute(a.name);
+        });
+      }
+    });
+    return tpl.innerHTML;
+  }
+
   function arNum(n) {
     return String(n).replace(/\d/g, function (d) { return "٠١٢٣٤٥٦٧٨٩"[+d]; });
   }
@@ -71,11 +96,11 @@
       "</div>";
     var intro = DATA.intro
       ? '<details style="margin:8px 0 14px"><summary style="cursor:pointer;color:var(--accent2);font-weight:700">সূরার পরিচিতি — Classical introduction</summary>' +
-        '<div class="small" style="margin-top:6px;line-height:1.8">' + DATA.intro + "</div></details>"
+        '<div class="small" style="margin-top:6px;line-height:1.8">' + sanitize(DATA.intro) + "</div></details>"
       : "";
     var list = DATA.ayahs.map(function (a) {
       var fns = a.fn ? Object.keys(a.fn).map(function (k) {
-        return '<div class="small" style="margin-top:4px"><b>[' + esc(k) + "]</b> " + a.fn[k] + "</div>";
+        return '<div class="small" style="margin-top:4px"><b>[' + esc(k) + "]</b> " + sanitize(a.fn[k]) + "</div>";
       }).join("") : "";
       return '<div class="tr-ayah" style="border-top:1px solid var(--border);padding:12px 0">' +
         '<div style="display:flex;gap:8px;align-items:baseline"><span class="w-chip gold">' + arNum(a.a) + "</span>" +

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show Clipboard, ClipboardData;
+import 'package:url_launcher/url_launcher.dart';
 
 import '../l10n.dart';
 import 'read.dart' show AppColors;
@@ -63,6 +63,20 @@ class VideosTab extends StatefulWidget {
 class _VideosTabState extends State<VideosTab> {
   String _filter = 'all';
 
+  /// Only https links leave the app; anything else is ignored.
+  Future<void> _openExternal(String url, {String? fallbackText}) async {
+    final uri = Uri.tryParse(url);
+    final ok = uri != null &&
+        uri.isScheme('https') &&
+        uri.host.isNotEmpty &&
+        await launchUrl(uri, mode: LaunchMode.externalApplication);
+    if (!ok && mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(fallbackText ?? L.t('something_wrong'))),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final filtered = _filter == 'all' ? kRelatedVideos : kRelatedVideos.where((v) => v.channel == _filter).toList();
@@ -90,13 +104,8 @@ class _VideosTabState extends State<VideosTab> {
                   SelectableText(ch.videosUrl, style: TextStyle(color: AppColors.blueRef(context), fontSize: 12)),
                   const SizedBox(height: 8),
                   FilledButton.tonal(
-                    onPressed: () async {
-                      await Clipboard.setData(ClipboardData(text: ch.videosUrl));
-                      if (mounted) {
-                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Channel link copied')));
-                      }
-                    },
-                    child: const Text('Copy channel link'),
+                    onPressed: () => _openExternal(ch.videosUrl),
+                    child: const Text('Open channel'),
                   ),
                 ]),
               ),
@@ -156,24 +165,14 @@ class _VideosTabState extends State<VideosTab> {
           Row(children: [
             Expanded(
               child: FilledButton.tonal(
-                onPressed: () async {
-                  await Clipboard.setData(ClipboardData(text: watch));
-                  if (mounted) {
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('YouTube link copied — open in browser')));
-                  }
-                },
-                child: const Text('Copy YouTube link'),
+                onPressed: () => _openExternal(watch),
+                child: const Text('Watch on YouTube'),
               ),
             ),
             const SizedBox(width: 8),
             Expanded(
               child: OutlinedButton(
-                onPressed: () async {
-                  await Clipboard.setData(ClipboardData(text: _channelUrl(v.channel) ?? ''));
-                  if (mounted) {
-                    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Channel link copied')));
-                  }
-                },
+                onPressed: () => _openExternal(_channelUrl(v.channel) ?? ''),
                 child: const Text('Channel ↗'),
               ),
             ),

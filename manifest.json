@@ -1,25 +1,50 @@
 {
+  "id": "./",
   "name": "Al Quran - Tafsir (Scientific)",
   "short_name": "Al Quran Tafsir",
-  "description": "Al Quran Scientific Tafsir — 114 surahs, English + Bengali + Arabic, offline, word meanings, business knowledge, TTS",
-  "start_url": "/quran-science-tafsir/",
-  "scope": "/quran-science-tafsir/",
+  "description": "Al Quran Scientific Tafsir — 114 surahs, English + Bengali + Arabic, offline, 14,660 word meanings, 7 translation editions, 99 names, du'as and business knowledge.",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
+  "orientation": "any",
   "background_color": "#F8F8F4",
   "theme_color": "#F8F8F4",
   "lang": "en",
+  "dir": "ltr",
+  "categories": ["books", "education", "islamic", "reference"],
   "icons": [
     {
       "src": "assets/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
       "src": "assets/icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Read Al-Fatiha",
+      "short_name": "Al-Fatiha",
+      "url": "./chapters/1.html",
+      "icons": [{"src": "assets/icon-192.png", "sizes": "192x192"}]
+    },
+    {
+      "name": "Knowledge Hub",
+      "short_name": "Knowledge",
+      "url": "./more.html",
+      "icons": [{"src": "assets/icon-192.png", "sizes": "192x192"}]
+    },
+    {
+      "name": "Word Meanings",
+      "short_name": "Words",
+      "url": "./words.html",
+      "icons": [{"src": "assets/icon-192.png", "sizes": "192x192"}]
     }
   ]
 }

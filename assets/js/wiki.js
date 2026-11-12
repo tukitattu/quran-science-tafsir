@@ -3,6 +3,29 @@
   const CACHE_TTL = 24*60*60*1000; // 24h
   const API_SUMMARY = 'https://en.wikipedia.org/api/rest_v1/page/summary/';
   const API_HTML = 'https://en.wikipedia.org/api/rest_v1/page/html/';
+  // --- output safety -----------------------------------------------------
+  // Wikipedia is remote content: escape every string before it reaches
+  // innerHTML and only ever emit https URLs. `plainText` strips markup from
+  // the REST HTML endpoint so no remote tag/attribute can execute.
+  function esc(s){
+    return String(s == null ? '' : s).replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+  function safeUrl(u, fallback=''){
+    try{
+      const p = new URL(u, location.href);
+      return p.protocol === 'https:' ? p.href : fallback;
+    }catch{ return fallback; }
+  }
+  function plainText(html, maxLen){
+    try{
+      const doc = new DOMParser().parseFromString('<div id="wiki-safe">' + html + '</div>', 'text/html');
+      const root = doc.getElementById('wiki-safe');
+      root.querySelectorAll('script,style,link,iframe,object,embed,img,svg').forEach(n => n.remove());
+      root.querySelectorAll('p,br,li,h1,h2,h3,h4,div,tr').forEach(n => n.append('\n'));
+      const text = (root.textContent || '').replace(/\n{3,}/g, '\n\n').trim();
+      return maxLen ? text.slice(0, maxLen) : text;
+    }catch{ return ''; }
+  }
 
   async function fetchWiki(title, lang='en'){
     const key = `wiki:${lang}:${title}`;
@@ -83,16 +106,16 @@
     el.innerHTML = '<div class="skeleton skeleton-text" style="width:90%"></div><div class="skeleton skeleton-text" style="width:75%"></div><div class="skeleton skeleton-text" style="width:85%"></div>';
     const data = await fetchWiki(title);
     const sectionsData = await fetchWikiSections(title);
-    if(!data && !sectionsData){ el.innerHTML = `<p class="small">Wikipedia: <a href="https://en.wikipedia.org/wiki/${title}" target="_blank" rel="noopener">View ${title} on Wikipedia →</a></p>`; return; }
+    if(!data && !sectionsData){ el.innerHTML = `<p class="small">Wikipedia: <a href="https://en.wikipedia.org/wiki/${encodeURIComponent(title)}" target="_blank" rel="noopener noreferrer">View ${esc(title)} on Wikipedia →</a></p>`; return; }
     let html = '';
     if(data){
       html += `
       <div style="display:flex; gap:12px; align-items:start; margin-bottom:12px">
-        ${data.thumbnail ? `<img src="${data.thumbnail}" alt="" style="width:80px;height:80px;object-fit:cover;border-radius:8px;flex-shrink:0">` : ''}
+        ${data.thumbnail && safeUrl(data.thumbnail) ? `<img src="${esc(safeUrl(data.thumbnail))}" alt="" style="width:80px;height:80px;object-fit:cover;border-radius:8px;flex-shrink:0">` : ''}
         <div>
-          <b>${data.title}</b>
-          <p style="margin:6px 0; color:var(--muted); font-size:0.92rem; line-height:1.6">${data.extract}</p>
-          <a href="${data.url}" target="_blank" rel="noopener" style="color:var(--accent2); font-size:0.85rem">Read more on Wikipedia →</a>
+          <b>${esc(data.title)}</b>
+          <p style="margin:6px 0; color:var(--muted); font-size:0.92rem; line-height:1.6; white-space:pre-line">${esc(plainText(data.extract))}</p>
+          <a href="${esc(safeUrl(data.url, '#'))}" target="_blank" rel="noopener noreferrer" style="color:var(--accent2); font-size:0.85rem">Read more on Wikipedia →</a>
         </div>
       </div>`;
     }
@@ -104,7 +127,7 @@
         html += '<div style="margin-top:12px; border-top:1px solid var(--border); padding-top:12px"><b style="color:var(--accent2); font-size:0.85rem">Wikipedia — All Sections (15):</b>';
         available.forEach(secTitle=>{
           const content = sectionsData.sections[secTitle];
-          html += `<details style="margin:8px 0; background:var(--bg2); border:1px solid var(--border); border-radius:8px; padding:8px 10px"><summary style="cursor:pointer; font-weight:600; font-size:0.85rem; color:var(--text)">${secTitle}</summary><div style="margin-top:8px; font-size:0.85rem; line-height:1.6; color:var(--muted); max-height:200px; overflow-y:auto">${content}</div><a href="${sectionsData.url}#${encodeURIComponent(secTitle.replace(/\s+/g,'_'))}" target="_blank" rel="noopener" style="font-size:0.75rem; color:var(--accent2)">View on Wikipedia →</a></details>`;
+          html += `<details style="margin:8px 0; background:var(--bg2); border:1px solid var(--border); border-radius:8px; padding:8px 10px"><summary style="cursor:pointer; font-weight:600; font-size:0.85rem; color:var(--text)">${esc(plainText(secTitle))}</summary><div style="margin-top:8px; font-size:0.85rem; line-height:1.6; color:var(--muted); max-height:200px; overflow-y:auto; white-space:pre-line">${esc(plainText(content))}</div><a href="${esc(safeUrl(sectionsData.url, '#'))}#${encodeURIComponent(secTitle.replace(/\s+/g,'_'))}" target="_blank" rel="noopener noreferrer" style="font-size:0.75rem; color:var(--accent2)">View on Wikipedia →</a></details>`;
         });
         html += '</div>';
       }
@@ -133,7 +156,7 @@
           if(!content) return;
           const wikiRef = document.createElement('div');
           wikiRef.style.cssText='margin-top:12px; padding:10px; background:rgba(212,175,55,0.06); border-left:3px solid var(--accent); border-radius:6px; font-size:0.82rem;';
-          wikiRef.innerHTML=`<b style="color:var(--accent2)">Wikipedia: ${wsTitle}</b><div style="color:var(--muted); margin-top:4px; max-height:120px; overflow-y:auto">${content.slice(0,400)}...</div><a href="${sectionsData.url}#${encodeURIComponent(wsTitle.replace(/\s+/g,'_'))}" target="_blank" rel="noopener" style="font-size:0.75rem; color:var(--accent2)">Read full on Wikipedia →</a>`;
+          wikiRef.innerHTML=`<b style="color:var(--accent2)">Wikipedia: ${esc(plainText(wsTitle))}</b><div style="color:var(--muted); margin-top:4px; max-height:120px; overflow-y:auto; white-space:pre-line">${esc(plainText(content, 400))}...</div><a href="${esc(safeUrl(sectionsData.url, '#'))}#${encodeURIComponent(wsTitle.replace(/\s+/g,'_'))}" target="_blank" rel="noopener noreferrer" style="font-size:0.75rem; color:var(--accent2)">Read full on Wikipedia →</a>`;
           tabEl.appendChild(wikiRef);
           added = true;
         });
@@ -162,7 +185,7 @@
       card.dataset.wikiDone="1";
       const link = document.createElement('a');
       link.href=`https://en.wikipedia.org/wiki/${wikiTitle}`;
-      link.target="_blank"; link.rel="noopener";
+      link.target="_blank"; link.rel="noopener noreferrer";
       link.style.cssText="display:inline-block; margin-top:6px; font-size:0.78rem; color:var(--accent2);";
       link.textContent="Wikipedia →";
       // Try to fetch summary and show inline on click
@@ -174,12 +197,12 @@
         if(data){
           const box=document.createElement('div');
           box.style.cssText="margin-top:8px; padding:8px; background:var(--bg2); border-radius:8px; font-size:0.85rem; line-height:1.6; color:var(--muted);";
-          box.innerHTML=`<b>${data.title}</b>: ${data.extract} <a href="${data.url}" target="_blank" rel="noopener" style="color:var(--accent2)">More →</a>`;
+          box.innerHTML=`<b>${esc(data.title)}</b>: ${esc(plainText(data.extract))} <a href="${esc(safeUrl(data.url, '#'))}" target="_blank" rel="noopener noreferrer" style="color:var(--accent2)">More →</a>`;
           card.appendChild(box);
           link.dataset.loaded="1";
           link.textContent="Wikipedia ✓";
         } else {
-          window.open(link.href, '_blank');
+          window.open(link.href, '_blank', 'noopener,noreferrer');
         }
       });
       card.appendChild(link);
@@ -207,13 +230,13 @@
       if(r.status==='fulfilled' && r.value){
         const d=r.value;
         html += `<div class="wiki-card" style="display:flex; gap:12px; align-items:start; margin:8px 0; padding:10px; background:var(--bg2); border:1px solid var(--border); border-radius:8px">
-          ${d.thumbnail ? `<img src="${d.thumbnail}" alt="" style="width:60px;height:60px;object-fit:cover;border-radius:6px;flex-shrink:0">` : ''}
-          <div><b style="color:var(--accent2)">${d.title}</b><p style="margin:4px 0; color:var(--muted); font-size:0.85rem; line-height:1.5">${d.extract.slice(0,220)}...</p><a href="${d.url}" target="_blank" rel="noopener" style="font-size:0.78rem; color:var(--accent2)">Read on Wikipedia →</a></div>
+          ${d.thumbnail && safeUrl(d.thumbnail) ? `<img src="${esc(safeUrl(d.thumbnail))}" alt="" style="width:60px;height:60px;object-fit:cover;border-radius:6px;flex-shrink:0">` : ''}
+          <div><b style="color:var(--accent2)">${esc(d.title)}</b><p style="margin:4px 0; color:var(--muted); font-size:0.85rem; line-height:1.5; white-space:pre-line">${esc(plainText(d.extract, 220))}...</p><a href="${esc(safeUrl(d.url, '#'))}" target="_blank" rel="noopener noreferrer" style="font-size:0.78rem; color:var(--accent2)">Read on Wikipedia →</a></div>
         </div>`;
       }
     });
     if(html) container.innerHTML = html;
-    else container.innerHTML = `<p class="small">Wikipedia: <a href="https://en.wikipedia.org/wiki/${surahTitle}" target="_blank" rel="noopener">View ${surahTitle} on Wikipedia →</a></p>`;
+    else container.innerHTML = `<p class="small">Wikipedia: <a href="https://en.wikipedia.org/wiki/${encodeURIComponent(surahTitle)}" target="_blank" rel="noopener noreferrer">View ${esc(surahTitle)} on Wikipedia →</a></p>`;
   }
 
   // Render related videos from the two curated channels — independent of Wikipedia.
@@ -233,7 +256,10 @@
         el.innerHTML = '<div class="yt-grid"></div>';
         const grid = el.querySelector('.yt-grid');
         if(window.VT && VT.render) VT.render(grid, ghaurData);
-        else el.innerHTML = ghaurData.map(item=>`<div style="margin:8px 0"><a href="https://www.youtube.com/watch?v=${item.youtubeId}" target="_blank" rel="noopener" style="color:var(--accent2)">${item.title}</a></div>`).join('');
+        else el.innerHTML = ghaurData.map(item=>{
+          const vid = /^[A-Za-z0-9_-]{6,20}$/.test(String(item.youtubeId || '')) ? item.youtubeId : '';
+          return `<div style="margin:8px 0"><a href="https://www.youtube.com/watch?v=${encodeURIComponent(vid)}" target="_blank" rel="noopener noreferrer" style="color:var(--accent2)">${esc(item.title)}</a></div>`;
+        }).join('');
       }
       el.dataset.done='1';
     });
@@ -261,7 +287,7 @@
           const data=await fetchWiki(q);
           const out=document.getElementById('wikiSearchOut');
           if(out && data){
-            out.innerHTML=`<b>${data.title}</b>: ${data.extract} <a href="${data.url}" target="_blank">More →</a>`;
+            out.innerHTML=`<b>${esc(data.title)}</b>: ${esc(plainText(data.extract))} <a href="${esc(safeUrl(data.url, '#'))}" target="_blank" rel="noopener noreferrer">More →</a>`;
             out.style.display='block';
           }
         }

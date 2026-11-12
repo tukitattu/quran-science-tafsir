@@ -12,6 +12,14 @@ const _iconGold = Color(0xFFA67C1B);
 const _iconMuted = Color(0xFF5D6875);
 const _iconMutedDark = Color(0xFF98A5B1);
 
+/// Audio may only leave the device over HTTPS. A malformed or cleartext URL is
+/// treated as "no audio" instead of being handed to the platform player.
+Uri? _httpsUri(String url) {
+  final u = Uri.tryParse(url.trim());
+  if (u == null || !u.isScheme('https') || u.host.isEmpty) return null;
+  return u;
+}
+
 /// One reciter entry from assets/data/audio.json.
 class Reciter {
   final String id, en, bn;
@@ -188,12 +196,13 @@ class TilawahPlayer {
     } else {
       url = _ayahUrl(s, a);
     }
-    if (url.isEmpty) {
+    final uri = _httpsUri(url);
+    if (uri == null) {
       _finish();
       return;
     }
     try {
-      await _p.setAudioSource(AudioSource.uri(Uri.parse(url)));
+      await _p.setAudioSource(AudioSource.uri(uri));
       if (t != _token) return; // a newer tap superseded this one
       await _p.play();
       if (t != _token) return;
@@ -213,8 +222,10 @@ class TilawahPlayer {
         _triedFallback = true;
         final fb = r.fallback!
             .replaceAll('{padded}', '${_pad(s)}${_pad(a)}');
+        final fbUri = _httpsUri(fb);
         try {
-          await _p.setAudioSource(AudioSource.uri(Uri.parse(fb)));
+          if (fbUri == null) throw const FormatException('non-https fallback');
+          await _p.setAudioSource(AudioSource.uri(fbUri));
           if (t != _token) return;
           await _p.play();
           if (t != _token) return;
@@ -310,7 +321,12 @@ class TilawahPlayer {
         manifestReady: _st.manifestReady));
     try {
       final u = url.startsWith('http') ? url : 'https://audio.qurancdn.com/$url';
-      await _p.setAudioSource(AudioSource.uri(Uri.parse(u)));
+      final uri = _httpsUri(u);
+      if (uri == null) {
+        _emit(_st.copyWith(error: 'audio unavailable'));
+        return;
+      }
+      await _p.setAudioSource(AudioSource.uri(uri));
       if (t != _token) return;
       await _p.play();
       if (t != _token) return;

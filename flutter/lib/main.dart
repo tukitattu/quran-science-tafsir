@@ -1,3 +1,5 @@
+import 'dart:ui' show PlatformDispatcher;
+
 import 'package:flutter/material.dart';
 
 import 'db.dart';
@@ -101,8 +103,52 @@ class App extends ChangeNotifier {
   }
 }
 
+/// Release-safe error surface: never render the raw framework error screen
+/// and never leak stack traces to the user.
+void _installErrorHandlers() {
+  ErrorWidget.builder = (FlutterErrorDetails details) {
+    debugPrint('widget build error: ${details.exception}\n${details.stack}');
+    return const _ErrorScreen();
+  };
+  FlutterError.onError = (FlutterErrorDetails details) {
+    debugPrint('Flutter error: ${details.exception}\n${details.stack}');
+  };
+  PlatformDispatcher.instance.onError = (Object error, StackTrace stack) {
+    debugPrint('uncaught async error: $error\n$stack');
+    return true;
+  };
+}
+
+class _ErrorScreen extends StatelessWidget {
+  const _ErrorScreen();
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Theme.of(context).colorScheme.surface,
+      child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(Icons.error_outline_rounded, size: 40),
+              const SizedBox(height: 12),
+              Text(L.t('something_wrong'), textAlign: TextAlign.center),
+              const SizedBox(height: 4),
+              Text(L.t('tap_retry'),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Theme.of(context).colorScheme.onSurfaceVariant)),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  _installErrorHandlers();
   // Never block the first frame on plugin/database work: render a splash
   // immediately, then open the app once init has settled.
   runApp(const BootGate());

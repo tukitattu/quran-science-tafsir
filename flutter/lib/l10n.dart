@@ -45,6 +45,8 @@ class L {
       'boot_warning':
           'Some parts could not start. You can retry, or continue and use what is available.',
       'retry': 'Retry',
+      'something_wrong': 'Something went wrong',
+      'tap_retry': 'Tap retry to try again.',
       'continue_': 'Continue',
       'scientific_tafsir': 'Scientific Tafsir',
       'author_line': 'Zakaria Kamal · English / বাংলা / العربية',
@@ -72,7 +74,7 @@ class L {
       'arabic': 'العربية',
       'settings': 'Settings',
       'version_line':
-          'Al Quran - Tafsir (Scientific) · v2.6.0 (Flutter, embedded SQLite)',
+          'Al Quran - Tafsir (Scientific) · v2.7.0 (Flutter, embedded SQLite)',
       'reading_language': 'Reading language',
       'en_plus_bn': 'EN + বাংলা',
       'ui_language': 'Interface language',
@@ -167,6 +169,8 @@ class L {
       'boot_warning':
           'কিছু অংশ চালু হয়নি। আবার চেষ্টা করুন বা যা পাওয়া যাচ্ছে তা দিয়ে চালিয়ে যান।',
       'retry': 'আবার চেষ্টা',
+      'something_wrong': 'কিছু একটা সমস্যা হয়েছে',
+      'tap_retry': 'আবার চেষ্টা করতে ট্যাপ করুন।',
       'continue_': 'চালিয়ে যান',
       'scientific_tafsir': 'বৈজ্ঞানিক তাফসির',
       'author_line': 'জাকারিয়া কামাল · English / বাংলা / العربية',
@@ -194,7 +198,7 @@ class L {
       'arabic': 'আরবি',
       'settings': 'সেটিংস',
       'version_line':
-          'আল কুরআন — বৈজ্ঞানিক তাফসির · v2.6.0 (Flutter, অন্তর্নির্মিত SQLite)',
+          'আল কুরআন — বৈজ্ঞানিক তাফসির · v2.7.0 (Flutter, অন্তর্নির্মিত SQLite)',
       'reading_language': 'পাঠের ভাষা',
       'en_plus_bn': 'ইংরেজি + বাংলা',
       'ui_language': 'ইন্টারফেসের ভাষা',
@@ -287,6 +291,8 @@ class L {
       'boot_warning':
           'تعذّر تشغيل بعض الأجزاء. يمكنك إعادة المحاولة أو المتابعة بما هو متاح.',
       'retry': 'إعادة المحاولة',
+      'something_wrong': 'حدث خطأ ما',
+      'tap_retry': 'اضغط على إعادة المحاولة للمحاولة مرة أخرى.',
       'continue_': 'متابعة',
       'scientific_tafsir': 'التفسير العلمي',
       'author_line': 'زكريا كمال · English / বাংলা / العربية',
@@ -314,7 +320,7 @@ class L {
       'arabic': 'العربية',
       'settings': 'الإعدادات',
       'version_line':
-          'القرآن الكريم — التفسير العلمي · v2.6.0 (Flutter، SQLite مضمّن)',
+          'القرآن الكريم — التفسير العلمي · v2.7.0 (Flutter، SQLite مضمّن)',
       'reading_language': 'لغة القراءة',
       'en_plus_bn': 'الإنجليزية + البنغالية',
       'ui_language': 'لغة الواجهة',

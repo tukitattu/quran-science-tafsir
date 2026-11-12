@@ -95,6 +95,35 @@ cd flutter && flutter pub get && flutter build apk --split-per-abi
 
 Notes: the full `build_db.py` pipeline needs `paras.json` / `trans_cache.json` (generated from the PDFs, not committed); day-to-day Arabic/alt-meaning maintenance goes through `backfill_arabic_local.py`, which patches the existing database in place.
 
+## Security & release checks
+
+GitHub Pages cannot send HTTP response headers, so every HTML page carries the
+equivalent policy in its `<head>`: a strict `Content-Security-Policy`, a
+`strict-origin-when-cross-origin` referrer policy, a permissions policy that
+disables camera/microphone/geolocation/payment, and no telephone auto-linking.
+`scripts/apply_security_headers.py` injects the block into generated pages and
+`scripts/validate_data.py` fails CI if any page is missing it or references an
+`http://` asset.
+
+Additional hardening:
+
+- External links get `rel="noopener noreferrer"`; `wiki.js` treats Wikipedia as
+  untrusted input (markup stripped, strings escaped, URLs restricted to HTTPS).
+- The notes import merges only ayah-keyed primitives, so a crafted backup file
+  cannot pollute object prototypes.
+- `sw.js` validates notification URLs against its own origin before opening.
+- Flutter releases are HTTPS-only (`network_security_config.xml`), have cloud
+  backup/device transfer disabled, request only INTERNET / notifications /
+  exact-alarm permissions, and never embed credentials. The APK workflow rejects
+  debug-signed output and verifies the zip alignment and Pigeon/JNI signatures.
+- Every GitHub Actions `uses:` is pinned to a full commit SHA; workflow
+  permissions are read-only unless publishing a release.
+
+All builds and checks run in GitHub Actions — the web bundle through **Web CI**
+(`scripts/validate_data.py`, JSON/JS/Python syntax, Playwright browser smoke
+tests) and the APK through **Flutter APK** on a release. Nothing needs a local
+Android SDK.
+
 ## License
 
 Content: the original book is freely shareable per the author's notice. Bengali translation: machine-generated for convenience. Code: MIT.

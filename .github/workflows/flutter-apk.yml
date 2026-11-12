@@ -15,23 +15,33 @@ on:
   release:
     types: [created]
 
+# Least privilege: only release assets need write access.
 permissions:
   contents: write
+
+# Cancel stale runs on the same ref; never let a build hang forever.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   apk:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      # Third-party actions are pinned to full commit SHAs (supply-chain safety).
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 1
 
       - name: Setup Java 17
-        uses: actions/setup-java@v5
+        uses: actions/setup-java@b6effb05e454b25005698d916606bdc6ffcbf961 # v5
         with:
           distribution: temurin
           java-version: '17'
 
       - name: Setup Flutter (stable)
-        uses: subosito/flutter-action@v2
+        uses: subosito/flutter-action@1a449444c387b1966244ae4d4f8c696479add0b2 # v2
         with:
           channel: stable
           cache: true
@@ -47,6 +57,97 @@ jobs:
           f=android/app/build.gradle.kts && [ -f "$f" ] || f=android/app/build.gradle
           sed -i "s/minSdk = .*/minSdk = 29/; s/minSdkVersion .*/minSdkVersion 29/" "$f"
           grep -n "minSdk" "$f"
+
+      - name: Harden Android manifest + network/backup policy
+        working-directory: flutter
+        run: |
+          python3 - <<'PY'
+          import pathlib, re
+          app = pathlib.Path('android/app/src/main/AndroidManifest.xml')
+          s = app.read_text()
+
+          # --- permissions -------------------------------------------------
+          # Reminders are scheduled inexact, so no SCHEDULE_EXACT_ALARM:
+          # fewer permissions, no Play Store exact-alarm policy review.
+          perms = (
+              '    <uses-permission android:name="android.permission.INTERNET"/>\n'
+              '    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>\n'
+              '    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>\n'
+              '    <queries>\n'
+              '        <intent>\n'
+              '            <action android:name="android.intent.action.VIEW"/>\n'
+              '            <data android:scheme="https"/>\n'
+              '        </intent>\n'
+              '    </queries>\n'
+          )
+          if 'android.permission.INTERNET' not in s:
+              s = s.replace('<application', perms + '    <application', 1)
+          else:
+              for line in perms.splitlines():
+                  if line.strip() and line.strip() not in s:
+                      s = s.replace('    <application', line + '\n    <application', 1)
+
+          # --- application hardening --------------------------------------
+          s = re.sub(r'android:label="[^"]*"',
+                     'android:label="Al Quran - Tafsir (Scientific)"', s, count=1)
+          # No cloud backup / device transfer of app data (53 MB research DB).
+          s = s.replace('<application',
+                        '<application\n        android:allowBackup="false"\n'
+                        '        android:fullBackupContent="false"\n'
+                        '        android:dataExtractionRules="@xml/data_extraction_rules"\n'
+                        '        android:supportsRtl="true"\n'
+                        '        android:enableOnBackInvokedCallback="true"', 1)
+          # Block cleartext HTTP; the network security config enforces it too.
+          if 'android:usesCleartextTraffic' not in s:
+              s = s.replace('<application',
+                            '<application\n        android:usesCleartextTraffic="false"\n'
+                            '        android:networkSecurityConfig="@xml/network_security_config"', 1)
+
+          # Old Mali/Adreno drivers occasionally render a black frame with
+          # Impeller; Skia is plenty for a text-first reader.
+          if 'EnableImpeller' not in s:
+              s = s.replace(
+                  '    </application>',
+                  '        <meta-data android:name="io.flutter.embedding.android.EnableImpeller" android:value="false"/>\n    </application>',
+              )
+          app.write_text(s)
+          print('manifest hardened')
+          for key in ('allowBackup="false"', 'usesCleartextTraffic="false"',
+                      'networkSecurityConfig', 'dataExtractionRules',
+                      'android.permission.INTERNET', 'android.permission.POST_NOTIFICATIONS',
+                      'android.permission.RECEIVE_BOOT_COMPLETED', '<queries>'):
+              assert key in s, key
+          print('all manifest assertions passed')
+          PY
+
+      - name: Add network security + data extraction rules
+        working-directory: flutter
+        run: |
+          mkdir -p android/app/src/main/res/xml
+          cat > android/app/src/main/res/xml/network_security_config.xml <<'XML'
+          <?xml version="1.0" encoding="utf-8"?>
+          <network-security-config>
+              <!-- HTTPS only: audio/video streams and image fetches must never fall back to HTTP. -->
+              <base-config cleartextTrafficPermitted="false">
+                  <trust-anchors>
+                      <certificates src="system" />
+                  </trust-anchors>
+              </base-config>
+          </network-security-config>
+          XML
+          cat > android/app/src/main/res/xml/data_extraction_rules.xml <<'XML'
+          <?xml version="1.0" encoding="utf-8"?>
+          <data-extraction-rules>
+              <!-- Keep the offline research database and reading progress private. -->
+              <cloud-backup>
+                  <exclude domain="root" path="." />
+              </cloud-backup>
+              <device-transfer>
+                  <exclude domain="root" path="." />
+              </device-transfer>
+          </data-extraction-rules>
+          XML
+          ls -l android/app/src/main/res/xml/
 
       - name: Harden release build (keep plugin classes, no full-mode R8)
         working-directory: flutter
@@ -95,31 +196,6 @@ jobs:
           print('minify disabled in', p)
           PY
           grep -n "MinifyEnabled\|minifyEnabled\|enableR8" android/app/build.gradle* android/gradle.properties
-
-      - name: Patch permissions + app label (notifications, alarms, boot)
-        working-directory: flutter
-        run: |
-          f=android/app/src/main/AndroidManifest.xml
-          python3 - "$f" <<'EOF'
-          import sys, pathlib, re
-          p = pathlib.Path(sys.argv[1]); s = p.read_text()
-          add = (
-              '    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>\n'
-              '    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>\n'
-          )
-          if 'POST_NOTIFICATIONS' not in s:
-              s = s.replace('<application', add + '    <application')
-          s = re.sub(r'android:label="[^"]*"', 'android:label="Al Quran - Tafsir (Scientific)"', s, count=1)
-          # Old Mali/Adreno drivers occasionally render a black frame with
-          # Impeller; Skia is plenty for a text-first reader.
-          if 'EnableImpeller' not in s:
-              s = s.replace(
-                  '    </application>',
-                  '        <meta-data android:name="io.flutter.embedding.android.EnableImpeller" android:value="false"/>\n    </application>',
-              )
-          p.write_text(s)
-          print('manifest label patched:', 'Al Quran - Scientific Tafsir' in p.read_text())
-          EOF
 
       - name: Enable core-library desugaring (required by flutter_local_notifications)
         working-directory: flutter
@@ -199,13 +275,16 @@ jobs:
           import base64, os, pathlib
           b64 = os.environ.get('ANDROID_KEYSTORE_BASE64', '').strip()
           if not b64:
-              print('!! ANDROID_KEYSTORE_BASE64 missing - falling back to debug signing')
-              raise SystemExit(0)
+              print('!! ANDROID_KEYSTORE_BASE64 missing - refusing to build an unsigned release APK')
+              raise SystemExit(1)
           ks = pathlib.Path(os.environ['RUNNER_TEMP']) / 'release.p12'
           ks.write_bytes(base64.b64decode(b64))
           pw = os.environ['ANDROID_KEYSTORE_PASSWORD']
           alias = os.environ['ANDROID_KEY_ALIAS']
           kp = os.environ['ANDROID_KEY_PASSWORD']
+          if not pw or not alias or not kp:
+              print('!! keystore credentials incomplete')
+              raise SystemExit(1)
           p = pathlib.Path('android/app/build.gradle.kts')
           kts = p.exists()
           if not kts:
@@ -253,6 +332,24 @@ jobs:
         run: |
           flutter build apk --release --split-per-abi --no-shrink
           ls -la build/app/outputs/flutter-apk/
+
+      - name: Verify release signing + zip alignment
+        working-directory: flutter
+        run: |
+          SDK="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-$HOME/Android/Sdk}}"
+          APKSIGNER=$(ls "$SDK"/build-tools/*/apksigner 2>/dev/null | sort -V | tail -1)
+          ZIPALIGN=$(ls "$SDK"/build-tools/*/zipalign 2>/dev/null | sort -V | tail -1)
+          [ -n "$APKSIGNER" ] || { echo "apksigner not found in $SDK"; exit 1; }
+          [ -n "$ZIPALIGN" ] || { echo "zipalign not found in $SDK"; exit 1; }
+          for apk in build/app/outputs/flutter-apk/*-release.apk; do
+            echo "== $apk =="
+            "$APKSIGNER" verify --print-certs --verbose "$apk" | sed -n '1,12p'
+            if "$APKSIGNER" verify --print-certs "$apk" | grep -q "CN=Android Debug"; then
+              echo "!! $apk is debug-signed - refusing to publish"
+              exit 1
+            fi
+            "$ZIPALIGN" -c -v 4 "$apk" | tail -2
+          done
 
       - name: Verify Pigeon/JNI plugin signatures survived (guard against R8 renaming Continuation)
         working-directory: flutter
@@ -334,25 +431,25 @@ jobs:
           PY
 
       - name: Upload pubspec.lock (dependency pinning)
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: pubspec-lock
           path: flutter/pubspec.lock
           retention-days: 5
 
       - name: Upload APK artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: quran-tafsir-flutter-apk
           path: flutter/build/app/outputs/flutter-apk/*release*.apk
           retention-days: 30
 
       - name: Attach API-level info
-        run: echo "minSdk=29 (Android 10) · targetSdk=35 — supports Android 10 through 15+"
+        run: echo "minSdk=29 (Android 10) · targetSdk=35 · HTTPS-only · backup disabled"
 
       - name: Attach to GitHub Release
         if: inputs.release_tag != '' || github.event_name == 'release'
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2
         with:
           files: flutter/build/app/outputs/flutter-apk/*release*.apk
           tag_name: ${{ inputs.release_tag || github.event.release.tag_name }}

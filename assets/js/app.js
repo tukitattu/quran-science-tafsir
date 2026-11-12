@@ -568,3 +568,27 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
   } catch(e){}
 })();
+
+/* Security: never expose window.opener on external links. */
+(function () {
+  function hardenLinks() {
+    document.querySelectorAll('a[target="_blank"]').forEach(function (a) {
+      var rel = (a.rel || "").split(/\s+/).filter(Boolean);
+      if (rel.indexOf("noopener") < 0) rel.push("noopener");
+      if (rel.indexOf("noreferrer") < 0) rel.push("noreferrer");
+      a.rel = rel.join(" ");
+      a.referrerPolicy = "strict-origin-when-cross-origin";
+    });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", hardenLinks);
+  } else {
+    hardenLinks();
+  }
+  document.addEventListener("click", function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[target="_blank"]') : null;
+    if (!a) return;
+    var rel = (a.rel || "").split(/\s+/);
+    if (rel.indexOf("noopener") < 0) { rel.push("noopener"); a.rel = rel.join(" "); }
+  });
+})();

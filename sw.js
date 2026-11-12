@@ -102,6 +102,15 @@ self.addEventListener("fetch", e => {
 });
 
 // Notifications & periodic tasks
+// Only same-origin URLs may be opened from a notification or cached payload.
+function safeUrl(u) {
+  try {
+    const parsed = new URL(u, self.location.href);
+    return parsed.origin === self.location.origin ? parsed.href : "./";
+  } catch (_) {
+    return "./";
+  }
+}
 self.addEventListener("push", e => {
   const data = e.data ? e.data.json() : {};
   const title = data.title || "Scientific Tafsir — Today's Ayah";
@@ -109,15 +118,15 @@ self.addEventListener("push", e => {
     body: data.body || "আজকের আয়াত পড়ুন · Today's ayah is ready",
     icon: "./assets/icon-192.png",
     badge: "./assets/icon-192.png",
-    data: { url: data.url || "./" }
+    data: { url: safeUrl(data.url || "./") }
   };
   e.waitUntil(self.registration.showNotification(title, opts));
 });
 self.addEventListener("notificationclick", e => {
   e.notification.close();
-  const url = (e.notification.data && e.notification.data.url) || "./";
+  const url = safeUrl((e.notification.data && e.notification.data.url) || "./");
   e.waitUntil(clients.matchAll({type:"window"}).then(list=>{
-    for(const c of list) if(c.url.includes("/quran-science-tafsir/")) return c.focus();
+    for(const c of list) if(safeUrl(c.url) === url) return c.focus();
     return clients.openWindow(url);
   }));
 });

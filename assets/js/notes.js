@@ -28,6 +28,20 @@
 
   function key(a) { return SURAH + ":" + a; }
 
+  // Import only ayah-keyed primitives: never allow __proto__/constructor
+  // keys or nested objects from an untrusted backup file.
+  function safeImport(src) {
+    var out = {};
+    Object.keys(src || {}).forEach(function (k) {
+      if (!/^\d{1,3}:\d{1,3}$/.test(k)) return;
+      var v = src[k];
+      if (typeof v === "string") out[k] = v.slice(0, 5000);
+      else if (v === 1 || v === 0 || v === true) out[k] = v;
+    });
+    return out;
+  }
+
+
   /* repaint every ayah row from current stores (used after import) */
   function applyState() {
     document.querySelectorAll(".ayah").forEach(function (ayahEl) {
@@ -124,9 +138,9 @@
         rd.onload = function () {
           try {
             var d = JSON.parse(rd.result || "{}");
-            if (d.notes && typeof d.notes === "object") { notes = Object.assign(notes, d.notes); save(LS.notes, notes); }
-            if (d.highlights && typeof d.highlights === "object") { hl = Object.assign(hl, d.highlights); save(LS.hl, hl); }
-            if (d.read && typeof d.read === "object") { readAll = Object.assign(readAll, d.read); save(LS.read, readAll); }
+            if (d.notes && typeof d.notes === "object") { notes = Object.assign(notes, safeImport(d.notes)); save(LS.notes, notes); }
+            if (d.highlights && typeof d.highlights === "object") { hl = Object.assign(hl, safeImport(d.highlights)); save(LS.hl, hl); }
+            if (d.read && typeof d.read === "object") { readAll = Object.assign(readAll, safeImport(d.read)); save(LS.read, readAll); }
             notes = load(LS.notes, {}); hl = load(LS.hl, {}); readAll = load(LS.read, {});
             applyState();
             updatePill();
