@@ -1,15 +1,20 @@
 {
   "name": "quran-tafsir-api",
   "version": "1.0.0",
+  "private": true,
   "type": "module",
+  "description": "Optional read-only JSON API prototype. The public site is served statically by GitHub Pages and does not need this process.",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "dev": "node --watch server.js",
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.18.2",
     "cors": "^2.8.5",
-    "helmet": "^7.1.0",
-    "express-rate-limit": "^7.1.5"
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "helmet": "^7.1.0"
   }
 }
