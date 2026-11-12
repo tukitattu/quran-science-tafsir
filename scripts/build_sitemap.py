@@ -37,6 +37,8 @@ def main() -> int:
     for p in chapters:
         if p.stem.isdigit():
             urls.append(f"chapters/{p.name}")
+    for p in sorted(ROOT.glob("chapters/*/arabic.html")):
+        urls.append(str(p.relative_to(ROOT)).replace("\\", "/"))
     read_pages = sorted(ROOT.glob("chapters/*/read/*.html"))
     for p in read_pages:
         urls.append(str(p.relative_to(ROOT)).replace("\\", "/"))

@@ -57,6 +57,13 @@ jobs:
         run: |
           python scripts/build_arabic_pages.py
 
+      # Generators emit plain HTML; re-apply the CSP/referrer block they do not
+      # know about and keep read pages at one copy of each script.
+      - name: Re-apply browser security metadata
+        run: |
+          python scripts/apply_security_headers.py
+          python scripts/normalize_read_pages.py
+
       - name: Sync generated data into the Flutter bundle
         run: |
           mkdir -p flutter/assets/data
@@ -74,6 +81,9 @@ jobs:
       - name: Backfill Arabic Uthmani from bundled text (offline, SQLite)
         run: |
           python scripts/backfill_arabic_local.py
+
+      - name: Validate regenerated bundle
+        run: python scripts/validate_data.py
 
       - name: Check for changes
         id: changes
