@@ -70,7 +70,8 @@ class _VideosTabState extends State<VideosTab> {
         uri.isScheme('https') &&
         uri.host.isNotEmpty &&
         await launchUrl(uri, mode: LaunchMode.externalApplication);
-    if (!ok && mounted) {
+    if (!ok) {
+      if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text(fallbackText ?? L.t('something_wrong'))),
       );
