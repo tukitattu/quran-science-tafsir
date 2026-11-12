@@ -167,17 +167,18 @@ def main() -> int:
         if page.locator("#kb-translations-2").count() != 1:
             failures.append("/chapters/2.html: translation accordion missing")
         else:
-            page.evaluate("document.querySelector('#kb-translations-2').open = true")
+            page.locator("#kb-translations-2 summary").click()
             try:
-                page.wait_for_function(
-                    "() => { const b = document.querySelector('#tr-body-2');"
-                    " return b && b.innerText.includes('Alif'); }",
-                    timeout=40000,
+                page.wait_for_selector("#tr-body-2 .tr-ayah", timeout=60000)
+                text = page.locator("#tr-body-2").inner_text()
+                check("Alif" in text, "/chapters/2.html: first ayah not rendered")
+            except Exception as exc:  # noqa: BLE001 - report page state
+                body = page.locator("#tr-body-2").inner_text()[:200]
+                failures.append(
+                    f"/chapters/2.html: translations never rendered ({exc}); body={body!r}"
                 )
-            except Exception:
-                failures.append("/chapters/2.html: translations never rendered")
-            options = page.locator("#tr-body-2 button, #tr-body-2 .tr-src").count()
-            check(options >= 1, "/chapters/2.html: no edition switcher")
+            options = page.locator("#tr-body-2 .tr-src").count()
+            check(options == 7, f"/chapters/2.html: {options} editions, expected 7")
         ctx.close()
 
         # --- dark theme is actually dark --------------------------------
